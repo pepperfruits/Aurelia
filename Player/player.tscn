@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/Movement.gd" id="1_2jex8"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2y6wt"]
-[ext_resource type="Texture2D" uid="uid://c31eg44183m2w" path="res://Player/placeholder_player.png" id="1_xavc8"]
+[ext_resource type="Texture2D" uid="uid://d2aipr80a1nr1" path="res://Player/placeholder_player.png" id="1_xavc8"]
 [ext_resource type="Script" path="res://Player/InputHandler.gd" id="2_agngk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
