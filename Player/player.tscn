@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpgedr4f3xri6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
+size = Vector2(56, 262)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="FreeMovement" type="Node" parent="."]
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_upse4")

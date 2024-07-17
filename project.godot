@@ -18,6 +18,18 @@ config/icon="res://icon.svg"
 
 project/assembly_name="PirateJam"
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="PlayerAttack"
+2d_physics/layer_3="Environment"
+2d_physics/layer_4="Enemy"
+2d_physics/layer_5="EnemyAttack"
+2d_physics/layer_6="LevelZone"
+2d_physics/layer_7="Pickup"
+2d_physics/layer_8="MovingEnvironment"
+2d_physics/layer_9="Platform"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
