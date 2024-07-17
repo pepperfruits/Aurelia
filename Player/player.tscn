@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=6 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/Movement.gd" id="1_2jex8"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2y6wt"]
 [ext_resource type="Texture2D" uid="uid://c31eg44183m2w" path="res://Player/placeholder_player.png" id="1_xavc8"]
+[ext_resource type="Script" path="res://Player/InputHandler.gd" id="2_agngk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
 size = Vector2(40.9091, 206.818)
@@ -10,6 +11,9 @@ size = Vector2(40.9091, 206.818)
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.665293, 0.665293)
 script = ExtResource("1_2y6wt")
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("2_agngk")
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("1_2jex8")
