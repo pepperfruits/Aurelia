@@ -51,22 +51,26 @@ func _process(delta):
 	p.move_and_slide()
 
 #region Helper Functions
-func cap_momentum(_delta : float) -> void:
-	momentum = min(momentum, RUN_MAX_SPEED)
-	momentum = max(momentum, -RUN_MAX_SPEED)
+func cap_momentum(delta : float, is_on_floor : bool) -> void:
+	if (abs(momentum) > RUN_MAX_SPEED):
+		apply_friction(delta, is_on_floor)
+		if (momentum > 0):
+			momentum = max(momentum, RUN_MAX_SPEED)
+		else:
+			momentum = min(momentum, -RUN_MAX_SPEED)
 
 func apply_acceleration(delta : float, input_direction : float, is_on_floor : bool) -> void:
 	var percent_of_max_speed = momentum / RUN_MAX_SPEED
 	var pivot_bonus = 1.0
 	if ((input_direction > 0 and percent_of_max_speed < 0) or (input_direction < 0 and percent_of_max_speed > 0)):
-		pivot_bonus += PIVOT_ACCEL_BONUS * abs(percent_of_max_speed)
+		pivot_bonus += PIVOT_ACCEL_BONUS * min(abs(percent_of_max_speed), 1.0)
 	
 	if (is_on_floor):
 		momentum += input_direction * RUN_ACCEL * delta * pivot_bonus
 	else:
 		momentum += input_direction * RUN_ACCEL * delta * AIR_ACCEL_BONUS * pivot_bonus
 	
-	cap_momentum(delta)
+	cap_momentum(delta, is_on_floor)
 
 func apply_friction(delta : float, is_on_floor : bool) -> void:
 	if (momentum != 0.0):
