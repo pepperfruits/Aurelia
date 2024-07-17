@@ -1,8 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=3 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
+[ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
 
 [node name="TestingLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jr7kg")]
 position = Vector2(555, 331)
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="TestingBlock" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(64, 584)
+
+[node name="TestingBlock2" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(192, 584)
+
+[node name="TestingBlock3" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(320, 584)
+
+[node name="TestingBlock4" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(448, 584)
+
+[node name="TestingBlock5" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(576, 584)
+
+[node name="TestingBlock6" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(192, 584)
+
+[node name="TestingBlock7" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(320, 584)
+
+[node name="TestingBlock8" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(448, 584)
+
+[node name="TestingBlock9" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(576, 584)
+
+[node name="TestingBlock10" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(704, 584)
+
+[node name="TestingBlock11" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(832, 584)
+
+[node name="TestingBlock12" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(960, 584)
+
+[node name="TestingBlock13" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1088, 584)
