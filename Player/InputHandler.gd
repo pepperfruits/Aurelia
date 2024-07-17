@@ -1,11 +1,11 @@
 extends Node
-class_name InputHandler
+class_name InputHandlerNode
 
 @onready var JumpBufferTimer = $JumpBufferTimer
 
 var is_jump_buffered : bool = false
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("jump"):
 		is_jump_buffered = true
 		JumpBufferTimer.start()
