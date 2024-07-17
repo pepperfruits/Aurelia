@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerMovementNode
 
 #region Nodes
 ## For ease of programming, the player is p
