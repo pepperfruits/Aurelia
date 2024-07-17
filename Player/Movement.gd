@@ -14,7 +14,7 @@ extends Node
 @export var PIVOT_ACCEL_BONUS : float = 3.0
 
 @export var FRICTION : float = 8.0
-@export var AIR_FRICTION_BONUS : float = 0.8
+@export var AIR_FRICTION_BONUS : float = 0.5
 
 @export var GRAVITY : float = 2000.0
 
@@ -49,6 +49,7 @@ func _process(delta):
 	p.velocity.x = momentum
 	p.move_and_slide()
 
+#region Helper Functions
 func cap_momentum(_delta : float) -> void:
 	momentum = min(momentum, RUN_MAX_SPEED)
 	momentum = max(momentum, -RUN_MAX_SPEED)
@@ -85,3 +86,4 @@ func can_jump() -> bool:
 
 func jump(_delta : float) -> void:
 	p.velocity.y = -JUMP_VELOCITY
+#endregion
