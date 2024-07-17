@@ -16,6 +16,8 @@ script = ExtResource("1_2y6wt")
 script = ExtResource("2_agngk")
 
 [node name="JumpBufferTimer" type="Timer" parent="InputHandler"]
+wait_time = 0.1
+one_shot = true
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("1_2jex8")
@@ -33,3 +35,5 @@ offset_left = -58.6208
 offset_top = -196.906
 offset_right = 60.3792
 offset_bottom = -129.906
+
+[connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
