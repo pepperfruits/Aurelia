@@ -8,17 +8,17 @@ extends Node
 #endregion
 
 #region Constants
-@export var RUN_ACCEL : float = 1400.0
-@export var RUN_MAX_SPEED : float = 400.0
+@export var RUN_ACCEL : float = 1700.0
+@export var RUN_MAX_SPEED : float = 500.0
 @export var AIR_ACCEL_BONUS : float = 1.0
 @export var PIVOT_ACCEL_BONUS : float = 3.0
 
 @export var FRICTION : float = 8.0
-@export var AIR_FRICTION_BONUS : float = 0.5
+@export var AIR_FRICTION_BONUS : float = 0.8
 
 @export var GRAVITY : float = 2000.0
 
-@export var JUMP_VELOCITY : float = 900.0
+@export var JUMP_VELOCITY : float = 1000.0
 #endregion
 
 #region Variables
