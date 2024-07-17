@@ -15,7 +15,7 @@ class_name PlayerMovementNode
 @export var PIVOT_ACCEL_BONUS : float = 3.0
 
 @export var FRICTION : float = 8.0
-@export var AIR_FRICTION_BONUS : float = 0.5
+@export var AIR_FRICTION_BONUS : float = 1.0
 
 @export var GRAVITY : float = 2000.0
 
@@ -49,6 +49,7 @@ func _process(delta):
 	#$"../DebugLabel".text = str(momentum) # DEBUG
 	p.velocity.x = momentum
 	p.move_and_slide()
+	momentum = p.velocity.x
 
 #region Helper Functions
 func cap_momentum(delta : float, is_on_floor : bool) -> void:
