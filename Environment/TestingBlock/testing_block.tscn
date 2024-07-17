@@ -6,6 +6,8 @@
 size = Vector2(128, 128)
 
 [node name="TestingBlock" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 597
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("1_4ogkw")
