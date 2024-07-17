@@ -4,7 +4,7 @@ extends Node
 ## For ease of programming, the player is p
 @onready var p : CharacterBody2D = $".." 
 ## Handles all input
-@onready var InputHandler : InputHandler = $"../InputHandler"
+@onready var InputHandler : InputHandlerNode = $"../InputHandler"
 #endregion
 
 #region Constants
@@ -27,7 +27,7 @@ var momentum : float = 0.0
 
 func _process(delta):
 	var is_on_floor : bool = p.is_on_floor()
-	var input_direction : float = InputHandler.get_horizontal_input()
+	var input_direction : float = InputHandler.get_horizontal_input() # 1 = right, -1 = left
 	
 	# Horizontal Input Handling
 	if (input_direction):
