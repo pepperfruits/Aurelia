@@ -41,15 +41,18 @@ jump={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="PlayerAttack"
-2d_physics/layer_3="Environment"
-2d_physics/layer_4="Enemy"
-2d_physics/layer_5="EnemyAttack"
-2d_physics/layer_6="LevelZone"
-2d_physics/layer_7="Pickup"
-2d_physics/layer_8="MovingEnvironment"
-2d_physics/layer_9="Platform"
+2d_physics/layer_1="PlayerCollision"
+2d_physics/layer_2="PlayerHurtbox"
+2d_physics/layer_3="PlayerHitbox"
+2d_physics/layer_4="RESERVED"
+2d_physics/layer_5="EnemyCollision"
+2d_physics/layer_6="EnemyHurtbox"
+2d_physics/layer_7="EnemyHitbox"
+2d_physics/layer_8="RESERVED"
+2d_physics/layer_9="StaticEnvironment"
+2d_physics/layer_10="DynamicEnvironment"
+2d_physics/layer_11="Platforms"
+2d_physics/layer_12="RESERVED"
 
 [rendering]
 

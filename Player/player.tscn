@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=7 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/Movement.gd" id="1_2jex8"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2y6wt"]
@@ -8,8 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
 size = Vector2(40.9091, 206.818)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1uv4"]
+radius = 27.0557
+height = 180.372
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.665293, 0.665293)
+collision_mask = 1792
 script = ExtResource("1_2y6wt")
 
 [node name="InputHandler" type="Node" parent="."]
@@ -35,5 +40,13 @@ offset_left = -58.6208
 offset_top = -196.906
 offset_right = 60.3792
 offset_bottom = -129.906
+
+[node name="PlayerHurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 64
+
+[node name="PlayerHutboxCollisionShape" type="CollisionShape2D" parent="PlayerHurtbox"]
+position = Vector2(0, 27)
+shape = SubResource("CapsuleShape2D_x1uv4")
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
