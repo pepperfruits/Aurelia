@@ -23,6 +23,7 @@ class_name PlayerMovementNode
 #endregion
 
 #region Variables
+## This is the x momentum, the current x velocity. 
 var momentum : float = 0.0
 #endregion
 
@@ -30,21 +31,20 @@ func _process(delta):
 	var is_on_floor : bool = p.is_on_floor()
 	var input_direction : float = InputHandler.get_horizontal_input() # 1 = right, -1 = left
 	
-	# Horizontal Input Handling
+	# If input is left or right,
 	if (input_direction):
 		apply_acceleration(delta, input_direction, is_on_floor)
-	else:
+	else: # Otherwise, apply friction to stop
 		apply_friction(delta, is_on_floor)
 	
-	# Gravity
-	if (is_on_floor):
-		pass
-	else:
-		apply_gravity(delta)
-	
-	# Jumping
+	# If Jumping:
 	if (can_jump() and InputHandler.is_jump_inputted()):
 		jump(delta)
+	else: # Otherwise, check if gravity should be applied
+		if (is_on_floor):
+			pass
+		else:
+			apply_gravity(delta)
 	
 	#$"../DebugLabel".text = str(momentum) # DEBUG
 	p.velocity.x = momentum
