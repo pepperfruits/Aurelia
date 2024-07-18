@@ -64,7 +64,7 @@ func _process(delta):
 		facing = -1
 	
 	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
-		dash(input_direction, facing, delta)
+		dash(input_direction, delta)
 	
 	$"../DebugLabel".text = str(is_dash_ready)
 	
@@ -136,7 +136,7 @@ func jump(_delta : float) -> void:
 func can_dash() -> bool:
 	return dash_charges > 0 and is_dash_ready
 
-func dash(input_direction : float, facing : int, delta : float) -> void:
+func dash(input_direction : float, _delta : float) -> void:
 	dashing = true
 	DashDurationTimer.start()
 	DashCooldownTimer.start()
