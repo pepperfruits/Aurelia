@@ -10,7 +10,7 @@ func _process(_delta):
 	pass
 
 func _on_player_entered_hook_range(hook : HookArea2D):
-	movement.hook = hook
+	movement.hookArray.push_front(hook)
 
 func _on_player_exited_hook_range(hook : HookArea2D):
-	movement.hook = null
+	movement.hookArray.erase(hook)
