@@ -32,3 +32,6 @@ func is_dash_inputted() -> bool:
 
 func _on_dash_buffer_timer_timeout():
 	is_dash_buffered = false
+
+func is_jump_held() -> bool:
+	return Input.is_action_pressed("jump")

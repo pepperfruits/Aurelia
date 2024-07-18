@@ -44,7 +44,7 @@ class_name PlayerMovementNode
 ## How long it takes to grapple to a point
 @export var GRAPPLE_TIME : float = 0.05
 ## How close being on top of a hook counts as finishing the grapple
-@export var GRAPPLE_DEADZONE : float = 25.0
+@export var GRAPPLE_DEADZONE : float = 1.0
 #endregion
 
 #region Variables
@@ -83,10 +83,14 @@ func _process(delta):
 		grapple(delta)
 	
 	if grappling:
-		if grapple_target_position.distance_to(p.position) < GRAPPLE_DEADZONE:
-			grapple_reached(delta)
+		if hanging:
+			if (not InputHandler.is_jump_held()):
+				hook_released(delta)
 		else:
-			p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
+			if grapple_target_position.distance_to(p.position) < GRAPPLE_DEADZONE:
+				grapple_reached(delta)
+			else:
+				p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
 	else:
 		if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 			dash(input_direction, delta)
@@ -119,8 +123,15 @@ func _process(delta):
 func grapple_reached(delta) -> void:
 	momentum = 0.0
 	p.velocity = Vector2.ZERO
-	jump(delta)
-	grappling = false
+	hanging = true
+
+func hook_released(delta) -> void:
+	hanging = false
+	if InputHandler.get_vertical_input() < 0:
+		grappling = false
+	else:
+		jump(delta)
+		grappling = false
 
 func grapple(_delta) -> void:
 	momentum = 0
