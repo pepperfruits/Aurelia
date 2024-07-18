@@ -127,6 +127,7 @@ func grapple(_delta) -> void:
 	p.velocity = Vector2.ZERO
 	grapple_target_position = hookArray.front().global_position
 	grappling = true
+	dashing = false
 	hookArray.front().use()
 
 func can_grapple(is_on_floor : bool) -> bool:
