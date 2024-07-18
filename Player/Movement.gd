@@ -56,6 +56,8 @@ var is_dash_ready : bool = true
 #endregion
 
 func _process(delta):
+	$"../PlaceHolderSprite".scale.x = 0.49 * facing # TODO remove, debug!
+	
 	var is_on_floor : bool = p.is_on_floor()
 	var input_direction : float = InputHandler.get_horizontal_input() # 1 = right, -1 = left
 	if (momentum > 1.0): 
