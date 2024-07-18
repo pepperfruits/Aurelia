@@ -66,9 +66,10 @@ func _process(delta):
 	elif (momentum < -1.0):
 		facing = -1
 	
+	if (can_hook() and InputHandler.is_jump_inputted()): # If you can hook, hook
+		hook()
 	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 		dash(input_direction, delta)
-	
 	if dashing: #If you are dashing, TODO it does some debug stuff!
 		if (facing == 1):
 			$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
@@ -91,10 +92,16 @@ func _process(delta):
 	p.velocity.x = momentum
 	p.move_and_slide()
 	momentum = p.velocity.x
-	if abs(momentum) < 1.0:
+	if abs(momentum) < 1.0: # Stop the dash early if you aren't moving anymore (hit a wall)
 		dashing = 0
 
 #region Helper Functions
+func hook() -> void:
+	pass
+
+func can_hook() -> bool:
+	return true
+
 func cap_momentum(delta : float, is_on_floor : bool) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
 		apply_friction(delta, is_on_floor)

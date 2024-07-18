@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://degwbj0ixeanu"]
+[gd_scene load_steps=4 format=3 uid="uid://degwbj0ixeanu"]
 
+[ext_resource type="Script" path="res://Environment/Hook/hook.gd" id="1_qe3fk"]
 [ext_resource type="Texture2D" uid="uid://4sydabqxtg2r" path="res://Environment/Hook/hookEnabled.png" id="1_se3hq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_42l0i"]
@@ -7,6 +8,7 @@ radius = 192.167
 
 [node name="Hook" type="Area2D"]
 collision_layer = 0
+script = ExtResource("1_qe3fk")
 
 [node name="HookAreaCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_42l0i")
@@ -14,3 +16,6 @@ shape = SubResource("CircleShape2D_42l0i")
 [node name="HookSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_se3hq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
