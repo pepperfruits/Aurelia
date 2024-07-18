@@ -10,8 +10,6 @@ class_name PlayerMovementNode
 @onready var DashDurationTimer : Timer = $DashDurationTimer
 ## Cooldown for dashing
 @onready var DashCooldownTimer : Timer = $DashCooldownTimer
-## The current available hook, if there is one
-var hook : HookArea2D = null
 #endregion
 
 #region Constants
@@ -66,6 +64,8 @@ var grappling : bool = false
 var grapple_target_position : Vector2 = Vector2.ZERO
 ## True if you are holding jump, and hanging on a hook
 var hanging : bool = false
+## The current available hooks
+var hookArray : Array[HookArea2D] = []
 #endregion
 
 func _process(delta):
@@ -125,12 +125,12 @@ func grapple_reached(delta) -> void:
 func grapple(_delta) -> void:
 	momentum = 0
 	p.velocity = Vector2.ZERO
-	grapple_target_position = hook.global_position
+	grapple_target_position = hookArray.front().global_position
 	grappling = true
-	hook.use()
+	hookArray.front().use()
 
 func can_grapple(is_on_floor : bool) -> bool:
-	return hook != null and not is_on_floor
+	return not hookArray.is_empty() and not is_on_floor
 
 func cap_momentum(delta : float, is_on_floor : bool) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
