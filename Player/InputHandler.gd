@@ -18,6 +18,9 @@ func _process(_delta):
 func get_horizontal_input() -> float:
 	return Input.get_axis("move_left", "move_right")
 
+func get_vertical_input() -> float:
+	return Input.get_axis("move_down", "move_up")
+
 func is_jump_inputted() -> bool:
 	return is_jump_buffered
 
