@@ -124,7 +124,7 @@ func _process(delta):
 		dashing = 0
 
 #region Helper Functions
-func grapple_reached(delta) -> void:
+func grapple_reached(_delta) -> void:
 	momentum = 0.0
 	p.velocity = Vector2.ZERO
 	hanging = true
