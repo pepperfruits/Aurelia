@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddde1p5cpry6p"]
+
+[ext_resource type="Texture2D" uid="uid://b71bua2tkl6p0" path="res://Environment/Spikes/spikes.png" id="1_3b6j8"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="2_v47xk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5llne"]
+size = Vector2(256, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd18p"]
+size = Vector2(240, 88)
+
+[node name="Spikes" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Spikes" type="Sprite2D" parent="."]
+texture = ExtResource("1_3b6j8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 112)
+shape = SubResource("RectangleShape2D_5llne")
+
+[node name="SpikeHurtbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("2_v47xk")
+is_custom_knockback_direction = true
+
+[node name="SpikeHurboxCollisionShape" type="CollisionShape2D" parent="SpikeHurtbox"]
+position = Vector2(0, 76)
+shape = SubResource("RectangleShape2D_gd18p")
