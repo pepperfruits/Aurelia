@@ -59,12 +59,14 @@ func _process(delta):
 	$"../PlaceHolderSprite".scale.x = 0.49 * facing # TODO remove, debug!
 	$"../PlaceHolderSprite".rotation_degrees = 0 # TODO remove, debug!
 	
+	#region _process setup
 	var is_on_floor : bool = p.is_on_floor()
 	var input_direction : float = InputHandler.get_horizontal_input() # 1 = right, -1 = left
 	if (momentum > 1.0): 
 		facing = 1
 	elif (momentum < -1.0):
 		facing = -1
+	#endregion
 	
 	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 		dash(input_direction, delta)
