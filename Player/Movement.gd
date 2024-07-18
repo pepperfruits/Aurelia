@@ -46,7 +46,7 @@ var hook : HookArea2D = null
 ## How long it takes to grapple to a point
 @export var GRAPPLE_TIME : float = 0.05
 ## How close being on top of a hook counts as finishing the grapple
-@export var GRAPPLE_DEADZONE : float = 50.0
+@export var GRAPPLE_DEADZONE : float = 25.0
 #endregion
 
 #region Variables
@@ -64,6 +64,8 @@ var is_dash_ready : bool = true
 var grappling : bool = false
 ## Where you want to reach when grappling to a hook
 var grapple_target_position : Vector2 = Vector2.ZERO
+## True if you are holding jump, and hanging on a hook
+var hanging : bool = false
 #endregion
 
 func _process(delta):
