@@ -21,11 +21,15 @@ script = ExtResource("1_2y6wt")
 script = ExtResource("2_agngk")
 
 [node name="JumpBufferTimer" type="Timer" parent="InputHandler"]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("1_2jex8")
+
+[node name="DashDurationTimer" type="Timer" parent="Movement"]
+wait_time = 0.15
+one_shot = true
 
 [node name="PlaceHolderSprite" type="Sprite2D" parent="."]
 position = Vector2(-4.5, 0)
@@ -51,3 +55,4 @@ position = Vector2(0, 27)
 shape = SubResource("CapsuleShape2D_x1uv4")
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
+[connection signal="timeout" from="Movement/DashDurationTimer" to="Movement" method="_on_dash_duration_timer_timeout"]
