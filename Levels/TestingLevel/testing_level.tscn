@@ -1,22 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=8 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
-[ext_resource type="Script" path="res://Levels/TestingLevel/PlayerCamera.gd" id="1_tigdo"]
+[ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_tigdo"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
-[ext_resource type="Script" path="res://Levels/TestingLevel/DynamicEnvironmentManager.gd" id="2_nq4u7"]
+[ext_resource type="Texture2D" uid="uid://cemnarfil50wf" path="res://Assets/transition.png" id="2_06noa"]
+[ext_resource type="Script" path="res://Levels/DynamicEnvironmentManager.gd" id="2_nq4u7"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_7y0ub"]
+[ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="4_12rrh"]
 
 [node name="TestingLevel" type="Node2D"]
-
-[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
-zoom = Vector2(0.85, 0.85)
-limit_left = -125
-limit_top = -1285
-limit_right = 1795
-limit_bottom = 645
-editor_draw_limits = true
-script = ExtResource("1_tigdo")
-p = NodePath("../Player")
 
 [node name="DynamicEnvironmentManager" type="Node2D" parent="." node_paths=PackedStringArray("p")]
 script = ExtResource("2_nq4u7")
@@ -43,8 +35,12 @@ position = Vector2(1408, -1088)
 [node name="Hook7" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
 position = Vector2(384, -896)
 
-[node name="Player" parent="." instance=ExtResource("1_jr7kg")]
+[node name="Spikes" parent="DynamicEnvironmentManager" instance=ExtResource("4_12rrh")]
+position = Vector2(128, 384)
+
+[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
 position = Vector2(555, 331)
+Camera = NodePath("../PlayerCamera")
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
@@ -204,3 +200,17 @@ position = Vector2(320, -312)
 
 [node name="TestingBlock31" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(192, -440)
+
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
+limit_left = -125
+limit_top = -1285
+limit_right = 1795
+limit_bottom = 645
+editor_draw_limits = true
+script = ExtResource("1_tigdo")
+p = NodePath("../Player")
+
+[node name="TransitionSprite" type="Sprite2D" parent="PlayerCamera"]
+scale = Vector2(1, 1.71077)
+texture = ExtResource("2_06noa")
+offset = Vector2(2500, 0)
