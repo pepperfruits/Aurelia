@@ -18,3 +18,6 @@ func is_jump_inputted() -> bool:
 
 func _on_jump_buffer_timer_timeout():
 	is_jump_buffered = false
+
+func is_dash_inputted() -> bool:
+	return Input.is_action_just_pressed("dash")
