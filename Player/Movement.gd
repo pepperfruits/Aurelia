@@ -66,8 +66,6 @@ func _process(delta):
 	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 		dash(input_direction, delta)
 	
-	$"../DebugLabel".text = str(is_dash_ready)
-	
 	if dashing: #If you are dashing, TODO
 		pass
 	else: #If you aren't dashing, then handle movement inputs & gravity
