@@ -1,14 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=4 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
+[ext_resource type="Script" path="res://Levels/TestingLevel/PlayerCamera.gd" id="1_tigdo"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
 
 [node name="TestingLevel" type="Node2D"]
+
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
+zoom = Vector2(0.85, 0.85)
+limit_left = -125
+limit_top = -1285
+limit_right = 1795
+limit_bottom = 645
+editor_draw_limits = true
+script = ExtResource("1_tigdo")
+p = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_jr7kg")]
 position = Vector2(555, 331)
 
 [node name="Blocks" type="Node2D" parent="."]
+position = Vector2(0, -8)
 
 [node name="TestingBlock" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(64, 584)
@@ -29,19 +41,79 @@ position = Vector2(-64, 200)
 position = Vector2(-64, 72)
 
 [node name="TestingBlock20" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(1216, 584)
+position = Vector2(1728, 584)
 
 [node name="TestingBlock21" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(1216, 456)
+position = Vector2(1728, 456)
 
 [node name="TestingBlock22" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(1216, 328)
+position = Vector2(1728, 328)
 
 [node name="TestingBlock23" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(1216, 200)
+position = Vector2(1728, 200)
 
 [node name="TestingBlock24" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(1216, 72)
+position = Vector2(1728, 72)
+
+[node name="TestingBlock32" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -56)
+
+[node name="TestingBlock33" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -184)
+
+[node name="TestingBlock34" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -312)
+
+[node name="TestingBlock35" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -440)
+
+[node name="TestingBlock36" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -568)
+
+[node name="TestingBlock37" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -56)
+
+[node name="TestingBlock38" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -184)
+
+[node name="TestingBlock39" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -312)
+
+[node name="TestingBlock40" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -440)
+
+[node name="TestingBlock41" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -568)
+
+[node name="TestingBlock42" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -696)
+
+[node name="TestingBlock43" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -824)
+
+[node name="TestingBlock44" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -952)
+
+[node name="TestingBlock45" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -1080)
+
+[node name="TestingBlock46" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, -1208)
+
+[node name="TestingBlock47" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -696)
+
+[node name="TestingBlock48" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -824)
+
+[node name="TestingBlock49" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -952)
+
+[node name="TestingBlock50" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -1080)
+
+[node name="TestingBlock51" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1728, -1208)
 
 [node name="TestingBlock2" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(192, 584)
@@ -62,10 +134,16 @@ position = Vector2(192, 584)
 position = Vector2(320, 584)
 
 [node name="TestingBlock8" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(448, 584)
+position = Vector2(1216, 584)
 
 [node name="TestingBlock9" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(576, 584)
+position = Vector2(1344, 584)
+
+[node name="TestingBlock52" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1472, 584)
+
+[node name="TestingBlock53" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1600, 584)
 
 [node name="TestingBlock10" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(704, 584)
@@ -81,3 +159,21 @@ position = Vector2(1088, 584)
 
 [node name="TestingBlock14" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(832, 456)
+
+[node name="TestingBlock25" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(960, 328)
+
+[node name="TestingBlock26" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1216, 456)
+
+[node name="TestingBlock28" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(568, -64)
+
+[node name="TestingBlock29" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(440, -192)
+
+[node name="TestingBlock30" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(312, -320)
+
+[node name="TestingBlock31" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(184, -448)
