@@ -8,6 +8,8 @@ class_name PlayerMovementNode
 @onready var InputHandler : InputHandlerNode = $"../InputHandler"
 ## Duration of the dash
 @onready var DashDurationTimer : Timer = $DashDurationTimer
+## Cooldown for dashing
+@onready var DashCooldownTimer : Timer = $DashCooldownTimer
 #endregion
 
 #region Constants
@@ -49,6 +51,8 @@ var dashing : int = 0
 var facing : int = 1
 ## Your current dash charges
 var dash_charges : int = 0
+## Makes sure the cooldown is done
+var is_dash_ready : bool = true
 #endregion
 
 func _process(delta):
@@ -62,10 +66,11 @@ func _process(delta):
 	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 		dash(input_direction, facing, delta)
 	
+	$"../DebugLabel".text = str(is_dash_ready)
+	
 	if dashing: #If you are dashing, TODO
 		pass
 	else: #If you aren't dashing, then handle movement inputs & gravity
-		$"../DebugLabel".text = str(dash_charges)
 		if (input_direction): # If input is left or right, apply acceleration
 			apply_acceleration(delta, input_direction, is_on_floor)
 		else: # Otherwise, apply friction to stop
@@ -73,7 +78,7 @@ func _process(delta):
 		
 		if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
 			jump(delta)
-		else: # Otherwise, check if gravity should be applied or if we should refresh dash(es)
+		else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
 			if (is_on_floor):
 				refresh_dash_charges()
 			else:
@@ -126,15 +131,18 @@ func can_jump() -> bool:
 
 func jump(_delta : float) -> void:
 	p.velocity.y = -JUMP_VELOCITY
+	refresh_dash_charges()
 
 func can_dash() -> bool:
-	return dash_charges > 0
+	return dash_charges > 0 and is_dash_ready
 
 func dash(input_direction : float, facing : int, delta : float) -> void:
 	dashing = true
 	DashDurationTimer.start()
+	DashCooldownTimer.start()
 	p.velocity.y *= DASH_VERTICAL_DAMPENING
 	dash_charges -= 1
+	is_dash_ready = false
 	
 	if input_direction:
 		momentum = input_direction * DASH_VELOCITY
@@ -149,4 +157,7 @@ func refresh_dash_charges() -> void:
 #region Signals
 func _on_dash_duration_timer_timeout():
 	dashing = false
+
+func _on_dash_cooldown_timer_timeout():
+	is_dash_ready = true
 #endregion
