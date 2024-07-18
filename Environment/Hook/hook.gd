@@ -37,9 +37,9 @@ func _on_hook_cooldown_timer_timeout():
 	if not auraRange.get_overlapping_bodies().is_empty():
 		spriteAura.visible = true
 
-func _on_aura_range_body_entered(body):
+func _on_aura_range_body_entered(_body):
 	if not collision.disabled:
 		spriteAura.visible = true
 
-func _on_aura_range_body_exited(body):
+func _on_aura_range_body_exited(_body):
 	spriteAura.visible = false
