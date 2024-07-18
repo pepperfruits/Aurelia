@@ -1,8 +1,10 @@
 Controls:
 
-WASD/Arrow keys : Movement
+WASD/Arrow Keys : Movement
 
-Space : Jump
+Space/Z/J : Jump
+
+C/L : Dash
 
 
 
