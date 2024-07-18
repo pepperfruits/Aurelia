@@ -10,6 +10,8 @@ class_name PlayerMovementNode
 @onready var DashDurationTimer : Timer = $DashDurationTimer
 ## Cooldown for dashing
 @onready var DashCooldownTimer : Timer = $DashCooldownTimer
+## The current available hook, if there is one
+var hook : HookArea2D = null
 #endregion
 
 #region Constants
@@ -40,6 +42,11 @@ class_name PlayerMovementNode
 
 ## How many dash charges you have max, and what it gets refreshed to on the ground
 @export var MAX_DASH_CHARGES : int = 1
+
+## How long it takes to grapple to a point
+@export var GRAPPLE_TIME : float = 0.05
+## How close being on top of a hook counts as finishing the grapple
+@export var GRAPPLE_DEADZONE : float = 50.0
 #endregion
 
 #region Variables
@@ -53,6 +60,10 @@ var facing : int = 1
 var dash_charges : int = 0
 ## Makes sure the cooldown is done
 var is_dash_ready : bool = true
+## True if you are grappling
+var grappling : bool = false
+## Where you want to reach when grappling to a hook
+var grapple_target_position : Vector2 = Vector2.ZERO
 #endregion
 
 func _process(delta):
@@ -66,28 +77,35 @@ func _process(delta):
 	elif (momentum < -1.0):
 		facing = -1
 	
-	if (can_hook() and InputHandler.is_jump_inputted()): # If you can hook, hook
-		hook()
-	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
-		dash(input_direction, delta)
-	if dashing: #If you are dashing, TODO it does some debug stuff!
-		if (facing == 1):
-			$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
+	if (can_grapple(is_on_floor) and InputHandler.is_jump_inputted()): # If you can grapple, grapple
+		grapple(delta)
+	
+	if grappling:
+		if grapple_target_position.distance_to(p.position) < GRAPPLE_DEADZONE:
+			grapple_reached(delta)
 		else:
-			$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
-	else: #If you aren't dashing, then handle movement inputs & gravity
-		if (input_direction): # If input is left or right, apply acceleration
-			apply_acceleration(delta, input_direction, is_on_floor)
-		else: # Otherwise, apply friction to stop
-			apply_friction(delta, is_on_floor)
-		
-		if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
-			jump(delta)
-		else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
-			if (is_on_floor):
-				refresh_dash_charges()
+			p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
+	else:
+		if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
+			dash(input_direction, delta)
+		if dashing: #If you are dashing, TODO it does some debug stuff!
+			if (facing == 1):
+				$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
 			else:
-				apply_gravity(delta)
+				$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
+		else: #If you aren't dashing, then handle movement inputs & gravity
+			if (input_direction): # If input is left or right, apply acceleration
+				apply_acceleration(delta, input_direction, is_on_floor)
+			else: # Otherwise, apply friction to stop
+				apply_friction(delta, is_on_floor)
+			
+			if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
+				jump(delta)
+			else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
+				if (is_on_floor):
+					refresh_dash_charges()
+				else:
+					apply_gravity(delta)
 	
 	p.velocity.x = momentum
 	p.move_and_slide()
@@ -96,11 +114,21 @@ func _process(delta):
 		dashing = 0
 
 #region Helper Functions
-func hook() -> void:
-	pass
+func grapple_reached(delta) -> void:
+	momentum = 0.0
+	p.velocity = Vector2.ZERO
+	jump(delta)
+	grappling = false
 
-func can_hook() -> bool:
-	return true
+func grapple(_delta) -> void:
+	momentum = 0
+	p.velocity = Vector2.ZERO
+	grapple_target_position = hook.global_position
+	grappling = true
+	hook.use()
+
+func can_grapple(is_on_floor : bool) -> bool:
+	return hook != null and not is_on_floor
 
 func cap_momentum(delta : float, is_on_floor : bool) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
@@ -143,6 +171,7 @@ func can_jump() -> bool:
 func jump(_delta : float) -> void:
 	p.velocity.y = -JUMP_VELOCITY
 	refresh_dash_charges()
+	InputHandler._on_jump_buffer_timer_timeout()
 
 func can_dash() -> bool:
 	return dash_charges > 0 and is_dash_ready
