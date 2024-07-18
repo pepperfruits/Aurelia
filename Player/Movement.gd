@@ -57,6 +57,7 @@ var is_dash_ready : bool = true
 
 func _process(delta):
 	$"../PlaceHolderSprite".scale.x = 0.49 * facing # TODO remove, debug!
+	$"../PlaceHolderSprite".rotation_degrees = 0 # TODO remove, debug!
 	
 	var is_on_floor : bool = p.is_on_floor()
 	var input_direction : float = InputHandler.get_horizontal_input() # 1 = right, -1 = left
@@ -68,8 +69,11 @@ func _process(delta):
 	if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 		dash(input_direction, delta)
 	
-	if dashing: #If you are dashing, TODO
-		pass
+	if dashing: #If you are dashing, TODO it does some debug stuff!
+		if (facing == 1):
+			$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
+		else:
+			$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
 	else: #If you aren't dashing, then handle movement inputs & gravity
 		if (input_direction): # If input is left or right, apply acceleration
 			apply_acceleration(delta, input_direction, is_on_floor)
