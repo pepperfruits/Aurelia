@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=6 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="Script" path="res://Levels/TestingLevel/PlayerCamera.gd" id="1_tigdo"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
+[ext_resource type="Script" path="res://Levels/TestingLevel/DynamicEnvironmentManager.gd" id="2_nq4u7"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_7y0ub"]
 
 [node name="TestingLevel" type="Node2D"]
@@ -17,9 +18,11 @@ editor_draw_limits = true
 script = ExtResource("1_tigdo")
 p = NodePath("../Player")
 
-[node name="Dynamic Environment" type="Node2D" parent="."]
+[node name="DynamicEnvironmentManager" type="Node2D" parent="." node_paths=PackedStringArray("p")]
+script = ExtResource("2_nq4u7")
+p = NodePath("../Player")
 
-[node name="Hook" parent="Dynamic Environment" instance=ExtResource("4_7y0ub")]
+[node name="Hook" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
 position = Vector2(920, -88)
 
 [node name="Player" parent="." instance=ExtResource("1_jr7kg")]
