@@ -13,6 +13,36 @@ position = Vector2(555, 331)
 [node name="TestingBlock" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(64, 584)
 
+[node name="TestingBlock15" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, 584)
+
+[node name="TestingBlock16" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, 456)
+
+[node name="TestingBlock17" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, 328)
+
+[node name="TestingBlock18" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, 200)
+
+[node name="TestingBlock19" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-64, 72)
+
+[node name="TestingBlock20" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1216, 584)
+
+[node name="TestingBlock21" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1216, 456)
+
+[node name="TestingBlock22" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1216, 328)
+
+[node name="TestingBlock23" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1216, 200)
+
+[node name="TestingBlock24" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(1216, 72)
+
 [node name="TestingBlock2" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(192, 584)
 
