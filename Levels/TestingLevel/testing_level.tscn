@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=9 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_tigdo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Levels/DynamicEnvironmentManager.gd" id="2_nq4u7"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_7y0ub"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="4_12rrh"]
+[ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="4_l2bog"]
 
 [node name="TestingLevel" type="Node2D"]
 position = Vector2(64, -576)
@@ -42,8 +43,19 @@ position = Vector2(2240, 448)
 [node name="Spikes4" parent="DynamicEnvironmentManager" instance=ExtResource("4_12rrh")]
 position = Vector2(2368, 448)
 
+[node name="Spring" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(1152, 512)
+
+[node name="Spring2" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(256, -512)
+rotation = 0.785397
+
+[node name="Spring3" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(960, -1216)
+rotation = 2.35619
+
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
-position = Vector2(64, 384)
+position = Vector2(128, 384)
 Camera = NodePath("../PlayerCamera")
 
 [node name="Blocks" type="Node2D" parent="."]
