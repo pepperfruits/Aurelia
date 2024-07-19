@@ -31,7 +31,7 @@ class_name PlayerMovementNode
 @export var GRAVITY : float = 2000.0
 
 ## The velocity upwards when you first jump
-@export var JUMP_VELOCITY : float = 1000.0
+@export var JUMP_VELOCITY : float = 1050.0
 
 ## The velocity during your dash
 @export var DASH_VELOCITY : float = 1400.0
@@ -68,7 +68,7 @@ var hanging : bool = false
 var hookArray : Array[HookArea2D] = []
 #endregion
 
-func _process(delta):
+func _physics_process(delta):
 	$"../PlaceHolderSprite".scale.x = 0.49 * facing # TODO remove, debug!
 	$"../PlaceHolderSprite".rotation_degrees = 0 # TODO remove, debug!
 	
@@ -79,49 +79,57 @@ func _process(delta):
 		facing = 1
 	elif (momentum < -1.0):
 		facing = -1
+	var is_gravity_applied : bool = false # True if you apply gravity
 	#endregion
 	
-	if (can_grapple(is_on_floor) and InputHandler.is_jump_inputted()): # If you can grapple, grapple
-		grapple(delta)
 	
 	if grappling:
 		if hanging:
 			if (not InputHandler.is_jump_held()):
 				hook_released(delta)
 			else:
-				p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
+				p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
 		else:
-			if grapple_target_position.distance_to(p.position) < GRAPPLE_DEADZONE:
+			if grapple_target_position.distance_to(p.global_position) < GRAPPLE_DEADZONE:
 				grapple_reached(delta)
 			else:
-				p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
+				p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
 	else:
-		if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
-			dash(input_direction, delta)
-		if dashing: #If you are dashing, TODO it does some debug stuff!
-			if (facing == 1):
-				$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
-			else:
-				$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
-		else: #If you aren't dashing, then handle movement inputs & gravity
-			if (input_direction): # If input is left or right, apply acceleration
-				apply_acceleration(delta, input_direction, is_on_floor)
-			else: # Otherwise, apply friction to stop
-				apply_friction(delta, is_on_floor)
-			
-			if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
-				jump(delta)
-			else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
-				if (is_on_floor):
-					refresh_dash_charges()
+		if (can_grapple(is_on_floor) and InputHandler.is_jump_held()): # If you can grapple, grapple
+			grapple(delta)
+		else:
+			if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
+				dash(input_direction, delta)
+			if dashing: #If you are dashing, TODO it does some debug stuff!
+				if (facing == 1):
+					$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
 				else:
+					$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
+			else: #If you aren't dashing, then handle movement inputs & gravity
+				if (input_direction): # If input is left or right, apply acceleration
+					apply_acceleration(delta, input_direction, is_on_floor)
+				else: # Otherwise, apply friction to stop
+					apply_friction(delta, is_on_floor)
+				
+				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
+					jump(delta)
 					apply_gravity(delta)
+					is_gravity_applied = true
+				else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
+					if (is_on_floor):
+						refresh_dash_charges()
+					else:
+						apply_gravity(delta)
+						is_gravity_applied = true
 	
 	p.velocity.x = momentum
 	p.move_and_slide()
 	momentum = p.velocity.x
 	if abs(momentum) < 1.0: # Stop the dash early if you aren't moving anymore (hit a wall)
 		dashing = 0
+	if is_gravity_applied:
+		apply_gravity(delta)
+	
 
 #region Helper Functions
 func grapple_reached(_delta) -> void:
@@ -181,7 +189,7 @@ func apply_friction(delta : float, is_on_floor : bool) -> void:
 			momentum = 0.0
 
 func apply_gravity(delta : float) -> void:
-	p.velocity.y += GRAVITY * delta
+	p.velocity.y += GRAVITY * delta * 0.5
 
 func can_jump() -> bool:
 	return p.is_on_floor()
