@@ -5,7 +5,7 @@ class_name AirDraft
 @export var FORCE : float = 2550.0
 @export var STOPPING_BONUS : float = 2.0
 
-var Player : PlayerCharacterBody2D = null
+var Player : PlayerCharacter = null
 
 func _process(delta):
 	if Player:

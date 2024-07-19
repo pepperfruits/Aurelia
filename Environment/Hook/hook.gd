@@ -1,7 +1,7 @@
 extends Area2D
 class_name Hook
 
-@onready var p : PlayerCharacterBody2D = $"..".p
+@onready var p : PlayerCharacter = $"..".p
 @onready var timer : Timer = $HookCooldownTimer
 @onready var collision : CollisionShape2D = $HookAreaCollisionShape
 @onready var sprite : Sprite2D = $HookSprite
@@ -19,10 +19,10 @@ func _process(delta):
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 
-func _on_body_entered(body : PlayerCharacterBody2D):
+func _on_body_entered(body : PlayerCharacter):
 	body._on_player_entered_hook_range(self)
 
-func _on_body_exited(body : PlayerCharacterBody2D):
+func _on_body_exited(body : PlayerCharacter):
 	body._on_player_exited_hook_range(self)
 
 func use():
