@@ -68,7 +68,7 @@ var hanging : bool = false
 var hookArray : Array[Hook] = []
 #endregion
 
-func _physics_process(delta):
+func _process(delta):
 	$"../PlaceHolderSprite".scale.x = 0.248 * facing # TODO remove, debug!
 	$"../PlaceHolderSprite".rotation_degrees = 0 # TODO remove, debug!
 	
