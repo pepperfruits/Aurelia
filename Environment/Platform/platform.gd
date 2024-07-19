@@ -9,4 +9,4 @@ class_name Platform
 
 func _process(_delta):
 	var inp : InputHandlerNode = p.InputHandler
-	CollisionShape.disabled = inp.is_down_inputted() or (inp.get_vertical_input() < 0 and p.velocity.y < HOLD_TO_FALL_VELOCITY) or p.velocity.y < 0 or not PlayerDetection.get_overlapping_bodies().is_empty()
+	CollisionShape.disabled = inp.is_down_inputted() or (inp.get_vertical_input() < 0 and p.velocity.y < HOLD_TO_FALL_VELOCITY) or p.velocity.y < 0 or not PlayerDetection.get_overlapping_bodies().is_empty() or p.movement.dashing
