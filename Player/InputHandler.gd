@@ -1,5 +1,5 @@
 extends Node
-class_name InputHandlerNode
+class_name InputHandler
 
 @onready var JumpBufferTimer = $JumpBufferTimer
 @onready var DashBufferTimer = $DashBufferTimer

@@ -76,10 +76,10 @@ shape = SubResource("CapsuleShape2D_x1uv4")
 
 [node name="PlayerHealth" type="Node" parent="." node_paths=PackedStringArray("entity", "hurtbox")]
 script = ExtResource("6_sx8yp")
-health = 1
-invincibility_window = 1.5
 entity = NodePath("..")
 hurtbox = NodePath("../PlayerHurtbox")
+health = 1
+invincibility_window = 1.5
 
 [node name="DeathTransitionTimer" type="Timer" parent="PlayerHealth"]
 one_shot = true
