@@ -19,22 +19,13 @@ p = NodePath("../Player")
 position = Vector2(960, -192)
 
 [node name="Hook8" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(1472, 64)
-
-[node name="Hook2" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(1472, -320)
-
-[node name="Hook3" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(960, -576)
+position = Vector2(1472, 128)
 
 [node name="Hook4" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(1472, -704)
+position = Vector2(1472, -512)
 
 [node name="Hook5" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(960, -960)
-
-[node name="Hook6" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(1472, -1088)
+position = Vector2(960, -832)
 
 [node name="Hook7" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
 position = Vector2(2176, 192)
