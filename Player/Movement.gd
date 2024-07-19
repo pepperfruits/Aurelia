@@ -1,7 +1,7 @@
 extends Node
 class_name PlayerMovementNode
 
-#region Nodes
+#region Onready Nodes
 ## For ease of programming, the player is p
 @onready var p : CharacterBody2D = $".." 
 ## Handles all input
@@ -12,7 +12,7 @@ class_name PlayerMovementNode
 @onready var DashCooldownTimer : Timer = $DashCooldownTimer
 #endregion
 
-#region Constants
+#region Export Constats
 ## Acceleration from running in a direction (grounded)
 @export var RUN_ACCEL : float = 1700.0
 ## Your max speed from running normally/midair movement
@@ -103,7 +103,7 @@ func _process(delta):
 			if dashing: #If you are dashing, TODO it does some debug stuff!
 				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
 					jump(delta)
-					apply_gravity(delta)
+					apply_half_gravity(delta)
 					is_gravity_applied = true
 				if (facing == 1):
 					$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
@@ -117,13 +117,13 @@ func _process(delta):
 				
 				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
 					jump(delta)
-					apply_gravity(delta)
+					apply_half_gravity(delta)
 					is_gravity_applied = true
 				else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
 					if (is_on_floor):
 						refresh_dash_charges()
 					else:
-						apply_gravity(delta)
+						apply_half_gravity(delta)
 						is_gravity_applied = true
 	
 	p.velocity.x = momentum
@@ -132,10 +132,17 @@ func _process(delta):
 	if abs(momentum) < 1.0: # Stop the dash early if you aren't moving anymore (hit a wall)
 		dashing = 0
 	if is_gravity_applied:
-		apply_gravity(delta)
+		apply_half_gravity(delta)
 	
 
 #region Helper Functions
+func end_dash() -> void:
+	dashing = 0
+
+func set_player_velocity(velocity : Vector2) -> void:
+	p.velocity = velocity
+	momentum = velocity.x
+
 func grapple_reached(_delta) -> void:
 	momentum = 0.0
 	p.velocity = Vector2.ZERO
@@ -150,11 +157,11 @@ func hook_released(delta) -> void:
 		grappling = false
 
 func grapple(_delta) -> void:
-	momentum = 0
-	p.velocity = Vector2.ZERO
+	set_player_velocity(Vector2.ZERO)
+	end_dash()
+	
 	grapple_target_position = hookArray.front().global_position
 	grappling = true
-	dashing = false
 	hookArray.front().use()
 
 func can_grapple(is_on_floor : bool) -> bool:
@@ -162,15 +169,15 @@ func can_grapple(is_on_floor : bool) -> bool:
 
 func cap_momentum(delta : float, is_on_floor : bool) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
-		apply_friction(delta, is_on_floor)
+		apply_friction(delta, is_on_floor) # TODO can be a separate friction function, optionally
 		if (momentum > 0):
 			momentum = max(momentum, RUN_MAX_SPEED)
 		else:
 			momentum = min(momentum, -RUN_MAX_SPEED)
 
 func apply_acceleration(delta : float, input_direction : float, is_on_floor : bool) -> void:
-	var percent_of_max_speed = momentum / RUN_MAX_SPEED
-	var pivot_bonus = 1.0
+	var percent_of_max_speed : float = momentum / RUN_MAX_SPEED
+	var pivot_bonus : float = 1.0
 	if ((input_direction > 0 and percent_of_max_speed < 0) or (input_direction < 0 and percent_of_max_speed > 0)):
 		pivot_bonus += PIVOT_ACCEL_BONUS * min(abs(percent_of_max_speed), 1.0)
 	
@@ -192,14 +199,14 @@ func apply_friction(delta : float, is_on_floor : bool) -> void:
 		if (momentum < movement_kill_zone and momentum > -movement_kill_zone):
 			momentum = 0.0
 
-func apply_gravity(delta : float) -> void:
+func apply_half_gravity(delta : float) -> void:
 	p.velocity.y += GRAVITY * delta * 0.5
 
 func can_jump() -> bool:
 	return p.is_on_floor()
 
 func jump(_delta : float) -> void:
-	dashing = false
+	end_dash()
 	p.velocity.y = -JUMP_VELOCITY
 	refresh_dash_charges()
 	InputHandler._on_jump_buffer_timer_timeout()

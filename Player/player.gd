@@ -19,3 +19,12 @@ func _on_player_exited_hook_range(hook : Hook):
 
 func set_camera_transition(enabled : bool) -> void:
 	Camera.set_camera_transition(enabled)
+
+func refresh_dash_charges() -> void:
+	Movement.refresh_dash_charges()
+
+func set_player_velocity(new_velocity : Vector2) -> void:
+	Movement.set_player_velocity(new_velocity)
+
+func end_dash() -> void:
+	Movement.end_dash()
