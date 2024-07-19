@@ -5,7 +5,7 @@ class_name PlayerMovementNode
 ## For ease of programming, the player is p
 @onready var p : CharacterBody2D = $".." 
 ## Handles all input
-@onready var InputHandler : InputHandler = $"../InputHandler"
+@onready var InputHandler : PlayerInputHandler = $"../InputHandler"
 ## Duration of the dash
 @onready var DashDurationTimer : Timer = $DashDurationTimer
 ## Cooldown for dashing

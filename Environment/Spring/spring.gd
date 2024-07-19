@@ -8,6 +8,7 @@ func _on_body_entered(body : PlayerCharacter):
 	var rotated_velocity : Vector2 = body.velocity.rotated(-global_rotation)
 	var perpendicular_velocity : Vector2 = Vector2(rotated_velocity.x, 0.0).rotated(global_rotation) * PERPENDICULAR_DAMPENING
 	body.velocity = Vector2(0, -SPRING_VELOCITY).rotated(global_rotation) + perpendicular_velocity * Vector2(HORIZONTAL_BONUS, 1.0)
-	body.movement.momentum = body.velocity.x
-	body.movement.refresh_dash_charges()
-	body.movement.dashing = false
+	body.Movement.momentum = body.velocity.x
+	body.Movement.refresh_dash_charges()
+	body.Movement.dashing = false
+
