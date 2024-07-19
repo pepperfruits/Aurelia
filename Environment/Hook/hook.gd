@@ -1,5 +1,5 @@
 extends Area2D
-class_name HookArea2D
+class_name Hook
 
 @onready var p : PlayerCharacterBody2D = $"..".p
 @onready var timer : Timer = $HookCooldownTimer
@@ -7,6 +7,7 @@ class_name HookArea2D
 @onready var sprite : Sprite2D = $HookSprite
 @onready var spriteAura : Sprite2D = $HookAuraSprite
 @onready var auraRange : Area2D = $AuraRange
+
 @export var spriteEnabled : Texture
 @export var spriteDisabled : Texture
 @export var AURA_ROTATION_SPEED : float = 360.0

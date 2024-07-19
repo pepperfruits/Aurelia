@@ -65,7 +65,7 @@ var grapple_target_position : Vector2 = Vector2.ZERO
 ## True if you are holding jump, and hanging on a hook
 var hanging : bool = false
 ## The current available hooks
-var hookArray : Array[HookArea2D] = []
+var hookArray : Array[Hook] = []
 #endregion
 
 func _physics_process(delta):

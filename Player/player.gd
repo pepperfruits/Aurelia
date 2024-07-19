@@ -11,10 +11,10 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_player_entered_hook_range(hook : HookArea2D):
+func _on_player_entered_hook_range(hook : Hook):
 	movement.hookArray.push_front(hook)
 
-func _on_player_exited_hook_range(hook : HookArea2D):
+func _on_player_exited_hook_range(hook : Hook):
 	movement.hookArray.erase(hook)
 
 func set_camera_transition(enabled : bool) -> void:
