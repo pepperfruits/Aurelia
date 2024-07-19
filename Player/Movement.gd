@@ -119,8 +119,10 @@ func _process(delta):
 			else:
 				apply_friction(delta, is_on_floor)
 		STATE.RUNNING:
+			refresh_dash_charges()
 			apply_acceleration(delta, input_direction, is_on_floor)
 		STATE.IDLE:
+			refresh_dash_charges()
 			apply_friction(delta, is_on_floor)
 	
 	p.velocity.x = momentum
