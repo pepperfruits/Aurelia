@@ -68,6 +68,9 @@ var hanging : bool = false
 var hookArray : Array[Hook] = []
 #endregion
 
+enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE }
+var current_state : STATE = STATE.IDLE
+
 func _process(delta):
 	$"../PlaceHolderSprite".scale.x = 0.248 * facing # TODO remove, debug!
 	$"../PlaceHolderSprite".rotation_degrees = 0 # TODO remove, debug!
@@ -82,49 +85,43 @@ func _process(delta):
 	var is_gravity_applied : bool = false # True if you apply gravity
 	#endregion
 	
+	current_state = get_state(delta)
 	
-	if grappling:
-		if hanging:
+	if (can_grapple(is_on_floor) and InputHandler.is_jump_held()): # If you can grapple, grapple
+		grapple(delta)
+	elif (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
+		dash(input_direction, delta)
+	elif (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
+		jump(delta)
+		current_state = STATE.FALLING
+	
+	match current_state:
+		STATE.HANGING:
 			if (not InputHandler.is_jump_held()):
 				hook_released(delta)
 			else:
-				p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
-		else:
-			if grapple_target_position.distance_to(p.global_position) < GRAPPLE_DEADZONE:
+				pull_towards_hook(delta)
+		STATE.GRAPPLING:
+			if is_grapple_reached():
 				grapple_reached(delta)
 			else:
-				p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
-	else:
-		if (can_grapple(is_on_floor) and InputHandler.is_jump_held()): # If you can grapple, grapple
-			grapple(delta)
-		else:
-			if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
-				dash(input_direction, delta)
-			if dashing: #If you are dashing, TODO it does some debug stuff!
-				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
-					jump(delta)
-					apply_half_gravity(delta)
-					is_gravity_applied = true
-				if (facing == 1):
-					$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
-				else:
-					$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
-			else: #If you aren't dashing, then handle movement inputs & gravity
-				if (input_direction): # If input is left or right, apply acceleration
-					apply_acceleration(delta, input_direction, is_on_floor)
-				else: # Otherwise, apply friction to stop
-					apply_friction(delta, is_on_floor)
-				
-				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
-					jump(delta)
-					apply_half_gravity(delta)
-					is_gravity_applied = true
-				else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
-					if (is_on_floor):
-						refresh_dash_charges()
-					else:
-						apply_half_gravity(delta)
-						is_gravity_applied = true
+				pull_towards_hook(delta)
+		STATE.DASHING:
+			if (facing == 1):
+				$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
+			else:
+				$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
+		STATE.FALLING:
+			apply_half_gravity(delta)
+			is_gravity_applied = true
+			if (input_direction):
+				apply_acceleration(delta, input_direction, is_on_floor)
+			else:
+				apply_friction(delta, is_on_floor)
+		STATE.RUNNING:
+			apply_acceleration(delta, input_direction, is_on_floor)
+		STATE.IDLE:
+			apply_friction(delta, is_on_floor)
 	
 	p.velocity.x = momentum
 	p.move_and_slide()
@@ -136,6 +133,29 @@ func _process(delta):
 	
 
 #region Helper Functions
+func get_state(delta : float) -> STATE:
+	if grappling and hanging:
+		return STATE.HANGING
+	elif grappling:
+		return STATE.GRAPPLING
+	elif dashing:
+		return STATE.DASHING
+	elif not is_on_floor():
+		return STATE.FALLING
+	elif InputHandler.get_horizontal_input():
+		return STATE.RUNNING
+	else:
+		return STATE.IDLE
+
+func is_on_floor() -> bool:
+	return p.is_on_floor()
+
+func is_grapple_reached() -> bool:
+	return grapple_target_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
+
+func pull_towards_hook(delta : float) -> void:
+	p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
+
 func end_dash() -> void:
 	dashing = 0
 
@@ -165,7 +185,7 @@ func grapple(_delta) -> void:
 	hookArray.front().use()
 
 func can_grapple(is_on_floor : bool) -> bool:
-	return not hookArray.is_empty() and not is_on_floor
+	return not hookArray.is_empty() and not is_on_floor and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
 func cap_momentum(delta : float, is_on_floor : bool) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
@@ -212,7 +232,7 @@ func jump(_delta : float) -> void:
 	InputHandler._on_jump_buffer_timer_timeout()
 
 func can_dash() -> bool:
-	return dash_charges > 0 and is_dash_ready
+	return dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
 func dash(input_direction : float, _delta : float) -> void:
 	dashing = true
