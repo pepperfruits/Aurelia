@@ -33,6 +33,10 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="DownBufferTimer" type="Timer" parent="InputHandler"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("1_2jex8")
 
@@ -82,6 +86,7 @@ one_shot = true
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DashBufferTimer" to="InputHandler" method="_on_dash_buffer_timer_timeout"]
+[connection signal="timeout" from="InputHandler/DownBufferTimer" to="InputHandler" method="_on_down_buffer_timer_timeout"]
 [connection signal="timeout" from="Movement/DashDurationTimer" to="Movement" method="_on_dash_duration_timer_timeout"]
 [connection signal="timeout" from="Movement/DashCooldownTimer" to="Movement" method="_on_dash_cooldown_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]

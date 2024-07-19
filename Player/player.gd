@@ -3,6 +3,7 @@ class_name PlayerCharacterBody2D
 
 @export var Camera : Camera2D
 @onready var movement : PlayerMovementNode = $Movement
+@onready var InputHandler : InputHandlerNode = $InputHandler
 
 func _ready():
 	set_camera_transition(false)
