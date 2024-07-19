@@ -46,16 +46,25 @@ position = Vector2(2368, 448)
 [node name="Spring" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
 position = Vector2(1152, 512)
 
+[node name="Spring3" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(2816, 512)
+
+[node name="Spring5" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(3264, -128)
+
+[node name="Spring6" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(3712, 512)
+
+[node name="Spring7" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+position = Vector2(3712, 192)
+rotation = 3.14159
+
 [node name="Spring2" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
 position = Vector2(256, -512)
 rotation = 0.785397
 
-[node name="Spring3" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
-position = Vector2(960, -1216)
-rotation = 2.35619
-
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
-position = Vector2(128, 384)
+position = Vector2(64, 384)
 Camera = NodePath("../PlayerCamera")
 
 [node name="Blocks" type="Node2D" parent="."]
