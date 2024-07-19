@@ -17,7 +17,7 @@ func _ready():
 	transition.offset.x = transitionEnabledX
 
 
-func _physics_process(delta):
+func _process(delta):
 	position -= (position - p.position) * CAMERA_SPEED * delta
 	
 	if is_transition_enabled:
