@@ -10,3 +10,4 @@ func _on_body_entered(body : PlayerCharacterBody2D):
 	body.velocity = Vector2(0, -SPRING_VELOCITY).rotated(global_rotation) + perpendicular_velocity * Vector2(HORIZONTAL_BONUS, 1.0)
 	body.movement.momentum = body.velocity.x
 	body.movement.refresh_dash_charges()
+	body.movement.dashing = false
