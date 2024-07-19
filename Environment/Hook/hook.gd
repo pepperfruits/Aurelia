@@ -20,6 +20,7 @@ func _process(delta):
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 
+#region Helper Functions
 func use():
 	disable()
 	p._on_player_exited_hook_range(self)
@@ -31,6 +32,7 @@ func enable():
 		spriteAura.visible = true
 
 func disable():
+#endregion
 	collision.disabled = true
 	sprite.texture = spriteDisabled
 	spriteAura.visible = false
