@@ -8,5 +8,5 @@ class_name Platform
 @onready var PlayerDetection : Area2D = $PlayerDetectionArea
 
 func _process(_delta):
-	var inp : InputHandler = p.InputHandler
-	CollisionShape.disabled = inp.is_down_inputted() or (inp.get_vertical_input() < 0 and p.velocity.y < HOLD_TO_FALL_VELOCITY) or p.velocity.y < 0 or not PlayerDetection.get_overlapping_bodies().is_empty() or p.movement.dashing
+	var inp : PlayerInputHandler = p.InputHandler
+	CollisionShape.disabled = inp.is_down_inputted() or (inp.get_vertical_input() < 0 and p.velocity.y < HOLD_TO_FALL_VELOCITY) or p.velocity.y < 0 or not PlayerDetection.get_overlapping_bodies().is_empty()

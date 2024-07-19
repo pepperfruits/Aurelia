@@ -39,6 +39,19 @@ one_shot = true
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("1_2jex8")
+RUN_ACCEL = null
+RUN_MAX_SPEED = null
+AIR_ACCEL_BONUS = null
+PIVOT_ACCEL_BONUS = null
+FRICTION = null
+AIR_FRICTION_BONUS = null
+GRAVITY = null
+JUMP_VELOCITY = null
+DASH_VELOCITY = null
+DASH_VERTICAL_DAMPENING = null
+MAX_DASH_CHARGES = null
+GRAPPLE_TIME = null
+GRAPPLE_DEADZONE = null
 
 [node name="DashDurationTimer" type="Timer" parent="Movement"]
 wait_time = 0.15
