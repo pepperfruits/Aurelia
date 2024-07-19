@@ -15,6 +15,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	$Label.text = str($HookCooldownTimer.time_left)
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 
@@ -25,7 +26,6 @@ func _on_body_exited(body : PlayerCharacterBody2D):
 	body._on_player_exited_hook_range(self)
 
 func use():
-	timer.start()
 	collision.disabled = true
 	p._on_player_exited_hook_range(self)
 	sprite.texture = spriteDisabled
@@ -43,3 +43,5 @@ func _on_aura_range_body_entered(_body):
 
 func _on_aura_range_body_exited(_body):
 	spriteAura.visible = false
+	if collision.disabled:
+		timer.start()

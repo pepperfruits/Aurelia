@@ -81,41 +81,42 @@ func _process(delta):
 		facing = -1
 	#endregion
 	
-	if (can_grapple(is_on_floor) and InputHandler.is_jump_inputted()): # If you can grapple, grapple
-		grapple(delta)
 	
 	if grappling:
 		if hanging:
 			if (not InputHandler.is_jump_held()):
 				hook_released(delta)
 			else:
-				p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
+				p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
 		else:
-			if grapple_target_position.distance_to(p.position) < GRAPPLE_DEADZONE:
+			if grapple_target_position.distance_to(p.global_position) < GRAPPLE_DEADZONE:
 				grapple_reached(delta)
 			else:
-				p.position += (grapple_target_position - p.position) / GRAPPLE_TIME * delta
+				p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
 	else:
-		if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
-			dash(input_direction, delta)
-		if dashing: #If you are dashing, TODO it does some debug stuff!
-			if (facing == 1):
-				$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
-			else:
-				$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
-		else: #If you aren't dashing, then handle movement inputs & gravity
-			if (input_direction): # If input is left or right, apply acceleration
-				apply_acceleration(delta, input_direction, is_on_floor)
-			else: # Otherwise, apply friction to stop
-				apply_friction(delta, is_on_floor)
-			
-			if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
-				jump(delta)
-			else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
-				if (is_on_floor):
-					refresh_dash_charges()
+		if (can_grapple(is_on_floor) and InputHandler.is_jump_held()): # If you can grapple, grapple
+			grapple(delta)
+		else:
+			if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
+				dash(input_direction, delta)
+			if dashing: #If you are dashing, TODO it does some debug stuff!
+				if (facing == 1):
+					$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
 				else:
-					apply_gravity(delta)
+					$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
+			else: #If you aren't dashing, then handle movement inputs & gravity
+				if (input_direction): # If input is left or right, apply acceleration
+					apply_acceleration(delta, input_direction, is_on_floor)
+				else: # Otherwise, apply friction to stop
+					apply_friction(delta, is_on_floor)
+				
+				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
+					jump(delta)
+				else: # Otherwise, check if gravity should be applied or if we should refresh dash(es) anyway
+					if (is_on_floor):
+						refresh_dash_charges()
+					else:
+						apply_gravity(delta)
 	
 	p.velocity.x = momentum
 	p.move_and_slide()
