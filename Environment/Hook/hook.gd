@@ -15,7 +15,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	$Label.text = str($HookCooldownTimer.time_left)
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 

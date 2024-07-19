@@ -42,12 +42,6 @@ one_shot = true
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_0qhen")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -136.0
-offset_top = -8.0
-offset_right = -96.0
-offset_bottom = 15.0
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="HookCooldownTimer" to="." method="_on_hook_cooldown_timer_timeout"]
