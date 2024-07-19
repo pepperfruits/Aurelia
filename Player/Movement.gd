@@ -101,6 +101,10 @@ func _physics_process(delta):
 			if (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
 				dash(input_direction, delta)
 			if dashing: #If you are dashing, TODO it does some debug stuff!
+				if (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
+					jump(delta)
+					apply_gravity(delta)
+					is_gravity_applied = true
 				if (facing == 1):
 					$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
 				else:
@@ -195,6 +199,7 @@ func can_jump() -> bool:
 	return p.is_on_floor()
 
 func jump(_delta : float) -> void:
+	dashing = false
 	p.velocity.y = -JUMP_VELOCITY
 	refresh_dash_charges()
 	InputHandler._on_jump_buffer_timer_timeout()
