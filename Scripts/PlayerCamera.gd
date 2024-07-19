@@ -12,6 +12,7 @@ extends Camera2D
 var is_transition_enabled : bool = true
 
 func _ready():
+	transition.visible = true
 	position = p.position
 	transition.offset.x = transitionEnabledX
 
