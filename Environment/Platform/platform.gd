@@ -3,7 +3,7 @@ class_name Platform
 
 @export var HOLD_TO_FALL_VELOCITY : float = 200.0
 
-@onready var p : PlayerCharacterBody2D = $"..".p
+@onready var p : PlayerCharacter = $"..".p
 @onready var CollisionShape : CollisionShape2D = $PlatformCollisionShape
 @onready var PlayerDetection : Area2D = $PlayerDetectionArea
 

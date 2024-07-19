@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name PlayerCharacterBody2D
+class_name PlayerCharacter
 
 @export var Camera : Camera2D
 @onready var movement : PlayerMovementNode = $Movement
