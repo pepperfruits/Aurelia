@@ -88,10 +88,6 @@ position = Vector2(3008, -768)
 [node name="Platform2" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
 position = Vector2(2304, 128)
 
-[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
-position = Vector2(3008, 384)
-Camera = NodePath("../PlayerCamera")
-
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
 
@@ -310,6 +306,10 @@ position = Vector2(320, -312)
 
 [node name="TestingBlock31" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(192, -440)
+
+[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
+position = Vector2(3008, 384)
+Camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
 limit_left = 0
