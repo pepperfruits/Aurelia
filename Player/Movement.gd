@@ -45,6 +45,8 @@ class_name PlayerMovementHandler
 @export var GRAPPLE_TIME : float = 0.05
 ## How close being on top of a hook counts as finishing the grapple
 @export var GRAPPLE_DEADZONE : float = 20.0
+## how fast you can fall at max speed
+@export var MAX_FALL_SPEED : float = 2000.0
 #endregion
 
 #region Variables
@@ -244,6 +246,8 @@ func apply_friction(delta : float) -> void:
 
 func apply_half_gravity(delta : float) -> void:
 	p.velocity.y += GRAVITY * delta * 0.5
+	if p.velocity.y > MAX_FALL_SPEED:
+		p.velocity.y = MAX_FALL_SPEED
 
 func can_jump() -> bool:
 	return p.is_on_floor() or is_jump_coyote
