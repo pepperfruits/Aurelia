@@ -3,12 +3,14 @@ class_name Platform
 
 @export var HOLD_TO_FALL_VELOCITY : float = 200.0
 
-@onready var p : PlayerCharacter = $"..".p
+var p : PlayerCharacter = null
 @onready var CollisionShape : CollisionShape2D = $PlatformCollisionShape
 @onready var DisablePlatformDetection : Area2D = $DisablePlatformDetection
+@onready var OnPlatformDetection : Area2D = $OnPlatformDetection
 
 func _process(_delta):
-	CollisionShape.disabled = is_disabled()
+	if p:
+		CollisionShape.disabled = is_disabled()
 
 func is_disabled():
 	var down_pressed : bool = p.InputHandler.is_down_inputted()
@@ -17,3 +19,10 @@ func is_disabled():
 	var inside_platform : bool = not DisablePlatformDetection.get_overlapping_bodies().is_empty()
 	
 	return down_pressed or down_held or going_up or inside_platform
+
+func _on_on_platform_detection_body_entered(body : PlayerCharacter):
+	p = body
+
+func _on_on_platform_detection_body_exited(body):
+	p = null
+	CollisionShape.disabled = true
