@@ -1,14 +1,55 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=14 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_tigdo"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
-[ext_resource type="Texture2D" uid="uid://cemnarfil50wf" path="res://Assets/transition.png" id="2_06noa"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_7y0ub"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="4_12rrh"]
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="4_l2bog"]
 [ext_resource type="PackedScene" uid="uid://bf12w3jxyevd0" path="res://Environment/AirDraft/air_draft.tscn" id="5_216pk"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="6_k5dgf"]
+[ext_resource type="Shader" path="res://Levels/TestingLevel/screen_transition.gdshader" id="8_v6uv6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdmwy"]
+shader = ExtResource("8_v6uv6")
+shader_parameter/progress = null
+shader_parameter/diamondPixelSize = 50.0
+
+[sub_resource type="Animation" id="Animation_gmksn"]
+resource_name = "transition_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transition_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_b27ik"]
+resource_name = "transition_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transition_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yhcd"]
+_data = {
+"transition_fade_in": SubResource("Animation_gmksn"),
+"transition_fade_out": SubResource("Animation_b27ik")
+}
 
 [node name="TestingLevel" type="Node2D"]
 position = Vector2(64, -576)
@@ -317,9 +358,17 @@ limit_bottom = 0
 editor_draw_limits = true
 script = ExtResource("1_tigdo")
 p = NodePath("../Player")
+transition_progress = 0.0
 
-[node name="TransitionSprite" type="Sprite2D" parent="PlayerCamera"]
-visible = false
-scale = Vector2(1, 1.71077)
-texture = ExtResource("2_06noa")
-offset = Vector2(2500, 0)
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerCamera"]
+
+[node name="TransitionColor" type="ColorRect" parent="PlayerCamera/CanvasLayer"]
+material = SubResource("ShaderMaterial_bdmwy")
+offset_right = 1920.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionAnimation" type="AnimationPlayer" parent="PlayerCamera"]
+libraries = {
+"": SubResource("AnimationLibrary_2yhcd")
+}
