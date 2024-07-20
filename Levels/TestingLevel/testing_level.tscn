@@ -365,7 +365,7 @@ transition_progress = 0.0
 [node name="TransitionColor" type="ColorRect" parent="PlayerCamera/CanvasLayer"]
 material = SubResource("ShaderMaterial_bdmwy")
 offset_right = 1920.0
-offset_bottom = 1088.0
+offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="TransitionAnimation" type="AnimationPlayer" parent="PlayerCamera"]
