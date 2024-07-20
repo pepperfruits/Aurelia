@@ -46,8 +46,10 @@ position = Vector2(2112, 448)
 position = Vector2(1152, 512)
 
 [node name="Spring2" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
-position = Vector2(256, -512)
-rotation = 0.785397
+position = Vector2(0, -704)
+rotation = 1.57079
+SPRING_VELOCITY = 10000.0
+HORIZONTAL_BONUS = 10.0
 
 [node name="AirDraft" parent="DynamicEnvironmentManager" instance=ExtResource("5_216pk")]
 position = Vector2(3584, 0)
@@ -308,7 +310,7 @@ position = Vector2(320, -312)
 position = Vector2(192, -440)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
-position = Vector2(3008, 384)
+position = Vector2(192, -640)
 Camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
