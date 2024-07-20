@@ -5,7 +5,7 @@ class_name PlayerMovementNode
 ## For ease of programming, the player is p
 @onready var p : CharacterBody2D = $".." 
 ## Handles all input
-@onready var InputHandler : PlayerInputHandler = $"../InputHandler"
+@onready var inp : PlayerInputHandler = $"../InputHandler"
 ## Duration of the dash
 @onready var DashDurationTimer : Timer = $DashDurationTimer
 ## Cooldown for dashing
@@ -21,26 +21,20 @@ class_name PlayerMovementNode
 @export var AIR_ACCEL_BONUS : float = 1.0
 ## How much faster you accelerate when pivoting from side to side
 @export var PIVOT_ACCEL_BONUS : float = 3.0
-
 ## How much friction is applied when stopping (no directional input)
 @export var FRICTION : float = 8.0
 ## How much stronger/weaker your friction is when midair
 @export var AIR_FRICTION_BONUS : float = 1.0
-
 ## Acceleration due to gravity
 @export var GRAVITY : float = 2000.0
-
 ## The velocity upwards when you first jump
 @export var JUMP_VELOCITY : float = 1050.0
-
 ## The velocity during your dash
 @export var DASH_VELOCITY : float = 1400.0
 ## Your vertical velocity is multiplied by this when you dash
 @export var DASH_VERTICAL_DAMPENING : float = 0.1
-
 ## How many dash charges you have max, and what it gets refreshed to on the ground
 @export var MAX_DASH_CHARGES : int = 1
-
 ## How long it takes to grapple to a point
 @export var GRAPPLE_TIME : float = 0.05
 ## How close being on top of a hook counts as finishing the grapple
@@ -51,7 +45,7 @@ class_name PlayerMovementNode
 ## This is the x momentum, the current x velocity. 
 var momentum : float = 0.0
 ## If 0, not dashing. If non zero, this is the direction of the dash.
-var dashing : int = 0
+var dash_direction : int = 0
 ## Where you are facing last, only useful when not inputting a movement
 var facing : int = 1
 ## Your current dash charges
@@ -76,8 +70,7 @@ func _process(delta):
 	$"../PlaceHolderSprite".rotation_degrees = 0 # TODO remove, debug!
 	
 	#region _process setup
-	var is_on_floor : bool = p.is_on_floor()
-	var input_direction : float = InputHandler.get_horizontal_input() # 1 = right, -1 = left
+	var input_direction : float = inp.get_horizontal_input() # 1 = right, -1 = left
 	if (momentum > 1.0): 
 		facing = 1
 	elif (momentum < -1.0):
@@ -87,17 +80,17 @@ func _process(delta):
 	
 	current_state = get_state(delta)
 	
-	if (can_grapple(is_on_floor) and InputHandler.is_jump_held()): # If you can grapple, grapple
+	if (can_grapple() and inp.is_jump_held()): 
 		grapple(delta)
-	elif (can_dash() and InputHandler.is_dash_inputted()): # If you can dash, dash
+	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(input_direction, delta)
-	elif (can_jump() and InputHandler.is_jump_inputted()): # If you can jump, jump. 
+	elif (can_jump() and inp.is_jump_inputted()): 
 		jump(delta)
 		current_state = STATE.FALLING
 	
 	match current_state:
 		STATE.HANGING:
-			if (not InputHandler.is_jump_held()):
+			if (not inp.is_jump_held()):
 				hook_released(delta)
 			else:
 				pull_towards_hook(delta)
@@ -115,21 +108,21 @@ func _process(delta):
 			apply_half_gravity(delta)
 			is_gravity_applied = true
 			if (input_direction):
-				apply_acceleration(delta, input_direction, is_on_floor)
+				apply_acceleration(delta, input_direction)
 			else:
-				apply_friction(delta, is_on_floor)
+				apply_friction(delta)
 		STATE.RUNNING:
 			refresh_dash_charges()
-			apply_acceleration(delta, input_direction, is_on_floor)
+			apply_acceleration(delta, input_direction)
 		STATE.IDLE:
 			refresh_dash_charges()
-			apply_friction(delta, is_on_floor)
+			apply_friction(delta)
 	
 	p.velocity.x = momentum
 	p.move_and_slide()
 	momentum = p.velocity.x
 	if abs(momentum) < 1.0: # Stop the dash early if you aren't moving anymore (hit a wall)
-		dashing = 0
+		dash_direction = 0
 	if is_gravity_applied:
 		apply_half_gravity(delta)
 	
@@ -140,17 +133,14 @@ func get_state(delta : float) -> STATE:
 		return STATE.HANGING
 	elif grappling:
 		return STATE.GRAPPLING
-	elif dashing:
+	elif dash_direction:
 		return STATE.DASHING
-	elif not is_on_floor():
+	elif not p.is_on_floor():
 		return STATE.FALLING
-	elif InputHandler.get_horizontal_input():
+	elif inp.get_horizontal_input():
 		return STATE.RUNNING
 	else:
 		return STATE.IDLE
-
-func is_on_floor() -> bool:
-	return p.is_on_floor()
 
 func is_grapple_reached() -> bool:
 	return grapple_target_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
@@ -159,7 +149,7 @@ func pull_towards_hook(delta : float) -> void:
 	p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
 
 func end_dash() -> void:
-	dashing = 0
+	dash_direction = 0
 
 func set_player_velocity(velocity : Vector2) -> void:
 	p.velocity = velocity
@@ -172,7 +162,7 @@ func grapple_reached(_delta) -> void:
 
 func hook_released(delta) -> void:
 	hanging = false
-	if InputHandler.get_vertical_input() < 0:
+	if inp.get_vertical_input() < 0:
 		grappling = false
 	else:
 		jump(delta)
@@ -186,33 +176,33 @@ func grapple(_delta) -> void:
 	grappling = true
 	hookArray.front().use()
 
-func can_grapple(is_on_floor : bool) -> bool:
-	return not hookArray.is_empty() and not is_on_floor and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
+func can_grapple() -> bool:
+	return not hookArray.is_empty() and not p.is_on_floor() and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
-func cap_momentum(delta : float, is_on_floor : bool) -> void:
+func cap_momentum(delta : float) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
-		apply_friction(delta, is_on_floor) # TODO can be a separate friction function, optionally
+		apply_friction(delta) # TODO can be a separate friction function, optionally
 		if (momentum > 0):
 			momentum = max(momentum, RUN_MAX_SPEED)
 		else:
 			momentum = min(momentum, -RUN_MAX_SPEED)
 
-func apply_acceleration(delta : float, input_direction : float, is_on_floor : bool) -> void:
+func apply_acceleration(delta : float, input_direction : float) -> void:
 	var percent_of_max_speed : float = momentum / RUN_MAX_SPEED
 	var pivot_bonus : float = 1.0
 	if ((input_direction > 0 and percent_of_max_speed < 0) or (input_direction < 0 and percent_of_max_speed > 0)):
 		pivot_bonus += PIVOT_ACCEL_BONUS * min(abs(percent_of_max_speed), 1.0)
 	
-	if (is_on_floor):
+	if (p.is_on_floor()):
 		momentum += input_direction * RUN_ACCEL * delta * pivot_bonus
 	else:
 		momentum += input_direction * RUN_ACCEL * delta * AIR_ACCEL_BONUS * pivot_bonus
 	
-	cap_momentum(delta, is_on_floor)
+	cap_momentum(delta)
 
-func apply_friction(delta : float, is_on_floor : bool) -> void:
+func apply_friction(delta : float) -> void:
 	if (momentum != 0.0):
-		if (is_on_floor):
+		if (p.is_on_floor()):
 			momentum -= momentum * delta * FRICTION
 		else:
 			momentum -= momentum * delta * FRICTION * AIR_FRICTION_BONUS
@@ -231,23 +221,26 @@ func jump(_delta : float) -> void:
 	end_dash()
 	p.velocity.y = -JUMP_VELOCITY
 	refresh_dash_charges()
-	InputHandler._on_jump_buffer_timer_timeout()
+	inp._on_jump_buffer_timer_timeout()
 
 func can_dash() -> bool:
 	return dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
 func dash(input_direction : float, _delta : float) -> void:
-	dashing = true
+	if input_direction > 0:
+		dash_direction = 1
+	elif input_direction < 0:
+		dash_direction = -1
+	else:
+		dash_direction = facing
+	
 	DashDurationTimer.start()
 	DashCooldownTimer.start()
 	p.velocity.y *= DASH_VERTICAL_DAMPENING
 	dash_charges -= 1
 	is_dash_ready = false
 	
-	if input_direction:
-		momentum = input_direction * DASH_VELOCITY
-	else:
-		momentum = facing * DASH_VELOCITY
+	momentum = dash_direction * DASH_VELOCITY
 
 func refresh_dash_charges() -> void:
 	dash_charges = MAX_DASH_CHARGES
@@ -256,7 +249,7 @@ func refresh_dash_charges() -> void:
 
 #region Signals
 func _on_dash_duration_timer_timeout():
-	dashing = false
+	dash_direction = false
 
 func _on_dash_cooldown_timer_timeout():
 	is_dash_ready = true
