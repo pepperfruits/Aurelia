@@ -3,27 +3,23 @@ extends Camera2D
 @export var p : CharacterBody2D
 @export var CAMERA_SPEED : float = 10.0
 
-@export var transitionWidth : int = 5984
-@export var transitionEnabledX : int = -1250
-@export var transitionDisabledX : int = 2500
-@export var TRANSITION_SPEED : float = 2.0
-@onready var transition : Sprite2D = $TransitionSprite
+@onready var transitionPlayer : AnimationPlayer = $TransitionAnimation
+@onready var transitionMaterial : Material = $CanvasLayer/TransitionColor.material
 
 var is_transition_enabled : bool = true
+@export var transition_progress : float = 1.0
 
 func _ready():
-	transition.visible = true
 	position = p.position
-	transition.offset.x = transitionEnabledX
-
+	set_camera_transition(false)
 
 func _process(delta):
 	position -= (global_position - p.global_position) * CAMERA_SPEED * delta
-	
-	if is_transition_enabled:
-		transition.offset.x += (transitionEnabledX - transition.offset.x) * delta * TRANSITION_SPEED
-	else: 
-		transition.offset.x += (transitionDisabledX - transition.offset.x) * delta * TRANSITION_SPEED
+	transitionMaterial.set("shader_parameter/progress", transition_progress)
 
 func set_camera_transition(to_enable_transition : bool) -> void:
-	is_transition_enabled = to_enable_transition
+	if transitionPlayer:
+		if to_enable_transition:
+			transitionPlayer.play("transition_fade_in")
+		else:
+			transitionPlayer.play("transition_fade_out")
