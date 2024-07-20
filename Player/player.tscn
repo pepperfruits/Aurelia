@@ -8,15 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerHealth.gd" id="6_sx8yp"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3elej"]
-font_size = 55
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
 size = Vector2(54.1115, 199.912)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1uv4"]
 radius = 24.0496
 height = 168.347
+
+[sub_resource type="LabelSettings" id="LabelSettings_3elej"]
+font_size = 55
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.665293, 0.665293)
@@ -52,12 +52,13 @@ one_shot = true
 wait_time = 0.3
 one_shot = true
 
-[node name="DebugLabel" type="Label" parent="."]
-offset_left = -58.6208
-offset_top = -196.906
-offset_right = 60.3792
-offset_bottom = -129.906
-label_settings = SubResource("LabelSettings_3elej")
+[node name="JumpCoyoteTimer" type="Timer" parent="Movement"]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashCoyoteTimer" type="Timer" parent="Movement"]
+wait_time = 0.075
+one_shot = true
 
 [node name="PlaceHolderSprite" type="Sprite2D" parent="."]
 position = Vector2(0, 6)
@@ -88,10 +89,35 @@ invincibility_window = 1.5
 [node name="DeathTransitionTimer" type="Timer" parent="PlayerHealth"]
 one_shot = true
 
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -174.359
+offset_top = -323.166
+offset_right = -12.3593
+offset_bottom = -168.166
+text = "JUMP:
+DASH:"
+label_settings = SubResource("LabelSettings_3elej")
+
+[node name="JumpRect" type="ColorRect" parent="."]
+offset_left = 42.0867
+offset_top = -302.123
+offset_right = 82.0867
+offset_bottom = -262.123
+color = Color(0, 0, 0, 1)
+
+[node name="DashRect" type="ColorRect" parent="."]
+offset_left = 42.0867
+offset_top = -225.465
+offset_right = 82.0867
+offset_bottom = -185.465
+color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DashBufferTimer" to="InputHandler" method="_on_dash_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DownBufferTimer" to="InputHandler" method="_on_down_buffer_timer_timeout"]
 [connection signal="timeout" from="Movement/DashDurationTimer" to="Movement" method="_on_dash_duration_timer_timeout"]
 [connection signal="timeout" from="Movement/DashCooldownTimer" to="Movement" method="_on_dash_cooldown_timer_timeout"]
+[connection signal="timeout" from="Movement/JumpCoyoteTimer" to="Movement" method="_on_jump_coyote_timer_timeout"]
+[connection signal="timeout" from="Movement/DashCoyoteTimer" to="Movement" method="_on_dash_coyote_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="PlayerHealth/DeathTransitionTimer" to="PlayerHealth" method="_on_death_transition_timer_timeout"]

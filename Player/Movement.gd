@@ -12,7 +12,11 @@ class_name PlayerMovementHandler
 @onready var DashDurationTimer : Timer = $DashDurationTimer
 ## Cooldown for dashing
 @onready var DashCooldownTimer : Timer = $DashCooldownTimer
-#endregion
+## How long you have to jump after falling off a ledge
+@onready var JumpCoyoteTimer : Timer = $JumpCoyoteTimer
+## Same thing ^ but for dashing, where you can regain your dash after dashing off a ledge if you time it right
+@onready var DashCoyoteTimer : Timer = $DashCoyoteTimer
+#endregions
 
 #region Export Constats
 ## Acceleration from running in a direction (grounded)
@@ -66,6 +70,10 @@ var hookArray : Array[Hook] = []
 enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE}
 ## your current state
 var current_state : STATE = STATE.IDLE
+## true if you aren't on the ground, but you still have some time to coyote jump
+var is_jump_coyote : bool = false
+## true if you were just on the ground last frame
+var was_on_floor : bool = false
 #endregion
 
 func _process(delta):
@@ -74,15 +82,21 @@ func _process(delta):
 	
 	anim.default(facing_direction) # remove this later, debug TODO
 	
+	if (can_dash()):
+		$"../DashRect".color = Color.GREEN
+	else:
+		$"../DashRect".color = Color.BLACK
+	if (can_jump()):
+		$"../JumpRect".color = Color.GREEN
+	else:
+		$"../JumpRect".color = Color.BLACK
+	
 	if (can_grapple() and inp.is_jump_held()): 
 		grapple(delta)
-		current_state = STATE.GRAPPLING
 	elif (can_dash() and inp.is_dash_inputted()): 
-		dash(inp.get_horizontal_input(), delta)
-		current_state = STATE.DASHING
+		dash(inp.get_horizontal_input())
 	elif (can_jump() and inp.is_jump_inputted()): 
 		jump(delta)
-		current_state = STATE.FALLING
 	
 	match current_state:
 		STATE.HANGING:
@@ -113,6 +127,7 @@ func _process(delta):
 
 #region Helper Functions
 func run_physics(delta):
+	was_on_floor = p.is_on_floor()
 	p.velocity.x = momentum
 	
 	if current_state == STATE.FALLING:
@@ -141,8 +156,14 @@ func get_state() -> STATE:
 	elif is_grappling:
 		return STATE.GRAPPLING
 	elif is_dashing:
+		if (was_on_floor and not p.is_on_floor()):
+			is_jump_coyote = true
+			JumpCoyoteTimer.start()
 		return STATE.DASHING
 	elif not p.is_on_floor():
+		if (was_on_floor and p.velocity.y >= 0):
+			is_jump_coyote = true
+			JumpCoyoteTimer.start()
 		return STATE.FALLING
 	elif inp.get_horizontal_input():
 		return STATE.RUNNING
@@ -177,6 +198,7 @@ func hook_released(delta) -> void:
 		is_grappling = false
 
 func grapple(_delta) -> void:
+	current_state = STATE.GRAPPLING
 	set_player_velocity(Vector2.ZERO)
 	end_dash()
 	
@@ -224,9 +246,11 @@ func apply_half_gravity(delta : float) -> void:
 	p.velocity.y += GRAVITY * delta * 0.5
 
 func can_jump() -> bool:
-	return p.is_on_floor()
+	return p.is_on_floor() or is_jump_coyote
 
 func jump(_delta : float) -> void:
+	is_jump_coyote = false
+	current_state = STATE.FALLING
 	end_dash()
 	p.velocity.y = -JUMP_VELOCITY
 	refresh_dash_charges()
@@ -235,13 +259,15 @@ func jump(_delta : float) -> void:
 func can_dash() -> bool:
 	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
-func dash(input_direction : float, _delta : float) -> void:
+func dash(input_direction : float) -> void:
+	current_state = STATE.DASHING
 	is_dashing = true
 	DashDurationTimer.start()
 	DashCooldownTimer.start()
 	p.velocity.y *= DASH_VERTICAL_DAMPENING
 	current_dash_charges -= 1
 	is_dash_ready = false
+	DashCoyoteTimer.start()
 	
 	if input_direction:
 		momentum = input_direction * DASH_VELOCITY
@@ -258,4 +284,11 @@ func _on_dash_duration_timer_timeout():
 
 func _on_dash_cooldown_timer_timeout():
 	is_dash_ready = true
+
+func _on_jump_coyote_timer_timeout():
+	is_jump_coyote = false
+
+func _on_dash_coyote_timer_timeout():
+	if p.is_on_floor():
+		refresh_dash_charges()
 #endregion
