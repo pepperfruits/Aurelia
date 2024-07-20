@@ -11,6 +11,8 @@ var p : PlayerCharacter = null
 func _process(_delta):
 	if p:
 		CollisionShape.disabled = is_disabled()
+	else:
+		CollisionShape.disabled = true
 
 func is_disabled():
 	var down_pressed : bool = p.InputHandler.is_down_inputted()
@@ -25,4 +27,3 @@ func _on_on_platform_detection_body_entered(body : PlayerCharacter):
 
 func _on_on_platform_detection_body_exited(_body):
 	p = null
-	CollisionShape.disabled = true
