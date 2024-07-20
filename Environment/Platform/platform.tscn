@@ -1,22 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxb53pc827hqw"]
+[gd_scene load_steps=6 format=3 uid="uid://bxb53pc827hqw"]
 
 [ext_resource type="Script" path="res://Environment/Platform/platform.gd" id="1_4wbcy"]
 [ext_resource type="Texture2D" uid="uid://mnbx08ua3bly" path="res://Environment/AirDraft/platform.png" id="1_83tu2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qshot"]
-size = Vector2(370, 75)
+size = Vector2(480, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc7jx"]
 size = Vector2(256, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqfve"]
+size = Vector2(370, 127)
 
 [node name="Platform" type="StaticBody2D"]
 collision_layer = 512
 script = ExtResource("1_4wbcy")
 
-[node name="PlayerDetectionArea" type="Area2D" parent="."]
+[node name="DisablePlatformDetection" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DisablePlatformDetection"]
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_qshot")
 
@@ -28,3 +31,14 @@ texture = ExtResource("1_83tu2")
 [node name="PlatformCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_gc7jx")
+disabled = true
+
+[node name="OnPlatformDetection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnPlatformDetection"]
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_bqfve")
+
+[connection signal="body_entered" from="OnPlatformDetection" to="." method="_on_on_platform_detection_body_entered"]
+[connection signal="body_exited" from="OnPlatformDetection" to="." method="_on_on_platform_detection_body_exited"]

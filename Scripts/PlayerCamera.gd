@@ -18,7 +18,7 @@ func _ready():
 
 
 func _process(delta):
-	position -= (position - p.position) * CAMERA_SPEED * delta
+	position -= (global_position - p.global_position) * CAMERA_SPEED * delta
 	
 	if is_transition_enabled:
 		transition.offset.x += (transitionEnabledX - transition.offset.x) * delta * TRANSITION_SPEED

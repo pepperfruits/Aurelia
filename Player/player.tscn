@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=11 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/Movement.gd" id="1_2jex8"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_2y6wt"]
 [ext_resource type="Script" path="res://Player/InputHandler.gd" id="2_agngk"]
+[ext_resource type="Script" path="res://Player/PlayerAnimationHandler.gd" id="2_pvwe1"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
 [ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerHealth.gd" id="6_sx8yp"]
@@ -21,6 +22,9 @@ height = 168.347
 scale = Vector2(0.665293, 0.665293)
 collision_mask = 1792
 script = ExtResource("1_2y6wt")
+
+[node name="AnimationHandler" type="Node" parent="."]
+script = ExtResource("2_pvwe1")
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("2_agngk")
