@@ -46,7 +46,6 @@ position = Vector2(1152, 512)
 position = Vector2(0, -704)
 rotation = 1.57079
 SPRING_VELOCITY = 10000.0
-HORIZONTAL_BONUS = 10.0
 
 [node name="AirDraft" parent="DynamicEnvironment" instance=ExtResource("5_216pk")]
 position = Vector2(3584, 0)
