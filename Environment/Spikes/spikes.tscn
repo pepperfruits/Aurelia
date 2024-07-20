@@ -7,7 +7,7 @@
 size = Vector2(112, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gd18p"]
-size = Vector2(128, 16)
+size = Vector2(128, 40)
 
 [node name="Spikes" type="StaticBody2D"]
 collision_layer = 256
@@ -27,8 +27,9 @@ position = Vector2(0, -64)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("2_v47xk")
+knockback = 600.0
 is_custom_knockback_direction = true
 
 [node name="SpikeHurboxCollisionShape" type="CollisionShape2D" parent="SpikeHurtbox"]
-position = Vector2(0, 112)
+position = Vector2(0, 100)
 shape = SubResource("RectangleShape2D_gd18p")
