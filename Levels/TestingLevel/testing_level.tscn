@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=10 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_tigdo"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
 [ext_resource type="Texture2D" uid="uid://cemnarfil50wf" path="res://Assets/transition.png" id="2_06noa"]
-[ext_resource type="Script" path="res://Levels/DynamicEnvironmentManager.gd" id="2_nq4u7"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_7y0ub"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="4_12rrh"]
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="4_l2bog"]
@@ -14,83 +13,78 @@
 [node name="TestingLevel" type="Node2D"]
 position = Vector2(64, -576)
 
-[node name="DynamicEnvironmentManager" type="Node2D" parent="." node_paths=PackedStringArray("p")]
-script = ExtResource("2_nq4u7")
-p = NodePath("../Player")
+[node name="DynamicEnvironment" type="Node2D" parent="."]
 
-[node name="Hook" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
+[node name="Hook" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
 position = Vector2(960, -192)
 
-[node name="Hook8" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
+[node name="Hook8" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
 position = Vector2(1472, 128)
 
-[node name="Hook4" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
+[node name="Hook4" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
 position = Vector2(1472, -512)
 
-[node name="Hook5" parent="DynamicEnvironmentManager" instance=ExtResource("4_7y0ub")]
+[node name="Hook5" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
 position = Vector2(960, -832)
 
-[node name="Spikes" parent="DynamicEnvironmentManager" instance=ExtResource("4_12rrh")]
+[node name="Spikes" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
 position = Vector2(1728, 448)
 
-[node name="Spikes2" parent="DynamicEnvironmentManager" instance=ExtResource("4_12rrh")]
+[node name="Spikes2" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
 position = Vector2(1856, 448)
 
-[node name="Spikes3" parent="DynamicEnvironmentManager" instance=ExtResource("4_12rrh")]
+[node name="Spikes3" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
 position = Vector2(1984, 448)
 
-[node name="Spikes4" parent="DynamicEnvironmentManager" instance=ExtResource("4_12rrh")]
+[node name="Spikes4" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
 position = Vector2(2112, 448)
 
-[node name="Spring" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
+[node name="Spring" parent="DynamicEnvironment" instance=ExtResource("4_l2bog")]
 position = Vector2(1152, 512)
 
-[node name="Spring2" parent="DynamicEnvironmentManager" instance=ExtResource("4_l2bog")]
-position = Vector2(256, -512)
-rotation = 0.785397
+[node name="Spring2" parent="DynamicEnvironment" instance=ExtResource("4_l2bog")]
+position = Vector2(0, -704)
+rotation = 1.57079
+SPRING_VELOCITY = 10000.0
 
-[node name="AirDraft" parent="DynamicEnvironmentManager" instance=ExtResource("5_216pk")]
+[node name="AirDraft" parent="DynamicEnvironment" instance=ExtResource("5_216pk")]
 position = Vector2(3584, 0)
 
-[node name="Platform" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2688, 320)
 
-[node name="Platform3" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform3" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2880, 64)
 
-[node name="Platform4" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform4" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2496, -128)
 
-[node name="Platform5" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform5" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2944, -256)
 
-[node name="Platform6" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform6" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2240, -320)
 
-[node name="Platform7" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform7" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2688, -448)
 
-[node name="Platform8" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform8" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2176, -576)
 
-[node name="Platform9" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform9" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2240, -768)
 
-[node name="Platform10" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform10" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2496, -768)
 
-[node name="Platform11" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform11" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2752, -768)
 
-[node name="Platform12" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform12" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(3008, -768)
 
-[node name="Platform2" parent="DynamicEnvironmentManager" instance=ExtResource("6_k5dgf")]
+[node name="Platform2" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2304, 128)
-
-[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
-position = Vector2(3008, 384)
-Camera = NodePath("../PlayerCamera")
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
@@ -310,6 +304,10 @@ position = Vector2(320, -312)
 
 [node name="TestingBlock31" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(192, -440)
+
+[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
+position = Vector2(192, -640)
+Camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
 limit_left = 0

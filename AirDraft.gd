@@ -5,22 +5,24 @@ class_name AirDraft
 @export var FORCE : float = 2550.0
 @export var STOPPING_BONUS : float = 2.0
 
-var Player : PlayerCharacterBody2D = null
+var p : PlayerCharacter = null
+
+# NOTICE dont try to make this rotated anywhere but up for now
 
 func _process(delta):
-	if Player:
-		Player.movement.refresh_dash_charges()
-		if -Player.velocity.rotated(-global_rotation).y < MAX_SPEED:
-			if Player.velocity.rotated(-global_rotation).y > 0:
-				Player.velocity = Vector2(Player.velocity.rotated(-global_rotation).x, Player.velocity.rotated(-global_rotation).y) + Vector2(0, -FORCE).rotated(global_rotation) * delta * STOPPING_BONUS * max(1,(abs(Player.velocity.rotated(-global_rotation).y) / MAX_SPEED))
-			else:
-				Player.velocity = Vector2(Player.velocity.rotated(-global_rotation).x, Player.velocity.rotated(-global_rotation).y) + Vector2(0, -FORCE).rotated(global_rotation) * delta
-			Player.movement.momentum = Player.velocity.x
+	if p:
+		p.refresh_dash_charges()
+		if p.velocity.y > -MAX_SPEED:
+			apply_force(delta)
 
+func apply_force(delta) -> void:
+	if p.velocity.y > 0:
+		p.set_player_velocity(Vector2(p.velocity.x, p.velocity.y) + Vector2(0, -FORCE) * delta * STOPPING_BONUS * max(1,(abs(p.velocity.y) / MAX_SPEED)))
+	else:
+		p.set_player_velocity(Vector2(p.velocity.x, p.velocity.y) + Vector2(0, -FORCE) * delta)
 
 func _on_body_entered(body):
-	Player = body
-
+	p = body
 
 func _on_body_exited(_body):
-	Player = null
+	p = null
