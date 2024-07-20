@@ -1,7 +1,7 @@
 extends Health
 class_name PlayerHealth
 
-@onready var movement : PlayerMovementNode = $"../Movement"
+@onready var movement : PlayerMovementHandler = $"../Movement"
 @onready var p : PlayerCharacter = $".."
 @onready var DeathTransitionTimer : Timer = $DeathTransitionTimer
 
