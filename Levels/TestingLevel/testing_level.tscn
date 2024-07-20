@@ -137,25 +137,49 @@ position = Vector2(64, 584)
 position = Vector2(-64, 584)
 
 [node name="TestingBlock16" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(-64, 456)
+position = Vector2(-192, 584)
 
 [node name="TestingBlock17" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(-64, 328)
+position = Vector2(-320, 584)
 
 [node name="TestingBlock18" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(-64, 200)
+
+[node name="TestingBlock73" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-192, 200)
+
+[node name="TestingBlock74" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-320, 200)
+
+[node name="TestingBlock75" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-320, 328)
+
+[node name="TestingBlock76" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(-320, 456)
 
 [node name="TestingBlock19" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(-64, 72)
 
 [node name="TestingBlock20" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(4288, 584)
+
+[node name="TestingBlock77" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(4160, 584)
+
+[node name="TestingBlock78" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(4032, 584)
 
+[node name="TestingBlock79" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(4160, 200)
+
+[node name="TestingBlock80" parent="Blocks" instance=ExtResource("2_2udhs")]
+position = Vector2(4288, 200)
+
 [node name="TestingBlock21" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(4032, 456)
+position = Vector2(4288, 456)
 
 [node name="TestingBlock22" parent="Blocks" instance=ExtResource("2_2udhs")]
-position = Vector2(4032, 328)
+position = Vector2(4288, 328)
 
 [node name="TestingBlock23" parent="Blocks" instance=ExtResource("2_2udhs")]
 position = Vector2(4032, 200)
@@ -347,7 +371,7 @@ position = Vector2(320, -312)
 position = Vector2(192, -440)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_jr7kg")]
-position = Vector2(192, -640)
+position = Vector2(-192, 416)
 Camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("p")]
