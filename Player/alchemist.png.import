@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2aipr80a1nr1"
-path="res://.godot/imported/placeholder_player.png-9a786f486b4e63ffcd20699ba682326b.ctex"
+uid="uid://oyas1a4ofqyr"
+path="res://.godot/imported/alchemist.png-3d2d5fe2b617f38add1f005802908439.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/placeholder_player.png"
-dest_files=["res://.godot/imported/placeholder_player.png-9a786f486b4e63ffcd20699ba682326b.ctex"]
+source_file="res://Player/alchemist.png"
+dest_files=["res://.godot/imported/alchemist.png-3d2d5fe2b617f38add1f005802908439.ctex"]
 
 [params]
 
