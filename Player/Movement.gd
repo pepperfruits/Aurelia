@@ -170,6 +170,7 @@ func hook_released(delta) -> void:
 	if inp.get_vertical_input() < 0:
 		is_grappling = false
 	else:
+		set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
 		jump(delta)
 		is_grappling = false
 
