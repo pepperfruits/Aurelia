@@ -6,9 +6,10 @@ class_name PlayerHealth
 @onready var DeathTransitionTimer : Timer = $DeathTransitionTimer
 
 func death():
-	$"../DebugLabel".text = "DEAD"
-	p.set_camera_transition(true)
-	DeathTransitionTimer.start()
+	if DeathTransitionTimer.is_stopped():
+		$"../DebugLabel".text = "DEAD"
+		p.set_camera_transition(true)
+		DeathTransitionTimer.start()
 
 func apply_knockback(knockback : float, knockback_vector : Vector2) -> void:
 	entity.velocity = knockback_vector.normalized() * knockback
