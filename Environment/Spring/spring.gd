@@ -2,8 +2,10 @@ extends Area2D
 class_name Spring
 
 @export var SPRING_VELOCITY : float = 2000.0
-@export var HORIZONTAL_BONUS : float = 3.0
 @export var PERPENDICULAR_DAMPENING : float = 0.2
+
+@export var USE_CUSTOM_VELOCITY : bool = false
+@export var CUSTOM_VELOCITY : Vector2 = Vector2(2000, 2000)
 
 func _on_body_entered(p : PlayerCharacter):
 	bounce(p)
@@ -16,11 +18,12 @@ func get_perpendicular_velocity(p : PlayerCharacter) -> Vector2:
 func get_spring_velocity() -> Vector2:
 	return Vector2(0, -SPRING_VELOCITY).rotated(global_rotation)
 
-func get_horizontal_bonus() -> Vector2:
-	return Vector2(HORIZONTAL_BONUS, 1.0)
-
 func bounce(p : PlayerCharacter):
-	p.set_player_velocity(get_spring_velocity() + get_perpendicular_velocity(p) * get_horizontal_bonus())
+	if USE_CUSTOM_VELOCITY:
+		p.set_player_velocity(CUSTOM_VELOCITY + get_perpendicular_velocity(p))
+	else:
+		p.set_player_velocity(get_spring_velocity() + get_perpendicular_velocity(p))
+	
 	p.refresh_dash_charges()
 	p.end_dash()
 #endregion
