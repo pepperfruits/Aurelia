@@ -93,7 +93,7 @@ func _process(delta):
 	else:
 		$"../JumpRect".color = Color.BLACK
 	
-	if (can_grapple() and inp.is_jump_held()): 
+	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
 	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(inp.get_horizontal_input())
