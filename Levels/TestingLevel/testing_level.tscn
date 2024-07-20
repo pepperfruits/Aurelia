@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=16 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_tigdo"]
@@ -8,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="4_l2bog"]
 [ext_resource type="PackedScene" uid="uid://bf12w3jxyevd0" path="res://Environment/AirDraft/air_draft.tscn" id="5_216pk"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="6_k5dgf"]
+[ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="6_vr4j2"]
 [ext_resource type="Shader" path="res://Shaders/screen_transition.gdshader" id="8_v6uv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjd4m"]
+size = Vector2(384, 320)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bdmwy"]
 shader = ExtResource("8_v6uv6")
@@ -126,6 +130,13 @@ position = Vector2(3008, -768)
 
 [node name="Platform2" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
 position = Vector2(2304, 128)
+
+[node name="ForcedHorizontalArea" parent="DynamicEnvironment" instance=ExtResource("6_vr4j2")]
+HORZIONTAL_INPUT = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DynamicEnvironment/ForcedHorizontalArea"]
+position = Vector2(-192, 384)
+shape = SubResource("RectangleShape2D_bjd4m")
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
