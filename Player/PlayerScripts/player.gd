@@ -25,3 +25,9 @@ func set_player_velocity(new_velocity : Vector2) -> void:
 
 func end_dash() -> void:
 	Movement.end_dash()
+
+func set_player_input(value : bool) -> void:
+	InputHandler.set_player_input(value)
+
+func set_forced_horizontal_input(value : float) -> void:
+	InputHandler.set_forced_horizontal_input(value)

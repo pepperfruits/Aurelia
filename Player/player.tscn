@@ -28,6 +28,7 @@ script = ExtResource("2_q3y52")
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("2_agngk")
+is_input_enabled = true
 
 [node name="JumpBufferTimer" type="Timer" parent="InputHandler"]
 wait_time = 0.2
