@@ -49,7 +49,7 @@ wait_time = 0.15
 one_shot = true
 
 [node name="DashCooldownTimer" type="Timer" parent="Movement"]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [node name="DebugLabel" type="Label" parent="."]

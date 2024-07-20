@@ -76,8 +76,10 @@ func _process(delta):
 	
 	if (can_grapple() and inp.is_jump_held()): 
 		grapple(delta)
+		current_state = STATE.GRAPPLING
 	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(inp.get_horizontal_input(), delta)
+		current_state = STATE.DASHING
 	elif (can_jump() and inp.is_jump_inputted()): 
 		jump(delta)
 		current_state = STATE.FALLING
