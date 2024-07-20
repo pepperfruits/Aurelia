@@ -183,6 +183,7 @@ func grapple(_delta) -> void:
 	grapple_target_position = hookArray.front().global_position
 	is_grappling = true
 	hookArray.front().use()
+	hookArray.pop_front()
 
 func can_grapple() -> bool:
 	return not hookArray.is_empty() and not p.is_on_floor() and current_state != STATE.GRAPPLING and current_state != STATE.HANGING

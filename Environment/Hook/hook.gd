@@ -2,7 +2,6 @@ extends Area2D
 class_name Hook
 
 #region Onready
-@onready var p : PlayerCharacter = $"..".p
 @onready var timer : Timer = $HookCooldownTimer
 @onready var collision : CollisionShape2D = $HookAreaCollisionShape
 @onready var sprite : Sprite2D = $HookSprite
@@ -23,7 +22,6 @@ func _process(delta):
 #region Helper Functions
 func use():
 	disable()
-	p._on_player_exited_hook_range(self)
 
 func enable():
 	collision.disabled = false
