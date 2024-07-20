@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name PlayerCharacter
 
 @export var Camera : Camera2D
-@onready var Movement : PlayerMovementNode = $Movement
+@onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
 func _ready():
