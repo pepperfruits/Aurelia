@@ -5,9 +5,6 @@ class_name PlayerCharacter
 @onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
-func _ready():
-	set_camera_transition(false)
-
 func _process(_delta):
 	pass
 
