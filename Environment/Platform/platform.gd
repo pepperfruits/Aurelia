@@ -23,6 +23,6 @@ func is_disabled():
 func _on_on_platform_detection_body_entered(body : PlayerCharacter):
 	p = body
 
-func _on_on_platform_detection_body_exited(body):
+func _on_on_platform_detection_body_exited(_body):
 	p = null
 	CollisionShape.disabled = true
