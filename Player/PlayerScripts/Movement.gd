@@ -62,12 +62,12 @@ var current_dash_charges : int = 0
 var is_dash_ready : bool = true
 ## True if you are grappling
 var is_grappling : bool = false
-## Where you want to reach when grappling to a hook
-var grapple_target_position : Vector2 = Vector2.ZERO
 ## True if you are holding jump, and hanging on a hook
 var is_hanging : bool = false
 ## The current available hooks
-var hookArray : Array[Hook] = []
+var hook_array : Array[Hook] = []
+## the current hook you are hanging onto, or grappling to
+var current_hook : Hook = null
 ## possible states the player can be in
 enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE}
 ## your current state
@@ -102,13 +102,14 @@ func _process(delta):
 	
 	match current_state:
 		STATE.HANGING:
-			if (not inp.is_jump_held()):
+			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED):
 				hook_released(delta)
 			else:
 				pull_towards_hook(delta)
 		STATE.GRAPPLING:
 			if is_grapple_reached():
 				grapple_reached(delta)
+				pull_towards_hook(delta)
 			else:
 				pull_towards_hook(delta)
 		STATE.DASHING:
@@ -173,10 +174,10 @@ func get_state() -> STATE:
 		return STATE.IDLE
 
 func is_grapple_reached() -> bool:
-	return grapple_target_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
+	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
 
 func pull_towards_hook(delta : float) -> void:
-	p.global_position += (grapple_target_position - p.global_position) / GRAPPLE_TIME * delta
+	p.global_position += (current_hook.global_position - p.global_position) / GRAPPLE_TIME * delta
 
 func end_dash() -> void:
 	is_dashing = false
@@ -192,25 +193,27 @@ func grapple_reached(_delta) -> void:
 
 func hook_released(delta) -> void:
 	is_hanging = false
-	if inp.get_vertical_input() < 0:
-		is_grappling = false
-	else:
-		set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
+	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
+	is_grappling = false
+	if inp.get_vertical_input() >= 0:
 		jump(delta)
-		is_grappling = false
+	else:
+		refresh_dash_charges()
+	
+	current_hook.released()
+	current_hook = null
 
 func grapple(_delta) -> void:
 	current_state = STATE.GRAPPLING
 	set_player_velocity(Vector2.ZERO)
 	end_dash()
-	
-	grapple_target_position = hookArray.front().global_position
 	is_grappling = true
-	hookArray.front().use()
-	hookArray.pop_front()
+	
+	current_hook = hook_array.pop_front()
+	current_hook.use()
 
 func can_grapple() -> bool:
-	return not hookArray.is_empty() and not p.is_on_floor() and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
+	return not hook_array.is_empty() and not p.is_on_floor() and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
 func cap_momentum(delta : float) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):

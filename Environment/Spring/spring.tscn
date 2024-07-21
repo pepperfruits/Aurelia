@@ -11,10 +11,12 @@ collision_layer = 0
 script = ExtResource("1_32l2e")
 
 [node name="SpringCollisionShape" type="CollisionShape2D" parent="."]
+use_parent_material = true
 position = Vector2(1.90735e-06, -32)
 shape = SubResource("RectangleShape2D_d4wg7")
 
 [node name="SpringSprite" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(1.90735e-06, -32)
 rotation = 6.28319
 scale = Vector2(0.5, 0.5)
