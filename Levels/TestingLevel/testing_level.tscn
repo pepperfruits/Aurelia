@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=20 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
@@ -10,13 +10,28 @@
 [ext_resource type="PackedScene" uid="uid://bf12w3jxyevd0" path="res://Environment/AirDraft/air_draft.tscn" id="5_216pk"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="6_k5dgf"]
 [ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="6_vr4j2"]
+[ext_resource type="PackedScene" uid="uid://dqwdcyh7cv6mn" path="res://Environment/Managers/CycleManager/cycle_manager.tscn" id="9_jnwiu"]
+[ext_resource type="PackedScene" uid="uid://c1irfrejlonx5" path="res://Environment/Managers/ToggleManager/toggle_manager.tscn" id="10_wepbp"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="11_chm45"]
+[ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="11_qar12"]
+[ext_resource type="PackedScene" uid="uid://c71nfh8lig6x" path="res://Environment/Managers/PathFollowManager/path_follow_manager.tscn" id="12_5uasi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjd4m"]
 size = Vector2(384, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcxc8"]
 size = Vector2(128, 320)
+
+[sub_resource type="Curve2D" id="Curve2D_21svd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -32, -128, 0, 0, 0, 0, -32, 32, 0, 0, 0, 0, -32, -128, 0, 0, 0, 0, 160, 32, 0, 0, 0, 0, -32, -128)
+}
+point_count = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njony"]
+resource_local_to_scene = true
+shader = ExtResource("11_qar12")
+shader_parameter/alpha = 1.0
 
 [node name="TestingLevel" type="Node2D"]
 position = Vector2(64, -576)
@@ -125,6 +140,55 @@ position = Vector2(3008, -768)
 
 [node name="Platform2" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2304, 128)
+
+[node name="CycleManager" parent="DynamicEnvironment" instance=ExtResource("9_jnwiu")]
+position = Vector2(384, 192)
+CYCLE_TIME = 3.0
+
+[node name="Path2D" type="Path2D" parent="DynamicEnvironment/CycleManager"]
+position = Vector2(3136, -1056)
+curve = SubResource("Curve2D_21svd")
+
+[node name="PathFollowManager" parent="DynamicEnvironment/CycleManager/Path2D" instance=ExtResource("12_5uasi")]
+position = Vector2(-32, -128)
+
+[node name="Spring3" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("4_l2bog")]
+use_parent_material = true
+position = Vector2(0, 320)
+
+[node name="Hook" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("4_7y0ub")]
+position = Vector2(-160, -160)
+
+[node name="AirDraft" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("5_216pk")]
+position = Vector2(288, 160)
+scale = Vector2(0.300035, 0.300035)
+
+[node name="Spikes" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("4_12rrh")]
+position = Vector2(448, 128)
+
+[node name="Platform" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("6_k5dgf")]
+position = Vector2(-224, 224)
+
+[node name="ToggleManager" parent="DynamicEnvironment/CycleManager" instance=ExtResource("10_wepbp")]
+material = SubResource("ShaderMaterial_njony")
+position = Vector2(-1248, -512)
+
+[node name="Spring3" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("4_l2bog")]
+use_parent_material = true
+position = Vector2(0, 320)
+
+[node name="Hook" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("4_7y0ub")]
+position = Vector2(-160, -160)
+
+[node name="AirDraft" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("5_216pk")]
+position = Vector2(288, 160)
+scale = Vector2(0.300035, 0.300035)
+
+[node name="Spikes" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("4_12rrh")]
+position = Vector2(448, 128)
+
+[node name="Platform" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("6_k5dgf")]
+position = Vector2(-224, 224)
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
