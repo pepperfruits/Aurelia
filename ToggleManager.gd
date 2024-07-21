@@ -1,4 +1,5 @@
 extends Node2D
+class_name ToggleManager
 
 @export var starts_enabled : bool = true
 @export var disabled_alpha : float = 0.25
