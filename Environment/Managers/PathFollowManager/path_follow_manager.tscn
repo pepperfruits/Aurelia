@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c71nfh8lig6x"]
+
+[ext_resource type="Script" path="res://Environment/Managers/PathFollowManager/path_follow_manager.gd" id="1_w8kyi"]
+
+[node name="PathFollowManager" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_w8kyi")
