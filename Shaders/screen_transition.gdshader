@@ -19,5 +19,5 @@ void fragment() {
 	float yFraction = fract(FRAGCOORD.y / diamondPixelSize);
 	float xDistance = abs(xFraction - 0.5);
 	float yDistance = abs(yFraction - 0.5);
-	COLOR.a *=  when_lt(xDistance + yDistance + UV.x + UV.y, progress * 4.0);
+	COLOR.a *=  when_lt(xDistance + yDistance + (1.0 - UV.x) + UV.y, progress * 4.0);
 }
