@@ -1,19 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bf12w3jxyevd0"]
 
-[ext_resource type="Script" path="res://Environment/AirDraft/AirDraft.gd" id="1_cb11h"]
+[ext_resource type="Script" path="res://Environment/AirDraft/AirDraft.gd" id="1_5cpda"]
 [ext_resource type="Texture2D" uid="uid://crqwk77mnqv35" path="res://Environment/AirDraft/airdraft.png" id="2_g6bbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khyms"]
 size = Vector2(512, 1024)
 
 [node name="AirDraft" type="Area2D"]
+use_parent_material = true
 collision_layer = 0
-script = ExtResource("1_cb11h")
+script = ExtResource("1_5cpda")
 
 [node name="AirDraftCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_khyms")
 
 [node name="Airdraft" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_g6bbd")
 

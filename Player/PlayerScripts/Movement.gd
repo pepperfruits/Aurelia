@@ -79,8 +79,6 @@ var was_on_floor : bool = false
 #endregion
 
 func _process(delta):
-	$"../DebugLabel".text = str(current_state) + " " + str(hook_array.size())
-	
 	facing_direction = get_direction_facing()
 	current_state = get_state()
 	
