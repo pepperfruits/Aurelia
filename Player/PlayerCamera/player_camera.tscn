@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://iyw03gw5rmxd"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_n27qe"]
+[ext_resource type="PackedScene" uid="uid://b31t1id8708yx" path="res://UI/PlayerUI/player_ui.tscn" id="2_knmji"]
+[ext_resource type="Shader" path="res://Shaders/screen_transition.gdshader" id="3_humix"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdmwy"]
+shader = ExtResource("3_humix")
+shader_parameter/progress = null
+shader_parameter/diamondPixelSize = 50.0
+
+[sub_resource type="Animation" id="Animation_gmksn"]
+resource_name = "transition_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transition_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_b27ik"]
+resource_name = "transition_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transition_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yhcd"]
+_data = {
+"transition_fade_in": SubResource("Animation_gmksn"),
+"transition_fade_out": SubResource("Animation_b27ik")
+}
+
+[node name="PlayerCamera" type="Camera2D" node_paths=PackedStringArray("p")]
+limit_left = 0
+limit_top = -1855
+limit_right = 4095
+limit_bottom = 0
+editor_draw_limits = true
+script = ExtResource("1_n27qe")
+p = NodePath("")
+transition_progress = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("2_knmji")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="TransitionColor" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_bdmwy")
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2yhcd")
+}

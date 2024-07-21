@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddyqv7vduj3ps"]
 
-[ext_resource type="Script" path="res://LevelChangeArea.gd" id="1_apnx2"]
+[ext_resource type="Script" path="res://Zones/LevelChangeArea/LevelChangeArea.gd" id="1_n2yb2"]
 
 [node name="LevelChangeArea" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_apnx2")
+script = ExtResource("1_n2yb2")
 
 [node name="LevelChangeTimer" type="Timer" parent="."]
 one_shot = true
