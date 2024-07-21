@@ -47,34 +47,40 @@ shape = SubResource("RectangleShape2D_tcxc8")
 
 [node name="DynamicEnvironment" type="Node2D" parent="."]
 
-[node name="Hook" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
+[node name="Hooks" type="Node2D" parent="DynamicEnvironment"]
+
+[node name="Hook" parent="DynamicEnvironment/Hooks" instance=ExtResource("4_7y0ub")]
 position = Vector2(960, -192)
 
-[node name="Hook8" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
+[node name="Hook8" parent="DynamicEnvironment/Hooks" instance=ExtResource("4_7y0ub")]
 position = Vector2(1472, 128)
 
-[node name="Hook4" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
+[node name="Hook4" parent="DynamicEnvironment/Hooks" instance=ExtResource("4_7y0ub")]
 position = Vector2(1472, -512)
 
-[node name="Hook5" parent="DynamicEnvironment" instance=ExtResource("4_7y0ub")]
+[node name="Hook5" parent="DynamicEnvironment/Hooks" instance=ExtResource("4_7y0ub")]
 position = Vector2(960, -832)
 
-[node name="Spikes" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
+[node name="Spikes" type="Node2D" parent="DynamicEnvironment"]
+
+[node name="Spikes" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
 position = Vector2(1728, 448)
 
-[node name="Spikes2" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
+[node name="Spikes2" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
 position = Vector2(1856, 448)
 
-[node name="Spikes3" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
+[node name="Spikes3" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
 position = Vector2(1984, 448)
 
-[node name="Spikes4" parent="DynamicEnvironment" instance=ExtResource("4_12rrh")]
+[node name="Spikes4" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
 position = Vector2(2112, 448)
 
-[node name="Spring" parent="DynamicEnvironment" instance=ExtResource("4_l2bog")]
+[node name="Springs" type="Node2D" parent="DynamicEnvironment"]
+
+[node name="Spring" parent="DynamicEnvironment/Springs" instance=ExtResource("4_l2bog")]
 position = Vector2(1152, 512)
 
-[node name="Spring2" parent="DynamicEnvironment" instance=ExtResource("4_l2bog")]
+[node name="Spring2" parent="DynamicEnvironment/Springs" instance=ExtResource("4_l2bog")]
 position = Vector2(0, -704)
 rotation = 1.57079
 SPRING_VELOCITY = 10000.0
@@ -82,40 +88,42 @@ SPRING_VELOCITY = 10000.0
 [node name="AirDraft" parent="DynamicEnvironment" instance=ExtResource("5_216pk")]
 position = Vector2(3584, 0)
 
-[node name="Platform" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platforms" type="Node2D" parent="DynamicEnvironment"]
+
+[node name="Platform" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2688, 320)
 
-[node name="Platform3" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform3" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2880, 64)
 
-[node name="Platform4" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform4" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2496, -128)
 
-[node name="Platform5" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform5" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2944, -256)
 
-[node name="Platform6" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform6" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2240, -320)
 
-[node name="Platform7" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform7" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2688, -448)
 
-[node name="Platform8" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform8" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2176, -576)
 
-[node name="Platform9" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform9" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2240, -768)
 
-[node name="Platform10" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform10" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2496, -768)
 
-[node name="Platform11" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform11" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2752, -768)
 
-[node name="Platform12" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform12" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(3008, -768)
 
-[node name="Platform2" parent="DynamicEnvironment" instance=ExtResource("6_k5dgf")]
+[node name="Platform2" parent="DynamicEnvironment/Platforms" instance=ExtResource("6_k5dgf")]
 position = Vector2(2304, 128)
 
 [node name="Blocks" type="Node2D" parent="."]
