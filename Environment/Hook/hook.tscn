@@ -14,31 +14,38 @@ radius = 104.0
 height = 320.0
 
 [node name="Hook" type="Area2D"]
+use_parent_material = true
 collision_layer = 0
 script = ExtResource("1_qe3fk")
 spriteEnabled = ExtResource("1_se3hq")
 spriteDisabled = ExtResource("3_5ugqo")
 
 [node name="HookAreaCollisionShape" type="CollisionShape2D" parent="."]
+use_parent_material = true
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_ew1ul")
 
 [node name="HookSprite" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_se3hq")
 
 [node name="HookAuraSprite" type="Sprite2D" parent="."]
 visible = false
+use_parent_material = true
 scale = Vector2(0.648479, 0.648479)
 texture = ExtResource("4_ud0rb")
 
 [node name="HookCooldownTimer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 2.0
 one_shot = true
 
 [node name="AuraRange" type="Area2D" parent="."]
+use_parent_material = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AuraRange"]
+use_parent_material = true
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_0qhen")
 
