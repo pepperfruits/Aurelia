@@ -23,6 +23,11 @@ func _process(delta):
 func use():
 	disable()
 
+func released():
+	sprite.texture = spriteDisabled
+	if collision.disabled:
+		timer.start()
+
 func enable():
 	collision.disabled = false
 	sprite.texture = spriteEnabled
@@ -30,10 +35,9 @@ func enable():
 		spriteAura.visible = true
 
 func disable():
-#endregion
 	collision.disabled = true
-	sprite.texture = spriteDisabled
 	spriteAura.visible = false
+#endregion
 
 #region Signals
 func _on_hook_cooldown_timer_timeout():
@@ -45,8 +49,6 @@ func _on_aura_range_body_entered(_body):
 
 func _on_aura_range_body_exited(_body):
 	spriteAura.visible = false
-	if collision.disabled:
-		timer.start()
 
 func _on_body_entered(body : PlayerCharacter):
 	body._on_player_entered_hook_range(self)
