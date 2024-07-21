@@ -197,6 +197,8 @@ func hook_released(delta) -> void:
 	is_grappling = false
 	if inp.get_vertical_input() >= 0:
 		jump(delta)
+	else:
+		refresh_dash_charges()
 	
 	current_hook.released()
 	current_hook = null
