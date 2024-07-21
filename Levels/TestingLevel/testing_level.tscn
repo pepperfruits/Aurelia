@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=20 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
@@ -14,12 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://c1irfrejlonx5" path="res://Environment/Managers/ToggleManager/toggle_manager.tscn" id="10_wepbp"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="11_chm45"]
 [ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="11_qar12"]
+[ext_resource type="PackedScene" uid="uid://c71nfh8lig6x" path="res://Environment/Managers/PathFollowManager/path_follow_manager.tscn" id="12_5uasi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjd4m"]
 size = Vector2(384, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcxc8"]
 size = Vector2(128, 320)
+
+[sub_resource type="Curve2D" id="Curve2D_21svd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, -64, 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_njony"]
 resource_local_to_scene = true
@@ -136,10 +143,33 @@ position = Vector2(2304, 128)
 
 [node name="CycleManager" parent="DynamicEnvironment" instance=ExtResource("9_jnwiu")]
 position = Vector2(384, 192)
-CYCLE_TIME = 1.0
+CYCLE_TIME = 3.0
+
+[node name="Path2D" type="Path2D" parent="DynamicEnvironment/CycleManager"]
+curve = SubResource("Curve2D_21svd")
+
+[node name="PathFollowManager" parent="DynamicEnvironment/CycleManager/Path2D" instance=ExtResource("12_5uasi")]
+
+[node name="Spring3" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("4_l2bog")]
+use_parent_material = true
+position = Vector2(0, 320)
+
+[node name="Hook" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("4_7y0ub")]
+position = Vector2(-160, -160)
+
+[node name="AirDraft" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("5_216pk")]
+position = Vector2(288, 160)
+scale = Vector2(0.300035, 0.300035)
+
+[node name="Spikes" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("4_12rrh")]
+position = Vector2(448, 128)
+
+[node name="Platform" parent="DynamicEnvironment/CycleManager/Path2D/PathFollowManager" instance=ExtResource("6_k5dgf")]
+position = Vector2(-224, 224)
 
 [node name="ToggleManager" parent="DynamicEnvironment/CycleManager" instance=ExtResource("10_wepbp")]
 material = SubResource("ShaderMaterial_njony")
+position = Vector2(-1248, -512)
 
 [node name="Spring3" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("4_l2bog")]
 use_parent_material = true
