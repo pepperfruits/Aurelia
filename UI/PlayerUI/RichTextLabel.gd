@@ -1,5 +1,5 @@
 extends RichTextLabel
 
-func _process(delta):
+func _process(_delta):
 	text = "Deaths: " + str(ScoreManager.deaths)
-	
+
