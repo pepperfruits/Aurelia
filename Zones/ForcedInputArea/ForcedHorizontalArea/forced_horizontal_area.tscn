@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7yj37vdbjqmo"]
 
-[ext_resource type="Script" path="res://ForcedRightArea.gd" id="1_pnbn3"]
+[ext_resource type="Script" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/ForcedHorizontalArea.gd" id="1_pnbn3"]
 
 [node name="ForcedHorizontalArea" type="Area2D"]
 collision_layer = 0

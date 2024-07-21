@@ -10,6 +10,7 @@ func death():
 		$"../DebugLabel".text = "DEAD"
 		p.set_camera_transition(true)
 		DeathTransitionTimer.start()
+		ScoreManager.deaths += 1
 
 func apply_knockback(knockback : float, knockback_vector : Vector2) -> void:
 	entity.velocity = knockback_vector.normalized() * knockback
