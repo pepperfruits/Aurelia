@@ -120,9 +120,9 @@ offset_bottom = -185.465
 color = Color(0, 0, 0, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(96.1982, 0)
 color = Color(1, 0.968719, 0.778671, 1)
 energy = 0.61
+shadow_enabled = true
 texture = ExtResource("8_1xf3b")
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
