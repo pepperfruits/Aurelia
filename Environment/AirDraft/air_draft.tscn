@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bf12w3jxyevd0"]
 
-[ext_resource type="Script" path="res://AirDraft.gd" id="1_cb11h"]
+[ext_resource type="Script" path="res://Environment/AirDraft/AirDraft.gd" id="1_cb11h"]
 [ext_resource type="Texture2D" uid="uid://crqwk77mnqv35" path="res://Environment/AirDraft/airdraft.png" id="2_g6bbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khyms"]
