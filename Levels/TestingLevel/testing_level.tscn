@@ -146,7 +146,11 @@ use_parent_material = true
 position = Vector2(0, 320)
 
 [node name="Hook" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("4_7y0ub")]
-position = Vector2(224, 0)
+position = Vector2(-160, -160)
+
+[node name="AirDraft" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("5_216pk")]
+position = Vector2(288, 160)
+scale = Vector2(0.300035, 0.300035)
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
