@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=12 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
 [ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
+[ext_resource type="Texture2D" uid="uid://cucdhqbu6p0xi" path="res://Player/lanternlightshape.png" id="8_1xf3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
 size = Vector2(54.1115, 199.912)
@@ -117,6 +118,12 @@ offset_top = -225.465
 offset_right = 82.0867
 offset_bottom = -185.465
 color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(96.1982, 0)
+color = Color(1, 0.968719, 0.778671, 1)
+energy = 0.61
+texture = ExtResource("8_1xf3b")
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DashBufferTimer" to="InputHandler" method="_on_dash_buffer_timer_timeout"]
