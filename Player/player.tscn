@@ -1,13 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=14 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerAnimationHandler.gd" id="2_q3y52"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/Movement.gd" id="4_5rcjk"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
+[ext_resource type="Shader" path="res://Player/redflashing.gdshader" id="5_3jonh"]
 [ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
 [ext_resource type="Texture2D" uid="uid://cucdhqbu6p0xi" path="res://Player/lanternlightshape.png" id="8_1xf3b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcjhd"]
+shader = ExtResource("5_3jonh")
+shader_parameter/redness = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
 size = Vector2(54.1115, 199.912)
@@ -65,6 +70,7 @@ wait_time = 0.075
 one_shot = true
 
 [node name="PlaceHolderSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jcjhd")
 position = Vector2(0, 6)
 scale = Vector2(0.248456, 0.248456)
 texture = ExtResource("5_wjbs6")
@@ -95,7 +101,6 @@ invincibility_window = 1.5
 one_shot = true
 
 [node name="DebugLabel" type="Label" parent="."]
-visible = false
 offset_left = -174.359
 offset_top = -323.166
 offset_right = -12.3593
