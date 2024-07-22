@@ -47,6 +47,8 @@ class_name PlayerMovementHandler
 @export var GRAPPLE_DEADZONE : float = 20.0
 ## how fast you can fall at max speed
 @export var MAX_FALL_SPEED : float = 2000.0
+## the total time you can hold onto hooks
+@export var MAX_STAMINA_TIME : float = 1.5
 #endregion
 
 #region Variables
@@ -78,6 +80,8 @@ var current_state : STATE = STATE.IDLE
 var is_jump_coyote : bool = false
 ## true if you were just on the ground last frame
 var was_on_floor : bool = false
+## your current stamina time
+var current_stamina : float = MAX_STAMINA_TIME
 #endregion
 
 func _process(delta):
@@ -104,7 +108,8 @@ func _process(delta):
 	
 	match current_state:
 		STATE.HANGING:
-			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED):
+			current_stamina -= delta
+			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
 				hook_released(delta)
 			else:
 				pull_towards_hook(delta)
@@ -180,8 +185,10 @@ func get_state() -> STATE:
 		return STATE.IDLE
 
 func ground_refresh_hooks() -> void:
+	current_stamina = MAX_STAMINA_TIME
 	for i : Hook in hook_refresh_array:
 		i.ground_refresh()
+	hook_refresh_array.clear()
 
 func is_grapple_reached() -> bool:
 	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
