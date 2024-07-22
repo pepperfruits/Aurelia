@@ -15,7 +15,6 @@ var flashing_cycle_time : float = 0.0
 # This whole handler is temporary until we have spine set up TODO
 
 func _process(delta):
-	$"../DebugLabel".text = str(is_low_stamina_flashing) + " " + str(flashing_cycle_time)
 	if is_low_stamina_flashing:
 		flashing_cycle_time += delta * flashing_cycle_rate
 		if (flashing_cycle_time > 1.0):

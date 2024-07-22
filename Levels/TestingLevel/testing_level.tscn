@@ -36,6 +36,9 @@ shader_parameter/alpha = 1.0
 [node name="TestingLevel" type="Node2D"]
 position = Vector2(64, -576)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.520935, 0.473082, 0.65157, 1)
+
 [node name="Zones" type="Node2D" parent="."]
 
 [node name="ForcedHorizontalArea" parent="Zones" instance=ExtResource("6_vr4j2")]
