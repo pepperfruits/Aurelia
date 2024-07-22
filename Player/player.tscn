@@ -121,7 +121,7 @@ offset_bottom = -185.465
 color = Color(0, 0, 0, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 0.968719, 0.778671, 1)
+color = Color(0.78, 1, 0.783667, 1)
 energy = 0.61
 shadow_enabled = true
 texture = ExtResource("8_1xf3b")
