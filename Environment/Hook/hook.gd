@@ -15,6 +15,9 @@ class_name Hook
 @export var AURA_ROTATION_SPEED : float = 360.0
 #endregion
 
+var is_ground_refresh : bool = false
+var is_cooldown_refresh : bool = false
+
 func _process(delta):
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
@@ -29,6 +32,9 @@ func released():
 		timer.start()
 
 func enable():
+	is_ground_refresh = false
+	is_cooldown_refresh = false
+	
 	collision.disabled = false
 	sprite.texture = spriteEnabled
 	if not auraRange.get_overlapping_bodies().is_empty():
@@ -37,11 +43,18 @@ func enable():
 func disable():
 	collision.disabled = true
 	spriteAura.visible = false
+
+func ground_refresh():
+	is_ground_refresh = true
+	if is_cooldown_refresh:
+		enable()
 #endregion
 
 #region Signals
 func _on_hook_cooldown_timer_timeout():
-	enable()
+	is_cooldown_refresh = true
+	if is_ground_refresh:
+		enable()
 
 func _on_aura_range_body_entered(_body):
 	if not collision.disabled:

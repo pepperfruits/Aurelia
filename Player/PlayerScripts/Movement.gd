@@ -68,6 +68,8 @@ var is_hanging : bool = false
 var hook_array : Array[Hook] = []
 ## the current hook you are hanging onto, or grappling to
 var current_hook : Hook = null
+## List of hooks to refresh once you hit the ground
+var hook_refresh_array : Array[Hook] = []
 ## possible states the player can be in
 enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE}
 ## your current state
@@ -169,9 +171,17 @@ func get_state() -> STATE:
 			JumpCoyoteTimer.start()
 		return STATE.FALLING
 	elif inp.get_horizontal_input():
+		if not was_on_floor:
+			ground_refresh_hooks()
 		return STATE.RUNNING
 	else:
+		if not was_on_floor:
+			ground_refresh_hooks()
 		return STATE.IDLE
+
+func ground_refresh_hooks() -> void:
+	for i : Hook in hook_refresh_array:
+		i.ground_refresh()
 
 func is_grapple_reached() -> bool:
 	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
@@ -192,6 +202,7 @@ func grapple_reached(_delta) -> void:
 	is_hanging = true
 
 func hook_released(delta) -> void:
+	hook_refresh_array.append(current_hook)
 	is_hanging = false
 	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
 	is_grappling = false
