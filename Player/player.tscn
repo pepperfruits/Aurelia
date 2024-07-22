@@ -101,6 +101,7 @@ invincibility_window = 1.5
 one_shot = true
 
 [node name="DebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -174.359
 offset_top = -323.166
 offset_right = -12.3593
@@ -108,22 +109,6 @@ offset_bottom = -168.166
 text = "JUMP:
 DASH:"
 label_settings = SubResource("LabelSettings_3elej")
-
-[node name="JumpRect" type="ColorRect" parent="."]
-visible = false
-offset_left = 42.0867
-offset_top = -302.123
-offset_right = 82.0867
-offset_bottom = -262.123
-color = Color(0, 0, 0, 1)
-
-[node name="DashRect" type="ColorRect" parent="."]
-visible = false
-offset_left = 42.0867
-offset_top = -225.465
-offset_right = 82.0867
-offset_bottom = -185.465
-color = Color(0, 0, 0, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.78, 1, 0.783667, 1)

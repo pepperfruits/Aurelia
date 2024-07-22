@@ -50,7 +50,7 @@ class_name PlayerMovementHandler
 ## the total time you can hold onto hooks
 @export var MAX_STAMINA_TIME : float = 1.5
 ## how much time left you need for the player to start flashing
-@export var FLASHING_STAMINA_TIME : float = 0.2
+@export var FLASHING_STAMINA_TIME : float = 0.5
 #endregion
 
 #region Variables
@@ -91,15 +91,6 @@ func _process(delta):
 	current_state = get_state()
 	
 	anim.default(facing_direction) # remove this later, debug TODO
-	
-	if (can_dash()):
-		$"../DashRect".color = Color.GREEN
-	else:
-		$"../DashRect".color = Color.BLACK
-	if (can_jump()):
-		$"../JumpRect".color = Color.GREEN
-	else:
-		$"../JumpRect".color = Color.BLACK
 	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
