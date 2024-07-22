@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://degwbj0ixeanu"]
+[gd_scene load_steps=9 format=3 uid="uid://degwbj0ixeanu"]
 
 [ext_resource type="Script" path="res://Environment/Hook/hook.gd" id="1_qe3fk"]
-[ext_resource type="Texture2D" uid="uid://4sydabqxtg2r" path="res://Environment/Hook/hookEnabled.png" id="1_se3hq"]
-[ext_resource type="Texture2D" uid="uid://c5uh5cn1lf2p" path="res://Environment/Hook/hookDisabled.png" id="3_5ugqo"]
+[ext_resource type="Texture2D" uid="uid://cqqilrxb1gqaa" path="res://Environment/Hook/hookdown.png" id="3_hldry"]
+[ext_resource type="Texture2D" uid="uid://doxg4qbwr80f0" path="res://Environment/Hook/hookback.png" id="4_67xjd"]
 [ext_resource type="Texture2D" uid="uid://g80ybp6fviu4" path="res://Environment/Hook/hookAura.png" id="4_ud0rb"]
+[ext_resource type="Texture2D" uid="uid://cucdhqbu6p0xi" path="res://Player/lanternlightshape.png" id="5_dwmh3"]
+[ext_resource type="Texture2D" uid="uid://bq47jgpqqbfij" path="res://Environment/Hook/hookup.png" id="5_lyn1n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ew1ul"]
 radius = 120.0
@@ -17,24 +19,16 @@ height = 320.0
 use_parent_material = true
 collision_layer = 0
 script = ExtResource("1_qe3fk")
-spriteEnabled = ExtResource("1_se3hq")
-spriteDisabled = ExtResource("3_5ugqo")
+spriteEnabled = ExtResource("5_lyn1n")
+spriteDisabled = ExtResource("3_hldry")
+
+[node name="Hookback" type="Sprite2D" parent="."]
+texture = ExtResource("4_67xjd")
 
 [node name="HookAreaCollisionShape" type="CollisionShape2D" parent="."]
 use_parent_material = true
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_ew1ul")
-
-[node name="HookSprite" type="Sprite2D" parent="."]
-use_parent_material = true
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_se3hq")
-
-[node name="HookAuraSprite" type="Sprite2D" parent="."]
-visible = false
-use_parent_material = true
-scale = Vector2(0.648479, 0.648479)
-texture = ExtResource("4_ud0rb")
 
 [node name="HookCooldownTimer" type="Timer" parent="."]
 process_mode = 1
@@ -48,6 +42,22 @@ use_parent_material = true
 use_parent_material = true
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_0qhen")
+
+[node name="HookSprite" type="Sprite2D" parent="."]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_lyn1n")
+
+[node name="HookAuraSprite" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+scale = Vector2(0.648479, 0.648479)
+texture = ExtResource("4_ud0rb")
+
+[node name="HookLight" type="PointLight2D" parent="."]
+color = Color(0.85, 0.838667, 0.68, 1)
+energy = 0.2
+texture = ExtResource("5_dwmh3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

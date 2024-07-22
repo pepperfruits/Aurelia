@@ -7,6 +7,7 @@ class_name Hook
 @onready var sprite : Sprite2D = $HookSprite
 @onready var spriteAura : Sprite2D = $HookAuraSprite
 @onready var auraRange : Area2D = $AuraRange
+@onready var hookLight : PointLight2D = $HookLight
 #endregion
 
 #region Exports
@@ -37,12 +38,15 @@ func enable():
 	
 	collision.disabled = false
 	sprite.texture = spriteEnabled
+	hookLight.enabled = true
 	if not auraRange.get_overlapping_bodies().is_empty():
 		spriteAura.visible = true
 
 func disable():
+	hookLight.enabled = false
 	collision.disabled = true
 	spriteAura.visible = false
+	
 
 func ground_refresh():
 	is_ground_refresh = true
