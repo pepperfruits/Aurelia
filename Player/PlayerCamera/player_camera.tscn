@@ -45,14 +45,13 @@ _data = {
 "transition_fade_out": SubResource("Animation_b27ik")
 }
 
-[node name="PlayerCamera" type="Camera2D" node_paths=PackedStringArray("p")]
+[node name="PlayerCamera" type="Camera2D"]
 limit_left = 0
 limit_top = -1855
 limit_right = 4095
 limit_bottom = 0
 editor_draw_limits = true
 script = ExtResource("1_n27qe")
-p = NodePath("")
 transition_progress = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -49,6 +49,8 @@ class_name PlayerMovementHandler
 @export var MAX_FALL_SPEED : float = 2000.0
 ## the total time you can hold onto hooks
 @export var MAX_STAMINA_TIME : float = 1.5
+## how much time left you need for the player to start flashing
+@export var FLASHING_STAMINA_TIME : float = 0.2
 #endregion
 
 #region Variables
@@ -109,6 +111,7 @@ func _process(delta):
 	match current_state:
 		STATE.HANGING:
 			current_stamina -= delta
+			anim.low_stamina_flashing(current_stamina < 0.2)
 			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
 				hook_released(delta)
 			else:
@@ -177,10 +180,12 @@ func get_state() -> STATE:
 		return STATE.FALLING
 	elif inp.get_horizontal_input():
 		if not was_on_floor:
+			anim.low_stamina_flashing(false)
 			ground_refresh_hooks()
 		return STATE.RUNNING
 	else:
 		if not was_on_floor:
+			anim.low_stamina_flashing(false)
 			ground_refresh_hooks()
 		return STATE.IDLE
 
