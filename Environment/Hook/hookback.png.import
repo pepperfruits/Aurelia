@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5uh5cn1lf2p"
-path="res://.godot/imported/hookDisabled.png-5fc60bc1d68bb7374069505cb295ba38.ctex"
+uid="uid://doxg4qbwr80f0"
+path="res://.godot/imported/hookback.png-3e4da8f6f0950c61c0e032db7686ecf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Hook/hookDisabled.png"
-dest_files=["res://.godot/imported/hookDisabled.png-5fc60bc1d68bb7374069505cb295ba38.ctex"]
+source_file="res://Environment/Hook/hookback.png"
+dest_files=["res://.godot/imported/hookback.png-3e4da8f6f0950c61c0e032db7686ecf0.ctex"]
 
 [params]
 
