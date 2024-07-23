@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5jcku0nmvb3l"]
+[gd_scene load_steps=9 format=3 uid="uid://b5jcku0nmvb3l"]
 
 [ext_resource type="Script" path="res://Environment/Spring/spring.gd" id="1_32l2e"]
 [ext_resource type="Texture2D" uid="uid://h0twa8jof1u1" path="res://Environment/Spring/springbottom.png" id="2_eyey0"]
 [ext_resource type="Texture2D" uid="uid://brcn85kyus5cm" path="res://Environment/Spring/springmiddle.png" id="3_rcfdh"]
 [ext_resource type="Texture2D" uid="uid://cesrxkjtru1h3" path="res://Environment/Spring/springtop.png" id="4_d8i7u"]
+[ext_resource type="Texture2D" uid="uid://cucdhqbu6p0xi" path="res://Player/lanternlightshape.png" id="5_ecijq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4wg7"]
 size = Vector2(128, 56)
@@ -83,5 +84,12 @@ texture = ExtResource("4_d8i7u")
 libraries = {
 "": SubResource("AnimationLibrary_gk30p")
 }
+
+[node name="SpringLight" type="PointLight2D" parent="."]
+position = Vector2(0, -56)
+color = Color(0.85, 0.838667, 0.68, 1)
+energy = 0.3
+texture = ExtResource("5_ecijq")
+texture_scale = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
