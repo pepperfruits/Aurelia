@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Platform
 
-@export var HOLD_TO_FALL_VELOCITY : float = 200.0
-@export var UNDER_PLATFORM_Y : float = 220.0
+@export var HOLD_TO_FALL_VELOCITY : float = 400.0
+@export var UNDER_PLATFORM_Y : float = 120.0
 
 var p : PlayerCharacter = null
 @onready var CollisionShape : CollisionShape2D = $PlatformCollisionShape
