@@ -8,7 +8,10 @@ class_name PlayerCharacter
 func _process(_delta):
 	pass
 
-func _on_player_entered_hook_range(hook : Hook):
+func ground_refresh_hooks() -> void:
+	Movement.ground_refresh_hooks()
+
+func _on_player_entered_hook_range(hook : Hook) -> void:
 	Movement.hook_array.push_front(hook)
 
 func _on_player_exited_hook_range(hook : Hook):
