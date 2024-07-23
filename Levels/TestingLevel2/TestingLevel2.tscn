@@ -39,10 +39,10 @@ position = Vector2(48, 0)
 shape = SubResource("RectangleShape2D_1u3cs")
 
 [node name="Spikes" parent="." instance=ExtResource("5_i1lg0")]
-position = Vector2(704, 320)
+position = Vector2(704, 384)
 
 [node name="Spikes2" parent="." instance=ExtResource("5_i1lg0")]
-position = Vector2(832, 320)
+position = Vector2(832, 384)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("2_s130j")]
 position = Vector2(-320, -256)

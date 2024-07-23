@@ -96,16 +96,16 @@ position = Vector2(960, -832)
 [node name="Spikes" type="Node2D" parent="DynamicEnvironment"]
 
 [node name="Spikes" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
-position = Vector2(1728, 448)
+position = Vector2(1728, 512)
 
 [node name="Spikes2" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
-position = Vector2(1856, 448)
+position = Vector2(1856, 512)
 
 [node name="Spikes3" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
-position = Vector2(1984, 448)
+position = Vector2(1984, 512)
 
 [node name="Spikes4" parent="DynamicEnvironment/Spikes" instance=ExtResource("4_12rrh")]
-position = Vector2(2112, 448)
+position = Vector2(2112, 512)
 
 [node name="Springs" type="Node2D" parent="DynamicEnvironment"]
 
