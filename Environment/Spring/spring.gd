@@ -7,6 +7,8 @@ class_name Spring
 @export var USE_CUSTOM_VELOCITY : bool = false
 @export var CUSTOM_VELOCITY : Vector2 = Vector2(2000, 2000)
 
+@onready var animation : AnimationPlayer = $AnimationPlayer
+
 func _on_body_entered(p : PlayerCharacter):
 	bounce(p)
 
@@ -27,4 +29,5 @@ func bounce(p : PlayerCharacter):
 	p.ground_refresh_hooks()
 	p.refresh_dash_charges()
 	p.end_dash()
+	animation.play("bounce")
 #endregion
