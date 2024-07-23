@@ -27,7 +27,7 @@ color = Color(0.333333, 0.819608, 0.886275, 1)
 alpha_curve = SubResource("CurveTexture_ic4fu")
 
 [node name="Coin" type="Area2D"]
-collision_layer = 0
+collision_layer = 4096
 script = ExtResource("1_8x20p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

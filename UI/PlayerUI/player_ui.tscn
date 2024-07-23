@@ -16,5 +16,6 @@ offset_left = 32.0
 offset_top = 32.0
 offset_right = 416.0
 offset_bottom = 288.0
-text = "Deaths:"
+text = "
+"
 script = ExtResource("1_we8gw")
