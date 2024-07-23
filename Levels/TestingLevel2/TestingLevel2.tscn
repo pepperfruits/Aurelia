@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsk8drsfka3vc"]
+[gd_scene load_steps=8 format=3 uid="uid://bsk8drsfka3vc"]
 
 [ext_resource type="TileSet" uid="uid://duj0pwjkpic5f" path="res://Assets/Tilesets/TileSetBricks.tres" id="1_1pkce"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="2_s130j"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="3_gt2hj"]
 [ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="4_0tif3"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="5_i1lg0"]
+[ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="6_26m8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1u3cs"]
 size = Vector2(416, 320)
@@ -52,3 +53,6 @@ limit_left = -256
 limit_top = -1080
 limit_right = 2048
 p = NodePath("../Player")
+
+[node name="Platform" parent="." instance=ExtResource("6_26m8d")]
+position = Vector2(768, -96)
