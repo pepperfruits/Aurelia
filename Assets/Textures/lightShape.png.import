@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cucdhqbu6p0xi"
-path="res://.godot/imported/lanternlightshape.png-3eff7fbc8820e2831f7cec52f9365752.ctex"
+uid="uid://dbnnb5viqppmf"
+path="res://.godot/imported/lightShape.png-59bda29d8f0fbe8fe515d6a906f8e902.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/lanternlightshape.png"
-dest_files=["res://.godot/imported/lanternlightshape.png-3eff7fbc8820e2831f7cec52f9365752.ctex"]
+source_file="res://Assets/Textures/lightShape.png"
+dest_files=["res://.godot/imported/lightShape.png-59bda29d8f0fbe8fe515d6a906f8e902.ctex"]
 
 [params]
 
