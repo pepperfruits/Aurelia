@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=22 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="TileSet" uid="uid://duj0pwjkpic5f" path="res://Assets/Tilesets/TileSetBricks.tres" id="1_cl34c"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="11_chm45"]
 [ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="11_qar12"]
 [ext_resource type="PackedScene" uid="uid://c71nfh8lig6x" path="res://Environment/Managers/PathFollowManager/path_follow_manager.tscn" id="12_5uasi"]
+[ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="14_o0q0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjd4m"]
 size = Vector2(384, 320)
@@ -206,6 +207,9 @@ position = Vector2(448, 128)
 
 [node name="Platform" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("6_k5dgf")]
 position = Vector2(-224, 224)
+
+[node name="Coin" parent="DynamicEnvironment" instance=ExtResource("14_o0q0f")]
+position = Vector2(290, 83)
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)
