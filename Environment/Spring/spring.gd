@@ -24,6 +24,7 @@ func bounce(p : PlayerCharacter):
 	else:
 		p.set_player_velocity(get_spring_velocity() + get_perpendicular_velocity(p))
 	
+	p.ground_refresh_hooks()
 	p.refresh_dash_charges()
 	p.end_dash()
 #endregion
