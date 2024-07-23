@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://jkcpwgpyvxvx"]
+
+[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="1_1ckqj"]
+[ext_resource type="Texture2D" uid="uid://cndps2055bkp3" path="res://Environment/Torch/torch.png" id="2_y8w1u"]
+
+[node name="Torch" type="PointLight2D"]
+color = Color(0.86, 0.575627, 0.3096, 1)
+energy = 0.3
+texture = ExtResource("1_1ckqj")
+texture_scale = 0.5
+
+[node name="Torch" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_y8w1u")
