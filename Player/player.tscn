@@ -8,7 +8,7 @@
 [ext_resource type="Shader" path="res://Player/redflashing.gdshader" id="5_3jonh"]
 [ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
-[ext_resource type="Texture2D" uid="uid://cucdhqbu6p0xi" path="res://Player/lanternlightshape.png" id="8_1xf3b"]
+[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="9_78g1o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jcjhd"]
 shader = ExtResource("5_3jonh")
@@ -111,7 +111,7 @@ label_settings = SubResource("LabelSettings_3elej")
 color = Color(0.78, 1, 0.783667, 1)
 energy = 0.61
 shadow_enabled = true
-texture = ExtResource("8_1xf3b")
+texture = ExtResource("9_78g1o")
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DashBufferTimer" to="InputHandler" method="_on_dash_buffer_timer_timeout"]
