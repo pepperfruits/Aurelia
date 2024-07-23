@@ -101,13 +101,10 @@ invincibility_window = 1.5
 one_shot = true
 
 [node name="DebugLabel" type="Label" parent="."]
-visible = false
 offset_left = -174.359
 offset_top = -323.166
 offset_right = -12.3593
 offset_bottom = -168.166
-text = "JUMP:
-DASH:"
 label_settings = SubResource("LabelSettings_3elej")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

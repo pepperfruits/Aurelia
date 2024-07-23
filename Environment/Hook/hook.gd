@@ -18,8 +18,11 @@ class_name Hook
 
 var is_ground_refresh : bool = false
 var is_cooldown_refresh : bool = false
+var is_collision_enabled : bool = true
 
 func _process(delta):
+	collision.disabled = not is_collision_enabled
+	$Label.text = str(is_ground_refresh) + "\n" + str(is_cooldown_refresh)
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 
@@ -36,7 +39,8 @@ func enable():
 	is_ground_refresh = false
 	is_cooldown_refresh = false
 	
-	collision.disabled = false
+	
+	is_collision_enabled = true
 	sprite.texture = spriteEnabled
 	hookLight.enabled = true
 	if not auraRange.get_overlapping_bodies().is_empty():
@@ -44,9 +48,8 @@ func enable():
 
 func disable():
 	hookLight.enabled = false
-	collision.disabled = true
+	is_collision_enabled = false
 	spriteAura.visible = false
-	
 
 func ground_refresh():
 	is_ground_refresh = true
