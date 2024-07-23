@@ -48,9 +48,9 @@ class_name PlayerMovementHandler
 ## how fast you can fall at max speed
 @export var MAX_FALL_SPEED : float = 2000.0
 ## the total time you can hold onto hooks
-@export var MAX_STAMINA_TIME : float = 1.5
+@export var MAX_STAMINA_TIME : float = 1.75
 ## how much time left you need for the player to start flashing
-@export var FLASHING_STAMINA_TIME : float = 0.5
+@export var FLASHING_STAMINA_TIME : float = 1.0
 #endregion
 
 #region Variables
