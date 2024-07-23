@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dqwdcyh7cv6mn"]
 
-[ext_resource type="Script" path="res://CycleManager.gd" id="1_g74ix"]
+[ext_resource type="Script" path="res://Environment/Managers/CycleManager/CycleManager.gd" id="1_g74ix"]
 
 [node name="CycleManager" type="Node2D"]
 script = ExtResource("1_g74ix")

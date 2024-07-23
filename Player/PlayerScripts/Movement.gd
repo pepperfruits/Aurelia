@@ -47,6 +47,10 @@ class_name PlayerMovementHandler
 @export var GRAPPLE_DEADZONE : float = 20.0
 ## how fast you can fall at max speed
 @export var MAX_FALL_SPEED : float = 2000.0
+## the total time you can hold onto hooks
+@export var MAX_STAMINA_TIME : float = 1.5
+## how much time left you need for the player to start flashing
+@export var FLASHING_STAMINA_TIME : float = 0.5
 #endregion
 
 #region Variables
@@ -68,6 +72,8 @@ var is_hanging : bool = false
 var hook_array : Array[Hook] = []
 ## the current hook you are hanging onto, or grappling to
 var current_hook : Hook = null
+## List of hooks to refresh once you hit the ground
+var hook_refresh_array : Array[Hook] = []
 ## possible states the player can be in
 enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE}
 ## your current state
@@ -76,6 +82,8 @@ var current_state : STATE = STATE.IDLE
 var is_jump_coyote : bool = false
 ## true if you were just on the ground last frame
 var was_on_floor : bool = false
+## your current stamina time
+var current_stamina : float = MAX_STAMINA_TIME
 #endregion
 
 func _process(delta):
@@ -83,15 +91,6 @@ func _process(delta):
 	current_state = get_state()
 	
 	anim.default(facing_direction) # remove this later, debug TODO
-	
-	if (can_dash()):
-		$"../DashRect".color = Color.GREEN
-	else:
-		$"../DashRect".color = Color.BLACK
-	if (can_jump()):
-		$"../JumpRect".color = Color.GREEN
-	else:
-		$"../JumpRect".color = Color.BLACK
 	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
@@ -102,7 +101,9 @@ func _process(delta):
 	
 	match current_state:
 		STATE.HANGING:
-			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED):
+			current_stamina -= delta
+			anim.low_stamina_flashing(current_stamina < 0.2)
+			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
 				hook_released(delta)
 			else:
 				pull_towards_hook(delta)
@@ -169,9 +170,21 @@ func get_state() -> STATE:
 			JumpCoyoteTimer.start()
 		return STATE.FALLING
 	elif inp.get_horizontal_input():
+		if not was_on_floor:
+			anim.low_stamina_flashing(false)
+			ground_refresh_hooks()
 		return STATE.RUNNING
 	else:
+		if not was_on_floor:
+			anim.low_stamina_flashing(false)
+			ground_refresh_hooks()
 		return STATE.IDLE
+
+func ground_refresh_hooks() -> void:
+	current_stamina = MAX_STAMINA_TIME
+	for i : Hook in hook_refresh_array:
+		i.ground_refresh()
+	hook_refresh_array.clear()
 
 func is_grapple_reached() -> bool:
 	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
@@ -192,6 +205,7 @@ func grapple_reached(_delta) -> void:
 	is_hanging = true
 
 func hook_released(delta) -> void:
+	hook_refresh_array.append(current_hook)
 	is_hanging = false
 	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
 	is_grappling = false
