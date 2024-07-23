@@ -46,10 +46,7 @@ _data = {
 }
 
 [node name="PlayerCamera" type="Camera2D"]
-limit_left = 0
-limit_top = -1855
-limit_right = 4095
-limit_bottom = 0
+process_priority = -1
 editor_draw_limits = true
 script = ExtResource("1_n27qe")
 transition_progress = 0.0
