@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5jcku0nmvb3l"]
 
 [ext_resource type="Script" path="res://Environment/Spring/spring.gd" id="1_32l2e"]
-[ext_resource type="Texture2D" uid="uid://h0twa8jof1u1" path="res://Environment/Spring/springbottom.png" id="2_eyey0"]
-[ext_resource type="Texture2D" uid="uid://brcn85kyus5cm" path="res://Environment/Spring/springmiddle.png" id="3_rcfdh"]
-[ext_resource type="Texture2D" uid="uid://cesrxkjtru1h3" path="res://Environment/Spring/springtop.png" id="4_d8i7u"]
+[ext_resource type="Texture2D" uid="uid://1spr028b2mv" path="res://Environment/Spring/springbottom.png" id="2_eyey0"]
+[ext_resource type="Texture2D" uid="uid://c1f82n8nkd7r7" path="res://Environment/Spring/springmiddle.png" id="3_rcfdh"]
+[ext_resource type="Texture2D" uid="uid://2rbgwbft3hmq" path="res://Environment/Spring/springtop.png" id="4_d8i7u"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="5_30biu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4wg7"]
