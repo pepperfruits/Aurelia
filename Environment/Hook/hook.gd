@@ -22,7 +22,6 @@ var is_collision_enabled : bool = true
 
 func _process(delta):
 	collision.disabled = not is_collision_enabled
-	$Label.text = str(is_ground_refresh) + "\n" + str(is_cooldown_refresh)
 	if spriteAura.visible:
 		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 
