@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvtd1nx3s8bn2"]
+[gd_scene load_steps=24 format=3 uid="uid://dvtd1nx3s8bn2"]
 
 [ext_resource type="TileSet" uid="uid://duj0pwjkpic5f" path="res://Assets/Tilesets/TileSetBricks.tres" id="1_cl34c"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="4_12rrh"]
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="4_l2bog"]
 [ext_resource type="PackedScene" uid="uid://bf12w3jxyevd0" path="res://Environment/AirDraft/air_draft.tscn" id="5_216pk"]
+[ext_resource type="PackedScene" uid="uid://c0sg5xhwd6ky8" path="res://Zones/CoinCollectionZone/coin_collection_area.tscn" id="5_he6bv"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="6_k5dgf"]
 [ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="6_vr4j2"]
 [ext_resource type="PackedScene" uid="uid://dqwdcyh7cv6mn" path="res://Environment/Managers/CycleManager/cycle_manager.tscn" id="9_jnwiu"]
@@ -16,12 +17,16 @@
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="11_chm45"]
 [ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="11_qar12"]
 [ext_resource type="PackedScene" uid="uid://c71nfh8lig6x" path="res://Environment/Managers/PathFollowManager/path_follow_manager.tscn" id="12_5uasi"]
+[ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="14_o0q0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjd4m"]
 size = Vector2(384, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcxc8"]
 size = Vector2(128, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq780"]
+size = Vector2(1776, 1344)
 
 [sub_resource type="Curve2D" id="Curve2D_21svd"]
 _data = {
@@ -69,13 +74,21 @@ HORZIONTAL_INPUT = 1.0
 position = Vector2(4160, 384)
 shape = SubResource("RectangleShape2D_bjd4m")
 
-[node name="LevelChangeArea" parent="Zones" instance=ExtResource("2_m2idd")]
+[node name="LevelChangeArea" parent="Zones" node_paths=PackedStringArray("coinArea") instance=ExtResource("2_m2idd")]
 position = Vector2(4160, 384)
 scene = ExtResource("3_gfkeu")
+coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/LevelChangeArea"]
 position = Vector2(64, 0)
 shape = SubResource("RectangleShape2D_tcxc8")
+
+[node name="CoinCollectionArea" parent="Zones" instance=ExtResource("5_he6bv")]
+position = Vector2(4160, 384)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/CoinCollectionArea"]
+visible = false
+shape = SubResource("RectangleShape2D_wq780")
 
 [node name="DynamicEnvironment" type="Node2D" parent="."]
 
@@ -206,6 +219,9 @@ position = Vector2(448, 128)
 
 [node name="Platform" parent="DynamicEnvironment/CycleManager/ToggleManager" instance=ExtResource("6_k5dgf")]
 position = Vector2(-224, 224)
+
+[node name="Coin" parent="DynamicEnvironment" instance=ExtResource("14_o0q0f")]
+position = Vector2(290, 83)
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(0, -8)

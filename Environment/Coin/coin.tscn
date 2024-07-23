@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8d848u5nffhp"]
+
+[ext_resource type="Script" path="res://Environment/Coin/coin.gd" id="1_8x20p"]
+[ext_resource type="Texture2D" uid="uid://cks1hmdcc7wd8" path="res://Environment/Coin/coin.png" id="1_exjo2"]
+[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="3_d78fl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0db21"]
+radius = 125.324
+
+[sub_resource type="Curve" id="Curve_n82i2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ic4fu"]
+curve = SubResource("Curve_n82i2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8jv7g"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.03
+scale_max = 0.05
+color = Color(0.333333, 0.819608, 0.886275, 1)
+alpha_curve = SubResource("CurveTexture_ic4fu")
+
+[node name="Coin" type="Area2D"]
+collision_layer = 4096
+script = ExtResource("1_8x20p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0db21")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.75, 0.75)
+color = Color(0.333333, 0.819608, 0.886275, 1)
+energy = 0.5
+texture = ExtResource("3_d78fl")
+texture_scale = 0.4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_8jv7g")
+texture = ExtResource("3_d78fl")
+
+[node name="CoinSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_exjo2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
