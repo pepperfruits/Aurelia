@@ -1,4 +1,4 @@
-extends Node
+extends SpineSprite
 class_name PlayerAnimationHandler
 
 @export var flashing_cycle_rate : float = 3.0
@@ -19,19 +19,19 @@ func _process(delta):
 		flashing_cycle_time += delta * flashing_cycle_rate
 		if (flashing_cycle_time > 1.0):
 			flashing_cycle_time -= 1.0
-		$"../PlaceHolderSprite".material.set("shader_parameter/redness", abs(sin(flashing_cycle_time * PI)))
+		normal_material.set("shader_parameter/redness", abs(sin(flashing_cycle_time * PI)))
 
 func low_stamina_flashing(enabled : bool):
 	is_low_stamina_flashing = enabled
 	if not enabled:
-		$"../PlaceHolderSprite".material.set("shader_parameter/redness", 0.0)
+		normal_material.set("shader_parameter/redness", 0.0)
 
 func default(direction : int) -> void:
-	$"../PlaceHolderSprite".scale.x = 0.248 * direction 
-	$"../PlaceHolderSprite".rotation_degrees = 0 
+	scale.x = 0.248 * direction 
+	rotation_degrees = 0 
 
 func dashing(direction : int) -> void:
 	if (direction == 1):
-		$"../PlaceHolderSprite".rotation_degrees = 80 # TODO remove, debug!
+		rotation_degrees = 80 # TODO remove, debug!
 	else:
-		$"../PlaceHolderSprite".rotation_degrees = -80 # TODO remove, debug!
+		rotation_degrees = -80 # TODO remove, debug!

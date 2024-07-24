@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dcc0yqm2emy4f"
+path="res://.godot/imported/Aurelia.skel-1419e2361ce2bc6eb040cf17639cddb2.spskel"
+
+[deps]
+
+source_file="res://Player/PlayerSpine/Aurelia.skel"
+dest_files=["res://.godot/imported/Aurelia.skel-1419e2361ce2bc6eb040cf17639cddb2.spskel"]
+
+[params]
+
