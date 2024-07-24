@@ -38,11 +38,11 @@ script = ExtResource("1_c7am8")
 
 [node name="AnimationHandler" type="SpineSprite" parent="."]
 position = Vector2(0, 132.273)
-scale = Vector2(0.240329, 0.245272)
+scale = Vector2(0.24, 0.24)
 skeleton_data_res = SubResource("SpineSkeletonDataResource_k8htf")
 normal_material = SubResource("ShaderMaterial_h4ge2")
-preview_skin = "Default"
-preview_animation = "Idle"
+preview_skin = "default"
+preview_animation = "-- Empty --"
 preview_frame = false
 preview_time = 0.0
 script = ExtResource("2_q3y52")

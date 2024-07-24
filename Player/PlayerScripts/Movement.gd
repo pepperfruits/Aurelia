@@ -90,7 +90,7 @@ func _process(delta):
 	facing_direction = get_direction_facing()
 	current_state = get_state()
 	
-	anim.default(facing_direction) # remove this later, debug TODO
+	anim.set_direction(facing_direction)
 	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
@@ -114,16 +114,18 @@ func _process(delta):
 			else:
 				pull_towards_hook(delta)
 		STATE.DASHING:
-			anim.dashing(facing_direction)
+			pass
 		STATE.FALLING:
 			if (inp.get_horizontal_input()):
 				apply_acceleration(delta, inp.get_horizontal_input())
 			else:
 				apply_friction(delta)
 		STATE.RUNNING:
+			anim.run()
 			refresh_dash_charges()
 			apply_acceleration(delta, inp.get_horizontal_input())
 		STATE.IDLE:
+			anim.idle()
 			refresh_dash_charges()
 			apply_friction(delta)
 	
