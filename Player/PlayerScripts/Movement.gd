@@ -102,7 +102,7 @@ func _process(delta):
 	match current_state:
 		STATE.HANGING:
 			current_stamina -= delta
-			anim.low_stamina_flashing(current_stamina < 0.2)
+			anim.low_stamina_flashing(current_stamina < FLASHING_STAMINA_TIME)
 			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
 				hook_released(delta)
 			else:

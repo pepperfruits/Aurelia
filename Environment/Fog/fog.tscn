@@ -25,6 +25,7 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_agxik")
 layer = 2
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.2, 1.2)
 motion_mirroring = Vector2(3840, 2160)
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
