@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=16 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_8m3rw"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_8vh5k"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c0sg5xhwd6ky8" path="res://Zones/CoinCollectionZone/coin_collection_area.tscn" id="5_78brd"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="6_ehh0f"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="7_vtngm"]
+[ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="10_ht70a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uebfb"]
 size = Vector2(368, 384)
@@ -116,6 +117,8 @@ position = Vector2(4096, -640)
 
 [node name="Coin" parent="." instance=ExtResource("7_vtngm")]
 position = Vector2(3200, -1280)
+
+[node name="Fog" parent="." instance=ExtResource("10_ht70a")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_8vh5k")]
 position = Vector2(-64, 0)
