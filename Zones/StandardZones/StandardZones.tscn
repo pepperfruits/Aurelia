@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwqpndatc0cm5"]
+
+[ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="1_senrg"]
+[ext_resource type="PackedScene" uid="uid://ddyqv7vduj3ps" path="res://Zones/LevelChangeArea/level_change_area.tscn" id="2_f3a11"]
+[ext_resource type="PackedScene" uid="uid://c0sg5xhwd6ky8" path="res://Zones/CoinCollectionZone/coin_collection_area.tscn" id="3_4yb36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uebfb"]
+size = Vector2(368, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8t4u"]
+size = Vector2(128, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb2dd"]
+size = Vector2(2112, 1728)
+
+[node name="StandardZones" type="Node"]
+
+[node name="ForcedHorizontalArea" parent="." instance=ExtResource("1_senrg")]
+HORZIONTAL_INPUT = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForcedHorizontalArea"]
+position = Vector2(-88, 0)
+shape = SubResource("RectangleShape2D_uebfb")
+
+[node name="ForcedHorizontalArea2" parent="." instance=ExtResource("1_senrg")]
+position = Vector2(5248, -1664)
+HORZIONTAL_INPUT = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForcedHorizontalArea2"]
+position = Vector2(128, -64)
+shape = SubResource("RectangleShape2D_uebfb")
+
+[node name="LevelChangeArea" parent="." instance=ExtResource("2_f3a11")]
+position = Vector2(5568, -1728)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelChangeArea"]
+shape = SubResource("RectangleShape2D_m8t4u")
+
+[node name="CoinCollectionArea" parent="." instance=ExtResource("3_4yb36")]
+position = Vector2(5568, -1728)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinCollectionArea"]
+visible = false
+shape = SubResource("RectangleShape2D_hb2dd")
