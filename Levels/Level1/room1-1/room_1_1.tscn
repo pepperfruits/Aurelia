@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=13 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_8m3rw"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_8vh5k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="3_vwvou"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="4_edcqp"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="5_yepbb"]
+[ext_resource type="PackedScene" uid="uid://q2laxpkfaosg" path="res://Levels/Level1/room2-2/room_2_2.tscn" id="6_78ml8"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="6_ehh0f"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="7_vtngm"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="10_ht70a"]
@@ -56,6 +57,10 @@ position = Vector2(4608, -384)
 
 [node name="StandardZones" parent="." instance=ExtResource("5_yepbb")]
 
+[node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
+scene = ExtResource("6_78ml8")
+coinArea = NodePath("../CoinCollectionArea")
+
 [node name="Hooks" type="Node2D" parent="."]
 
 [node name="Hook" parent="Hooks" instance=ExtResource("6_ehh0f")]
@@ -80,6 +85,7 @@ position = Vector2(4096, -640)
 position = Vector2(3200, -1280)
 
 [node name="Fog" parent="." instance=ExtResource("10_ht70a")]
+scroll_offset = Vector2(-2244, 895)
 
 [node name="Darkness" parent="." instance=ExtResource("11_uodut")]
 position = Vector2(2708, 323)
@@ -96,3 +102,5 @@ limit_top = -2140
 limit_right = 5280
 limit_bottom = 405
 p = NodePath("../Player")
+
+[editable path="StandardZones"]
