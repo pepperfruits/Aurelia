@@ -46,7 +46,6 @@ func enable():
 func disable():
 	hookLight.enabled = false
 	is_collision_enabled = false
-	anim.play("aura_disable")
 
 func ground_refresh():
 	is_ground_refresh = true
@@ -63,10 +62,6 @@ func _on_hook_cooldown_timer_timeout():
 func _on_aura_range_body_entered(_body):
 	if not collision.disabled:
 		anim.play("aura_enable")
-
-func _on_aura_range_body_exited(_body):
-	if spriteAura.scale.x > 0.999:
-		anim.play("aura_disable")
 
 func _on_body_entered(body : PlayerCharacter):
 	body._on_player_entered_hook_range(self)
