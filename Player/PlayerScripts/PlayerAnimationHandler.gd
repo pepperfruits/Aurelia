@@ -35,6 +35,8 @@ func set_direction(direction : int) -> void:
 func change_animation(animation_name : String, looping : bool, id : int) -> void:
 	if a.get_current(1).get_animation().get_name() != animation_name:
 		a.set_animation(animation_name, looping, id)
+		if animation_name == "Dash":
+			a.add_animation("DashEnd", 0.05, false, MOVEMENT_TRACK_INDEX)
 
 func idle() -> void:
 	change_animation("Idle", true, MOVEMENT_TRACK_INDEX)
@@ -47,6 +49,9 @@ func skid() -> void:
 
 func dash() -> void:
 	change_animation("StaffDash", true, MOVEMENT_TRACK_INDEX)
+
+func hanging() -> void:
+	change_animation("Hanging", true, MOVEMENT_TRACK_INDEX)
 
 func fall(y_velocity : float) -> void:
 	if y_velocity < -APEX_RANGE:
