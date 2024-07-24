@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="3_vwvou"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="4_edcqp"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="5_yepbb"]
-[ext_resource type="PackedScene" uid="uid://q2laxpkfaosg" path="res://Levels/Level1/room2-2/room_2_2.tscn" id="6_78ml8"]
+[ext_resource type="PackedScene" uid="uid://q2laxpkfaosg" path="res://Levels/Level1/room1-2/room_1_2.tscn" id="6_78ml8"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="6_ehh0f"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="7_vtngm"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="10_ht70a"]
