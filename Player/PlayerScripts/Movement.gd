@@ -101,6 +101,7 @@ func _process(delta):
 	
 	match current_state:
 		STATE.HANGING:
+			anim.hanging()
 			current_stamina -= delta
 			anim.low_stamina_flashing(current_stamina < FLASHING_STAMINA_TIME)
 			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
@@ -108,6 +109,7 @@ func _process(delta):
 			else:
 				pull_towards_hook(delta)
 		STATE.GRAPPLING:
+			anim.hanging()
 			if is_grapple_reached():
 				grapple_reached(delta)
 				pull_towards_hook(delta)
