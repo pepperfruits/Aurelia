@@ -15,7 +15,7 @@ gradient = SubResource("Gradient_pknx5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qm6oe"]
 shader = ExtResource("2_vifpj")
-shader_parameter/mix_amount = 0.2
+shader_parameter/mix_amount = 0.15
 shader_parameter/gradient = SubResource("GradientTexture1D_qcd60")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j55yj"]
@@ -73,6 +73,7 @@ transition_progress = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_qm6oe")

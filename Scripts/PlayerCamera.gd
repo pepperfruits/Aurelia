@@ -10,6 +10,7 @@ var is_transition_enabled : bool = true
 @export var transition_progress : float = 1.0
 
 func _ready():
+	$CanvasLayer.visible = true
 	position = p.position
 	set_camera_transition(false)
 
