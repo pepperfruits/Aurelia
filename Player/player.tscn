@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerAnimationHandler.gd" id="2_q3y52"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/Movement.gd" id="4_5rcjk"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
-[ext_resource type="Shader" path="res://Player/redflashing.gdshader" id="5_3jonh"]
+[ext_resource type="Shader" path="res://Shaders/redflashing.gdshader" id="5_f4m6a"]
 [ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="9_78g1o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jcjhd"]
-shader = ExtResource("5_3jonh")
+shader = ExtResource("5_f4m6a")
 shader_parameter/redness = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
