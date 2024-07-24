@@ -5,6 +5,13 @@ class_name PlayerHealth
 @onready var p : PlayerCharacter = $".."
 @onready var DeathTransitionTimer : Timer = $DeathTransitionTimer
 
+func damage(amount : int, knockback : float, knockback_vector : Vector2) -> void:
+	health -= amount
+	if (health <= 0):
+		death()
+	elif knockback:
+		apply_knockback(knockback, knockback_vector)
+
 func death():
 	if DeathTransitionTimer.is_stopped():
 		$"../DebugLabel".text = "DEAD"
