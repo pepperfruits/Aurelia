@@ -8,22 +8,20 @@ class_name Hook
 @onready var spriteAura : Sprite2D = $HookAuraSprite
 @onready var auraRange : Area2D = $AuraRange
 @onready var hookLight : PointLight2D = $HookLight
+@onready var anim : AnimationPlayer = $AuraAnimation
 #endregion
 
 #region Exports
 @export var spriteEnabled : Texture
 @export var spriteDisabled : Texture
-@export var AURA_ROTATION_SPEED : float = 360.0
 #endregion
 
 var is_ground_refresh : bool = false
 var is_cooldown_refresh : bool = false
 var is_collision_enabled : bool = true
 
-func _process(delta):
+func _process(_delta):
 	collision.disabled = not is_collision_enabled
-	if spriteAura.visible:
-		spriteAura.rotation_degrees += AURA_ROTATION_SPEED * delta
 
 #region Helper Functions
 func use():
@@ -43,12 +41,11 @@ func enable():
 	sprite.texture = spriteEnabled
 	hookLight.enabled = true
 	if not auraRange.get_overlapping_bodies().is_empty():
-		spriteAura.visible = true
+		anim.play("aura_enable")
 
 func disable():
 	hookLight.enabled = false
 	is_collision_enabled = false
-	spriteAura.visible = false
 
 func ground_refresh():
 	is_ground_refresh = true
@@ -64,10 +61,7 @@ func _on_hook_cooldown_timer_timeout():
 
 func _on_aura_range_body_entered(_body):
 	if not collision.disabled:
-		spriteAura.visible = true
-
-func _on_aura_range_body_exited(_body):
-	spriteAura.visible = false
+		anim.play("aura_enable")
 
 func _on_body_entered(body : PlayerCharacter):
 	body._on_player_entered_hook_range(self)

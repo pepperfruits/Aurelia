@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c1ipcvmr51vas"]
+
+[node name="Level1Shadows" type="CanvasModulate"]
+color = Color(0.520935, 0.473082, 0.65157, 1)
