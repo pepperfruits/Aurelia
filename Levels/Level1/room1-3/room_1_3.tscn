@@ -189,7 +189,7 @@ scale = Vector2(15.1075, 0.199074)
 [node name="Fog" parent="." instance=ExtResource("5_6vh8n")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("5_bxtct")]
-position = Vector2(4160, 32)
+position = Vector2(-96, 0)
 Camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("6_ygxgx")]
