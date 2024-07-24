@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://degwbj0ixeanu"]
+[gd_scene load_steps=13 format=3 uid="uid://degwbj0ixeanu"]
 
 [ext_resource type="Script" path="res://Environment/Hook/hook.gd" id="1_qe3fk"]
 [ext_resource type="Texture2D" uid="uid://h6vbryo7bcyf" path="res://Environment/Hook/hookdown.png" id="3_hldry"]
 [ext_resource type="Texture2D" uid="uid://ckt2t68hk0uhh" path="res://Environment/Hook/hookback.png" id="4_67xjd"]
-[ext_resource type="Texture2D" uid="uid://g80ybp6fviu4" path="res://Environment/Hook/hookAura.png" id="4_ud0rb"]
+[ext_resource type="Shader" path="res://Environment/Hook/glow.gdshader" id="4_g17en"]
 [ext_resource type="Texture2D" uid="uid://k83idwhet2m3" path="res://Environment/Hook/hookup.png" id="5_lyn1n"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="6_2akp7"]
 
@@ -11,9 +11,35 @@
 radius = 120.0
 height = 384.0
 
+[sub_resource type="Animation" id="Animation_6ao0r"]
+resource_name = "aura_enable"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HookAuraSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.001, 0.001), Vector2(0.875, 0.875), Vector2(0.001, 0.001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iod42"]
+_data = {
+"aura_enable": SubResource("Animation_6ao0r")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s4pxv"]
+shader = ExtResource("4_g17en")
+shader_parameter/rect_size = Vector2(-0.02, 0.135)
+shader_parameter/bness = 1.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qhen"]
-radius = 104.0
-height = 320.0
+radius = 120.0
+height = 386.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mnqr8"]
 load_path = "res://.godot/imported/hookup.png-438629f9c4dd9b621588ea1646a1d7bc.ctex"
@@ -25,13 +51,24 @@ script = ExtResource("1_qe3fk")
 spriteEnabled = ExtResource("5_lyn1n")
 spriteDisabled = ExtResource("3_hldry")
 
-[node name="Hookback" type="Sprite2D" parent="."]
-texture = ExtResource("4_67xjd")
-
 [node name="HookAreaCollisionShape" type="CollisionShape2D" parent="."]
 use_parent_material = true
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_ew1ul")
+
+[node name="AuraAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iod42")
+}
+
+[node name="HookAuraSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.866667, 0.764706, 0.545098, 1)
+material = SubResource("ShaderMaterial_s4pxv")
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("4_67xjd")
+
+[node name="Hookback" type="Sprite2D" parent="."]
+texture = ExtResource("4_67xjd")
 
 [node name="HookCooldownTimer" type="Timer" parent="."]
 process_mode = 1
@@ -39,7 +76,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="AuraRange" type="Area2D" parent="."]
-visible = false
 use_parent_material = true
 collision_layer = 0
 
@@ -53,12 +89,6 @@ use_parent_material = true
 scale = Vector2(0.5, 0.5)
 texture = SubResource("CompressedTexture2D_mnqr8")
 
-[node name="HookAuraSprite" type="Sprite2D" parent="."]
-visible = false
-use_parent_material = true
-scale = Vector2(0.648479, 0.648479)
-texture = ExtResource("4_ud0rb")
-
 [node name="HookLight" type="PointLight2D" parent="."]
 color = Color(0.85, 0.838667, 0.68, 1)
 energy = 0.3
@@ -69,4 +99,3 @@ texture_scale = 0.5
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="HookCooldownTimer" to="." method="_on_hook_cooldown_timer_timeout"]
 [connection signal="body_entered" from="AuraRange" to="." method="_on_aura_range_body_entered"]
-[connection signal="body_exited" from="AuraRange" to="." method="_on_aura_range_body_exited"]

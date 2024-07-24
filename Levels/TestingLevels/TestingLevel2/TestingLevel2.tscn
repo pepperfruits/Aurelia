@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsk8drsfka3vc"]
+[gd_scene load_steps=9 format=3 uid="uid://bsk8drsfka3vc"]
 
 [ext_resource type="TileSet" uid="uid://duj0pwjkpic5f" path="res://Assets/Tilesets/TileSetBricks.tres" id="1_1pkce"]
+[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_e1aiu"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="2_s130j"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="3_gt2hj"]
 [ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="4_0tif3"]
@@ -12,8 +13,7 @@ size = Vector2(416, 320)
 
 [node name="TestingLevel2" type="Node2D"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.520935, 0.473082, 0.65157, 1)
+[node name="CanvasModulate" parent="." instance=ExtResource("1_e1aiu")]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)

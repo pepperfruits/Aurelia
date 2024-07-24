@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_jr7kg"]
 [ext_resource type="PackedScene" uid="uid://ba28ln6etuvvg" path="res://Environment/TestingBlock/testing_block.tscn" id="2_2udhs"]
 [ext_resource type="PackedScene" uid="uid://ddyqv7vduj3ps" path="res://Zones/LevelChangeArea/level_change_area.tscn" id="2_m2idd"]
-[ext_resource type="PackedScene" uid="uid://bsk8drsfka3vc" path="res://Levels/TestingLevel2/TestingLevel2.tscn" id="3_gfkeu"]
+[ext_resource type="PackedScene" uid="uid://bsk8drsfka3vc" path="res://Levels/TestingLevels/TestingLevel2/TestingLevel2.tscn" id="3_gfkeu"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_7y0ub"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="4_12rrh"]
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="4_l2bog"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwdcyh7cv6mn" path="res://Environment/Managers/CycleManager/cycle_manager.tscn" id="9_jnwiu"]
 [ext_resource type="PackedScene" uid="uid://c1irfrejlonx5" path="res://Environment/Managers/ToggleManager/toggle_manager.tscn" id="10_wepbp"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="11_chm45"]
-[ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="11_qar12"]
+[ext_resource type="Shader" path="res://Shaders/toggle_manager.gdshader" id="11_qar12"]
 [ext_resource type="PackedScene" uid="uid://c71nfh8lig6x" path="res://Environment/Managers/PathFollowManager/path_follow_manager.tscn" id="12_5uasi"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="14_o0q0f"]
 

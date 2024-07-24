@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PirateJam"
-run/main_scene="res://Levels/TestingLevel/testing_level.tscn"
+run/main_scene="res://Levels/Level1/room1-1/room_1_1.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

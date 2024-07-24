@@ -37,6 +37,7 @@ shape = SubResource("CircleShape2D_0db21")
 scale = Vector2(0.75, 0.75)
 color = Color(0.333333, 0.819608, 0.886275, 1)
 energy = 0.5
+shadow_enabled = true
 texture = ExtResource("3_d78fl")
 texture_scale = 0.4
 
