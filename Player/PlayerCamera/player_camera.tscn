@@ -5,16 +5,16 @@
 [ext_resource type="Shader" path="res://Shaders/screen_transition.gdshader" id="3_humix"]
 [ext_resource type="Shader" path="res://Player/PlayerCamera/vignette.gdshader" id="4_28kmr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdmwy"]
-shader = ExtResource("3_humix")
-shader_parameter/progress = null
-shader_parameter/diamondPixelSize = 50.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j55yj"]
 shader = ExtResource("4_28kmr")
 shader_parameter/vignette_intensity = 5.0
 shader_parameter/vignette_opacity = 0.016
 shader_parameter/vignette_rgb = Color(0.0938864, 0.0528427, 0.100807, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdmwy"]
+shader = ExtResource("3_humix")
+shader_parameter/progress = null
+shader_parameter/diamondPixelSize = 50.0
 
 [sub_resource type="Animation" id="Animation_gmksn"]
 resource_name = "transition_fade_in"
@@ -59,6 +59,12 @@ script = ExtResource("1_n27qe")
 transition_progress = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_j55yj")
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("2_knmji")]
 anchors_preset = 0
@@ -72,11 +78,6 @@ material = SubResource("ShaderMaterial_bdmwy")
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
-
-[node name="Vignette" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_j55yj")
-offset_right = 1920.0
-offset_bottom = 1080.0
 
 [node name="TransitionAnimation" type="AnimationPlayer" parent="."]
 libraries = {
