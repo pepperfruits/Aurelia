@@ -114,20 +114,27 @@ func _process(delta):
 			else:
 				pull_towards_hook(delta)
 		STATE.DASHING:
-			pass
+			anim.dash()
 		STATE.FALLING:
+			anim.fall(p.velocity.y)
 			if (inp.get_horizontal_input()):
 				apply_acceleration(delta, inp.get_horizontal_input())
-			else:
+			elif momentum != 0.0:
 				apply_friction(delta)
 		STATE.RUNNING:
 			anim.run()
 			refresh_dash_charges()
 			apply_acceleration(delta, inp.get_horizontal_input())
 		STATE.IDLE:
-			anim.idle()
 			refresh_dash_charges()
-			apply_friction(delta)
+			if (momentum != 0.0):
+				apply_friction(delta)
+				if (abs(momentum) >= 50.0):
+					anim.skid()
+				else:
+					anim.idle()
+			else:
+				anim.idle()
 	
 	run_physics(delta)
 
@@ -253,15 +260,14 @@ func apply_acceleration(delta : float, input_direction : float) -> void:
 	cap_momentum(delta)
 
 func apply_friction(delta : float) -> void:
-	if (momentum != 0.0):
-		if (p.is_on_floor()):
-			momentum -= momentum * delta * FRICTION
-		else:
-			momentum -= momentum * delta * FRICTION * AIR_FRICTION_BONUS
-		
-		var movement_kill_zone : float = 4.0
-		if (momentum < movement_kill_zone and momentum > -movement_kill_zone):
-			momentum = 0.0
+	if (p.is_on_floor()):
+		momentum -= momentum * delta * FRICTION
+	else:
+		momentum -= momentum * delta * FRICTION * AIR_FRICTION_BONUS
+	
+	var movement_kill_zone : float = 4.0
+	if (momentum < movement_kill_zone and momentum > -movement_kill_zone):
+		momentum = 0.0
 
 func apply_half_gravity(delta : float) -> void:
 	p.velocity.y += GRAVITY * delta * 0.5

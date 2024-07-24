@@ -11,6 +11,7 @@ var flashing_cycle_time : float = 0.0
 
 @export var BLINK_TRACK_INDEX : int = 0
 @export var MOVEMENT_TRACK_INDEX : int = 1
+@export var APEX_RANGE : float = 150.0
 
 func _ready():
 	a.set_animation("Blink", true, BLINK_TRACK_INDEX)
@@ -40,3 +41,17 @@ func idle() -> void:
 
 func run() -> void:
 	change_animation("Run", true, MOVEMENT_TRACK_INDEX)
+
+func skid() -> void:
+	change_animation("Skid", false, MOVEMENT_TRACK_INDEX)
+
+func dash() -> void:
+	change_animation("StaffDash", true, MOVEMENT_TRACK_INDEX)
+
+func fall(y_velocity : float) -> void:
+	if y_velocity < -APEX_RANGE:
+		change_animation("Ascend", true, MOVEMENT_TRACK_INDEX)
+	elif y_velocity > APEX_RANGE:
+		change_animation("Descend", true, MOVEMENT_TRACK_INDEX)
+	else:
+		change_animation("Apex", false, MOVEMENT_TRACK_INDEX)
