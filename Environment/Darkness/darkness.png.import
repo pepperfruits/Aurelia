@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g80ybp6fviu4"
-path="res://.godot/imported/hookAura.png-78fc10f51dbd75369a299dc52bf3842d.ctex"
+uid="uid://dv6hdd5ltmc8y"
+path="res://.godot/imported/darkness.png-8a82eb1bf86e8c55e4450651e861d39b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Hook/hookAura.png"
-dest_files=["res://.godot/imported/hookAura.png-78fc10f51dbd75369a299dc52bf3842d.ctex"]
+source_file="res://Environment/Darkness/darkness.png"
+dest_files=["res://.godot/imported/darkness.png-8a82eb1bf86e8c55e4450651e861d39b.ctex"]
 
 [params]
 

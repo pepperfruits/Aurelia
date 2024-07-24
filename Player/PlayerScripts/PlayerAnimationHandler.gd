@@ -19,7 +19,7 @@ func _process(delta):
 		flashing_cycle_time += delta * flashing_cycle_rate
 		if (flashing_cycle_time > 1.0):
 			flashing_cycle_time -= 1.0
-		$"../PlaceHolderSprite".material.set("shader_parameter/redness", flashing_cycle_time)
+		$"../PlaceHolderSprite".material.set("shader_parameter/redness", abs(sin(flashing_cycle_time * PI)))
 
 func low_stamina_flashing(enabled : bool):
 	is_low_stamina_flashing = enabled
