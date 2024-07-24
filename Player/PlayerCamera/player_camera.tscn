@@ -1,9 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://iyw03gw5rmxd"]
+[gd_scene load_steps=14 format=3 uid="uid://iyw03gw5rmxd"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_n27qe"]
 [ext_resource type="PackedScene" uid="uid://b31t1id8708yx" path="res://UI/PlayerUI/player_ui.tscn" id="2_knmji"]
+[ext_resource type="Shader" path="res://Player/PlayerCamera/filter.gdshader" id="2_vifpj"]
 [ext_resource type="Shader" path="res://Shaders/screen_transition.gdshader" id="3_humix"]
 [ext_resource type="Shader" path="res://Player/PlayerCamera/vignette.gdshader" id="4_28kmr"]
+
+[sub_resource type="Gradient" id="Gradient_pknx5"]
+offsets = PackedFloat32Array(0, 0.136283, 0.658407, 1)
+colors = PackedColorArray(0.0791666, 0, 0.19, 1, 0.292825, 0.1377, 0.51, 1, 0.546967, 0.61, 0.4209, 1, 0.7548, 0.85, 0.714, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qcd60"]
+gradient = SubResource("Gradient_pknx5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qm6oe"]
+shader = ExtResource("2_vifpj")
+shader_parameter/mix_amount = 0.2
+shader_parameter/gradient = SubResource("GradientTexture1D_qcd60")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j55yj"]
 shader = ExtResource("4_28kmr")
@@ -60,6 +73,11 @@ transition_progress = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_qm6oe")
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Vignette" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_j55yj")
