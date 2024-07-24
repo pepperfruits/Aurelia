@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwdcyh7cv6mn" path="res://Environment/Managers/CycleManager/cycle_manager.tscn" id="9_jnwiu"]
 [ext_resource type="PackedScene" uid="uid://c1irfrejlonx5" path="res://Environment/Managers/ToggleManager/toggle_manager.tscn" id="10_wepbp"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="11_chm45"]
-[ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="11_qar12"]
+[ext_resource type="Shader" path="res://Shaders/toggle_manager.gdshader" id="11_qar12"]
 [ext_resource type="PackedScene" uid="uid://c71nfh8lig6x" path="res://Environment/Managers/PathFollowManager/path_follow_manager.tscn" id="12_5uasi"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="14_o0q0f"]
 

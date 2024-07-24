@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://iyw03gw5rmxd"]
+[gd_scene load_steps=16 format=3 uid="uid://iyw03gw5rmxd"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_n27qe"]
 [ext_resource type="PackedScene" uid="uid://b31t1id8708yx" path="res://UI/PlayerUI/player_ui.tscn" id="2_knmji"]
-[ext_resource type="Shader" path="res://Player/PlayerCamera/filter.gdshader" id="2_vifpj"]
+[ext_resource type="Shader" path="res://Shaders/filter.gdshader" id="2_v84d8"]
 [ext_resource type="Shader" path="res://Shaders/screen_transition.gdshader" id="3_humix"]
-[ext_resource type="Shader" path="res://Player/PlayerCamera/vignette.gdshader" id="4_28kmr"]
+[ext_resource type="Shader" path="res://Shaders/colorManipulation.gdshader" id="3_vbco0"]
+[ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="4_vxnou"]
 
 [sub_resource type="Gradient" id="Gradient_pknx5"]
 offsets = PackedFloat32Array(0, 0.136283, 0.658407, 1)
@@ -14,12 +15,23 @@ colors = PackedColorArray(0.0791666, 0, 0.19, 1, 0.292825, 0.1377, 0.51, 1, 0.60
 gradient = SubResource("Gradient_pknx5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qm6oe"]
-shader = ExtResource("2_vifpj")
+shader = ExtResource("2_v84d8")
 shader_parameter/mix_amount = 0.15
 shader_parameter/gradient = SubResource("GradientTexture1D_qcd60")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xq0xo"]
+shader = ExtResource("3_vbco0")
+shader_parameter/brightness = 0.01
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 1.0
+shader_parameter/redVal = 1.0
+shader_parameter/greenVal = 1.0
+shader_parameter/blueVal = 1.0
+shader_parameter/tint_color = Vector4(1, 1, 1, 1)
+shader_parameter/tint_effect_factor = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j55yj"]
-shader = ExtResource("4_28kmr")
+shader = ExtResource("4_vxnou")
 shader_parameter/vignette_intensity = 5.0
 shader_parameter/vignette_opacity = 0.016
 shader_parameter/vignette_rgb = Color(0.0938864, 0.0528427, 0.100807, 1)
@@ -75,8 +87,13 @@ transition_progress = 0.0
 layer = 3
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="GradientMap" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_qm6oe")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorManipulation" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_xq0xo")
 offset_right = 1920.0
 offset_bottom = 1080.0
 

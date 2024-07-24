@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1irfrejlonx5"]
 
 [ext_resource type="Script" path="res://Environment/Managers/ToggleManager/ToggleManager.gd" id="1_3cyaf"]
-[ext_resource type="Shader" path="res://Environment/Managers/ToggleManager/toggle_manager.gdshader" id="2_mv3oy"]
+[ext_resource type="Shader" path="res://Shaders/toggle_manager.gdshader" id="2_mv3oy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rdv1r"]
 resource_local_to_scene = true
