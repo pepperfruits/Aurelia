@@ -218,8 +218,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 27.8072)
+position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_upse4")
 
 [node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]

@@ -18,6 +18,8 @@ class_name PlayerMovementHandler
 @onready var DashCoyoteTimer : Timer = $DashCoyoteTimer
 ## Dash particles
 @onready var DashParticles : GPUParticles2D = $"../DashParticles"
+## Collision shape
+@onready var PlayerCollision : CollisionShape2D = $"../PlayerCollisionShape"
 #endregions
 
 #region Export Constats
@@ -99,6 +101,13 @@ var is_attack_available : bool = true
 func _process(delta):
 	facing_direction = get_direction_facing()
 	current_state = get_state()
+
+	if is_dashing:
+		PlayerCollision.scale.y = 0.7
+		PlayerCollision.position.y = 0
+	else:
+		PlayerCollision.scale.y = 1.0
+		PlayerCollision.position.y = 27
 	
 	anim.set_direction(facing_direction)
 	
@@ -159,7 +168,7 @@ func _process(delta):
 func attack(facing : int):
 	var bullet : Hitbox = PlayerBullet.instantiate()
 	bullet.velocity.x *= facing
-	bullet.sender = self
+	bullet.sender = p
 
 func run_physics(delta):
 	was_on_floor = p.is_on_floor()
