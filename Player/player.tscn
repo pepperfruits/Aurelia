@@ -1,18 +1,126 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=38 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerAnimationHandler.gd" id="2_q3y52"]
+[ext_resource type="SpineAtlasResource" uid="uid://b6hlwgw6otu0i" path="res://Player/PlayerSpine/Aurelia.atlas" id="2_wppc2"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dcc0yqm2emy4f" path="res://Player/PlayerSpine/Aurelia.skel" id="3_3hjs3"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/Movement.gd" id="4_5rcjk"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
 [ext_resource type="Shader" path="res://Shaders/redflashing.gdshader" id="5_f4m6a"]
-[ext_resource type="Texture2D" uid="uid://oyas1a4ofqyr" path="res://Player/alchemist.png" id="5_wjbs6"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
+[ext_resource type="Texture2D" uid="uid://dgnrccbrn73bu" path="res://Player/particle.png" id="9_0yhnj"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="9_78g1o"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcjhd"]
+[sub_resource type="Curve" id="Curve_28j12"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.73058, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ajuf5"]
+curve = SubResource("Curve_28j12")
+
+[sub_resource type="Curve" id="Curve_mbhmi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_w7yb0"]
+curve = SubResource("Curve_mbhmi")
+
+[sub_resource type="Curve" id="Curve_2kwwe"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7hm0o"]
+curve = SubResource("Curve_2kwwe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldbkc"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 80, 1)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.15
+scale_curve = SubResource("CurveTexture_7hm0o")
+color = Color(0, 0.756746, 0.533987, 1)
+alpha_curve = SubResource("CurveTexture_ajuf5")
+emission_curve = SubResource("CurveTexture_w7yb0")
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_n0etm"]
+from = "Idle"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_3bh0u"]
+from = "Ascend"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_g1por"]
+from = "Descend"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_sxosb"]
+from = "Apex"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_b5qbj"]
+from = "Flinch"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_mrxo8"]
+from = "Hanging"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_1v6r4"]
+from = "JumpStart"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_se2sb"]
+from = "Skid"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_43i1o"]
+from = "Run"
+to = "StaffDash"
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_k8htf"]
+atlas_res = ExtResource("2_wppc2")
+skeleton_file_res = ExtResource("3_3hjs3")
+default_mix = 0.05
+animation_mixes = [SubResource("SpineAnimationMix_n0etm"), SubResource("SpineAnimationMix_3bh0u"), SubResource("SpineAnimationMix_g1por"), SubResource("SpineAnimationMix_sxosb"), SubResource("SpineAnimationMix_b5qbj"), SubResource("SpineAnimationMix_mrxo8"), SubResource("SpineAnimationMix_1v6r4"), SubResource("SpineAnimationMix_se2sb"), SubResource("SpineAnimationMix_43i1o")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sfsj"]
 shader = ExtResource("5_f4m6a")
 shader_parameter/redness = 0.0
+
+[sub_resource type="Curve" id="Curve_2m2js"]
+_data = [Vector2(0.0273977, 0.878531), 0.0, 0.0, 0, 0, Vector2(1, 0.355932), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l2yad"]
+curve = SubResource("Curve_2m2js")
+
+[sub_resource type="Curve" id="Curve_yvkxg"]
+_data = [Vector2(0, 0.525424), 0.0, 0.0, 0, 0, Vector2(1, 0.257062), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_87ks0"]
+curve = SubResource("Curve_yvkxg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rkr7d"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 87.53
+spread = 180.0
+initial_velocity_min = 70.0
+initial_velocity_max = 80.0
+orbit_velocity_max = 1.07
+gravity = Vector3(0, 0, 0)
+damping_min = 21.127
+damping_max = 21.127
+scale_min = 0.02
+scale_max = 0.03
+scale_curve = SubResource("CurveTexture_87ks0")
+color = Color(0.999999, 0.998001, 0.735267, 1)
+alpha_curve = SubResource("CurveTexture_l2yad")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upse4"]
 size = Vector2(54.1115, 199.912)
@@ -31,8 +139,43 @@ floor_constant_speed = true
 floor_snap_length = 4.0
 script = ExtResource("1_c7am8")
 
-[node name="AnimationHandler" type="Node" parent="."]
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_ldbkc")
+texture = ExtResource("9_0yhnj")
+lifetime = 0.4
+
+[node name="AnimationHandler" type="SpineSprite" parent="."]
+position = Vector2(0, 132.273)
+scale = Vector2(0.24, 0.24)
+skeleton_data_res = SubResource("SpineSkeletonDataResource_k8htf")
+normal_material = SubResource("ShaderMaterial_7sfsj")
+preview_skin = "default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
 script = ExtResource("2_q3y52")
+
+[node name="SpineBoneNode" type="SpineBoneNode" parent="AnimationHandler"]
+show_behind_parent = true
+position = Vector2(461.576, -179.266)
+rotation = 1.54305
+scale = Vector2(1, 1)
+bone_name = "Lantern2"
+
+[node name="LanternLight" type="PointLight2D" parent="AnimationHandler/SpineBoneNode"]
+rotation = -1.54305
+scale = Vector2(4.16667, 4.16667)
+color = Color(0.847059, 1, 0.74902, 1)
+shadow_enabled = true
+texture = ExtResource("9_78g1o")
+texture_scale = 0.1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimationHandler/SpineBoneNode"]
+position = Vector2(35.2561, -0.901112)
+process_material = SubResource("ParticleProcessMaterial_rkr7d")
+texture = ExtResource("9_0yhnj")
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("2_agngk")
@@ -69,17 +212,13 @@ one_shot = true
 wait_time = 0.075
 one_shot = true
 
-[node name="PlaceHolderSprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_jcjhd")
-position = Vector2(0, 6)
-scale = Vector2(0.248456, 0.248456)
-texture = ExtResource("5_wjbs6")
-
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 27.8072)
 shape = SubResource("RectangleShape2D_upse4")
 
 [node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+visible = false
 collision_layer = 2
 collision_mask = 64
 script = ExtResource("4_v4agg")
@@ -107,11 +246,12 @@ offset_right = -12.3593
 offset_bottom = -168.166
 label_settings = SubResource("LabelSettings_3elej")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.78, 1, 0.783667, 1)
-energy = 0.61
+[node name="HeadLight" type="PointLight2D" parent="."]
+color = Color(0.845833, 1, 0.75, 1)
+energy = 0.5
 shadow_enabled = true
 texture = ExtResource("9_78g1o")
+texture_scale = 0.5
 
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DashBufferTimer" to="InputHandler" method="_on_dash_buffer_timer_timeout"]

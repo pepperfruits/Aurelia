@@ -1,0 +1,15 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://b6hlwgw6otu0i"
+path="res://.godot/imported/Aurelia.atlas-239f5f3e7aa99abfea8e9d3efa81b4d2.spatlas"
+
+[deps]
+
+source_file="res://Player/PlayerSpine/Aurelia.atlas"
+dest_files=["res://.godot/imported/Aurelia.atlas-239f5f3e7aa99abfea8e9d3efa81b4d2.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
