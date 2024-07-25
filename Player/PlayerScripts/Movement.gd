@@ -32,7 +32,7 @@ class_name PlayerMovementHandler
 ## How much friction is applied when stopping (no directional input)
 @export var FRICTION : float = 8.0
 ## How much stronger/weaker your friction is when midair
-@export var AIR_FRICTION_BONUS : float = 1.0
+@export var AIR_FRICTION_BONUS : float = 0.5
 ## Acceleration due to gravity
 @export var GRAVITY : float = 2000.0
 ## The velocity upwards when you first jump
@@ -53,6 +53,10 @@ class_name PlayerMovementHandler
 @export var MAX_STAMINA_TIME : float = 1.75
 ## how much time left you need for the player to start flashing
 @export var FLASHING_STAMINA_TIME : float = 1.0
+## bonus to your friction at max speed
+@export var MAX_SPEED_FRICTION_BONUS : float = 0.75
+## how much extra jump % you get when jumping from a hook
+@export var HOOK_RELEASED_JUMP_BONUS : float = 1.2
 #endregion
 
 #region Variables
@@ -89,6 +93,8 @@ var current_stamina : float = MAX_STAMINA_TIME
 #endregion
 
 func _process(delta):
+	$"../DebugLabel".text = str(int(momentum))
+	
 	facing_direction = get_direction_facing()
 	current_state = get_state()
 	
@@ -99,7 +105,7 @@ func _process(delta):
 	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(inp.get_horizontal_input())
 	elif (can_jump() and inp.is_jump_inputted()): 
-		jump(delta)
+		jump(delta, 1.0)
 	
 	match current_state:
 		STATE.HANGING:
@@ -136,7 +142,7 @@ func _process(delta):
 			refresh_dash_charges()
 			if (momentum != 0.0):
 				apply_friction(delta)
-				if (abs(momentum) >= 100.0):
+				if (abs(momentum) >= RUN_MAX_SPEED):
 					anim.skid()
 				else:
 					anim.idle()
@@ -228,7 +234,7 @@ func hook_released(delta) -> void:
 	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
 	is_grappling = false
 	if inp.get_vertical_input() >= 0:
-		jump(delta)
+		jump(delta, HOOK_RELEASED_JUMP_BONUS)
 	else:
 		refresh_dash_charges()
 	
@@ -249,7 +255,7 @@ func can_grapple() -> bool:
 
 func cap_momentum(delta : float) -> void:
 	if (abs(momentum) > RUN_MAX_SPEED):
-		apply_friction(delta) # TODO can be a separate friction function, optionally
+		apply_maxspeed_friction(delta)
 		if (momentum > 0):
 			momentum = max(momentum, RUN_MAX_SPEED)
 		else:
@@ -267,6 +273,16 @@ func apply_acceleration(delta : float, input_direction : float) -> void:
 		momentum += input_direction * RUN_ACCEL * delta * AIR_ACCEL_BONUS * pivot_bonus
 	
 	cap_momentum(delta)
+
+func apply_maxspeed_friction(delta : float) -> void:
+	if (p.is_on_floor()):
+		momentum -= momentum * delta * FRICTION * MAX_SPEED_FRICTION_BONUS
+	else:
+		momentum -= momentum * delta * FRICTION * AIR_FRICTION_BONUS * MAX_SPEED_FRICTION_BONUS
+	
+	var movement_kill_zone : float = 4.0
+	if (momentum < movement_kill_zone and momentum > -movement_kill_zone):
+		momentum = 0.0
 
 func apply_friction(delta : float) -> void:
 	if (p.is_on_floor()):
@@ -286,11 +302,11 @@ func apply_half_gravity(delta : float) -> void:
 func can_jump() -> bool:
 	return p.is_on_floor() or is_jump_coyote
 
-func jump(_delta : float) -> void:
+func jump(_delta : float, multiplier : float) -> void:
 	is_jump_coyote = false
 	current_state = STATE.FALLING
 	end_dash()
-	p.velocity.y = -JUMP_VELOCITY
+	p.velocity.y = -JUMP_VELOCITY * multiplier
 	refresh_dash_charges()
 	inp._on_jump_buffer_timer_timeout()
 
