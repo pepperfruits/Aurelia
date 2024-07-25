@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=25 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
@@ -11,9 +11,47 @@
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="9_78g1o"]
 
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_n0etm"]
+from = "Idle"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_3bh0u"]
+from = "Ascend"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_g1por"]
+from = "Descend"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_sxosb"]
+from = "Apex"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_b5qbj"]
+from = "Flinch"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_mrxo8"]
+from = "Hanging"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_1v6r4"]
+from = "JumpStart"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_se2sb"]
+from = "Skid"
+to = "StaffDash"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_43i1o"]
+from = "Run"
+to = "StaffDash"
+
 [sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_k8htf"]
 atlas_res = ExtResource("2_wppc2")
 skeleton_file_res = ExtResource("3_3hjs3")
+default_mix = 0.05
+animation_mixes = [SubResource("SpineAnimationMix_n0etm"), SubResource("SpineAnimationMix_3bh0u"), SubResource("SpineAnimationMix_g1por"), SubResource("SpineAnimationMix_sxosb"), SubResource("SpineAnimationMix_b5qbj"), SubResource("SpineAnimationMix_mrxo8"), SubResource("SpineAnimationMix_1v6r4"), SubResource("SpineAnimationMix_se2sb"), SubResource("SpineAnimationMix_43i1o")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4ge2"]
 shader = ExtResource("5_f4m6a")

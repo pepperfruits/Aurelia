@@ -116,7 +116,7 @@ func _process(delta):
 			else:
 				pull_towards_hook(delta)
 		STATE.DASHING:
-			anim.dash()
+			pass
 		STATE.FALLING:
 			anim.fall(p.velocity.y)
 			if (inp.get_horizontal_input()):
@@ -131,7 +131,7 @@ func _process(delta):
 			refresh_dash_charges()
 			if (momentum != 0.0):
 				apply_friction(delta)
-				if (abs(momentum) >= 50.0):
+				if (abs(momentum) >= 100.0):
 					anim.skid()
 				else:
 					anim.idle()
@@ -291,6 +291,7 @@ func can_dash() -> bool:
 	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
 func dash(input_direction : float) -> void:
+	anim.dash()
 	current_state = STATE.DASHING
 	is_dashing = true
 	DashDurationTimer.start()
