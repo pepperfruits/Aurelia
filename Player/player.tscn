@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=38 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
@@ -7,9 +7,7 @@
 [ext_resource type="SpineSkeletonFileResource" uid="uid://dcc0yqm2emy4f" path="res://Player/PlayerSpine/Aurelia.skel" id="3_3hjs3"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/Movement.gd" id="4_5rcjk"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
-[ext_resource type="Shader" path="res://Player/emission.gdshader" id="5_1bfum"]
 [ext_resource type="Shader" path="res://Shaders/redflashing.gdshader" id="5_f4m6a"]
-[ext_resource type="Texture2D" uid="uid://djnqsi5u7q2ep" path="res://Player/PlayerSpine/Aureliaemissivemap.png" id="6_d53ah"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerHealth.gd" id="7_jk7hk"]
 [ext_resource type="Texture2D" uid="uid://dgnrccbrn73bu" path="res://Player/particle.png" id="9_0yhnj"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="9_78g1o"]
@@ -40,8 +38,8 @@ particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(20, 80, 1)
 gravity = Vector3(0, 0, 0)
-scale_min = 0.05
-scale_max = 0.05
+scale_min = 0.1
+scale_max = 0.15
 scale_curve = SubResource("CurveTexture_7hm0o")
 color = Color(0, 0.756746, 0.533987, 1)
 alpha_curve = SubResource("CurveTexture_ajuf5")
@@ -93,11 +91,6 @@ animation_mixes = [SubResource("SpineAnimationMix_n0etm"), SubResource("SpineAni
 shader = ExtResource("5_f4m6a")
 shader_parameter/redness = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee4an"]
-shader = ExtResource("5_1bfum")
-shader_parameter/glow_color = Color(1, 1, 0.745098, 1)
-shader_parameter/emission_teture = ExtResource("6_d53ah")
-
 [sub_resource type="Curve" id="Curve_2m2js"]
 _data = [Vector2(0.0273977, 0.878531), 0.0, 0.0, 0, 0, Vector2(1, 0.355932), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -147,7 +140,8 @@ floor_snap_length = 4.0
 script = ExtResource("1_c7am8")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
-amount = 24
+emitting = false
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_ldbkc")
 texture = ExtResource("9_0yhnj")
 lifetime = 0.4
@@ -157,7 +151,6 @@ position = Vector2(0, 132.273)
 scale = Vector2(0.24, 0.24)
 skeleton_data_res = SubResource("SpineSkeletonDataResource_k8htf")
 normal_material = SubResource("ShaderMaterial_7sfsj")
-additive_material = SubResource("ShaderMaterial_ee4an")
 preview_skin = "default"
 preview_animation = "-- Empty --"
 preview_frame = false
