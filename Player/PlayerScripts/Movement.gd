@@ -120,16 +120,19 @@ func _process(delta):
 		STATE.DASHING:
 			pass
 		STATE.FALLING:
+			DashParticles.emitting = false
 			anim.fall(p.velocity.y)
 			if (inp.get_horizontal_input()):
 				apply_acceleration(delta, inp.get_horizontal_input())
 			elif momentum != 0.0:
 				apply_friction(delta)
 		STATE.RUNNING:
+			DashParticles.emitting = false
 			anim.run()
 			refresh_dash_charges()
 			apply_acceleration(delta, inp.get_horizontal_input())
 		STATE.IDLE:
+			DashParticles.emitting = false
 			refresh_dash_charges()
 			if (momentum != 0.0):
 				apply_friction(delta)

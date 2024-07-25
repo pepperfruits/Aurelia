@@ -21,12 +21,12 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_ajuf5"]
 curve = SubResource("Curve_28j12")
 
-[sub_resource type="Curve" id="Curve_qbrqa"]
+[sub_resource type="Curve" id="Curve_mbhmi"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[sub_resource type="CurveTexture" id="CurveTexture_l1uay"]
-curve = SubResource("Curve_qbrqa")
+[sub_resource type="CurveTexture" id="CurveTexture_w7yb0"]
+curve = SubResource("Curve_mbhmi")
 
 [sub_resource type="Curve" id="Curve_2kwwe"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -43,9 +43,9 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.05
 scale_max = 0.05
 scale_curve = SubResource("CurveTexture_7hm0o")
-color = Color(0, 1, 0.717647, 1)
+color = Color(0, 0.756746, 0.533987, 1)
 alpha_curve = SubResource("CurveTexture_ajuf5")
-emission_curve = SubResource("CurveTexture_l1uay")
+emission_curve = SubResource("CurveTexture_w7yb0")
 
 [sub_resource type="SpineAnimationMix" id="SpineAnimationMix_n0etm"]
 from = "Idle"
@@ -147,11 +147,10 @@ floor_snap_length = 4.0
 script = ExtResource("1_c7am8")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 16
+amount = 24
 process_material = SubResource("ParticleProcessMaterial_ldbkc")
 texture = ExtResource("9_0yhnj")
-lifetime = 0.2
+lifetime = 0.4
 
 [node name="AnimationHandler" type="SpineSprite" parent="."]
 position = Vector2(0, 132.273)
@@ -176,9 +175,9 @@ bone_name = "Lantern2"
 rotation = -1.54305
 scale = Vector2(4.16667, 4.16667)
 color = Color(0.847059, 1, 0.74902, 1)
-energy = 0.61
 shadow_enabled = true
 texture = ExtResource("9_78g1o")
+texture_scale = 0.1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="AnimationHandler/SpineBoneNode"]
 position = Vector2(35.2561, -0.901112)
@@ -221,10 +220,12 @@ wait_time = 0.075
 one_shot = true
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 27.8072)
 shape = SubResource("RectangleShape2D_upse4")
 
 [node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+visible = false
 collision_layer = 2
 collision_mask = 64
 script = ExtResource("4_v4agg")
@@ -254,7 +255,7 @@ label_settings = SubResource("LabelSettings_3elej")
 
 [node name="HeadLight" type="PointLight2D" parent="."]
 color = Color(0.845833, 1, 0.75, 1)
-energy = 0.2
+energy = 0.5
 shadow_enabled = true
 texture = ExtResource("9_78g1o")
 texture_scale = 0.5
