@@ -16,6 +16,8 @@ class_name PlayerMovementHandler
 @onready var JumpCoyoteTimer : Timer = $JumpCoyoteTimer
 ## Same thing ^ but for dashing, where you can regain your dash after dashing off a ledge if you time it right
 @onready var DashCoyoteTimer : Timer = $DashCoyoteTimer
+## Dash particles
+@onready var DashParticles : GPUParticles2D = $"../DashParticles"
 #endregions
 
 #region Export Constats
@@ -156,6 +158,7 @@ func run_physics(delta):
 	momentum = p.velocity.x
 	if abs(momentum) < 1.0: # Stop the dash early if you aren't moving anymore (hit a wall)
 		is_dashing = false
+		DashParticles.emitting = false
 
 func get_direction_facing() -> int:
 	if (momentum > 1.0): 
@@ -205,6 +208,7 @@ func pull_towards_hook(delta : float) -> void:
 
 func end_dash() -> void:
 	is_dashing = false
+	DashParticles.emitting = false
 
 func set_player_velocity(velocity : Vector2) -> void:
 	p.velocity = velocity
@@ -291,6 +295,7 @@ func can_dash() -> bool:
 	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
 
 func dash(input_direction : float) -> void:
+	DashParticles.emitting = true
 	anim.dash()
 	current_state = STATE.DASHING
 	is_dashing = true
