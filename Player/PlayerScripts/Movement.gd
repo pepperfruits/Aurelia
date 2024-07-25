@@ -21,6 +21,8 @@ class_name PlayerMovementHandler
 #endregions
 
 #region Export Constats
+## The projectile you fire when attacking
+@export var Projectile : PackedScene
 ## Acceleration from running in a direction (grounded)
 @export var RUN_ACCEL : float = 1700.0
 ## Your max speed from running normally/midair movement
@@ -90,6 +92,8 @@ var is_jump_coyote : bool = false
 var was_on_floor : bool = false
 ## your current stamina time
 var current_stamina : float = MAX_STAMINA_TIME
+## if you can attack or not, based on cooldown
+var is_attack_available : bool = true
 #endregion
 
 func _process(delta):
@@ -102,6 +106,8 @@ func _process(delta):
 	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
+	elif (can_attack() and inp.is_attack_inputted()):
+		attack(facing_direction)
 	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(inp.get_horizontal_input())
 	elif (can_jump() and inp.is_jump_inputted()): 
@@ -152,6 +158,9 @@ func _process(delta):
 	run_physics(delta)
 
 #region Helper Functions
+func attack(facing_direction : int):
+	var bullet = Projectile.instantiate()
+
 func run_physics(delta):
 	was_on_floor = p.is_on_floor()
 	p.velocity.x = momentum
@@ -176,6 +185,9 @@ func get_direction_facing() -> int:
 		return -1
 	else:
 		return facing_direction
+
+func can_attack() -> bool:
+	return is_attack_available
 
 func get_state() -> STATE:
 	if is_grappling and is_hanging:
@@ -348,3 +360,6 @@ func _on_dash_coyote_timer_timeout():
 	if p.is_on_floor():
 		refresh_dash_charges()
 #endregion
+
+func _on_attack_cooldown_timer_timeout():
+	is_attack_available = true

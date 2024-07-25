@@ -31,6 +31,12 @@ func get_horizontal_input() -> float:
 	else:
 		return forced_horizontal_input
 
+func is_attack_inputted() -> float:
+	if is_input_enabled:
+		return Input.is_action_just_pressed("attack")
+	else:
+		return false
+
 func get_vertical_input() -> float:
 	if is_input_enabled:
 		return Input.get_axis("move_down", "move_up")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0dfhlr2p8ts2"]
+
+[ext_resource type="Texture2D" uid="uid://dtj524mxisgyb" path="res://Environment/Crystal/crystal.png" id="1_jhtl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfp7l"]
+size = Vector2(290, 290)
+
+[node name="Crystal" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xfp7l")
+
+[node name="Crystal" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_jhtl3")

@@ -212,6 +212,10 @@ one_shot = true
 wait_time = 0.075
 one_shot = true
 
+[node name="AttackCooldownTimer" type="Timer" parent="Movement"]
+wait_time = 0.5
+one_shot = true
+
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, 27.8072)
@@ -260,5 +264,6 @@ texture_scale = 0.5
 [connection signal="timeout" from="Movement/DashCooldownTimer" to="Movement" method="_on_dash_cooldown_timer_timeout"]
 [connection signal="timeout" from="Movement/JumpCoyoteTimer" to="Movement" method="_on_jump_coyote_timer_timeout"]
 [connection signal="timeout" from="Movement/DashCoyoteTimer" to="Movement" method="_on_dash_coyote_timer_timeout"]
+[connection signal="timeout" from="Movement/AttackCooldownTimer" to="Movement" method="_on_attack_cooldown_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="PlayerHealth/DeathTransitionTimer" to="PlayerHealth" method="_on_death_transition_timer_timeout"]
