@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ecfs30v6b3h"]
+
+[ext_resource type="Script" path="res://Projectiles/PlayerBullet/player_bullet.gd" id="1_xb871"]
+[ext_resource type="Texture2D" uid="uid://btmrfjsgxlyic" path="res://Projectiles/PlayerBullet/playerbullet.png" id="2_65pl0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_loqqi"]
+radius = 64.0
+height = 256.0
+
+[node name="PlayerBullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 256
+script = ExtResource("1_xb871")
+
+[node name="Playerbullet" type="Sprite2D" parent="."]
+texture = ExtResource("2_65pl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_loqqi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

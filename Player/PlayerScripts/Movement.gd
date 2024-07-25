@@ -22,7 +22,7 @@ class_name PlayerMovementHandler
 
 #region Export Constats
 ## The projectile you fire when attacking
-@export var Projectile : PackedScene
+@export var PlayerBullet : PackedScene
 ## Acceleration from running in a direction (grounded)
 @export var RUN_ACCEL : float = 1700.0
 ## Your max speed from running normally/midair movement
@@ -97,8 +97,6 @@ var is_attack_available : bool = true
 #endregion
 
 func _process(delta):
-	$"../DebugLabel".text = str(int(momentum))
-	
 	facing_direction = get_direction_facing()
 	current_state = get_state()
 	
@@ -158,8 +156,10 @@ func _process(delta):
 	run_physics(delta)
 
 #region Helper Functions
-func attack(facing_direction : int):
-	var bullet = Projectile.instantiate()
+func attack(facing : int):
+	var bullet : Hitbox = PlayerBullet.instantiate()
+	bullet.velocity.x *= facing
+	bullet.sender = self
 
 func run_physics(delta):
 	was_on_floor = p.is_on_floor()
