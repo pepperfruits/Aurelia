@@ -119,7 +119,6 @@ func _process(delta):
 	
 	anim.set_direction(facing_direction)
 	
-	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
 	elif (can_attack() and inp.is_attack_inputted()):
@@ -127,7 +126,7 @@ func _process(delta):
 	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(inp.get_horizontal_input())
 	elif (can_jump() and inp.is_jump_inputted()): 
-		jump(delta, 1.0)
+		jump(1.0)
 	
 	match current_state:
 		STATE.CRYSTAL:
@@ -137,13 +136,13 @@ func _process(delta):
 			current_stamina -= delta
 			anim.low_stamina_flashing(current_stamina < FLASHING_STAMINA_TIME)
 			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
-				hook_released(delta)
+				hook_released()
 			else:
 				pull_towards_hook(delta)
 		STATE.GRAPPLING:
 			anim.hanging()
 			if is_grapple_reached():
-				grapple_reached(delta)
+				grapple_reached()
 				pull_towards_hook(delta)
 			else:
 				pull_towards_hook(delta)
@@ -190,6 +189,9 @@ func enter_crystal(c : Crystal) -> void:
 	is_crystal = true
 	is_hanging = false
 	is_grappling = false
+	if current_hook:
+		hook_released()
+	set_player_velocity(Vector2.ZERO)
 	is_dashing = false
 	CrystalTimer.start()
 	anim.hide_player(true)
@@ -242,7 +244,7 @@ func get_direction_facing() -> int:
 		return facing_direction
 
 func can_attack() -> bool:
-	return is_attack_available
+	return is_attack_available and not is_hanging
 
 func get_state() -> STATE:
 	if is_crystal:
@@ -292,18 +294,18 @@ func set_player_velocity(velocity : Vector2) -> void:
 	p.velocity = velocity
 	momentum = velocity.x
 
-func grapple_reached(_delta) -> void:
+func grapple_reached() -> void:
 	momentum = 0.0
 	p.velocity = Vector2.ZERO
 	is_hanging = true
 
-func hook_released(delta) -> void:
+func hook_released() -> void:
 	hook_refresh_array.append(current_hook)
 	is_hanging = false
 	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
 	is_grappling = false
 	if inp.get_vertical_input() >= 0:
-		jump(delta, HOOK_RELEASED_JUMP_BONUS)
+		jump(HOOK_RELEASED_JUMP_BONUS)
 	else:
 		refresh_dash_charges()
 	
@@ -371,7 +373,7 @@ func apply_half_gravity(delta : float) -> void:
 func can_jump() -> bool:
 	return p.is_on_floor() or is_jump_coyote
 
-func jump(_delta : float, multiplier : float) -> void:
+func jump(multiplier : float) -> void:
 	is_jump_coyote = false
 	current_state = STATE.FALLING
 	end_dash()
