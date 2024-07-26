@@ -5,8 +5,8 @@ class_name PlayerCharacter
 @onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
-func _process(_delta):
-	pass
+func enter_crystal(c : Crystal) -> void:
+	Movement.enter_crystal(c)
 
 func ground_refresh_hooks() -> void:
 	Movement.ground_refresh_hooks()
