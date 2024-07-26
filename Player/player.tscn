@@ -38,8 +38,8 @@ particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(20, 80, 1)
 gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.15
+scale_min = 0.2
+scale_max = 0.3
 scale_curve = SubResource("CurveTexture_7hm0o")
 color = Color(0, 0.756746, 0.533987, 1)
 alpha_curve = SubResource("CurveTexture_ajuf5")
@@ -136,10 +136,16 @@ font_size = 55
 scale = Vector2(0.665293, 0.665293)
 collision_mask = 1792
 floor_constant_speed = true
-floor_snap_length = 4.0
 script = ExtResource("1_c7am8")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_ldbkc")
+texture = ExtResource("9_0yhnj")
+lifetime = 0.4
+
+[node name="CrystalParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_ldbkc")
@@ -212,9 +218,20 @@ one_shot = true
 wait_time = 0.075
 one_shot = true
 
+[node name="AttackCooldownTimer" type="Timer" parent="Movement"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CrystalTimer" type="Timer" parent="Movement"]
+wait_time = 0.75
+one_shot = true
+
+[node name="CrystalDashTimer" type="Timer" parent="Movement"]
+wait_time = 0.7
+one_shot = true
+
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 27.8072)
+position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_upse4")
 
 [node name="PlayerHurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
@@ -260,5 +277,8 @@ texture_scale = 0.5
 [connection signal="timeout" from="Movement/DashCooldownTimer" to="Movement" method="_on_dash_cooldown_timer_timeout"]
 [connection signal="timeout" from="Movement/JumpCoyoteTimer" to="Movement" method="_on_jump_coyote_timer_timeout"]
 [connection signal="timeout" from="Movement/DashCoyoteTimer" to="Movement" method="_on_dash_coyote_timer_timeout"]
+[connection signal="timeout" from="Movement/AttackCooldownTimer" to="Movement" method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="Movement/CrystalTimer" to="Movement" method="_on_crystal_timer_timeout"]
+[connection signal="timeout" from="Movement/CrystalDashTimer" to="Movement" method="_on_crystal_dash_timer_timeout"]
 [connection signal="area_entered" from="PlayerHurtbox" to="PlayerHurtbox" method="_on_area_entered"]
 [connection signal="timeout" from="PlayerHealth/DeathTransitionTimer" to="PlayerHealth" method="_on_death_transition_timer_timeout"]
