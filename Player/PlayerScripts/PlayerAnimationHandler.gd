@@ -14,7 +14,6 @@ var flashing_cycle_time : float = 0.0
 @export var APEX_RANGE : float = 150.0
 
 func _ready():
-	Engine.time_scale = 0.2
 	a.set_animation("Blink", true, BLINK_TRACK_INDEX)
 	a.set_animation("Run", true, MOVEMENT_TRACK_INDEX)
 
@@ -83,3 +82,6 @@ func fall(y_velocity : float) -> void:
 
 func hide_player(b : bool):
 	visible = not b
+
+func death():
+	change_animation("Death", false, 3)
