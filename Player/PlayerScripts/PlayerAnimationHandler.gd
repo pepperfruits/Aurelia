@@ -18,8 +18,6 @@ func _ready():
 	a.set_animation("Run", true, MOVEMENT_TRACK_INDEX)
 
 func _process(delta):
-	$"../DebugLabel".text = a.get_current(1).get_animation().get_name()
-	
 	if is_low_stamina_flashing:
 		flashing_cycle_time += delta * flashing_cycle_rate
 		if (flashing_cycle_time > 1.0):
@@ -40,27 +38,36 @@ func change_animation(animation_name : String, looping : bool, id : int) -> void
 		a.set_animation(animation_name, looping, id)
 
 func idle() -> void:
-	change_animation("Idle", true, MOVEMENT_TRACK_INDEX)
+	var last_animation = a.get_current(1).get_animation().get_name()
+	if last_animation != "DashEnd" and last_animation != "StaffDash" and last_animation != "DashEndDescend":
+		change_animation("Idle", true, MOVEMENT_TRACK_INDEX)
 
 func run() -> void:
-	change_animation("Run", true, MOVEMENT_TRACK_INDEX)
+	var last_animation = a.get_current(1).get_animation().get_name()
+	if last_animation != "DashEnd" and last_animation != "StaffDash" and last_animation != "DashEndDescend":
+		change_animation("Run", true, MOVEMENT_TRACK_INDEX)
 
 func skid() -> void:
 	var last_animation = a.get_current(1).get_animation().get_name()
 	if last_animation != "DashEnd" and last_animation != "StaffDash":
 		change_animation("Skid", false, MOVEMENT_TRACK_INDEX)
 
-func dash() -> void:
-	a.set_animation("StaffDash", true, 1)
-	a.add_animation("DashEnd", 0.15, false, 1)
-	a.add_animation("Descend", 0.30, true, 1)
+func dash(on_ground : bool) -> void:
+	if on_ground:
+		a.set_animation("StaffDash", true, 1)
+		a.add_animation("DashEnd", 0.15, false, 1)
+		a.add_animation("Skid", 0.3, false, 1)
+	else:
+		a.set_animation("StaffDash", true, 1)
+		a.add_animation("DashEndDescend", 0.15, false, 1)
+		a.add_animation("Descend", 0.3, false, 1)
 
 func hanging() -> void:
 	change_animation("Hanging", true, MOVEMENT_TRACK_INDEX)
 
 func fall(y_velocity : float) -> void:
 	var last_animation = a.get_current(1).get_animation().get_name()
-	if last_animation != "DashEnd" and last_animation != "StaffDash":
+	if last_animation != "DashEnd" and last_animation != "StaffDash" and last_animation != "DashEndDescend":
 		if y_velocity < -950.0:
 			change_animation("JumpStart", false, MOVEMENT_TRACK_INDEX)
 		elif y_velocity < -APEX_RANGE:
