@@ -244,7 +244,7 @@ func get_direction_facing() -> int:
 		return facing_direction
 
 func can_attack() -> bool:
-	return is_attack_available and not is_hanging
+	return is_attack_available and not is_hanging and not is_crystal
 
 func get_state() -> STATE:
 	if is_crystal:
