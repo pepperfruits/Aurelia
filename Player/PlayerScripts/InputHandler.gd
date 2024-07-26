@@ -25,6 +25,12 @@ func _process(_delta):
 			is_down_buffered = true
 			DownBufferTimer.start()
 
+func get_directional_input() -> Vector2:
+	if is_input_enabled:
+		return Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	else:
+		return Vector2(get_horizontal_input(), get_vertical_input())
+
 func get_horizontal_input() -> float:
 	if is_input_enabled:
 		return Input.get_axis("move_left", "move_right")

@@ -5,20 +5,19 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_loqqi"]
 radius = 32.0
-height = 128.0
+height = 192.0
 
 [node name="PlayerBullet" type="Area2D"]
 collision_layer = 4
 collision_mask = 256
 script = ExtResource("1_xb871")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 0)
-rotation = -1.57079
-shape = SubResource("CapsuleShape2D_loqqi")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_65pl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_loqqi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

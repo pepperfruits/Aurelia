@@ -63,3 +63,5 @@ func fall(y_velocity : float) -> void:
 	else:
 		change_animation("Apex", false, MOVEMENT_TRACK_INDEX)
 
+func hide_player(b : bool):
+	visible = not b
