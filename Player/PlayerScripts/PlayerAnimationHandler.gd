@@ -18,6 +18,8 @@ func _ready():
 	a.set_animation("Run", true, MOVEMENT_TRACK_INDEX)
 
 func _process(delta):
+	$"../DebugLabel".text = a.get_current(1).get_animation().get_name()
+	
 	if is_low_stamina_flashing:
 		flashing_cycle_time += delta * flashing_cycle_rate
 		if (flashing_cycle_time > 1.0):
@@ -44,22 +46,27 @@ func run() -> void:
 	change_animation("Run", true, MOVEMENT_TRACK_INDEX)
 
 func skid() -> void:
-	change_animation("Skid", false, MOVEMENT_TRACK_INDEX)
+	var last_animation = a.get_current(1).get_animation().get_name()
+	if last_animation != "DashEnd" and last_animation != "StaffDash":
+		change_animation("Skid", false, MOVEMENT_TRACK_INDEX)
 
 func dash() -> void:
 	a.set_animation("StaffDash", true, 1)
-	a.add_animation("DashEnd", 0.01, false, 1)
+	a.add_animation("DashEnd", 0.15, false, 1)
+	a.add_animation("Descend", 0.30, true, 1)
 
 func hanging() -> void:
 	change_animation("Hanging", true, MOVEMENT_TRACK_INDEX)
 
 func fall(y_velocity : float) -> void:
-	if y_velocity < -950.0:
-		change_animation("JumpStart", false, MOVEMENT_TRACK_INDEX)
-	elif y_velocity < -APEX_RANGE:
-		change_animation("Ascend", true, MOVEMENT_TRACK_INDEX)
-	elif y_velocity > APEX_RANGE:
-		change_animation("Descend", true, MOVEMENT_TRACK_INDEX)
-	else:
-		change_animation("Apex", false, MOVEMENT_TRACK_INDEX)
+	var last_animation = a.get_current(1).get_animation().get_name()
+	if last_animation != "DashEnd" and last_animation != "StaffDash":
+		if y_velocity < -950.0:
+			change_animation("JumpStart", false, MOVEMENT_TRACK_INDEX)
+		elif y_velocity < -APEX_RANGE:
+			change_animation("Ascend", true, MOVEMENT_TRACK_INDEX)
+		elif y_velocity > APEX_RANGE:
+			change_animation("Descend", true, MOVEMENT_TRACK_INDEX)
+		else:
+			change_animation("Apex", false, MOVEMENT_TRACK_INDEX)
 

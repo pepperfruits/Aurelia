@@ -5,6 +5,9 @@ class_name PlayerCharacter
 @onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
+func _ready():
+	Engine.time_scale = 0.2
+
 func _process(_delta):
 	pass
 

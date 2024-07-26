@@ -93,8 +93,6 @@ var current_stamina : float = MAX_STAMINA_TIME
 #endregion
 
 func _process(delta):
-	$"../DebugLabel".text = str(int(momentum))
-	
 	facing_direction = get_direction_facing()
 	current_state = get_state()
 	
