@@ -7,14 +7,18 @@ class_name PlayerHealth
 
 func damage(amount : int, knockback : float, knockback_vector : Vector2) -> void:
 	health -= amount
+	if knockback:
+		apply_knockback(knockback, knockback_vector)
 	if (health <= 0):
 		death()
-	elif knockback:
-		apply_knockback(knockback, knockback_vector)
 
 func death():
 	if DeathTransitionTimer.is_stopped():
-		$"../DebugLabel".text = "DEAD"
+		$"../AnimationHandler".death()
+		
+		$"../InputHandler".set_player_input(false) 
+		$"../InputHandler".set_forced_horizontal_input(0)
+		
 		p.set_camera_transition(true)
 		DeathTransitionTimer.start()
 		ScoreManager.deaths += 1
