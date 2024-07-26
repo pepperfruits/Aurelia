@@ -386,7 +386,7 @@ func can_dash() -> bool:
 
 func dash(input_direction : float) -> void:
 	DashParticles.emitting = true
-	anim.dash()
+	anim.dash(p.is_on_floor())
 	current_state = STATE.DASHING
 	is_dashing = true
 	DashDurationTimer.start()
