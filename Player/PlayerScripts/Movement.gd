@@ -197,7 +197,9 @@ func enter_crystal(c : Crystal) -> void:
 	anim.hide_player(true)
 
 func leave_crystal():
-	var direction = inp.get_directional_input()
+	var direction = inp.get_directional_input().normalized()
+	if not direction:
+		direction = (current_crystal.PointerSprite.global_position - p.global_position).normalized()
 	anim.hide_player(false)
 	current_state = STATE.FALLING
 	is_crystal = false
@@ -209,6 +211,7 @@ func leave_crystal():
 	CrystalDashTimer.start()
 
 func attack(facing : int):
+	anim.ranged_attack()
 	var bullet = PlayerBullet.instantiate()
 	bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
 	bullet.velocity.x *= facing

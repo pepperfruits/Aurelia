@@ -11,6 +11,7 @@ var flashing_cycle_time : float = 0.0
 
 @export var BLINK_TRACK_INDEX : int = 0
 @export var MOVEMENT_TRACK_INDEX : int = 1
+@export var ATTACK_TRACK_INDEX : int = 2
 @export var APEX_RANGE : float = 150.0
 
 func _ready():
@@ -84,4 +85,8 @@ func hide_player(b : bool):
 	visible = not b
 
 func death():
-	change_animation("Death", false, 3)
+	change_animation("Death", false, 9)
+
+func ranged_attack():
+	a.set_animation("RangedAttackForward", false, ATTACK_TRACK_INDEX)
+	a.add_empty_animation(ATTACK_TRACK_INDEX, 0.3, 0.2)
