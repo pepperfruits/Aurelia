@@ -203,7 +203,7 @@ func leave_crystal():
 	anim.hide_player(false)
 	current_state = STATE.FALLING
 	is_crystal = false
-	set_player_velocity(direction * CRYSTAL_VELOCITY)
+	set_player_velocity(direction * CRYSTAL_VELOCITY * Vector2(1.7, 1.0))
 	current_crystal.use()
 	current_crystal = null
 	
