@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=50 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
@@ -81,11 +81,60 @@ to = "StaffDash"
 from = "Run"
 to = "StaffDash"
 
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_x21r0"]
+from = "Grapple"
+to = "Hanging"
+mix = 0.15
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_l8lxr"]
+from = "Apex"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_j4gcg"]
+from = "Ascend"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_sjmus"]
+from = "DashEnd"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_os4pa"]
+from = "AscendtoDash"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_qyjj0"]
+from = "DashEndDescend"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_sfbq6"]
+from = "Idle"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_x46fr"]
+from = "JumpStart"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_t4r3j"]
+from = "Run"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_7f5nb"]
+from = "RuntoDash"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_ugs36"]
+from = "Skid"
+to = "Grapple"
+
+[sub_resource type="SpineAnimationMix" id="SpineAnimationMix_wvb5c"]
+from = "StaffDash"
+to = "Grapple"
+
 [sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_k8htf"]
 atlas_res = ExtResource("2_wppc2")
 skeleton_file_res = ExtResource("3_3hjs3")
 default_mix = 0.05
-animation_mixes = [SubResource("SpineAnimationMix_n0etm"), SubResource("SpineAnimationMix_3bh0u"), SubResource("SpineAnimationMix_g1por"), SubResource("SpineAnimationMix_sxosb"), SubResource("SpineAnimationMix_b5qbj"), SubResource("SpineAnimationMix_mrxo8"), SubResource("SpineAnimationMix_1v6r4"), SubResource("SpineAnimationMix_se2sb"), SubResource("SpineAnimationMix_43i1o")]
+animation_mixes = [SubResource("SpineAnimationMix_n0etm"), SubResource("SpineAnimationMix_3bh0u"), SubResource("SpineAnimationMix_g1por"), SubResource("SpineAnimationMix_sxosb"), SubResource("SpineAnimationMix_b5qbj"), SubResource("SpineAnimationMix_mrxo8"), SubResource("SpineAnimationMix_1v6r4"), SubResource("SpineAnimationMix_se2sb"), SubResource("SpineAnimationMix_43i1o"), SubResource("SpineAnimationMix_x21r0"), SubResource("SpineAnimationMix_l8lxr"), SubResource("SpineAnimationMix_j4gcg"), SubResource("SpineAnimationMix_sjmus"), SubResource("SpineAnimationMix_os4pa"), SubResource("SpineAnimationMix_qyjj0"), SubResource("SpineAnimationMix_sfbq6"), SubResource("SpineAnimationMix_x46fr"), SubResource("SpineAnimationMix_t4r3j"), SubResource("SpineAnimationMix_7f5nb"), SubResource("SpineAnimationMix_ugs36"), SubResource("SpineAnimationMix_wvb5c")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7sfsj"]
 shader = ExtResource("5_f4m6a")

@@ -14,6 +14,7 @@ var flashing_cycle_time : float = 0.0
 @export var APEX_RANGE : float = 150.0
 
 func _ready():
+	Engine.time_scale = 0.2
 	a.set_animation("Blink", true, BLINK_TRACK_INDEX)
 	a.set_animation("Run", true, MOVEMENT_TRACK_INDEX)
 
@@ -63,7 +64,10 @@ func dash(on_ground : bool) -> void:
 		a.add_animation("Descend", 0.3, false, 1)
 
 func hanging() -> void:
-	change_animation("Hanging", true, MOVEMENT_TRACK_INDEX)
+	var last_animation = a.get_current(1).get_animation().get_name()
+	if last_animation != "Hanging" and last_animation != "Grapple":
+		change_animation("Grapple", true, MOVEMENT_TRACK_INDEX)
+		a.add_animation("Hanging", 0.01, true, MOVEMENT_TRACK_INDEX)
 
 func fall(y_velocity : float) -> void:
 	var last_animation = a.get_current(1).get_animation().get_name()
