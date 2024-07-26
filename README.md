@@ -1,12 +1,9 @@
 Controls:
 
-WASD/Arrow Keys : Movement
+WASD  /  Arrow Keys     : Movement
 
-Space/Z/J : Jump
+Space  /  Z  /  J       : Jump
 
-C/L : Dash
+LMB    /  K  /  X       : Attack
 
-
-
-Important File Locations:
-
+Shift  /  C  /  L       : Dash
