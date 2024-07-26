@@ -152,15 +152,15 @@ scale = Vector2(0.24, 0.24)
 skeleton_data_res = SubResource("SpineSkeletonDataResource_k8htf")
 normal_material = SubResource("ShaderMaterial_7sfsj")
 preview_skin = "default"
-preview_animation = "Idle"
+preview_animation = "-- Empty --"
 preview_frame = false
 preview_time = 0.0
 script = ExtResource("2_q3y52")
 
 [node name="SpineBoneNode" type="SpineBoneNode" parent="AnimationHandler"]
 show_behind_parent = true
-position = Vector2(437.987, -147.946)
-rotation = 1.1221
+position = Vector2(461.576, -179.266)
+rotation = 1.54305
 scale = Vector2(1, 1)
 bone_name = "Lantern2"
 
