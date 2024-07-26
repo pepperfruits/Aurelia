@@ -1,20 +1,14 @@
 shader_type canvas_item;
 
-uniform sampler2D emission_teture;
+uniform sampler2D emission_texture;
 uniform vec4 glow_color : source_color = vec4(1.0);
 
 void fragment()
 {
 	vec4 current_color = texture(TEXTURE,UV); // what's our current sprite pixel
-	vec4 emission_color = texture(emission_teture,UV); // what's our current emission pixel
+	vec4 emission_color = texture(emission_texture,UV); // what's our current emission pixel
 	
-	if(emission_color.r > 0.0) // check if we're not black in the emission color.
-	{
-		COLOR = glow_color;
-		COLOR.a = texture(emission_teture, UV).a * 0.5;
-	}
-	else
-	{
-		COLOR = current_color; // we arent over an emission pixel leave alone
-	}
+	COLOR = current_color + glow_color * texture(emission_texture, UV).a;
+	COLOR.a = max(current_color.a, emission_color.a);
+	COLOR.rgb = glow_color.rgb;
 }
