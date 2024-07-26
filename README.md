@@ -4,6 +4,6 @@ WASD  /  Arrow Keys     : Movement
 
 Space  /  Z  /  J       : Jump
 
-LMB    /  K  /  X       : Attack
+LMB    /  X  /  K       : Attack
 
 Shift  /  C  /  L       : Dash
