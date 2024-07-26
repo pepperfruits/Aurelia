@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=13 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_8m3rw"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_8vh5k"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="7_vtngm"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="10_ht70a"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="11_uodut"]
-[ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="13_fftp2"]
 
 [node name="Room1-1" type="Node2D"]
 
@@ -71,16 +70,13 @@ position = Vector2(1792, -128)
 position = Vector2(3072, -512)
 
 [node name="Hook3" parent="Hooks" instance=ExtResource("6_ehh0f")]
-position = Vector2(4608, -896)
-
-[node name="Hook4" parent="Hooks" instance=ExtResource("6_ehh0f")]
-position = Vector2(4096, -1152)
+position = Vector2(4096, -1024)
 
 [node name="Hook5" parent="Hooks" instance=ExtResource("6_ehh0f")]
 position = Vector2(4608, -1408)
 
 [node name="Hook6" parent="Hooks" instance=ExtResource("6_ehh0f")]
-position = Vector2(4096, -640)
+position = Vector2(4608, -640)
 
 [node name="Coin" parent="." instance=ExtResource("7_vtngm")]
 position = Vector2(3200, -1280)
@@ -103,8 +99,5 @@ limit_top = -2140
 limit_right = 5280
 limit_bottom = 405
 p = NodePath("../Player")
-
-[node name="Crystal" parent="." instance=ExtResource("13_fftp2")]
-position = Vector2(832, 0)
 
 [editable path="StandardZones"]
