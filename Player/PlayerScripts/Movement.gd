@@ -20,11 +20,19 @@ class_name PlayerMovementHandler
 @onready var DashParticles : GPUParticles2D = $"../DashParticles"
 ## Collision shape
 @onready var PlayerCollision : CollisionShape2D = $"../PlayerCollisionShape"
+## timer for attack cooldown
+@onready var AttackCooldownTimer : Timer = $AttackCooldownTimer
+## The projectile you fire when attacking
+@onready var PlayerBullet = preload("res://Projectiles/PlayerBullet/player_bullet.tscn")
+## crystal timer, you go flying at 0
+@onready var CrystalTimer : Timer = $CrystalTimer
+## timer for when your particles fade away and you get more gravity back
+@onready var CrystalDashTimer : Timer = $CrystalDashTimer
+## particles for crystal dashes
+@onready var CrystalParticles : GPUParticles2D = $"../CrystalParticles"
 #endregions
 
 #region Export Constats
-## The projectile you fire when attacking
-@export var PlayerBullet : PackedScene
 ## Acceleration from running in a direction (grounded)
 @export var RUN_ACCEL : float = 1700.0
 ## Your max speed from running normally/midair movement
@@ -61,6 +69,8 @@ class_name PlayerMovementHandler
 @export var MAX_SPEED_FRICTION_BONUS : float = 0.75
 ## how much extra jump % you get when jumping from a hook
 @export var HOOK_RELEASED_JUMP_BONUS : float = 1.2
+## how fast you go out of a crystal
+@export var CRYSTAL_VELOCITY : float = 4000.0
 #endregion
 
 #region Variables
@@ -85,7 +95,7 @@ var current_hook : Hook = null
 ## List of hooks to refresh once you hit the ground
 var hook_refresh_array : Array[Hook] = []
 ## possible states the player can be in
-enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE}
+enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE, CRYSTAL}
 ## your current state
 var current_state : STATE = STATE.IDLE
 ## true if you aren't on the ground, but you still have some time to coyote jump
@@ -96,20 +106,19 @@ var was_on_floor : bool = false
 var current_stamina : float = MAX_STAMINA_TIME
 ## if you can attack or not, based on cooldown
 var is_attack_available : bool = true
+## true if you are in a crystal
+var is_crystal : bool = false
+## your current crystal if you are in one
+var current_crystal : Crystal = null
 #endregion
 
 func _process(delta):
 	facing_direction = get_direction_facing()
 	current_state = get_state()
-
-	if is_dashing:
-		PlayerCollision.scale.y = 0.7
-		PlayerCollision.position.y = 0
-	else:
-		PlayerCollision.scale.y = 1.0
-		PlayerCollision.position.y = 27
+	dashing_collision_changes()
 	
 	anim.set_direction(facing_direction)
+	
 	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
@@ -121,6 +130,8 @@ func _process(delta):
 		jump(delta, 1.0)
 	
 	match current_state:
+		STATE.CRYSTAL:
+			pass
 		STATE.HANGING:
 			anim.hanging()
 			current_stamina -= delta
@@ -165,10 +176,45 @@ func _process(delta):
 	run_physics(delta)
 
 #region Helper Functions
+func dashing_collision_changes() -> void:
+	if is_dashing:
+		PlayerCollision.scale.y = 0.8
+		PlayerCollision.position.y = 10
+	else:
+		PlayerCollision.scale.y = 1.0
+		PlayerCollision.position.y = 27
+
+func enter_crystal(c : Crystal) -> void:
+	current_crystal = c
+	current_state = STATE.CRYSTAL
+	is_crystal = true
+	is_hanging = false
+	is_grappling = false
+	is_dashing = false
+	CrystalTimer.start()
+	anim.hide_player(true)
+
+func leave_crystal():
+	var direction = inp.get_directional_input()
+	anim.hide_player(false)
+	current_state = STATE.FALLING
+	is_crystal = false
+	set_player_velocity(direction * CRYSTAL_VELOCITY)
+	current_crystal.use()
+	current_crystal = null
+	
+	CrystalParticles.emitting = true
+	CrystalDashTimer.start()
+
 func attack(facing : int):
-	var bullet : Hitbox = PlayerBullet.instantiate()
+	var bullet = PlayerBullet.instantiate()
+	bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
 	bullet.velocity.x *= facing
 	bullet.sender = p
+	add_child(bullet)
+	
+	is_attack_available = false
+	AttackCooldownTimer.start()
 
 func run_physics(delta):
 	was_on_floor = p.is_on_floor()
@@ -199,7 +245,9 @@ func can_attack() -> bool:
 	return is_attack_available
 
 func get_state() -> STATE:
-	if is_grappling and is_hanging:
+	if is_crystal:
+		return STATE.CRYSTAL
+	elif is_grappling and is_hanging:
 		return STATE.HANGING
 	elif is_grappling:
 		return STATE.GRAPPLING
@@ -368,7 +416,13 @@ func _on_jump_coyote_timer_timeout():
 func _on_dash_coyote_timer_timeout():
 	if p.is_on_floor():
 		refresh_dash_charges()
-#endregion
 
 func _on_attack_cooldown_timer_timeout():
 	is_attack_available = true
+
+func _on_crystal_timer_timeout():
+	leave_crystal()
+
+func _on_crystal_dash_timer_timeout():
+	CrystalParticles.emitting = false
+#endregion
