@@ -74,7 +74,6 @@ texture = ExtResource("4_67xjd")
 
 [node name="HookCooldownTimer" type="Timer" parent="."]
 process_mode = 1
-wait_time = 2.0
 one_shot = true
 
 [node name="AuraRange" type="Area2D" parent="."]

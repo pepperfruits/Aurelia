@@ -18,6 +18,18 @@ class_name PlayerMovementHandler
 @onready var DashCoyoteTimer : Timer = $DashCoyoteTimer
 ## Dash particles
 @onready var DashParticles : GPUParticles2D = $"../DashParticles"
+## Collision shape
+@onready var PlayerCollision : CollisionShape2D = $"../PlayerCollisionShape"
+## timer for attack cooldown
+@onready var AttackCooldownTimer : Timer = $AttackCooldownTimer
+## The projectile you fire when attacking
+@onready var PlayerBullet = preload("res://Projectiles/PlayerBullet/player_bullet.tscn")
+## crystal timer, you go flying at 0
+@onready var CrystalTimer : Timer = $CrystalTimer
+## timer for when your particles fade away and you get more gravity back
+@onready var CrystalDashTimer : Timer = $CrystalDashTimer
+## particles for crystal dashes
+@onready var CrystalParticles : GPUParticles2D = $"../CrystalParticles"
 #endregions
 
 #region Export Constats
@@ -57,6 +69,8 @@ class_name PlayerMovementHandler
 @export var MAX_SPEED_FRICTION_BONUS : float = 0.75
 ## how much extra jump % you get when jumping from a hook
 @export var HOOK_RELEASED_JUMP_BONUS : float = 1.2
+## how fast you go out of a crystal
+@export var CRYSTAL_VELOCITY : float = 4000.0
 #endregion
 
 #region Variables
@@ -81,7 +95,7 @@ var current_hook : Hook = null
 ## List of hooks to refresh once you hit the ground
 var hook_refresh_array : Array[Hook] = []
 ## possible states the player can be in
-enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE}
+enum STATE {HANGING, GRAPPLING, DASHING, FALLING, RUNNING, IDLE, CRYSTAL}
 ## your current state
 var current_state : STATE = STATE.IDLE
 ## true if you aren't on the ground, but you still have some time to coyote jump
@@ -90,34 +104,45 @@ var is_jump_coyote : bool = false
 var was_on_floor : bool = false
 ## your current stamina time
 var current_stamina : float = MAX_STAMINA_TIME
+## if you can attack or not, based on cooldown
+var is_attack_available : bool = true
+## true if you are in a crystal
+var is_crystal : bool = false
+## your current crystal if you are in one
+var current_crystal : Crystal = null
 #endregion
 
 func _process(delta):
 	facing_direction = get_direction_facing()
 	current_state = get_state()
+	dashing_collision_changes()
 	
 	anim.set_direction(facing_direction)
 	
 	if (can_grapple() and inp.is_jump_inputted()): 
 		grapple(delta)
+	elif (can_attack() and inp.is_attack_inputted()):
+		attack(facing_direction)
 	elif (can_dash() and inp.is_dash_inputted()): 
 		dash(inp.get_horizontal_input())
 	elif (can_jump() and inp.is_jump_inputted()): 
-		jump(delta, 1.0)
+		jump(1.0)
 	
 	match current_state:
+		STATE.CRYSTAL:
+			pass
 		STATE.HANGING:
 			anim.hanging()
 			current_stamina -= delta
 			anim.low_stamina_flashing(current_stamina < FLASHING_STAMINA_TIME)
 			if (not inp.is_jump_held() or current_hook.process_mode == PROCESS_MODE_DISABLED or current_stamina <= 0.0):
-				hook_released(delta)
+				hook_released()
 			else:
 				pull_towards_hook(delta)
 		STATE.GRAPPLING:
 			anim.hanging()
 			if is_grapple_reached():
-				grapple_reached(delta)
+				grapple_reached()
 				pull_towards_hook(delta)
 			else:
 				pull_towards_hook(delta)
@@ -150,6 +175,49 @@ func _process(delta):
 	run_physics(delta)
 
 #region Helper Functions
+func dashing_collision_changes() -> void:
+	if is_dashing:
+		PlayerCollision.scale.y = 0.8
+		PlayerCollision.position.y = 10
+	else:
+		PlayerCollision.scale.y = 1.0
+		PlayerCollision.position.y = 27
+
+func enter_crystal(c : Crystal) -> void:
+	current_crystal = c
+	current_state = STATE.CRYSTAL
+	is_crystal = true
+	is_hanging = false
+	is_grappling = false
+	if current_hook:
+		hook_released()
+	set_player_velocity(Vector2.ZERO)
+	is_dashing = false
+	CrystalTimer.start()
+	anim.hide_player(true)
+
+func leave_crystal():
+	var direction = inp.get_directional_input()
+	anim.hide_player(false)
+	current_state = STATE.FALLING
+	is_crystal = false
+	set_player_velocity(direction * CRYSTAL_VELOCITY)
+	current_crystal.use()
+	current_crystal = null
+	
+	CrystalParticles.emitting = true
+	CrystalDashTimer.start()
+
+func attack(facing : int):
+	var bullet = PlayerBullet.instantiate()
+	bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
+	bullet.velocity.x *= facing
+	bullet.sender = p
+	add_child(bullet)
+	
+	is_attack_available = false
+	AttackCooldownTimer.start()
+
 func run_physics(delta):
 	was_on_floor = p.is_on_floor()
 	p.velocity.x = momentum
@@ -175,8 +243,13 @@ func get_direction_facing() -> int:
 	else:
 		return facing_direction
 
+func can_attack() -> bool:
+	return is_attack_available and not is_hanging and not is_crystal
+
 func get_state() -> STATE:
-	if is_grappling and is_hanging:
+	if is_crystal:
+		return STATE.CRYSTAL
+	elif is_grappling and is_hanging:
 		return STATE.HANGING
 	elif is_grappling:
 		return STATE.GRAPPLING
@@ -221,18 +294,18 @@ func set_player_velocity(velocity : Vector2) -> void:
 	p.velocity = velocity
 	momentum = velocity.x
 
-func grapple_reached(_delta) -> void:
+func grapple_reached() -> void:
 	momentum = 0.0
 	p.velocity = Vector2.ZERO
 	is_hanging = true
 
-func hook_released(delta) -> void:
+func hook_released() -> void:
 	hook_refresh_array.append(current_hook)
 	is_hanging = false
 	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
 	is_grappling = false
 	if inp.get_vertical_input() >= 0:
-		jump(delta, HOOK_RELEASED_JUMP_BONUS)
+		jump(HOOK_RELEASED_JUMP_BONUS)
 	else:
 		refresh_dash_charges()
 	
@@ -300,7 +373,7 @@ func apply_half_gravity(delta : float) -> void:
 func can_jump() -> bool:
 	return p.is_on_floor() or is_jump_coyote
 
-func jump(_delta : float, multiplier : float) -> void:
+func jump(multiplier : float) -> void:
 	is_jump_coyote = false
 	current_state = STATE.FALLING
 	end_dash()
@@ -345,4 +418,13 @@ func _on_jump_coyote_timer_timeout():
 func _on_dash_coyote_timer_timeout():
 	if p.is_on_floor():
 		refresh_dash_charges()
+
+func _on_attack_cooldown_timer_timeout():
+	is_attack_available = true
+
+func _on_crystal_timer_timeout():
+	leave_crystal()
+
+func _on_crystal_dash_timer_timeout():
+	CrystalParticles.emitting = false
 #endregion
