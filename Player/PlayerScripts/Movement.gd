@@ -174,7 +174,6 @@ func _process(delta):
 	
 	run_physics(delta)
 
-#region Helper Functions
 func dashing_collision_changes() -> void:
 	if is_dashing:
 		PlayerCollision.scale.y = 0.8
@@ -215,8 +214,12 @@ func leave_crystal():
 func attack(facing : int):
 	anim.ranged_attack()
 	var bullet = PlayerBullet.instantiate()
-	bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
-	bullet.velocity.x *= facing
+	if inp.get_horizontal_input():
+		bullet.global_position = p.global_position + Vector2(50.0 * inp.get_horizontal_input(), -10.0)
+		bullet.velocity.x *= inp.get_horizontal_input()
+	else:
+		bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
+		bullet.velocity.x *= facing
 	bullet.sender = p
 	add_child(bullet)
 	
@@ -408,7 +411,6 @@ func dash(input_direction : float) -> void:
 
 func refresh_dash_charges() -> void:
 	current_dash_charges = MAX_DASH_CHARGES
-#endregion
 
 #region Signals
 func _on_dash_duration_timer_timeout():
