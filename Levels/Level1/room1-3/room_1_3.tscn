@@ -193,11 +193,11 @@ position = Vector2(-96, 0)
 Camera = NodePath("../PlayerCamera")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("6_ygxgx")]
-zoom = Vector2(0.9, 0.9)
 limit_left = 0
 limit_top = -2425
 limit_right = 6015
 limit_bottom = 260
 p = NodePath("../Player")
+DEFAULT_ZOOM = Vector2(0.8, 0.8)
 
 [editable path="StandardZones"]
