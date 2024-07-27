@@ -6,6 +6,7 @@ func pause():
 	get_tree().paused = true
 	$Icons/coins.text = "[color=#7be4ef]" + str(ScoreManager.coins) + "		/		20[/color]"
 	$Icons/deaths.text = "[color=#e9ffff]" + str(ScoreManager.deaths) + "	[/color]"
+	$Icons/Clock/time.text = "[color=#ffca6d]" + seconds_to_text(ScoreManager.time) + "[/color]"
 
 func unpause():
 	hide()
@@ -20,3 +21,9 @@ func _on_respawn_pressed():
 
 func _on_quit_pressed():
 	pass # TODO make this go to the title
+
+func seconds_to_text(time : float) -> String:
+	var minutes = int(time) / 60
+	var seconds = int(time) % 60
+	var milliseconds = int((time - int(time)) * 1000)
+	return "%02d:%02d:%03d" % [minutes, seconds, milliseconds]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://rls08qd67ldg"]
+[gd_scene load_steps=7 format=3 uid="uid://rls08qd67ldg"]
 
 [ext_resource type="Texture2D" uid="uid://v5e81vd3tvet" path="res://UI/PauseMenu/menu.png" id="1_irael"]
 [ext_resource type="Script" path="res://UI/PauseMenu/pause_menu.gd" id="1_pw6fd"]
 [ext_resource type="Texture2D" uid="uid://babgds2ks7q6t" path="res://UI/PauseMenu/icons.png" id="2_f8cju"]
 [ext_resource type="FontFile" uid="uid://c2ox6y3bslcv7" path="res://UI/PauseMenu/micross.ttf" id="3_cshmf"]
 [ext_resource type="Texture2D" uid="uid://ci7mrgswoiv7e" path="res://UI/PauseMenu/button1.png" id="4_vnlwo"]
+[ext_resource type="Texture2D" uid="uid://drfbs7pvg50ou" path="res://UI/PauseMenu/clock.png" id="5_2xop4"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -51,6 +52,7 @@ theme_override_fonts/normal_font = ExtResource("3_cshmf")
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
 text = "[color=#7be4ef]0		/		20[/color]"
+metadata/_edit_use_anchors_ = true
 
 [node name="deaths" type="RichTextLabel" parent="Icons"]
 offset_left = 96.0
@@ -63,6 +65,25 @@ theme_override_fonts/normal_font = ExtResource("3_cshmf")
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
 text = "[color=#e9ffff]0	[/color]"
+metadata/_edit_use_anchors_ = true
+
+[node name="Clock" type="Sprite2D" parent="Icons"]
+position = Vector2(-1193, 778)
+scale = Vector2(1.19589, 1.12158)
+texture = ExtResource("5_2xop4")
+
+[node name="time" type="RichTextLabel" parent="Icons/Clock"]
+offset_left = 89.9667
+offset_top = -23.6364
+offset_right = 613.967
+offset_bottom = 29.3636
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_cshmf")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[color=#ffca6d]00:00[/color]"
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
