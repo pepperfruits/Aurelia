@@ -25,10 +25,11 @@ color = Color(0.184314, 0.176471, 0.223529, 0.396078)
 
 [node name="MenuPanel" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 45.0
-offset_right = 1388.0
-offset_bottom = 1037.0
+offset_left = 1024.0
+offset_top = 32.0
+offset_right = 1879.0
+offset_bottom = 1024.0
+scale = Vector2(1.01054, 1.01029)
 texture = ExtResource("1_irael")
 patch_margin_left = 180
 patch_margin_top = 180
@@ -36,7 +37,7 @@ patch_margin_right = 180
 patch_margin_bottom = 180
 
 [node name="Icons" type="Sprite2D" parent="."]
-position = Vector2(665, 233)
+position = Vector2(1264, 234)
 texture = ExtResource("2_f8cju")
 
 [node name="coins" type="RichTextLabel" parent="Icons"]
@@ -56,21 +57,28 @@ offset_left = 96.0
 offset_top = 33.0
 offset_right = 620.0
 offset_bottom = 86.0
+theme_override_colors/font_outline_color = Color(0.184314, 0.176471, 0.223529, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("3_cshmf")
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
 text = "[color=#e9ffff]0	[/color]"
 
-[node name="Resume" type="Button" parent="."]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1202.0
+offset_top = 384.0
+offset_right = 1242.0
+offset_bottom = 424.0
+
+[node name="Resume" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 400.0
-offset_right = 1190.0
-offset_bottom = 581.0
+offset_right = 497.0
+offset_bottom = 181.0
 icon = ExtResource("4_vnlwo")
 flat = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Resume"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Resume"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
@@ -85,16 +93,15 @@ bbcode_enabled = true
 text = "[color=#e9ffff] [center] Resume [/center] [/color]"
 fit_content = true
 
-[node name="Respawn" type="Button" parent="."]
+[node name="Respawn" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 583.0
-offset_right = 1190.0
-offset_bottom = 764.0
+offset_top = 183.0
+offset_right = 497.0
+offset_bottom = 364.0
 icon = ExtResource("4_vnlwo")
 flat = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Respawn"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Respawn"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
@@ -109,16 +116,15 @@ bbcode_enabled = true
 text = "[color=#e9ffff] [center] Respawn [/center] [/color]"
 fit_content = true
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 763.0
-offset_right = 1190.0
-offset_bottom = 944.0
+offset_top = 363.0
+offset_right = 497.0
+offset_bottom = 544.0
 icon = ExtResource("4_vnlwo")
 flat = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Quit"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Quit"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
@@ -133,6 +139,6 @@ bbcode_enabled = true
 text = "[color=#e9ffff] [center] Quit [/center] [/color]"
 fit_content = true
 
-[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Respawn" to="." method="_on_respawn_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
