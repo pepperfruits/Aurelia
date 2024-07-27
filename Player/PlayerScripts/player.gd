@@ -5,8 +5,8 @@ class_name PlayerCharacter
 @onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
-func _process(_delta):
-	pass
+func _process(delta):
+	ScoreManager.time += delta
 
 func add_camera_area(c : CameraControlArea):
 	Camera.add_camera_area(c)
