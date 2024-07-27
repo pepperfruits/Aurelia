@@ -92,6 +92,7 @@ gizmo_extents = 100.0
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("12_s6bl2")]
 position = Vector2(5536, -1632)
 marker = NodePath("Marker2D")
+zoom = Vector2(0.7, 0.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea2"]
 position = Vector2(-790.5, 75.5)
