@@ -5,7 +5,7 @@ func pause():
 	show()
 	get_tree().paused = true
 	$Icons/coins.text = "[color=#7be4ef]" + str(ScoreManager.coins) + "		/		20[/color]"
-	$Icons/deaths.text = "[color=#2a2834]" + str(ScoreManager.deaths) + "	[/color]"
+	$Icons/deaths.text = "[color=#e9ffff]" + str(ScoreManager.deaths) + "	[/color]"
 
 func unpause():
 	hide()

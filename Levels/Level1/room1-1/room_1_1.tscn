@@ -108,10 +108,7 @@ limit_top = -2140
 limit_right = 5280
 limit_bottom = 405
 p = NodePath("../Player")
-CAMERA_SPEED = 10.0
 DEFAULT_ZOOM = Vector2(0.9, 0.9)
-CAMERA_MIX = 0.4
-SWAP_SPEED = 0.4
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("13_kev7h")]
 position = Vector2(256, 0)
