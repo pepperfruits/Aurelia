@@ -29,6 +29,9 @@ func remove_camera_area():
 	camera_area = null
 
 func _process(delta):
+	if Input.is_action_just_pressed("escape"):
+		$CanvasLayer/PauseMenu.pause()
+	
 	if camera_area:
 		var target_position : Vector2 = p.global_position * (1.0 - CAMERA_MIX) + camera_area.marker.global_position * (CAMERA_MIX)
 		global_position += (target_position - global_position) * CAMERA_SPEED * delta * 0.3
