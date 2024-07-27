@@ -390,7 +390,7 @@ func jump(multiplier : float) -> void:
 	inp._on_jump_buffer_timer_timeout()
 
 func can_dash() -> bool:
-	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
+	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING and not is_crystal
 
 func dash(input_direction : float) -> void:
 	DashParticles.emitting = true
