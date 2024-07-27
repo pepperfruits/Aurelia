@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://iyw03gw5rmxd"]
+[gd_scene load_steps=17 format=3 uid="uid://iyw03gw5rmxd"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="1_n27qe"]
 [ext_resource type="PackedScene" uid="uid://b31t1id8708yx" path="res://UI/PlayerUI/player_ui.tscn" id="2_knmji"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Shaders/screen_transition.gdshader" id="3_humix"]
 [ext_resource type="Shader" path="res://Shaders/colorManipulation.gdshader" id="3_vbco0"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="4_vxnou"]
+[ext_resource type="PackedScene" uid="uid://rls08qd67ldg" path="res://UI/PauseMenu/pause_menu.tscn" id="7_nju0i"]
 
 [sub_resource type="Gradient" id="Gradient_pknx5"]
 offsets = PackedFloat32Array(0, 0.136283, 0.658407, 1)
@@ -114,6 +115,8 @@ material = SubResource("ShaderMaterial_bdmwy")
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_nju0i")]
 
 [node name="TransitionAnimation" type="AnimationPlayer" parent="."]
 libraries = {

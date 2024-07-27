@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=3 uid="uid://rls08qd67ldg"]
+
+[ext_resource type="Texture2D" uid="uid://v5e81vd3tvet" path="res://UI/PauseMenu/menu.png" id="1_irael"]
+[ext_resource type="Script" path="res://UI/PauseMenu/pause_menu.gd" id="1_pw6fd"]
+[ext_resource type="Texture2D" uid="uid://babgds2ks7q6t" path="res://UI/PauseMenu/icons.png" id="2_f8cju"]
+[ext_resource type="FontFile" uid="uid://c2ox6y3bslcv7" path="res://UI/PauseMenu/micross.ttf" id="3_cshmf"]
+[ext_resource type="Texture2D" uid="uid://ci7mrgswoiv7e" path="res://UI/PauseMenu/button1.png" id="4_vnlwo"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pw6fd")
+
+[node name="backgrounddim" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.184314, 0.176471, 0.223529, 0.396078)
+
+[node name="MenuPanel" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 45.0
+offset_right = 1388.0
+offset_bottom = 1037.0
+texture = ExtResource("1_irael")
+patch_margin_left = 180
+patch_margin_top = 180
+patch_margin_right = 180
+patch_margin_bottom = 180
+
+[node name="Icons" type="Sprite2D" parent="."]
+position = Vector2(665, 233)
+texture = ExtResource("2_f8cju")
+
+[node name="coins" type="RichTextLabel" parent="Icons"]
+offset_left = 96.0
+offset_top = -94.0
+offset_right = 620.0
+offset_bottom = -41.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_cshmf")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[color=#7be4ef]0		/		20[/color]"
+
+[node name="deaths" type="RichTextLabel" parent="Icons"]
+offset_left = 96.0
+offset_top = 33.0
+offset_right = 620.0
+offset_bottom = 86.0
+theme_override_fonts/normal_font = ExtResource("3_cshmf")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[color=#2a2834]0	[/color]"
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 400.0
+offset_right = 1190.0
+offset_bottom = 581.0
+icon = ExtResource("4_vnlwo")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Resume"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 493.0
+offset_bottom = 123.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_cshmf")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#e9ffff] [center] Resume [/center] [/color]"
+fit_content = true
+
+[node name="Respawn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 583.0
+offset_right = 1190.0
+offset_bottom = 764.0
+icon = ExtResource("4_vnlwo")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Respawn"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 493.0
+offset_bottom = 123.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_cshmf")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#e9ffff] [center] Respawn [/center] [/color]"
+fit_content = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 763.0
+offset_right = 1190.0
+offset_bottom = 944.0
+icon = ExtResource("4_vnlwo")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Quit"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 493.0
+offset_bottom = 123.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("3_cshmf")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#e9ffff] [center] Quit [/center] [/color]"
+fit_content = true
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
