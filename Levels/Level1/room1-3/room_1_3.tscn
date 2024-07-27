@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cuarqnra04rsh"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_82th1"]
-[ext_resource type="TileSet" uid="uid://cml8863r30fra" path="res://Levels/Level1/room1-x/1-x.tres" id="2_l3a3f"]
+[ext_resource type="TileSet" uid="uid://cml8863r30fra" path="res://Levels/Level1/room1-4/1-x.tres" id="2_l3a3f"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="3_3no74"]
 [ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="3_86nda"]
 [ext_resource type="TileSet" uid="uid://dwkj2ixo6sqde" path="res://Levels/Level1/room1-3/1-3fake.tres" id="3_qxtug"]
@@ -51,6 +51,9 @@ scale = Vector2(0.5, 0.5)
 tile_set = ExtResource("3_qxtug")
 format = 2
 layer_0/tile_data = PackedInt32Array(-589806, 524288, 1, -655342, 524288, 1, -589805, 589824, 2, -655341, 589824, 2)
+
+[node name="CrackedWall" parent="." instance=ExtResource("14_8d8on")]
+position = Vector2(2368, -1152)
 
 [node name="stuff" type="Node2D" parent="."]
 
@@ -135,6 +138,7 @@ position = Vector2(2720, -2272)
 
 [node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(3040, -2336)
+scene_path = "res://Levels/Level1/room1-4/room_1_4.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
@@ -150,6 +154,7 @@ rotation = 3.14159
 scale = Vector2(15.1075, 0.199074)
 
 [node name="Fog" parent="." instance=ExtResource("5_6vh8n")]
+scroll_offset = Vector2(-5065.93, 1901.46)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("5_bxtct")]
 position = Vector2(-96, 0)
@@ -162,9 +167,6 @@ limit_right = 2905
 limit_bottom = 260
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
-
-[node name="CrackedWall" parent="." instance=ExtResource("14_8d8on")]
-position = Vector2(2368, -1152)
 
 [editable path="Coin"]
 [editable path="StandardZones"]

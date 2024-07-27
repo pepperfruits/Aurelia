@@ -236,7 +236,7 @@ position = Vector2(2048, -1760)
 
 [node name="Coin" parent="Stuff" instance=ExtResource("8_oiyov")]
 position = Vector2(2048, -2944)
-COIN_ID = 4
+COIN_ID = 999
 
 [node name="Hook" parent="Stuff" instance=ExtResource("9_anjfu")]
 position = Vector2(3328, -2304)
