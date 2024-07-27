@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://q2laxpkfaosg"]
+[gd_scene load_steps=17 format=3 uid="uid://q2laxpkfaosg"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vla55"]
 [ext_resource type="TileSet" uid="uid://djwsos0xfjsld" path="res://Levels/Level1/room1-2/1-2.tres" id="2_sutus"]
@@ -17,6 +17,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j0su"]
 size = Vector2(960, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btlki"]
+size = Vector2(1397, 851)
 
 [node name="Room1-2" type="Node2D"]
 
@@ -91,11 +94,11 @@ position = Vector2(5536, -1632)
 marker = NodePath("Marker2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea2"]
-position = Vector2(-736, 160)
-shape = SubResource("RectangleShape2D_5j0su")
+position = Vector2(-790.5, 75.5)
+shape = SubResource("RectangleShape2D_btlki")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
-position = Vector2(-800, -544)
+position = Vector2(-800, -800)
 gizmo_extents = 100.0
 
 [node name="StandardZones" parent="." instance=ExtResource("3_wp4yu")]
