@@ -5,7 +5,7 @@ class_name PlayerCamera
 @export var CAMERA_SPEED : float = 10.0
 @export var DEFAULT_ZOOM : Vector2 = Vector2(1,1)
 
-@export var CAMERA_MIX : float = 0.5
+@export var CAMERA_MIX : float = 0.4
 
 @onready var transitionPlayer : AnimationPlayer = $TransitionAnimation
 @onready var transitionMaterial : Material = $CanvasLayer/TransitionColor.material
@@ -30,8 +30,8 @@ func remove_camera_area():
 
 func _process(delta):
 	if camera_area:
-		var target_position : Vector2 = p.global_position * (1.0 - CAMERA_MIX) + camera_area.global_position * (CAMERA_MIX)
-		position += (target_position - global_position) * CAMERA_SPEED * delta * 0.3
+		var target_position : Vector2 = p.global_position * (1.0 - CAMERA_MIX) + camera_area.marker.global_position * (CAMERA_MIX)
+		global_position += (target_position - global_position) * CAMERA_SPEED * delta * 0.3
 		zoom += (camera_area.zoom - zoom) * delta
 	else:
 		position -= (global_position - p.global_position) * CAMERA_SPEED * delta * SWAP_SPEED

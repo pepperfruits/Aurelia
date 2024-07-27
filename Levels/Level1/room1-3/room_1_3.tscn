@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuarqnra04rsh"]
+[gd_scene load_steps=18 format=3 uid="uid://cuarqnra04rsh"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_82th1"]
 [ext_resource type="TileSet" uid="uid://cml8863r30fra" path="res://Levels/Level1/room1-3/1-3.tres" id="2_l3a3f"]
@@ -11,9 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="5_6vh8n"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="5_bxtct"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="6_ygxgx"]
+[ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="9_63edc"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="9_x6656"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="10_02rcm"]
 [ext_resource type="PackedScene" uid="uid://cdsoktjh4jhfn" path="res://Environment/CrackedWall/CrackedWall.tscn" id="14_8d8on"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_402a1"]
+size = Vector2(1568, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cu2r"]
+size = Vector2(1728, 1056)
 
 [node name="Room1-3" type="Node2D"]
 
@@ -62,7 +69,7 @@ position = Vector2(1152, -544)
 position = Vector2(320, -832)
 
 [node name="Hook4" parent="stuff" instance=ExtResource("4_bfj7p")]
-position = Vector2(384, -2080)
+position = Vector2(384, -2048)
 
 [node name="Spikes15" parent="stuff" instance=ExtResource("9_x6656")]
 position = Vector2(1216, -896)
@@ -97,6 +104,29 @@ position = Vector2(1536, -2304)
 [node name="Torch3" parent="stuff" instance=ExtResource("4_fsfce")]
 position = Vector2(2304, -2304)
 
+[node name="CameraControlArea" parent="stuff" node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
+position = Vector2(768, -256)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stuff/CameraControlArea"]
+position = Vector2(112, 0)
+shape = SubResource("RectangleShape2D_402a1")
+
+[node name="Marker2D" type="Marker2D" parent="stuff/CameraControlArea"]
+position = Vector2(0, -352)
+
+[node name="CameraControlArea2" parent="stuff" node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
+position = Vector2(1024, -1376)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stuff/CameraControlArea2"]
+position = Vector2(-32, -16)
+shape = SubResource("RectangleShape2D_8cu2r")
+
+[node name="Marker2D" type="Marker2D" parent="stuff/CameraControlArea2"]
+position = Vector2(0, -416)
+
 [node name="StandardZones" parent="." instance=ExtResource("3_3no74")]
 
 [node name="ForcedHorizontalArea2" parent="StandardZones" index="1"]
@@ -111,6 +141,11 @@ position = Vector2(3040, -2336)
 
 [node name="Darkness" parent="." instance=ExtResource("10_02rcm")]
 position = Vector2(3019.5, 160.5)
+scale = Vector2(15.1075, 0.199074)
+
+[node name="Darkness2" parent="." instance=ExtResource("10_02rcm")]
+position = Vector2(2124, -3136)
+rotation = 3.14159
 scale = Vector2(15.1075, 0.199074)
 
 [node name="Fog" parent="." instance=ExtResource("5_6vh8n")]

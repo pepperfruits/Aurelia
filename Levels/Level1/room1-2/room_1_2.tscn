@@ -69,8 +69,9 @@ position = Vector2(4224, 64)
 position = Vector2(800, 992)
 scale = Vector2(126.733, 6.46661)
 
-[node name="CameraControlArea" parent="." instance=ExtResource("12_s6bl2")]
+[node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("12_s6bl2")]
 position = Vector2(2368, -448)
+marker = NodePath("Marker2D")
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea"]
@@ -78,11 +79,12 @@ position = Vector2(-736, 160)
 shape = SubResource("RectangleShape2D_5j0su")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea"]
-position = Vector2(832, -192)
+position = Vector2(793, -208)
 gizmo_extents = 100.0
 
-[node name="CameraControlArea2" parent="." instance=ExtResource("12_s6bl2")]
+[node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("12_s6bl2")]
 position = Vector2(5536, -1632)
+marker = NodePath("Marker2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea2"]
 position = Vector2(-736, 160)

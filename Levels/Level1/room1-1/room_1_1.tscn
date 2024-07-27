@@ -120,7 +120,7 @@ position = Vector2(368, 48)
 shape = SubResource("RectangleShape2D_kmnun")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea"]
-position = Vector2(576, -32)
+position = Vector2(672, -32)
 
 [node name="CameraControlArea3" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("13_kev7h")]
 position = Vector2(3072, -384)
@@ -132,7 +132,7 @@ position = Vector2(-288, -224)
 shape = SubResource("RectangleShape2D_hl5wd")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea3"]
-position = Vector2(0, -32)
+position = Vector2(64, -288)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("13_kev7h")]
 position = Vector2(4352, -1024)
@@ -144,5 +144,6 @@ position = Vector2(-64, -80)
 shape = SubResource("RectangleShape2D_06lrx")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
+position = Vector2(0, -128)
 
 [editable path="StandardZones"]
