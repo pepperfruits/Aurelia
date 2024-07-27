@@ -41,6 +41,7 @@ layer_3/tile_data = PackedInt32Array(-393200, 655360, 4, -393201, 655360, 4, -39
 
 [node name="Coin" parent="." instance=ExtResource("4_q85ag")]
 position = Vector2(2432, -1152)
+COIN_ID = 3
 
 [node name="PointLight2D" parent="Coin" index="1"]
 visible = false
