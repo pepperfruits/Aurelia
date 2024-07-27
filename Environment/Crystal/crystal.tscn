@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfp7l"]
 size = Vector2(256, 256)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k57v6"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_itoje"]
 light_mode = 1
 
 [node name="Crystal" type="Area2D"]
@@ -25,7 +25,7 @@ texture_scale = 0.5
 shape = SubResource("RectangleShape2D_xfp7l")
 
 [node name="Crystal" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_k57v6")
+material = SubResource("CanvasItemMaterial_itoje")
 texture = ExtResource("3_uainq")
 
 [node name="PointerSprite" type="Sprite2D" parent="."]
@@ -34,4 +34,9 @@ position = Vector2(300, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_c7o1x")
 
+[node name="FlashingTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="FlashingTimer" to="." method="_on_flashing_timer_timeout"]

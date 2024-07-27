@@ -3,6 +3,7 @@ class_name Crystal
 
 var p : PlayerCharacter = null
 @onready var PointerSprite : Sprite2D = $PointerSprite
+@onready var Sprite : Sprite2D = $Crystal
 
 ## particles that you make when you teleport
 @export var TeleportParticles : PackedScene = preload("res://Particles/TeleportParticles/teleport_particles.tscn")
@@ -39,3 +40,13 @@ func set_pointer(b : bool) -> void:
 func use():
 	set_pointer(false)
 	p = null
+
+
+func _on_flashing_timer_timeout():
+	if p:
+		if Sprite.modulate == Color.GRAY:
+			Sprite.modulate = Color.WHITE
+		else:
+			Sprite.modulate = Color.GRAY
+	else:
+		Sprite.modulate = Color.WHITE
