@@ -29,6 +29,7 @@ material = SubResource("CanvasItemMaterial_k57v6")
 texture = ExtResource("3_uainq")
 
 [node name="PointerSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(300, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_c7o1x")
