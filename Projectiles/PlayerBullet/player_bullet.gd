@@ -16,3 +16,6 @@ func _process(delta):
 
 func _on_body_entered(_body):
 	self.queue_free()
+
+func _on_area_entered(_area):
+	self.queue_free()

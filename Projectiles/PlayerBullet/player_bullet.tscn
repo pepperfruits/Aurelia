@@ -16,11 +16,10 @@ shader_parameter/emission_texture = ExtResource("3_cugen")
 
 [node name="PlayerBullet" type="Area2D"]
 collision_layer = 4
-collision_mask = 256
+collision_mask = 288
 script = ExtResource("1_xb871")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(39, 0)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_loqqi")
@@ -38,4 +37,5 @@ energy = 0.5
 texture = ExtResource("2_u6s1e")
 texture_scale = 3.0
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

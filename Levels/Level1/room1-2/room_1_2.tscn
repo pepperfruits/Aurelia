@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://q2laxpkfaosg"]
+[gd_scene load_steps=17 format=3 uid="uid://q2laxpkfaosg"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vla55"]
 [ext_resource type="TileSet" uid="uid://djwsos0xfjsld" path="res://Levels/Level1/room1-2/1-2.tres" id="2_sutus"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="12_8cmhe"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="12_s6bl2"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="13_o64v6"]
+[ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="15_1k03p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j0su"]
 size = Vector2(960, 704)
@@ -45,7 +46,10 @@ position = Vector2(4608, -2784)
 position = Vector2(4864, -2784)
 
 [node name="Torch" parent="." instance=ExtResource("4_hat5t")]
-position = Vector2(1024, -256)
+position = Vector2(1152, -256)
+
+[node name="Torch5" parent="." instance=ExtResource("4_hat5t")]
+position = Vector2(896, -256)
 
 [node name="Torch2" parent="." instance=ExtResource("4_hat5t")]
 position = Vector2(3712, -1280)
@@ -130,5 +134,8 @@ limit_right = 5620
 limit_bottom = 347
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
+
+[node name="BreakableBlock" parent="." instance=ExtResource("15_1k03p")]
+position = Vector2(896, -256)
 
 [editable path="StandardZones"]
