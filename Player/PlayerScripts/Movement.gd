@@ -287,7 +287,7 @@ func is_grapple_reached() -> bool:
 	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
 
 func pull_towards_hook(delta : float) -> void:
-	p.global_position += (current_hook.global_position - p.global_position) / GRAPPLE_TIME * delta
+	p.global_position += (current_hook.global_position - p.global_position) / GRAPPLE_TIME * delta + (current_hook.global_position - p.global_position).normalized() * 2.0 * delta
 
 func end_dash() -> void:
 	is_dashing = false
