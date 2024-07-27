@@ -38,6 +38,7 @@ layer_3/tile_data = PackedInt32Array(-131073, 720896, 7, -196609, 720896, 6, -26
 
 [node name="Coin" parent="." instance=ExtResource("9_mu50e")]
 position = Vector2(4608, 128)
+COIN_ID = 2
 
 [node name="Platform" parent="." instance=ExtResource("13_o64v6")]
 position = Vector2(4608, -2784)

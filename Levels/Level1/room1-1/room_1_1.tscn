@@ -90,6 +90,7 @@ position = Vector2(4608, -640)
 
 [node name="Coin" parent="." instance=ExtResource("7_vtngm")]
 position = Vector2(3200, -1280)
+COIN_ID = 1
 
 [node name="Fog" parent="." instance=ExtResource("10_ht70a")]
 scroll_offset = Vector2(-2244, 895)
