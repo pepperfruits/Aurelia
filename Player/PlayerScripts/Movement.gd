@@ -150,6 +150,7 @@ func _process(delta):
 			pass
 		STATE.FALLING:
 			DashParticles.emitting = false
+			anim.low_stamina_flashing(current_stamina < FLASHING_STAMINA_TIME)
 			anim.fall(p.velocity.y)
 			if (inp.get_horizontal_input()):
 				apply_acceleration(delta, inp.get_horizontal_input())
