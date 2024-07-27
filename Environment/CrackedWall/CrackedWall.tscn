@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdsoktjh4jhfn"]
+
+[ext_resource type="Texture2D" uid="uid://cs5oih5lwilc7" path="res://Assets/Textures/crackedwall.png" id="1_krihy"]
+
+[node name="CrackedWall" type="Sprite2D"]
+position = Vector2(64, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_krihy")
