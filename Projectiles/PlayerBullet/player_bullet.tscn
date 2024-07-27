@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4ecfs30v6b3h"]
+[gd_scene load_steps=11 format=3 uid="uid://b4ecfs30v6b3h"]
 
 [ext_resource type="Script" path="res://Projectiles/PlayerBullet/player_bullet.gd" id="1_xb871"]
 [ext_resource type="Shader" path="res://Player/emission.gdshader" id="2_ip2bc"]
 [ext_resource type="Texture2D" uid="uid://pnn1rwbkq4yt" path="res://Projectiles/PlayerBullet/Projectile.png" id="2_u6s1e"]
 [ext_resource type="Texture2D" uid="uid://cg30p1u4oq0rl" path="res://Projectiles/PlayerBullet/Projectileblur.png" id="3_cugen"]
+[ext_resource type="Texture2D" uid="uid://dgnrccbrn73bu" path="res://Player/particle.png" id="5_roy15"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_loqqi"]
 radius = 31.0
@@ -13,6 +14,25 @@ height = 78.0
 shader = ExtResource("2_ip2bc")
 shader_parameter/glow_color = Color(0, 0.94902, 0.682353, 1)
 shader_parameter/emission_texture = ExtResource("3_cugen")
+
+[sub_resource type="Curve" id="Curve_g1wvv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.1582, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dooyr"]
+curve = SubResource("Curve_g1wvv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ahm0t"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 90, 0)
+scale_min = 0.05
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_dooyr")
+color = Color(0, 1, 0.807843, 0.517647)
 
 [node name="PlayerBullet" type="Area2D"]
 collision_layer = 4
@@ -36,6 +56,13 @@ color = Color(0, 1, 0.623529, 1)
 energy = 0.5
 texture = ExtResource("2_u6s1e")
 texture_scale = 3.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(35, 0)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_ahm0t")
+texture = ExtResource("5_roy15")
+lifetime = 0.2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

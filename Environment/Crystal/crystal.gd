@@ -4,6 +4,9 @@ class_name Crystal
 var p : PlayerCharacter = null
 @onready var PointerSprite : Sprite2D = $PointerSprite
 
+## particles that you make when you teleport
+@export var TeleportParticles : PackedScene = preload("res://Particles/TeleportParticles/teleport_particles.tscn")
+
 func _process(_delta):
 	if p:
 		var h = p.InputHandler.get_horizontal_input()
@@ -15,6 +18,12 @@ func _process(_delta):
 
 func _on_area_entered(bullet : Projectile):
 	p = bullet.sender
+	
+	var particles = TeleportParticles.instantiate()
+	add_child(particles)
+	particles.global_position = p.global_position
+	
+	
 	teleport_player()
 	p.enter_crystal(self)
 	set_pointer(true)
