@@ -130,7 +130,7 @@ func _process(delta):
 	
 	match current_state:
 		STATE.CRYSTAL:
-			pass
+			p.global_position = current_crystal.global_position
 		STATE.HANGING:
 			anim.hanging()
 			current_stamina -= delta
