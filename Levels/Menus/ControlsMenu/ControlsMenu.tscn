@@ -183,9 +183,9 @@ fit_content = true
 [node name="Images" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 875.0
-offset_top = 105.0
+offset_top = 94.0
 offset_right = 915.0
-offset_bottom = 145.0
+offset_bottom = 134.0
 
 [node name="Movement" type="Sprite2D" parent="Images"]
 position = Vector2(202.3, 180)
@@ -193,7 +193,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_loapq")
 
 [node name="Jump" type="Sprite2D" parent="Images"]
-position = Vector2(707, 175)
+position = Vector2(707, 201)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_01b62")
 
@@ -216,9 +216,9 @@ texture = ExtResource("11_ff7v1")
 
 [node name="TutorialButtons" type="Control" parent="."]
 anchors_preset = 0
-offset_top = -55.0
+offset_top = -66.0
 offset_right = 40.0
-offset_bottom = -15.0
+offset_bottom = -26.0
 
 [node name="JumpButton" parent="TutorialButtons" instance=ExtResource("12_h66kj")]
 position = Vector2(1421, 536)
