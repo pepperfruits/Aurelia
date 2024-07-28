@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca77en0eetqpr"]
+
+[ext_resource type="Texture2D" uid="uid://dgnrccbrn73bu" path="res://Player/particle.png" id="1_mxsfk"]
+[ext_resource type="Script" path="res://Particles/TeleportParticles/teleport_particles.gd" id="2_t1n08"]
+
+[sub_resource type="Curve" id="Curve_23v55"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_opbgc"]
+curve = SubResource("Curve_23v55")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v25cl"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 70.8
+initial_velocity_max = 159.3
+gravity = Vector3(0, 300, 0)
+scale_min = 0.05
+scale_max = 0.1
+color = Color(0, 1, 0.694118, 1)
+alpha_curve = SubResource("CurveTexture_opbgc")
+
+[node name="BulletParticles" type="GPUParticles2D"]
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_v25cl")
+texture = ExtResource("1_mxsfk")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_t1n08")
