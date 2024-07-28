@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://b31t1id8708yx"]
+[gd_scene load_steps=7 format=3 uid="uid://b31t1id8708yx"]
 
-[ext_resource type="Script" path="res://UI/PlayerUI/RichTextLabel.gd" id="1_we8gw"]
+[ext_resource type="Texture2D" uid="uid://babgds2ks7q6t" path="res://UI/PauseMenu/icons.png" id="1_8wtuy"]
+[ext_resource type="Script" path="res://UI/PlayerUI/player_ui.gd" id="1_nn538"]
+[ext_resource type="FontFile" uid="uid://c2ox6y3bslcv7" path="res://UI/PauseMenu/micross.ttf" id="2_b6lxf"]
+[ext_resource type="Texture2D" uid="uid://drfbs7pvg50ou" path="res://UI/PauseMenu/clock.png" id="4_plrxt"]
+
+[sub_resource type="Animation" id="Animation_mkoou"]
+resource_name = "UI_Zoom_Out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-435, 8), Vector2(15, 8), Vector2(15, 8), Vector2(-445, 8)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3aphf"]
+_data = {
+"UI_Zoom_Out": SubResource("Animation_mkoou")
+}
 
 [node name="PlayerUI" type="Control"]
 layout_mode = 3
@@ -9,13 +47,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nn538")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 416.0
-offset_bottom = 288.0
-text = "
-"
-script = ExtResource("1_we8gw")
+offset_left = -435.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 264.0
+scale = Vector2(0.459909, 0.490381)
+color = Color(0.164706, 0.156863, 0.203922, 0)
+
+[node name="Icons" type="Sprite2D" parent="ColorRect"]
+position = Vector2(73.2836, 126.886)
+scale = Vector2(1.12744, 1.05738)
+texture = ExtResource("1_8wtuy")
+
+[node name="coins" type="RichTextLabel" parent="ColorRect/Icons"]
+offset_left = 96.0
+offset_top = -94.0
+offset_right = 620.0
+offset_bottom = -41.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_b6lxf")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[color=#7be4ef]0		/		20[/color]"
+
+[node name="deaths" type="RichTextLabel" parent="ColorRect/Icons"]
+offset_left = 96.0
+offset_top = 33.0
+offset_right = 620.0
+offset_bottom = 86.0
+theme_override_colors/font_outline_color = Color(0.164706, 0.156863, 0.203922, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_b6lxf")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[color=#e9ffff]0	[/color]"
+
+[node name="Clock" type="Sprite2D" parent="ColorRect"]
+position = Vector2(73.9277, 330.355)
+scale = Vector2(1.19589, 1.12158)
+texture = ExtResource("4_plrxt")
+
+[node name="time" type="RichTextLabel" parent="ColorRect/Clock"]
+offset_left = 89.9667
+offset_top = -23.6364
+offset_right = 613.967
+offset_bottom = 29.3636
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_b6lxf")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[color=#ffca6d]00:00[/color]"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3aphf")
+}

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://oswc1rhueabr"]
+
+[ext_resource type="Script" path="res://Zones/CameraControlArea/camera_control_area.gd" id="1_cs7wy"]
+
+[node name="CameraControlArea" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_cs7wy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

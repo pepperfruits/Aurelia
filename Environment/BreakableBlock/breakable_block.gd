@@ -1,0 +1,2 @@
+extends Hurtbox
+class_name BreakableBlock
