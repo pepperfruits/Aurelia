@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name TutorialButton
 
 @export var ZXC_image : Texture2D
 @export var JKL_image : Texture2D
