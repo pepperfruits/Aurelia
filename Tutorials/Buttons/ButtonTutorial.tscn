@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ppawv1w3i02n"]
+
+[ext_resource type="Script" path="res://Tutorials/Buttons/ButtonTutorial.gd" id="1_3ay02"]
+
+[node name="ButtonTutorial" type="Sprite2D"]
+script = ExtResource("1_3ay02")

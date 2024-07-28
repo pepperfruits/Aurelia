@@ -59,9 +59,10 @@ grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
 script = ExtResource("3_hoqxf")
-scene = "res://Levels/Level1/room1-1/room_1_1.tscn"
+scene = "res://Levels/Menus/ControlsMenu/ControlsMenu.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/Play"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
 offset_right = 493.0
@@ -90,6 +91,7 @@ flat = true
 script = ExtResource("5_2qord")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/Quit"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
 offset_right = 493.0
@@ -120,6 +122,7 @@ icon = ExtResource("2_uul0e")
 flat = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/TestingLevel"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
 offset_right = 493.0

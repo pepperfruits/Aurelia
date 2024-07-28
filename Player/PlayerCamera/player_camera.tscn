@@ -39,7 +39,7 @@ shader_parameter/vignette_rgb = Color(0.0938864, 0.0528427, 0.100807, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bdmwy"]
 shader = ExtResource("3_humix")
-shader_parameter/progress = null
+shader_parameter/progress = 1.0
 shader_parameter/diamondPixelSize = 50.0
 
 [sub_resource type="Animation" id="Animation_gmksn"]
@@ -82,7 +82,6 @@ _data = {
 process_priority = -1
 editor_draw_limits = true
 script = ExtResource("1_n27qe")
-transition_progress = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
