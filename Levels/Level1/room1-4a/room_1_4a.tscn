@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xjsjuk3ol8h2"]
+[gd_scene load_steps=21 format=3 uid="uid://xjsjuk3ol8h2"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_m4ycb"]
 [ext_resource type="TileSet" uid="uid://dmopwl7o8jcvr" path="res://Levels/Level1/room1-4a/1-4a.tres" id="2_vi53e"]
@@ -13,12 +13,25 @@
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="7_hprmi"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="10_7qao5"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="13_bhh14"]
+[ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="14_ntjbe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8t4u"]
 size = Vector2(128, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb2dd"]
 size = Vector2(1054, 822)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7tva"]
+size = Vector2(1440, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70g4g"]
+size = Vector2(468.5, 2096)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqsjy"]
+size = Vector2(743, 534)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_risyt"]
+size = Vector2(1680, 3511)
 
 [node name="Room1-4a" type="Node2D"]
 
@@ -673,3 +686,43 @@ scale = Vector2(7.86309, 0.0805366)
 position = Vector2(-1184, -6369)
 rotation = 3.14159
 scale = Vector2(7.86309, 0.0805366)
+
+[node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("14_ntjbe")]
+position = Vector2(-1248, -160)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea"]
+position = Vector2(-80, 64)
+shape = SubResource("RectangleShape2D_j7tva")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea"]
+position = Vector2(-832, 96)
+
+[node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("14_ntjbe")]
+position = Vector2(-1920, -1888)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea2"]
+position = Vector2(-398.25, 383)
+shape = SubResource("RectangleShape2D_70g4g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraControlArea2"]
+position = Vector2(159.5, -425)
+shape = SubResource("RectangleShape2D_lqsjy")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
+position = Vector2(154, -793)
+
+[node name="CameraControlArea3" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("14_ntjbe")]
+position = Vector2(-1746, -4690)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea3"]
+position = Vector2(0, 129.5)
+shape = SubResource("RectangleShape2D_risyt")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea3"]
+position = Vector2(164, -731)
