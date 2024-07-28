@@ -42,9 +42,9 @@ color = Color(0.235294, 0.27451, 0.313726, 1)
 
 [node name="Controls" type="RichTextLabel" parent="."]
 offset_left = 1099.0
-offset_top = 1.0
+offset_top = -19.0
 offset_right = 1588.0
-offset_bottom = 129.0
+offset_bottom = 109.0
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
 theme_override_constants/outline_size = 20
@@ -171,9 +171,9 @@ scroll_active = false
 [node name="Images" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 875.0
-offset_top = 185.0
+offset_top = 160.0
 offset_right = 915.0
-offset_bottom = 225.0
+offset_bottom = 200.0
 
 [node name="Movement" type="Sprite2D" parent="Images"]
 position = Vector2(202.3, 180)
@@ -197,8 +197,8 @@ position = Vector2(775.666, -20)
 scale = Vector2(5, 5)
 texture = ExtResource("10_6em84")
 
-[node name="Dashing" type="Sprite2D" parent="."]
-position = Vector2(1636, 795)
+[node name="Dashing" type="Sprite2D" parent="Images"]
+position = Vector2(761, 610)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ff7v1")
 
