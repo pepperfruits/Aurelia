@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btmrfjsgxlyic"
-path="res://.godot/imported/playerbullet.png-aada3db636cc179ee1650a937bef2dd0.ctex"
+uid="uid://bp1ox4g1thkdu"
+path="res://.godot/imported/Backspace_Key_Dark.png-22e1eee6292f3e7d6e4efeb8c1191ef6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Projectiles/PlayerBullet/playerbullet.png"
-dest_files=["res://.godot/imported/playerbullet.png-aada3db636cc179ee1650a937bef2dd0.ctex"]
+source_file="res://Assets/Buttons/Backspace_Key_Dark.png"
+dest_files=["res://.godot/imported/Backspace_Key_Dark.png-22e1eee6292f3e7d6e4efeb8c1191ef6.ctex"]
 
 [params]
 
