@@ -18,7 +18,7 @@
 size = Vector2(128, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb2dd"]
-size = Vector2(2112, 1728)
+size = Vector2(1054, 822)
 
 [node name="Room1-4a" type="Node2D"]
 
@@ -649,7 +649,6 @@ shape = SubResource("RectangleShape2D_m8t4u")
 position = Vector2(205, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandardZones/CoinCollectionArea"]
-visible = false
 shape = SubResource("RectangleShape2D_hb2dd")
 
 [node name="Fog" parent="." instance=ExtResource("10_7qao5")]
@@ -668,4 +667,9 @@ DEFAULT_ZOOM = Vector2(0.8, 0.8)
 
 [node name="Darkness" parent="." instance=ExtResource("13_bhh14")]
 position = Vector2(-1184, 352)
+scale = Vector2(7.86309, 0.0805366)
+
+[node name="Darkness2" parent="." instance=ExtResource("13_bhh14")]
+position = Vector2(-1184, -6369)
+rotation = 3.14159
 scale = Vector2(7.86309, 0.0805366)
