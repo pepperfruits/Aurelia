@@ -59,6 +59,7 @@ grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
 script = ExtResource("3_hoqxf")
+scene = "res://Levels/Level1/room1-1/room_1_1.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/Play"]
 offset_left = 4.0
@@ -102,7 +103,7 @@ bbcode_enabled = true
 text = "[color=#e9ffff] [center] Quit Game [/center] [/color]"
 fit_content = true
 
-[node name="Controls" type="Button" parent="Buttons"]
+[node name="TestingLevel" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -118,7 +119,7 @@ grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Buttons/Controls"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Buttons/TestingLevel"]
 offset_left = 4.0
 offset_top = -5.0
 offset_right = 493.0
