@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddgjjalrojaa7"]
+[gd_scene load_steps=6 format=3 uid="uid://ddgjjalrojaa7"]
 
 [ext_resource type="Texture2D" uid="uid://bkhh2qi4gcwi1" path="res://Levels/Menus/MainMenu/LogoGold.png" id="1_ahwo6"]
 [ext_resource type="Texture2D" uid="uid://ci7mrgswoiv7e" path="res://UI/PauseMenu/button1.png" id="2_uul0e"]
 [ext_resource type="FontFile" uid="uid://c2ox6y3bslcv7" path="res://UI/PauseMenu/micross.ttf" id="3_alwqs"]
 [ext_resource type="Script" path="res://Levels/Menus/MainMenu/PlayButton.gd" id="3_hoqxf"]
+[ext_resource type="Script" path="res://Levels/Menus/MainMenu/QuitButton.gd" id="5_2qord"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -85,6 +86,7 @@ offset_bottom = 90.5
 grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
+script = ExtResource("5_2qord")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/Quit"]
 offset_left = 4.0
@@ -131,3 +133,4 @@ text = "[color=#e9ffff] [center] Testing Level [/center] [/color]"
 fit_content = true
 
 [connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_pressed"]
