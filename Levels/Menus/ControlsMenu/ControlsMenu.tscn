@@ -1,11 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://bqco5gpft4cnb"]
+[gd_scene load_steps=30 format=3 uid="uid://bqco5gpft4cnb"]
 
 [ext_resource type="Shader" path="res://Environment/Torch/torch.gdshader" id="1_117jn"]
 [ext_resource type="Texture2D" uid="uid://v5e81vd3tvet" path="res://UI/PauseMenu/menu.png" id="2_d504r"]
 [ext_resource type="Texture2D" uid="uid://ci7mrgswoiv7e" path="res://UI/PauseMenu/button1.png" id="3_jjryb"]
+[ext_resource type="Script" path="res://Levels/Menus/ControlsMenu/ControlOption.gd" id="4_8etix"]
+[ext_resource type="Texture2D" uid="uid://b24y7uwehxlax" path="res://Levels/Menus/ControlsMenu/controlscheme1.png" id="4_88vfl"]
 [ext_resource type="FontFile" uid="uid://c2ox6y3bslcv7" path="res://UI/PauseMenu/micross.ttf" id="4_p7i0h"]
+[ext_resource type="Texture2D" uid="uid://ch3hkw1qljovt" path="res://Levels/Menus/ControlsMenu/controlscheme2.png" id="5_f2vuo"]
 [ext_resource type="Texture2D" uid="uid://cqc16djfs18uc" path="res://Levels/Menus/ControlsMenu/movement.png" id="5_loapq"]
 [ext_resource type="Texture2D" uid="uid://cgy1j0b762f1g" path="res://Levels/Menus/ControlsMenu/jump.png" id="6_01b62"]
+[ext_resource type="Texture2D" uid="uid://b8kxwg6k6hyfi" path="res://Levels/Menus/ControlsMenu/controlscheme3.png" id="6_77is1"]
 [ext_resource type="Texture2D" uid="uid://dpmej3g8t762a" path="res://Levels/Menus/ControlsMenu/attack.png" id="7_gdslf"]
 [ext_resource type="Shader" path="res://Player/emission.gdshader" id="8_rqb00"]
 [ext_resource type="Texture2D" uid="uid://cg30p1u4oq0rl" path="res://Projectiles/PlayerBullet/Projectileblur.png" id="9_4j7c1"]
@@ -99,6 +103,12 @@ grow_vertical = 2
 scale = Vector2(0.996082, 1.01491)
 icon = ExtResource("3_jjryb")
 flat = true
+script = ExtResource("4_8etix")
+
+[node name="Controlscheme1" type="Sprite2D" parent="Menu/Buttons/Option 1"]
+position = Vector2(248.036, 86.4875)
+scale = Vector2(0.681937, 0.611051)
+texture = ExtResource("4_88vfl")
 
 [node name="Option 2" type="Button" parent="Menu/Buttons"]
 layout_mode = 1
@@ -116,6 +126,13 @@ grow_vertical = 2
 scale = Vector2(0.996082, 1.01491)
 icon = ExtResource("3_jjryb")
 flat = true
+script = ExtResource("4_8etix")
+control_scheme = 1
+
+[node name="Controlscheme2" type="Sprite2D" parent="Menu/Buttons/Option 2"]
+position = Vector2(248.036, 87.4931)
+scale = Vector2(0.681937, 0.611051)
+texture = ExtResource("5_f2vuo")
 
 [node name="Option 3" type="Button" parent="Menu/Buttons"]
 layout_mode = 1
@@ -133,6 +150,13 @@ grow_vertical = 2
 scale = Vector2(0.996082, 1.01491)
 icon = ExtResource("3_jjryb")
 flat = true
+script = ExtResource("4_8etix")
+control_scheme = 2
+
+[node name="Controlscheme3" type="Sprite2D" parent="Menu/Buttons/Option 3"]
+position = Vector2(248.036, 86.4875)
+scale = Vector2(0.681937, 0.611051)
+texture = ExtResource("6_77is1")
 
 [node name="PLAY GAME" type="Button" parent="Menu/Buttons"]
 layout_mode = 1
@@ -152,6 +176,7 @@ icon = ExtResource("3_jjryb")
 flat = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/Buttons/PLAY GAME"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = -5.0
 offset_right = 493.0
@@ -167,6 +192,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 188.0
 offset_top = 64.0
 offset_right = 677.0
@@ -214,6 +240,76 @@ position = Vector2(761, 610)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ff7v1")
 
+[node name="Text" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -66.0
+offset_right = 40.0
+offset_bottom = -26.0
+
+[node name="1" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 438.0
+offset_right = 1354.0
+offset_bottom = 566.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to move [/center] [/color]"
+fit_content = true
+scroll_active = false
+
+[node name="2" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 438.0
+offset_right = 1820.0
+offset_bottom = 566.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to jump [/center] [/color]"
+fit_content = true
+scroll_active = false
+
+[node name="3" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 1331.0
+offset_top = 884.0
+offset_right = 1820.0
+offset_bottom = 1012.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to dash [/center] [/color]"
+fit_content = true
+scroll_active = false
+
+[node name="4" type="RichTextLabel" parent="Text"]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 884.0
+offset_right = 1324.0
+offset_bottom = 1012.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to attack [/center] [/color]"
+fit_content = true
+scroll_active = false
+
 [node name="TutorialButtons" type="Control" parent="."]
 anchors_preset = 0
 offset_top = -66.0
@@ -248,71 +344,6 @@ texture = ExtResource("16_spmj0")
 ZXC_image = ExtResource("16_spmj0")
 JKL_image = ExtResource("17_8e6vf")
 MOUSE_image = ExtResource("17_8e6vf")
-
-[node name="Text" type="Control" parent="TutorialButtons"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="1" type="RichTextLabel" parent="TutorialButtons/Text"]
-offset_left = 865.0
-offset_top = 438.0
-offset_right = 1354.0
-offset_bottom = 566.0
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_p7i0h")
-theme_override_font_sizes/normal_font_size = 56
-bbcode_enabled = true
-text = "[color=#cdcdcd] [center] to move [/center] [/color]"
-fit_content = true
-scroll_active = false
-
-[node name="2" type="RichTextLabel" parent="TutorialButtons/Text"]
-offset_left = 1331.0
-offset_top = 438.0
-offset_right = 1820.0
-offset_bottom = 566.0
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_p7i0h")
-theme_override_font_sizes/normal_font_size = 56
-bbcode_enabled = true
-text = "[color=#cdcdcd] [center] to jump [/center] [/color]"
-fit_content = true
-scroll_active = false
-
-[node name="3" type="RichTextLabel" parent="TutorialButtons/Text"]
-offset_left = 1331.0
-offset_top = 884.0
-offset_right = 1820.0
-offset_bottom = 1012.0
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_p7i0h")
-theme_override_font_sizes/normal_font_size = 56
-bbcode_enabled = true
-text = "[color=#cdcdcd] [center] to dash [/center] [/color]"
-fit_content = true
-scroll_active = false
-
-[node name="4" type="RichTextLabel" parent="TutorialButtons/Text"]
-offset_left = 835.0
-offset_top = 884.0
-offset_right = 1324.0
-offset_bottom = 1012.0
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_p7i0h")
-theme_override_font_sizes/normal_font_size = 56
-bbcode_enabled = true
-text = "[color=#cdcdcd] [center] to attack [/center] [/color]"
-fit_content = true
-scroll_active = false
 
 [connection signal="pressed" from="Menu/Buttons/Option 1" to="Menu/Buttons/Option 1" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Buttons/Option 2" to="Menu/Buttons/Option 2" method="_on_pressed"]
