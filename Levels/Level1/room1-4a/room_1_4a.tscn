@@ -653,6 +653,7 @@ position = Vector2(-2304, -2304)
 
 [node name="LevelChangeArea" parent="StandardZones" node_paths=PackedStringArray("coinArea") instance=ExtResource("3_87jht")]
 position = Vector2(205, -3)
+scene_path = "res://Levels/Level1/room1-4/room_1_4.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandardZones/LevelChangeArea"]
@@ -665,6 +666,7 @@ position = Vector2(205, -3)
 shape = SubResource("RectangleShape2D_hb2dd")
 
 [node name="Fog" parent="." instance=ExtResource("10_7qao5")]
+scroll_offset = Vector2(-1692.86, 497.897)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("4_xdmem")]
 position = Vector2(-96, 32)
