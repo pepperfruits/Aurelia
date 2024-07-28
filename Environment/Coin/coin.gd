@@ -8,9 +8,14 @@ class_name Coin
 @export var FOLLOW_DISTANCE : float = 200.0
 @export var MAX_FOLLOW_DISTANCE : float = 1000.0
 @export var FOLLOW_SPEED : float = 2.0
+@export var COIN_ID : int = -1
 
 var float_cycle : float = 0.0
 var p : PlayerCharacter = null
+
+func _ready():
+	if ScoreManager.coinArray.find(COIN_ID) != -1:
+		queue_free()
 
 func _process(delta):
 	if p:

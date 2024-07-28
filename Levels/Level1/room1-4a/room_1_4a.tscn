@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://xjsjuk3ol8h2"]
+
+[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_m4ycb"]
+[ext_resource type="TileSet" uid="uid://dmopwl7o8jcvr" path="res://Levels/Level1/room1-4a/1-4a.tres" id="2_vi53e"]
+
+[node name="Room1-4a" type="Node2D"]
+
+[node name="Level1Shadows" parent="." instance=ExtResource("1_m4ycb")]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_vi53e")
+format = 2
+layer_0/name = "bg"
+layer_1/name = "molding"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "surface"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "deep"
+layer_3/tile_data = PackedInt32Array()

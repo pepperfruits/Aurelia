@@ -130,7 +130,7 @@ func _process(delta):
 	
 	match current_state:
 		STATE.CRYSTAL:
-			pass
+			p.global_position = current_crystal.global_position
 		STATE.HANGING:
 			anim.hanging()
 			current_stamina -= delta
@@ -150,6 +150,7 @@ func _process(delta):
 			pass
 		STATE.FALLING:
 			DashParticles.emitting = false
+			anim.low_stamina_flashing(current_stamina < FLASHING_STAMINA_TIME)
 			anim.fall(p.velocity.y)
 			if (inp.get_horizontal_input()):
 				apply_acceleration(delta, inp.get_horizontal_input())
@@ -174,7 +175,6 @@ func _process(delta):
 	
 	run_physics(delta)
 
-#region Helper Functions
 func dashing_collision_changes() -> void:
 	if is_dashing:
 		PlayerCollision.scale.y = 0.8
@@ -197,13 +197,15 @@ func enter_crystal(c : Crystal) -> void:
 	anim.hide_player(true)
 
 func leave_crystal():
+	refresh_dash_charges()
+	current_stamina = MAX_STAMINA_TIME
 	var direction = inp.get_directional_input().normalized()
 	if not direction:
 		direction = (current_crystal.PointerSprite.global_position - p.global_position).normalized()
 	anim.hide_player(false)
 	current_state = STATE.FALLING
 	is_crystal = false
-	set_player_velocity(direction * CRYSTAL_VELOCITY)
+	set_player_velocity(direction * CRYSTAL_VELOCITY * Vector2(1.7, 1.0))
 	current_crystal.use()
 	current_crystal = null
 	
@@ -213,8 +215,12 @@ func leave_crystal():
 func attack(facing : int):
 	anim.ranged_attack()
 	var bullet = PlayerBullet.instantiate()
-	bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
-	bullet.velocity.x *= facing
+	if inp.get_horizontal_input():
+		bullet.global_position = p.global_position + Vector2(50.0 * inp.get_horizontal_input(), -10.0)
+		bullet.velocity.x *= inp.get_horizontal_input()
+	else:
+		bullet.global_position = p.global_position + Vector2(50.0 * facing, -10.0)
+		bullet.velocity.x *= facing
 	bullet.sender = p
 	add_child(bullet)
 	
@@ -287,7 +293,7 @@ func is_grapple_reached() -> bool:
 	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
 
 func pull_towards_hook(delta : float) -> void:
-	p.global_position += (current_hook.global_position - p.global_position) / GRAPPLE_TIME * delta
+	p.global_position += (current_hook.global_position - p.global_position) / GRAPPLE_TIME * delta + (current_hook.global_position - p.global_position).normalized() * 2.0 * delta
 
 func end_dash() -> void:
 	is_dashing = false
@@ -385,7 +391,7 @@ func jump(multiplier : float) -> void:
 	inp._on_jump_buffer_timer_timeout()
 
 func can_dash() -> bool:
-	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING
+	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING and not is_crystal
 
 func dash(input_direction : float) -> void:
 	DashParticles.emitting = true
@@ -406,7 +412,6 @@ func dash(input_direction : float) -> void:
 
 func refresh_dash_charges() -> void:
 	current_dash_charges = MAX_DASH_CHARGES
-#endregion
 
 #region Signals
 func _on_dash_duration_timer_timeout():

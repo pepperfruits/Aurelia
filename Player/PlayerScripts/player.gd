@@ -1,12 +1,21 @@
 extends CharacterBody2D
 class_name PlayerCharacter
 
-@export var Camera : Camera2D
+@export var Camera : PlayerCamera
 @onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
-func _process(_delta):
-	pass
+func _process(delta):
+	ScoreManager.time += delta
+
+func add_camera_area(c : CameraControlArea):
+	Camera.add_camera_area(c)
+
+func remove_camera_area():
+	Camera.remove_camera_area()
+
+func _on_body_exited(_body : PlayerCharacter):
+	Camera.remove_camera_area()
 
 func enter_crystal(c : Crystal) -> void:
 	Movement.enter_crystal(c)

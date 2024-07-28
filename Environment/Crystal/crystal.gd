@@ -3,6 +3,10 @@ class_name Crystal
 
 var p : PlayerCharacter = null
 @onready var PointerSprite : Sprite2D = $PointerSprite
+@onready var Sprite : Sprite2D = $Crystal
+
+## particles that you make when you teleport
+@export var TeleportParticles : PackedScene = preload("res://Particles/TeleportParticles/teleport_particles.tscn")
 
 func _process(_delta):
 	if p:
@@ -15,6 +19,12 @@ func _process(_delta):
 
 func _on_area_entered(bullet : Projectile):
 	p = bullet.sender
+	
+	var particles = TeleportParticles.instantiate()
+	add_child(particles)
+	particles.global_position = p.global_position
+	
+	
 	teleport_player()
 	p.enter_crystal(self)
 	set_pointer(true)
@@ -30,3 +40,13 @@ func set_pointer(b : bool) -> void:
 func use():
 	set_pointer(false)
 	p = null
+
+
+func _on_flashing_timer_timeout():
+	if p:
+		if Sprite.modulate == Color.GRAY:
+			Sprite.modulate = Color.WHITE
+		else:
+			Sprite.modulate = Color.GRAY
+	else:
+		Sprite.modulate = Color.WHITE
