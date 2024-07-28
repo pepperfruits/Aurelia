@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=23 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_8m3rw"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_8vh5k"]
@@ -6,10 +6,17 @@
 [ext_resource type="TileSet" uid="uid://c1ch3bwsugrx2" path="res://Levels/Level1/room1-1/1-1.tres" id="2_o8ius"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="3_vwvou"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="4_edcqp"]
+[ext_resource type="PackedScene" uid="uid://ppawv1w3i02n" path="res://Tutorials/Buttons/ButtonTutorial.tscn" id="4_fysjq"]
+[ext_resource type="Texture2D" uid="uid://dxykuu6j4tt35" path="res://Assets/Buttons/Z_Key_Dark.png" id="5_u43th"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="5_yepbb"]
+[ext_resource type="Texture2D" uid="uid://c6r3ydut8ao6o" path="res://Assets/Buttons/J_Key_Dark.png" id="6_act75"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="6_ehh0f"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="7_vtngm"]
+[ext_resource type="Texture2D" uid="uid://c8fky605b2w2f" path="res://Assets/Buttons/Space_Key_Dark.png" id="7_yri50"]
+[ext_resource type="Texture2D" uid="uid://cg81oln1lxmvh" path="res://Assets/Buttons/C_Key_Dark.png" id="8_ad7ba"]
+[ext_resource type="Texture2D" uid="uid://bpnfb125y8rde" path="res://Assets/Buttons/L_Key_Dark.png" id="9_nfqsx"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="10_ht70a"]
+[ext_resource type="Texture2D" uid="uid://dmuh2f8xksmdy" path="res://Assets/Buttons/Shift_Key_Dark.png" id="10_uw758"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="11_uodut"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="13_kev7h"]
 
@@ -43,6 +50,64 @@ layer_3/tile_data = PackedInt32Array(589872, 720896, 7, 524336, 720896, 6, 45880
 [node name="Spikes" parent="." instance=ExtResource("3_vwvou")]
 position = Vector2(1875, 979)
 scale = Vector2(37.6588, 3.54323)
+
+[node name="Tutorials" type="Node2D" parent="."]
+
+[node name="JumpButton" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(416, 224)
+texture = ExtResource("5_u43th")
+ZXC_image = ExtResource("5_u43th")
+JKL_image = ExtResource("6_act75")
+MOUSE_image = ExtResource("7_yri50")
+
+[node name="JumpButton2" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(1440, 224)
+texture = ExtResource("5_u43th")
+ZXC_image = ExtResource("5_u43th")
+JKL_image = ExtResource("6_act75")
+MOUSE_image = ExtResource("7_yri50")
+
+[node name="JumpButton5" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(1792, 96)
+texture = ExtResource("5_u43th")
+ZXC_image = ExtResource("5_u43th")
+JKL_image = ExtResource("6_act75")
+MOUSE_image = ExtResource("7_yri50")
+
+[node name="JumpButton3" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(2336, -160)
+texture = ExtResource("5_u43th")
+ZXC_image = ExtResource("5_u43th")
+JKL_image = ExtResource("6_act75")
+MOUSE_image = ExtResource("7_yri50")
+
+[node name="JumpButton4" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(3072, -160)
+texture = ExtResource("5_u43th")
+ZXC_image = ExtResource("5_u43th")
+JKL_image = ExtResource("6_act75")
+MOUSE_image = ExtResource("7_yri50")
+
+[node name="DashButton" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(838, 224)
+texture = ExtResource("8_ad7ba")
+ZXC_image = ExtResource("8_ad7ba")
+JKL_image = ExtResource("9_nfqsx")
+MOUSE_image = ExtResource("10_uw758")
+
+[node name="DashButton2" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(2720, -160)
+texture = ExtResource("8_ad7ba")
+ZXC_image = ExtResource("8_ad7ba")
+JKL_image = ExtResource("9_nfqsx")
+MOUSE_image = ExtResource("10_uw758")
+
+[node name="DashButton3" parent="Tutorials" instance=ExtResource("4_fysjq")]
+position = Vector2(3424, -160)
+texture = ExtResource("8_ad7ba")
+ZXC_image = ExtResource("8_ad7ba")
+JKL_image = ExtResource("9_nfqsx")
+MOUSE_image = ExtResource("10_uw758")
 
 [node name="Torches" type="Node2D" parent="."]
 
@@ -111,6 +176,7 @@ p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.9, 0.9)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("13_kev7h")]
+visible = false
 position = Vector2(256, 0)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.9, 0.9)
@@ -123,6 +189,7 @@ shape = SubResource("RectangleShape2D_kmnun")
 position = Vector2(672, -32)
 
 [node name="CameraControlArea3" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("13_kev7h")]
+visible = false
 position = Vector2(3072, -384)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.8, 0.8)
