@@ -99,37 +99,23 @@ position = Vector2(1984, -896)
 [node name="Spikes22" parent="stuff" instance=ExtResource("9_x6656")]
 position = Vector2(2112, -896)
 
-[node name="Torch" parent="stuff" instance=ExtResource("4_fsfce")]
-position = Vector2(768, 0)
+[node name="Torch8" parent="stuff" instance=ExtResource("4_fsfce")]
+position = Vector2(256, 0)
+
+[node name="Torch5" parent="stuff" instance=ExtResource("4_fsfce")]
+position = Vector2(768, -2048)
+
+[node name="Torch6" parent="stuff" instance=ExtResource("4_fsfce")]
+position = Vector2(1024, -1792)
+
+[node name="Torch7" parent="stuff" instance=ExtResource("4_fsfce")]
+position = Vector2(1280, -1536)
 
 [node name="Torch2" parent="stuff" instance=ExtResource("4_fsfce")]
 position = Vector2(1536, -2304)
 
 [node name="Torch3" parent="stuff" instance=ExtResource("4_fsfce")]
 position = Vector2(2304, -2304)
-
-[node name="CameraControlArea" parent="stuff" node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
-position = Vector2(768, -256)
-marker = NodePath("Marker2D")
-zoom = Vector2(0.75, 0.75)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stuff/CameraControlArea"]
-position = Vector2(112, 0)
-shape = SubResource("RectangleShape2D_402a1")
-
-[node name="Marker2D" type="Marker2D" parent="stuff/CameraControlArea"]
-position = Vector2(0, -352)
-
-[node name="CameraControlArea2" parent="stuff" node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
-position = Vector2(1024, -1376)
-marker = NodePath("Marker2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stuff/CameraControlArea2"]
-position = Vector2(-32, -16)
-shape = SubResource("RectangleShape2D_8cu2r")
-
-[node name="Marker2D" type="Marker2D" parent="stuff/CameraControlArea2"]
-position = Vector2(0, -416)
 
 [node name="StandardZones" parent="." instance=ExtResource("3_3no74")]
 
@@ -145,7 +131,7 @@ coinArea = NodePath("../CoinCollectionArea")
 position = Vector2(3040, -2336)
 
 [node name="Darkness" parent="." instance=ExtResource("10_02rcm")]
-position = Vector2(3019.5, 160.5)
+position = Vector2(2984, 160.5)
 scale = Vector2(15.1075, 0.199074)
 
 [node name="Darkness2" parent="." instance=ExtResource("10_02rcm")]
@@ -167,6 +153,31 @@ limit_right = 2905
 limit_bottom = 260
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
+
+[node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
+visible = false
+position = Vector2(768, -256)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea"]
+position = Vector2(112, 0)
+shape = SubResource("RectangleShape2D_402a1")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea"]
+position = Vector2(0, -352)
+
+[node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
+visible = false
+position = Vector2(1024, -1376)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea2"]
+position = Vector2(-32, -16)
+shape = SubResource("RectangleShape2D_8cu2r")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
+position = Vector2(0, -416)
 
 [editable path="Coin"]
 [editable path="StandardZones"]
