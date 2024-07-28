@@ -97,8 +97,13 @@ coinArea = NodePath("../CoinCollectionArea")
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(5504, -800)
 
+[node name="CollisionShape2D" parent="StandardZones/CoinCollectionArea" index="0"]
+visible = true
+position = Vector2(-144, -77)
+
 [node name="LevelChangeArea2" parent="StandardZones" node_paths=PackedStringArray("coinArea") instance=ExtResource("11_87ok0")]
 position = Vector2(-192, -416)
+scene_path = "res://Levels/Level1/room1-4a/room_1_4a.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandardZones/LevelChangeArea2"]
