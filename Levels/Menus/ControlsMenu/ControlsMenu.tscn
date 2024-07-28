@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bqco5gpft4cnb"]
+[gd_scene load_steps=31 format=3 uid="uid://bqco5gpft4cnb"]
 
 [ext_resource type="Shader" path="res://Environment/Torch/torch.gdshader" id="1_117jn"]
 [ext_resource type="Texture2D" uid="uid://v5e81vd3tvet" path="res://UI/PauseMenu/menu.png" id="2_d504r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cgy1j0b762f1g" path="res://Levels/Menus/ControlsMenu/jump.png" id="6_01b62"]
 [ext_resource type="Texture2D" uid="uid://b8kxwg6k6hyfi" path="res://Levels/Menus/ControlsMenu/controlscheme3.png" id="6_77is1"]
 [ext_resource type="Texture2D" uid="uid://dpmej3g8t762a" path="res://Levels/Menus/ControlsMenu/attack.png" id="7_gdslf"]
+[ext_resource type="Script" path="res://Levels/Menus/MainMenu/PlayButton.gd" id="8_6drgr"]
 [ext_resource type="Shader" path="res://Player/emission.gdshader" id="8_rqb00"]
 [ext_resource type="Texture2D" uid="uid://cg30p1u4oq0rl" path="res://Projectiles/PlayerBullet/Projectileblur.png" id="9_4j7c1"]
 [ext_resource type="Texture2D" uid="uid://pnn1rwbkq4yt" path="res://Projectiles/PlayerBullet/Projectile.png" id="10_6em84"]
@@ -174,6 +175,8 @@ grow_vertical = 2
 scale = Vector2(0.996082, 1.01491)
 icon = ExtResource("3_jjryb")
 flat = true
+script = ExtResource("8_6drgr")
+scene = "res://Levels/Level1/room1-1/room_1_1.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/Buttons/PLAY GAME"]
 layout_mode = 0
