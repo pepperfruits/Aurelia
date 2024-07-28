@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqco5gpft4cnb"]
+[gd_scene load_steps=15 format=3 uid="uid://bqco5gpft4cnb"]
 
 [ext_resource type="Shader" path="res://Environment/Torch/torch.gdshader" id="1_117jn"]
 [ext_resource type="Texture2D" uid="uid://v5e81vd3tvet" path="res://UI/PauseMenu/menu.png" id="2_d504r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cg30p1u4oq0rl" path="res://Projectiles/PlayerBullet/Projectileblur.png" id="9_4j7c1"]
 [ext_resource type="Texture2D" uid="uid://pnn1rwbkq4yt" path="res://Projectiles/PlayerBullet/Projectile.png" id="10_6em84"]
 [ext_resource type="Texture2D" uid="uid://bs2go7kyji474" path="res://Levels/Menus/ControlsMenu/dashing.png" id="11_ff7v1"]
+[ext_resource type="PackedScene" uid="uid://ppawv1w3i02n" path="res://Tutorials/Buttons/ButtonTutorial.tscn" id="12_h66kj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_87k2j"]
 shader = ExtResource("1_117jn")
@@ -201,6 +202,9 @@ texture = ExtResource("10_6em84")
 position = Vector2(761, 610)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ff7v1")
+
+[node name="ButtonTutorial" parent="Images" instance=ExtResource("12_h66kj")]
+position = Vector2(29, 355)
 
 [connection signal="pressed" from="Menu/Buttons/Option 1" to="Menu/Buttons/Option 1" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Buttons/Option 2" to="Menu/Buttons/Option 2" method="_on_pressed"]
