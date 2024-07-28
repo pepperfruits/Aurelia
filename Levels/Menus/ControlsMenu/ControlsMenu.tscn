@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqco5gpft4cnb"]
+[gd_scene load_steps=26 format=3 uid="uid://bqco5gpft4cnb"]
 
 [ext_resource type="Shader" path="res://Environment/Torch/torch.gdshader" id="1_117jn"]
 [ext_resource type="Texture2D" uid="uid://v5e81vd3tvet" path="res://UI/PauseMenu/menu.png" id="2_d504r"]
@@ -12,6 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://pnn1rwbkq4yt" path="res://Projectiles/PlayerBullet/Projectile.png" id="10_6em84"]
 [ext_resource type="Texture2D" uid="uid://bs2go7kyji474" path="res://Levels/Menus/ControlsMenu/dashing.png" id="11_ff7v1"]
 [ext_resource type="PackedScene" uid="uid://ppawv1w3i02n" path="res://Tutorials/Buttons/ButtonTutorial.tscn" id="12_h66kj"]
+[ext_resource type="Texture2D" uid="uid://dxykuu6j4tt35" path="res://Assets/Buttons/Z_Key_Dark.png" id="13_61t5l"]
+[ext_resource type="Texture2D" uid="uid://c6r3ydut8ao6o" path="res://Assets/Buttons/J_Key_Dark.png" id="14_kqw6r"]
+[ext_resource type="Texture2D" uid="uid://c8fky605b2w2f" path="res://Assets/Buttons/Space_Key_Dark.png" id="15_xnxlx"]
+[ext_resource type="Texture2D" uid="uid://cg81oln1lxmvh" path="res://Assets/Buttons/C_Key_Dark.png" id="16_5mfja"]
+[ext_resource type="Texture2D" uid="uid://ueca4td0br7c" path="res://Assets/Buttons/ARROW_KEYS.png" id="16_spmj0"]
+[ext_resource type="Texture2D" uid="uid://d2vuw6pild0n5" path="res://Assets/Buttons/WASD.png" id="17_8e6vf"]
+[ext_resource type="Texture2D" uid="uid://n3gwy2ogg476" path="res://Assets/Buttons/K_Key_Dark.png" id="17_hv2wq"]
+[ext_resource type="Texture2D" uid="uid://bpnfb125y8rde" path="res://Assets/Buttons/L_Key_Dark.png" id="17_w4rfk"]
+[ext_resource type="Texture2D" uid="uid://dmuh2f8xksmdy" path="res://Assets/Buttons/Shift_Key_Dark.png" id="18_57q2g"]
+[ext_resource type="Texture2D" uid="uid://stap1agoe3ec" path="res://Assets/Buttons/X_Key_Dark.png" id="19_yundb"]
+[ext_resource type="Texture2D" uid="uid://c3xsr7lktagqu" path="res://Assets/Buttons/Mouse_Left_Key_Dark.png" id="21_phi0t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_87k2j"]
 shader = ExtResource("1_117jn")
@@ -41,20 +52,6 @@ offset_bottom = 40.0
 scale = Vector2(48.0001, 26.9999)
 color = Color(0.235294, 0.27451, 0.313726, 1)
 
-[node name="Controls" type="RichTextLabel" parent="."]
-offset_left = 1099.0
-offset_top = -19.0
-offset_right = 1588.0
-offset_bottom = 109.0
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_p7i0h")
-theme_override_font_sizes/normal_font_size = 56
-bbcode_enabled = true
-text = "[color=#ffffff] [center] CONTROLS [/center] [/color]"
-fit_content = true
-
 [node name="Menu" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 4
@@ -80,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 35.3255
-offset_top = -373.521
+offset_top = -338.818
 offset_right = 75.3255
-offset_bottom = -333.521
+offset_bottom = -298.818
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -169,12 +166,26 @@ text = "[color=#ffeb96] [center] Continue [/center] [/color]"
 fit_content = true
 scroll_active = false
 
+[node name="Controls" type="RichTextLabel" parent="."]
+offset_left = 188.0
+offset_top = 64.0
+offset_right = 677.0
+offset_bottom = 192.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#ffffff] [center] CONTROLS [/center] [/color]"
+fit_content = true
+
 [node name="Images" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 875.0
-offset_top = 160.0
+offset_top = 105.0
 offset_right = 915.0
-offset_bottom = 200.0
+offset_bottom = 145.0
 
 [node name="Movement" type="Sprite2D" parent="Images"]
 position = Vector2(202.3, 180)
@@ -203,8 +214,105 @@ position = Vector2(761, 610)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("11_ff7v1")
 
-[node name="ButtonTutorial" parent="Images" instance=ExtResource("12_h66kj")]
-position = Vector2(29, 355)
+[node name="TutorialButtons" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -55.0
+offset_right = 40.0
+offset_bottom = -15.0
+
+[node name="JumpButton" parent="TutorialButtons" instance=ExtResource("12_h66kj")]
+position = Vector2(1421, 536)
+texture = ExtResource("13_61t5l")
+ZXC_image = ExtResource("13_61t5l")
+JKL_image = ExtResource("14_kqw6r")
+MOUSE_image = ExtResource("15_xnxlx")
+
+[node name="DashButton" parent="TutorialButtons" instance=ExtResource("12_h66kj")]
+position = Vector2(1421, 982)
+texture = ExtResource("16_5mfja")
+ZXC_image = ExtResource("16_5mfja")
+JKL_image = ExtResource("17_w4rfk")
+MOUSE_image = ExtResource("18_57q2g")
+
+[node name="AttackButton" parent="TutorialButtons" instance=ExtResource("12_h66kj")]
+position = Vector2(900, 982)
+texture = ExtResource("19_yundb")
+ZXC_image = ExtResource("19_yundb")
+JKL_image = ExtResource("17_hv2wq")
+MOUSE_image = ExtResource("21_phi0t")
+
+[node name="MovementButtons" parent="TutorialButtons" instance=ExtResource("12_h66kj")]
+position = Vector2(902, 536)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("16_spmj0")
+ZXC_image = ExtResource("16_spmj0")
+JKL_image = ExtResource("17_8e6vf")
+MOUSE_image = ExtResource("17_8e6vf")
+
+[node name="Text" type="Control" parent="TutorialButtons"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="RichTextLabel" parent="TutorialButtons/Text"]
+offset_left = 865.0
+offset_top = 438.0
+offset_right = 1354.0
+offset_bottom = 566.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to move [/center] [/color]"
+fit_content = true
+scroll_active = false
+
+[node name="2" type="RichTextLabel" parent="TutorialButtons/Text"]
+offset_left = 1331.0
+offset_top = 438.0
+offset_right = 1820.0
+offset_bottom = 566.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to jump [/center] [/color]"
+fit_content = true
+scroll_active = false
+
+[node name="3" type="RichTextLabel" parent="TutorialButtons/Text"]
+offset_left = 1331.0
+offset_top = 884.0
+offset_right = 1820.0
+offset_bottom = 1012.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to dash [/center] [/color]"
+fit_content = true
+scroll_active = false
+
+[node name="4" type="RichTextLabel" parent="TutorialButtons/Text"]
+offset_left = 835.0
+offset_top = 884.0
+offset_right = 1324.0
+offset_bottom = 1012.0
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0.105882, 0.0980392, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_p7i0h")
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[color=#cdcdcd] [center] to attack [/center] [/color]"
+fit_content = true
+scroll_active = false
 
 [connection signal="pressed" from="Menu/Buttons/Option 1" to="Menu/Buttons/Option 1" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Buttons/Option 2" to="Menu/Buttons/Option 2" method="_on_pressed"]
