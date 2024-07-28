@@ -59,7 +59,7 @@ grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
 script = ExtResource("3_hoqxf")
-scene = "res://Levels/Level1/room1-1/room_1_1.tscn"
+scene = "res://Levels/Menus/ControlsMenu/ControlsMenu.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/Play"]
 layout_mode = 0
