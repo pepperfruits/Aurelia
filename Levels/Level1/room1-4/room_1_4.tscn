@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vrvfd"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="2_1x1n4"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="2_ojiox"]
-[ext_resource type="TileSet" uid="uid://cmqu3jk4re4gr" path="res://Levels/Level1/room1-x/1-4.tres" id="2_xwkpr"]
+[ext_resource type="TileSet" uid="uid://cmqu3jk4re4gr" path="res://Levels/Level1/room1-x/1-x.tres" id="2_xwkpr"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="3_jutjo"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="4_1kir1"]
 [ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="4_5pax4"]

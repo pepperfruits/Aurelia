@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cuarqnra04rsh"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_82th1"]
-[ext_resource type="TileSet" uid="uid://cml8863r30fra" path="res://Levels/Level1/room1-4/1-x.tres" id="2_l3a3f"]
+[ext_resource type="TileSet" uid="uid://cml8863r30fra" path="res://Levels/Level1/room1-4/1-4.tres" id="2_l3a3f"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="3_3no74"]
 [ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="3_86nda"]
 [ext_resource type="TileSet" uid="uid://dwkj2ixo6sqde" path="res://Levels/Level1/room1-3/1-3fake.tres" id="3_qxtug"]
