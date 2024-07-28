@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b53qscg6ueoit"]
+[gd_scene load_steps=7 format=3 uid="uid://b53qscg6ueoit"]
 
 [ext_resource type="Script" path="res://Environment/BreakableBlock/breakable_block.gd" id="1_drk5x"]
-[ext_resource type="Texture2D" uid="uid://btgtbu0k6m1u2" path="res://Environment/BreakableBlock/breakableblock.png" id="2_13k0h"]
+[ext_resource type="Texture2D" uid="uid://b224pabwm3jqw" path="res://Environment/BreakableBlock/cratetexjam.png" id="2_ngkkx"]
 [ext_resource type="Script" path="res://Environment/BreakableBlock/StaticBodyHealth.gd" id="3_ptj65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raghr"]
 size = Vector2(512, 512)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tl4fr"]
+polygon = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icirq"]
 size = Vector2(304, 274)
@@ -24,9 +27,12 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_raghr")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_tl4fr")
+
 [node name="Breakableblock" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_13k0h")
+texture = ExtResource("2_ngkkx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)

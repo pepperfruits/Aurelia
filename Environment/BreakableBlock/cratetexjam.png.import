@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btgtbu0k6m1u2"
-path="res://.godot/imported/breakableblock.png-20b7c6db32557045dfb32ba1d04e5fa5.ctex"
+uid="uid://b224pabwm3jqw"
+path="res://.godot/imported/cratetexjam.png-ecf6c3e2d4db8a806503de1567baaa51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/BreakableBlock/breakableblock.png"
-dest_files=["res://.godot/imported/breakableblock.png-20b7c6db32557045dfb32ba1d04e5fa5.ctex"]
+source_file="res://Environment/BreakableBlock/cratetexjam.png"
+dest_files=["res://.godot/imported/cratetexjam.png-ecf6c3e2d4db8a806503de1567baaa51.ctex"]
 
 [params]
 
