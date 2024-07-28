@@ -1,6 +1,8 @@
 extends Control
 class_name PauseMenu
 
+@export_file(".tscn") var main_menu_scene : String
+
 func pause():
 	show()
 	get_tree().paused = true
@@ -20,7 +22,7 @@ func _on_respawn_pressed():
 	get_tree().reload_current_scene.bind().call_deferred()
 
 func _on_quit_pressed():
-	pass # TODO make this go to the title
+	get_tree().change_scene_to_file(main_menu_scene)
 
 func seconds_to_text(time : float) -> String:
 	var minutes = int(time) / 60

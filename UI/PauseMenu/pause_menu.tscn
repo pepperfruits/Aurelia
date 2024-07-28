@@ -17,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pw6fd")
+main_menu_scene = "res://Levels/Menus/MainMenu/main_menu.tscn"
 
 [node name="backgrounddim" type="ColorRect" parent="."]
 layout_mode = 0
