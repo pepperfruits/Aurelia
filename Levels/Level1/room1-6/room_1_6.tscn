@@ -196,9 +196,10 @@ HORZIONTAL_INPUT = -1.0
 [node name="ForcedHorizontalArea2" parent="StandardZones" index="1"]
 position = Vector2(-192, -1088)
 
-[node name="LevelChangeArea" parent="StandardZones" index="2"]
+[node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(128, -1152)
 scene_path = "res://Levels/Level1/room1-7/room_1_7.tscn"
+coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(128, -1152)
