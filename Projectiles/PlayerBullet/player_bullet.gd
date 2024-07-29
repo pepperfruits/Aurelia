@@ -29,7 +29,6 @@ func _on_body_entered(_body):
 
 func _on_area_entered(_area):
 	particles()
-	self.queue_free()
 
 func particles():
 	var part = bulletParticles.instantiate()
