@@ -92,6 +92,7 @@ position = Vector2(5184, -736)
 
 [node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(5504, -800)
+scene_path = "res://Levels/Level1/room1-5/room_1_5.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
