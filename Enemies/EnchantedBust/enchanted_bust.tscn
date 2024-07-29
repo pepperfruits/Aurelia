@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dybgln6r13x6g"]
+
+[ext_resource type="Script" path="res://Enemies/EnchantedBust/enchanted_bust.gd" id="1_ihn7h"]
+[ext_resource type="Texture2D" uid="uid://cl5vbojol8ma4" path="res://Enemies/EnchantedBust/bustclosed.png" id="1_o3gce"]
+[ext_resource type="Texture2D" uid="uid://bujnsktuyh22x" path="res://Enemies/EnchantedBust/bustopen.png" id="1_p7n70"]
+[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="2_5dnjw"]
+[ext_resource type="PackedScene" uid="uid://c2evldq4ruslb" path="res://Projectiles/EnchantedBustBullet/EnchantedBustBullet.tscn" id="4_b8fed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryqcj"]
+size = Vector2(65, 227)
+
+[sub_resource type="Animation" id="Animation_641ry"]
+resource_name = "Loop"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.2, 2.5, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"open_eyes"
+}, {
+"args": [],
+"method": &"open_eyes"
+}, {
+"args": [],
+"method": &"shoot"
+}, {
+"args": [],
+"method": &"close_eyes"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxcwh"]
+_data = {
+"Loop": SubResource("Animation_641ry")
+}
+
+[node name="EnchantedBust" type="StaticBody2D" node_paths=PackedStringArray("ShootingMarker")]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_ihn7h")
+EYES_CLOSED = ExtResource("1_o3gce")
+EYES_OPEN = ExtResource("1_p7n70")
+Bullet = ExtResource("4_b8fed")
+ShootingMarker = NodePath("Marker2D")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -113.5)
+shape = SubResource("RectangleShape2D_ryqcj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-13, -127)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("1_o3gce")
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(8, -178)
+enabled = false
+color = Color(1, 0.254902, 0.34902, 1)
+energy = 0.4
+texture = ExtResource("2_5dnjw")
+texture_scale = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fxcwh")
+}
+autoplay = "Loop"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(64, -163)
