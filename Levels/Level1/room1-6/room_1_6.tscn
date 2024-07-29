@@ -198,11 +198,13 @@ position = Vector2(-192, -1088)
 
 [node name="LevelChangeArea" parent="StandardZones" index="2"]
 position = Vector2(128, -1152)
+scene_path = "res://Levels/Level1/room1-7/room_1_7.tscn"
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(128, -1152)
 
 [node name="Fog" parent="." instance=ExtResource("5_6oovk")]
+scroll_offset = Vector2(1105, 901.994)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("6_wslcc")]
 Camera = NodePath("../PlayerCamera")
