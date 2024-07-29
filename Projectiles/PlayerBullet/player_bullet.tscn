@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4ecfs30v6b3h"]
+[gd_scene load_steps=14 format=3 uid="uid://b4ecfs30v6b3h"]
 
 [ext_resource type="Script" path="res://Projectiles/PlayerBullet/player_bullet.gd" id="1_xb871"]
 [ext_resource type="PackedScene" uid="uid://ca77en0eetqpr" path="res://Particles/BulletParticles/bullet_particles.tscn" id="2_evl38"]
@@ -16,11 +16,18 @@ shader = ExtResource("2_ip2bc")
 shader_parameter/glow_color = Color(0, 0.94902, 0.682353, 1)
 shader_parameter/emission_texture = ExtResource("3_cugen")
 
+[sub_resource type="Curve" id="Curve_0qhgy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24502, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ks6e0"]
+curve = SubResource("Curve_0qhgy")
+
 [sub_resource type="Curve" id="Curve_g1wvv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.1582, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_dooyr"]
+[sub_resource type="CurveTexture" id="CurveTexture_1a62a"]
 curve = SubResource("Curve_g1wvv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ahm0t"]
@@ -32,8 +39,9 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 90, 0)
 scale_min = 0.05
 scale_max = 0.05
-scale_curve = SubResource("CurveTexture_dooyr")
+scale_curve = SubResource("CurveTexture_1a62a")
 color = Color(0, 1, 0.807843, 0.517647)
+alpha_curve = SubResource("CurveTexture_ks6e0")
 
 [node name="PlayerBullet" type="Area2D"]
 collision_layer = 4
@@ -60,7 +68,7 @@ texture = ExtResource("2_u6s1e")
 texture_scale = 3.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(35, 0)
+position = Vector2(33, 0)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_ahm0t")
 texture = ExtResource("5_roy15")
