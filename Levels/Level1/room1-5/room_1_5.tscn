@@ -163,8 +163,10 @@ position = Vector2(768, -3584)
 position = Vector2(-208, -3531)
 HORZIONTAL_INPUT = -1.0
 
-[node name="LevelChangeArea" parent="StandardZones" index="2"]
+[node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(-182, -3595)
+scene_path = "res://Levels/Level1/room1-6/room_1_6.tscn"
+coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(112, -3595)
@@ -173,6 +175,7 @@ position = Vector2(112, -3595)
 position = Vector2(54.5, 1.5)
 
 [node name="Fog" parent="." instance=ExtResource("4_pwoli")]
+scroll_offset = Vector2(1495, 2065)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("5_k85b0")]
 position = Vector2(-96, 32)
