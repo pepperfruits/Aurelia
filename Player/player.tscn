@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/PlayerAnimationHandler.gd" id="2_q3y52"]
-[ext_resource type="SpineAtlasResource" uid="uid://b6hlwgw6otu0i" path="res://Player/PlayerSpine/Aurelia.atlas" id="2_wppc2"]
+[ext_resource type="SpineAtlasResource" uid="uid://dchrqsuh02fuh" path="res://Player/PlayerSpine/Aurelia.atlas" id="2_wppc2"]
 [ext_resource type="SpineSkeletonFileResource" uid="uid://dtuggr04bonhu" path="res://Player/PlayerSpine/Aurelia.skel" id="3_3hjs3"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/Movement.gd" id="4_5rcjk"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_v4agg"]
@@ -232,7 +232,6 @@ normal_material = SubResource("ShaderMaterial_h05tx")
 show_behind_parent = true
 position = Vector2(461.576, -179.266)
 rotation = 1.54305
-scale = Vector2(1, 1)
 bone_name = "Lantern2"
 
 [node name="LanternLight" type="PointLight2D" parent="AnimationHandler/Lantern"]
