@@ -10,8 +10,9 @@ class_name EnchantedBust
 @export var ShootingMarker : Marker2D
 
 func shoot() -> void:
-	var bullet = Bullet.instantiate()
+	var bullet : Projectile = Bullet.instantiate()
 	bullet.global_position = ShootingMarker.global_position
+	bullet.velocity.x *= scale.x
 	get_tree().current_scene.add_child(bullet)
 
 func close_eyes() -> void:

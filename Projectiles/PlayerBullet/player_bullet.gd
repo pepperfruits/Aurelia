@@ -4,6 +4,7 @@ class_name Projectile
 @export var velocity : Vector2 = Vector2(3000.0,0)
 @export var acceleration : Vector2 = Vector2(1000.0,0)
 @export var bulletParticles : PackedScene
+@onready var Light : PointLight2D = $PointLight2D
 @onready var Sprite : Sprite2D = $Sprite
 @onready var Collision : CollisionShape2D = $CollisionShape2D
 @onready var Particles : GPUParticles2D = $GPUParticles2D
@@ -11,9 +12,12 @@ var sender = null
 
 func _ready():
 	if velocity.x < 0:
-		Sprite.scale.x *= -1
-		Collision.position.x *= -1
+		Light.position.x *= -1
+		Light.scale.x *= -1
 		Particles.position.x *= -1
+		Sprite.scale.x *= -1
+		Sprite.position.x *= -1
+		Collision.position.x *= -1
 		acceleration.x *= -1
 
 func _process(delta):
@@ -31,6 +35,7 @@ func _on_area_entered(_area):
 	particles()
 
 func particles():
-	var part = bulletParticles.instantiate()
-	get_tree().current_scene.add_child(part)
-	part.global_position = global_position
+	if bulletParticles:
+		var part = bulletParticles.instantiate()
+		get_tree().current_scene.add_child(part)
+		part.global_position = global_position
