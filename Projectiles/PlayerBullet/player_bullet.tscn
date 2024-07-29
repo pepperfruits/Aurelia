@@ -20,7 +20,7 @@ shader_parameter/emission_texture = ExtResource("3_cugen")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.1582, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_dooyr"]
+[sub_resource type="CurveTexture" id="CurveTexture_1a62a"]
 curve = SubResource("Curve_g1wvv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ahm0t"]
@@ -32,7 +32,7 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 90, 0)
 scale_min = 0.05
 scale_max = 0.05
-scale_curve = SubResource("CurveTexture_dooyr")
+scale_curve = SubResource("CurveTexture_1a62a")
 color = Color(0, 1, 0.807843, 0.517647)
 
 [node name="PlayerBullet" type="Area2D"]
