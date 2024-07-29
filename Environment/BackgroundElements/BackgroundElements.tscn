@@ -1,0 +1,232 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1x5mxbg3ac8d"]
+
+[ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_8rmtp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvgnj"]
+
+[node name="BackgroundElements" type="Node2D"]
+
+[node name="Window1" type="Sprite2D" parent="."]
+position = Vector2(552, 474)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="Background" type="Sprite2D" parent="Window1"]
+clip_children = 2
+z_index = -2
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(256, 512, 256, 256)
+region_filter_clip_enabled = true
+
+[node name="Clouds" type="Sprite2D" parent="Window1/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 512, 512, 512)
+
+[node name="Clouds2" type="Sprite2D" parent="Window1/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 0, 512, 512)
+
+[node name="Trees1" type="Sprite2D" parent="Window1/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+position = Vector2(0, 48)
+scale = Vector2(0.727539, 0.727539)
+texture = ExtResource("1_8rmtp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(768, 0, 256, 512)
+
+[node name="Trees2" type="Sprite2D" parent="Window1/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+position = Vector2(0, 48)
+scale = Vector2(0.682836, 0.682836)
+texture = ExtResource("1_8rmtp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(768, 512, 256, 512)
+
+[node name="Window2" type="Sprite2D" parent="."]
+position = Vector2(726, 474)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(0, 256, 256, 256)
+
+[node name="Background" type="Sprite2D" parent="Window2"]
+clip_children = 2
+z_index = -2
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(256, 768, 256, 256)
+region_filter_clip_enabled = true
+
+[node name="Clouds" type="Sprite2D" parent="Window2/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 512, 512, 512)
+
+[node name="Clouds2" type="Sprite2D" parent="Window2/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 0, 512, 512)
+
+[node name="Window3" type="Sprite2D" parent="."]
+position = Vector2(868, 415)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(0, 512, 256, 256)
+
+[node name="Background" type="Sprite2D" parent="Window3"]
+clip_children = 2
+z_index = -2
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(0, 768, 256, 256)
+region_filter_clip_enabled = true
+
+[node name="Clouds1" type="Sprite2D" parent="Window3/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 512, 512, 512)
+
+[node name="Clouds2" type="Sprite2D" parent="Window3/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 0, 512, 512)
+
+[node name="Window4" type="Sprite2D" parent="."]
+position = Vector2(342, 453)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(256, 0, 256, 512)
+
+[node name="Background" type="Sprite2D" parent="Window4"]
+clip_children = 2
+z_index = -2
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(512, 512, 256, 512)
+
+[node name="Clouds1" type="Sprite2D" parent="Window4/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 512, 512, 512)
+
+[node name="Clouds2" type="Sprite2D" parent="Window4/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1024, 0, 512, 512)
+
+[node name="Trees1" type="Sprite2D" parent="Window4/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(768, 0, 256, 512)
+
+[node name="Trees2" type="Sprite2D" parent="Window4/Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mvgnj")
+use_parent_material = true
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(768, 512, 256, 512)
+
+[node name="Grate" type="Sprite2D" parent="."]
+position = Vector2(1177, 473)
+scale = Vector2(0.642252, 0.642252)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1536, 256, 256, 256)
+
+[node name="WaterFall" type="Sprite2D" parent="Grate"]
+self_modulate = Color(0.811765, 0.929412, 0.831373, 1)
+clip_children = 2
+position = Vector2(0, 248)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1792, 256, 128, 512)
+
+[node name="WaterShine" type="Sprite2D" parent="Grate/WaterFall"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_repeat = 2
+rotation = -1.5708
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1664, 768, 384, 256)
+
+[node name="MirrorFrame" type="Sprite2D" parent="."]
+position = Vector2(1025, 467)
+scale = Vector2(0.513956, 0.513956)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1536, 0, 256, 256)
+
+[node name="MirrorSurface" type="Sprite2D" parent="MirrorFrame"]
+clip_children = 2
+z_index = -2
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1792, 0, 256, 256)
+region_filter_clip_enabled = true
+
+[node name="CrateStack" type="Sprite2D" parent="."]
+position = Vector2(901, 703)
+texture = ExtResource("1_8rmtp")
+region_enabled = true
+region_rect = Rect2(1536, 512, 256, 256)
