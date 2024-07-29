@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2evldq4ruslb"]
+[gd_scene load_steps=13 format=3 uid="uid://c2evldq4ruslb"]
 
 [ext_resource type="Script" path="res://Projectiles/PlayerBullet/player_bullet.gd" id="1_bu26j"]
 [ext_resource type="Shader" path="res://Player/emission.gdshader" id="2_nhegn"]
@@ -14,6 +14,13 @@ height = 66.0
 shader = ExtResource("2_nhegn")
 shader_parameter/glow_color = Color(1, 0.254902, 0.34902, 1)
 shader_parameter/emission_texture = ExtResource("3_0th0k")
+
+[sub_resource type="Curve" id="Curve_xroyw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24502, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_42mfw"]
+curve = SubResource("Curve_xroyw")
 
 [sub_resource type="Curve" id="Curve_sq2o1"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.1582, 0.0, 0, 0]
@@ -34,12 +41,13 @@ scale_min = 0.1
 scale_max = 0.1
 scale_curve = SubResource("CurveTexture_dooyr")
 color = Color(1, 0.254902, 0.34902, 0.384314)
+alpha_curve = SubResource("CurveTexture_42mfw")
 
 [node name="EnchantedBustBullet" type="Area2D"]
 collision_layer = 64
 collision_mask = 258
 script = ExtResource("1_bu26j")
-velocity = Vector2(900, 0)
+velocity = Vector2(1200, 0)
 acceleration = Vector2(0, 0)
 damage = 4
 
@@ -63,7 +71,7 @@ scale = Vector2(2.35967, 2.35967)
 texture = ExtResource("4_r8dm2")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(68, 0)
+position = Vector2(58, 0)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_1d2ec")
 texture = ExtResource("5_hn37b")

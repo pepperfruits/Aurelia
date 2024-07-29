@@ -75,4 +75,4 @@ libraries = {
 autoplay = "Loop"
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(64, -183)
+position = Vector2(64, -163)
