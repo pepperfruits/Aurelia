@@ -1,23 +1,23 @@
 [gd_scene load_steps=10 format=3 uid="uid://ck8wrn7anages"]
 
-[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_ghrs3"]
-[ext_resource type="TileSet" uid="uid://b5gslmogg24c7" path="res://Levels/Level1/room1-7/1-7.tres" id="2_n2qsa"]
-[ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="2_w0ieh"]
-[ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="3_stqa8"]
-[ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="3_wf013"]
-[ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_fiop4"]
-[ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="4_nye82"]
-[ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="5_i7uga"]
-[ext_resource type="PackedScene" uid="uid://dybgln6r13x6g" path="res://Enemies/EnchantedBust/enchanted_bust.tscn" id="9_c1ftx"]
+[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vgi8m"]
+[ext_resource type="TileSet" uid="uid://b5gslmogg24c7" path="res://Levels/Level1/room1-8/1-8.tres" id="2_udhx3"]
+[ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="3_52xhh"]
+[ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_30gt2"]
+[ext_resource type="PackedScene" uid="uid://dybgln6r13x6g" path="res://Enemies/EnchantedBust/enchanted_bust.tscn" id="5_oj60s"]
+[ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="6_sfj86"]
+[ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="7_feqst"]
+[ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="8_3ahkw"]
+[ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="9_pg5jl"]
 
-[node name="Room1-7" type="Node2D"]
+[node name="Room1-8" type="Node2D"]
 
-[node name="Level1Shadows" parent="." instance=ExtResource("1_ghrs3")]
+[node name="Level1Shadows" parent="." instance=ExtResource("1_vgi8m")]
 color = Color(0.298039, 0.4, 0.65098, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
-tile_set = ExtResource("2_n2qsa")
+tile_set = ExtResource("2_udhx3")
 format = 2
 layer_0/name = "bg"
 layer_1/name = "molding"
@@ -29,34 +29,34 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="Stuff" type="Node2D" parent="."]
 
-[node name="Platform" parent="Stuff" instance=ExtResource("3_wf013")]
+[node name="Platform" parent="Stuff" instance=ExtResource("3_52xhh")]
 position = Vector2(-6400, -1120)
 
-[node name="Platform2" parent="Stuff" instance=ExtResource("3_wf013")]
+[node name="Platform2" parent="Stuff" instance=ExtResource("3_52xhh")]
 position = Vector2(-6144, -1120)
 
-[node name="Platform3" parent="Stuff" instance=ExtResource("3_wf013")]
+[node name="Platform3" parent="Stuff" instance=ExtResource("3_52xhh")]
 position = Vector2(-5888, -1120)
 
-[node name="Platform4" parent="Stuff" instance=ExtResource("3_wf013")]
+[node name="Platform4" parent="Stuff" instance=ExtResource("3_52xhh")]
 position = Vector2(-5632, -1120)
 
-[node name="Hook" parent="Stuff" instance=ExtResource("4_fiop4")]
+[node name="Hook" parent="Stuff" instance=ExtResource("4_30gt2")]
 position = Vector2(-6016, -480)
 
-[node name="Hook2" parent="Stuff" instance=ExtResource("4_fiop4")]
+[node name="Hook2" parent="Stuff" instance=ExtResource("4_30gt2")]
 position = Vector2(-6016, -864)
 
-[node name="EnchantedBust" parent="Stuff" instance=ExtResource("9_c1ftx")]
+[node name="EnchantedBust" parent="Stuff" instance=ExtResource("5_oj60s")]
 position = Vector2(-6464, -128)
 
-[node name="EnchantedBust2" parent="Stuff" instance=ExtResource("9_c1ftx")]
+[node name="EnchantedBust2" parent="Stuff" instance=ExtResource("5_oj60s")]
 position = Vector2(-6592, -256)
 
-[node name="EnchantedBust3" parent="Stuff" instance=ExtResource("9_c1ftx")]
+[node name="EnchantedBust3" parent="Stuff" instance=ExtResource("5_oj60s")]
 position = Vector2(-6336, 0)
 
-[node name="StandardZones" parent="." instance=ExtResource("2_w0ieh")]
+[node name="StandardZones" parent="." instance=ExtResource("6_sfj86")]
 
 [node name="ForcedHorizontalArea" parent="StandardZones" index="0"]
 position = Vector2(448, 128)
@@ -76,13 +76,13 @@ coinArea = NodePath("../CoinCollectionArea")
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(-7264, -448)
 
-[node name="Fog" parent="." instance=ExtResource("3_stqa8")]
+[node name="Fog" parent="." instance=ExtResource("7_feqst")]
 
-[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("4_nye82")]
+[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("8_3ahkw")]
 position = Vector2(448, 160)
 Camera = NodePath("../PlayerCamera")
 
-[node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("5_i7uga")]
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("9_pg5jl")]
 limit_left = -7295
 limit_top = -1665
 limit_right = 260
