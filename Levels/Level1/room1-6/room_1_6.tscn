@@ -24,7 +24,7 @@ point_count = 5
 [node name="Room1-6" type="Node2D"]
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_hc30p")]
-color = Color(0.301961, 0.47451, 0.65098, 1)
+color = Color(0.299, 0.39845, 0.65, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
