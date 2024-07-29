@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://datrhodtpp851"]
+
+[ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_ur7yb"]
+
+[node name="CrateStack" type="Sprite2D"]
+position = Vector2(0, -128)
+texture = ExtResource("1_ur7yb")
+region_enabled = true
+region_rect = Rect2(1536, 512, 256, 256)

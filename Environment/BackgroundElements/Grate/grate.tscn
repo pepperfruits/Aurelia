@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx2f36rx5es8h"]
+
+[ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_8s4vn"]
+
+[node name="Grate" type="Sprite2D"]
+scale = Vector2(0.642252, 0.642252)
+texture = ExtResource("1_8s4vn")
+region_enabled = true
+region_rect = Rect2(1536, 256, 256, 256)
+
+[node name="WaterFall" type="Sprite2D" parent="."]
+self_modulate = Color(0.811765, 0.929412, 0.831373, 1)
+clip_children = 2
+position = Vector2(0, 248)
+texture = ExtResource("1_8s4vn")
+region_enabled = true
+region_rect = Rect2(1792, 256, 128, 512)
+
+[node name="WaterShine" type="Sprite2D" parent="WaterFall"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_repeat = 2
+rotation = -1.5708
+texture = ExtResource("1_8s4vn")
+region_enabled = true
+region_rect = Rect2(1664, 768, 384, 256)

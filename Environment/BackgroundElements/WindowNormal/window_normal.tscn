@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxrirrvj8xjss"]
+
+[ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_iy88y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m6bxy"]
+light_mode = 1
+
+[node name="WindowNormal" type="Sprite2D"]
+texture = ExtResource("1_iy88y")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="Background" type="Sprite2D" parent="."]
+clip_children = 2
+z_index = -2
+material = SubResource("CanvasItemMaterial_m6bxy")
+texture = ExtResource("1_iy88y")
+region_enabled = true
+region_rect = Rect2(256, 512, 256, 256)
+region_filter_clip_enabled = true
+
+[node name="Clouds" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+use_parent_material = true
+texture = ExtResource("1_iy88y")
+region_enabled = true
+region_rect = Rect2(1024, 512, 512, 512)
+
+[node name="Clouds2" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+use_parent_material = true
+texture = ExtResource("1_iy88y")
+region_enabled = true
+region_rect = Rect2(1024, 0, 512, 512)
+
+[node name="Trees1" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+use_parent_material = true
+position = Vector2(0, 48)
+scale = Vector2(0.727539, 0.727539)
+texture = ExtResource("1_iy88y")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(768, 0, 256, 512)
+
+[node name="Trees2" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+use_parent_material = true
+position = Vector2(0, 48)
+scale = Vector2(0.682836, 0.682836)
+texture = ExtResource("1_iy88y")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(768, 512, 256, 512)

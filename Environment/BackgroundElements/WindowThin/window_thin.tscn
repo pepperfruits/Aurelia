@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://r0hmg5jskv7n"]
+
+[ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_tuqag"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mb6lb"]
+light_mode = 1
+
+[node name="WindowThin" type="Sprite2D"]
+texture = ExtResource("1_tuqag")
+region_enabled = true
+region_rect = Rect2(0, 256, 256, 256)
+
+[node name="Background" type="Sprite2D" parent="."]
+clip_children = 2
+z_index = -2
+material = SubResource("CanvasItemMaterial_mb6lb")
+texture = ExtResource("1_tuqag")
+region_enabled = true
+region_rect = Rect2(256, 768, 256, 256)
+region_filter_clip_enabled = true
+
+[node name="Clouds" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+use_parent_material = true
+texture = ExtResource("1_tuqag")
+region_enabled = true
+region_rect = Rect2(1024, 512, 512, 512)
+
+[node name="Clouds2" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.854902)
+texture_filter = 2
+texture_repeat = 2
+use_parent_material = true
+texture = ExtResource("1_tuqag")
+region_enabled = true
+region_rect = Rect2(1024, 0, 512, 512)
