@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0xvrx7lwwbw0"]
+[gd_scene load_steps=11 format=3 uid="uid://b0xvrx7lwwbw0"]
 
 [ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_hxa7j"]
 [ext_resource type="Texture2D" uid="uid://c7oaprx7mf3lb" path="res://Assets/Textures/moonglow.png" id="2_odb8f"]
+[ext_resource type="Script" path="res://Environment/BackgroundElements/WindowTall/window_tall.gd" id="2_sso2w"]
 [ext_resource type="Material" uid="uid://beqk5sdh10k8f" path="res://Shaders/scrolling_shader.tres" id="3_gvv4o"]
 [ext_resource type="Shader" path="res://Environment/BackgroundElements/WindowTall/scrolling.gdshader" id="3_uhdg1"]
 [ext_resource type="Texture2D" uid="uid://bq8q6mcc8guv0" path="res://Environment/BackgroundElements/scrollingclouds.png" id="4_c1r81"]
@@ -23,6 +24,7 @@ light_mode = 1
 texture = ExtResource("1_hxa7j")
 region_enabled = true
 region_rect = Rect2(256, 0, 255, 512)
+script = ExtResource("2_sso2w")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -48)
