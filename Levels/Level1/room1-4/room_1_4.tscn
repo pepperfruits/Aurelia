@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://duetn2ibw5mff"]
+[gd_scene load_steps=23 format=3 uid="uid://duetn2ibw5mff"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vrvfd"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="2_1x1n4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="7_88xw5"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="8_jgqwg"]
 [ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="9_iqp6k"]
+[ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="10_qgp6s"]
 [ext_resource type="PackedScene" uid="uid://ddyqv7vduj3ps" path="res://Zones/LevelChangeArea/level_change_area.tscn" id="11_87ok0"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="12_f0ocl"]
 [ext_resource type="PackedScene" uid="uid://c0sg5xhwd6ky8" path="res://Zones/CoinCollectionZone/coin_collection_area.tscn" id="12_g40mf"]
@@ -85,6 +86,15 @@ position = Vector2(4480, -768)
 [node name="BreakableBlock" parent="stuff" instance=ExtResource("9_iqp6k")]
 position = Vector2(-32, -384)
 
+[node name="Hook" parent="stuff" instance=ExtResource("10_qgp6s")]
+position = Vector2(2304, 0)
+
+[node name="Hook2" parent="stuff" instance=ExtResource("10_qgp6s")]
+position = Vector2(3072, 0)
+
+[node name="Hook3" parent="stuff" instance=ExtResource("10_qgp6s")]
+position = Vector2(3840, 0)
+
 [node name="StandardZones" parent="." instance=ExtResource("2_ojiox")]
 
 [node name="ForcedHorizontalArea2" parent="StandardZones" index="1"]
@@ -139,6 +149,7 @@ p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("12_f0ocl")]
+visible = false
 position = Vector2(3328, 832)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.5, 0.5)
