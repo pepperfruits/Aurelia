@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://baij8katslide"]
+[gd_scene load_steps=22 format=3 uid="uid://baij8katslide"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
 [ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
@@ -22,6 +22,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grgd6"]
 size = Vector2(3040, 928)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atco3"]
+size = Vector2(3104, 2592)
 
 [node name="Room1-9" type="Node2D"]
 
@@ -310,6 +313,7 @@ DEFAULT_ZOOM = Vector2(0.8, 0.8)
 CAMERA_MIX = 0.3
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("19_jvfp0")]
+visible = false
 position = Vector2(-1984, -224)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.8, 0.8)
@@ -322,6 +326,7 @@ shape = SubResource("RectangleShape2D_grgd6")
 position = Vector2(-1088, 160)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("19_jvfp0")]
+visible = false
 position = Vector2(-1824, -1472)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.8, 0.8)
@@ -332,6 +337,19 @@ shape = SubResource("RectangleShape2D_grgd6")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
 position = Vector2(1376, 96)
+
+[node name="CameraControlArea3" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("19_jvfp0")]
+visible = false
+position = Vector2(-1888, -3648)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea3"]
+position = Vector2(112, -48)
+shape = SubResource("RectangleShape2D_atco3")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea3"]
+position = Vector2(-1056, -320)
 
 [editable path="Coin"]
 [editable path="StandardZones"]
