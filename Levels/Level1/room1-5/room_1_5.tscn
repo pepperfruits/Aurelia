@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkvao23ld46sl"]
+[gd_scene load_steps=18 format=3 uid="uid://dkvao23ld46sl"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_m3xtn"]
 [ext_resource type="TileSet" uid="uid://dcj32adhq78uk" path="res://Levels/Level1/room1-5/1-5.tres" id="2_cjh7i"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="8_fc0lb"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="9_fyr3y"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="14_5wm6x"]
+[ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="14_e4nuw"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="15_bg0ij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgscy"]
@@ -190,6 +191,18 @@ p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.75, 0.75)
 CAMERA_MIX = 0.5
 
+[node name="Grate" parent="." instance=ExtResource("14_e4nuw")]
+position = Vector2(2880, -803.792)
+
+[node name="Grate3" parent="." instance=ExtResource("14_e4nuw")]
+position = Vector2(2240, -803.792)
+
+[node name="Grate4" parent="." instance=ExtResource("14_e4nuw")]
+position = Vector2(1216, -803.792)
+
+[node name="Grate2" parent="." instance=ExtResource("14_e4nuw")]
+position = Vector2(576, -803.792)
+
 [node name="Darkness" parent="." instance=ExtResource("14_5wm6x")]
 position = Vector2(1574, 229)
 scale = Vector2(9.97966, 0.0793949)
@@ -200,6 +213,7 @@ rotation = 3.14159
 scale = Vector2(9.97966, 0.0793949)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("15_bg0ij")]
+visible = false
 position = Vector2(2048, -32)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.7, 0.7)
@@ -212,6 +226,7 @@ shape = SubResource("RectangleShape2D_tgscy")
 position = Vector2(0, -800)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("15_bg0ij")]
+visible = false
 position = Vector2(2048, -2144)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.7, 0.7)

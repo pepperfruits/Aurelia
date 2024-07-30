@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://q2laxpkfaosg"]
+[gd_scene load_steps=22 format=3 uid="uid://q2laxpkfaosg"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vla55"]
 [ext_resource type="TileSet" uid="uid://djwsos0xfjsld" path="res://Levels/Level1/room1-2/1-2.tres" id="2_sutus"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="12_s6bl2"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="13_o64v6"]
 [ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="15_1k03p"]
+[ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="19_6oole"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j0su"]
 size = Vector2(960, 704)
@@ -157,15 +158,6 @@ coinArea = NodePath("../CoinCollectionArea")
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(5632, -2912)
 
-[node name="Darkness" parent="." instance=ExtResource("6_u6ptk")]
-position = Vector2(927, 287)
-scale = Vector2(34.8812, 0.157575)
-
-[node name="Darkness2" parent="." instance=ExtResource("6_u6ptk")]
-position = Vector2(945, -3538)
-rotation = 3.14159
-scale = Vector2(34.8812, 0.157575)
-
 [node name="Fog" parent="." instance=ExtResource("4_24rej")]
 scroll_offset = Vector2(-1516, 2637.82)
 
@@ -180,5 +172,26 @@ limit_right = 5620
 limit_bottom = 347
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
+
+[node name="Grate" parent="." instance=ExtResource("19_6oole")]
+position = Vector2(4032, -960)
+
+[node name="Grate2" parent="." instance=ExtResource("19_6oole")]
+position = Vector2(4736, -960)
+
+[node name="Grate4" parent="." instance=ExtResource("19_6oole")]
+position = Vector2(1024, 1.78814e-07)
+
+[node name="Grate3" parent="." instance=ExtResource("19_6oole")]
+position = Vector2(5440, -960)
+
+[node name="Darkness" parent="." instance=ExtResource("6_u6ptk")]
+position = Vector2(927, 287)
+scale = Vector2(34.8812, 0.157575)
+
+[node name="Darkness2" parent="." instance=ExtResource("6_u6ptk")]
+position = Vector2(945, -3538)
+rotation = 3.14159
+scale = Vector2(34.8812, 0.157575)
 
 [editable path="StandardZones"]

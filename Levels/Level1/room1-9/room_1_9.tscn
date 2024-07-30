@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://baij8katslide"]
+[gd_scene load_steps=10 format=3 uid="uid://baij8katslide"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
 [ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="4_yfdml"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="5_go7kj"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="6_8kpjt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pebv4"]
+font_size = 50
 
 [node name="Room1-9" type="Node2D"]
 
@@ -64,5 +67,14 @@ Camera = NodePath("../PlayerCamera")
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("6_8kpjt")]
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -864.0
+offset_top = -160.0
+offset_right = -281.0
+offset_bottom = -19.0
+text = "hey we ran out of levels
+thanks for testing for us"
+label_settings = SubResource("LabelSettings_pebv4")
 
 [editable path="StandardZones"]
