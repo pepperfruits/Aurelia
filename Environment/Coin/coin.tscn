@@ -10,8 +10,8 @@
 radius = 125.324
 
 [sub_resource type="Curve" id="Curve_n82i2"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23008, 0.101695), 0.0, 0.0, 0, 0, Vector2(0.374502, 1), 0.0, 0.0, 0, 0, Vector2(0.633466, 0.144068), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_ic4fu"]
 curve = SubResource("Curve_n82i2")
@@ -22,10 +22,10 @@ direction = Vector3(0, 0, 0)
 spread = 180.0
 initial_velocity_min = 100.0
 initial_velocity_max = 150.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.03
-scale_max = 0.05
-color = Color(0.0473477, 0.544152, 0.45233, 1)
+gravity = Vector3(0, 100, 0)
+scale_min = 0.02
+scale_max = 0.03
+color = Color(0.0703851, 0.75809, 0.633021, 1)
 alpha_curve = SubResource("CurveTexture_ic4fu")
 
 [sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_djyt8"]
