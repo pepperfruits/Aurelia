@@ -37,7 +37,7 @@ shader = ExtResource("5_j2mtr")
 shader_parameter/top = null
 shader_parameter/bottom = 0.0
 shader_parameter/top_color = Color(0, 1, 0.694118, 1)
-shader_parameter/bottom_color = Color(0.393781, 0.21813, 0.459726, 1)
+shader_parameter/bottom_color = Color(0.298039, 0.372549, 0.545098, 1)
 
 [node name="Coin" type="Area2D"]
 collision_layer = 4096
