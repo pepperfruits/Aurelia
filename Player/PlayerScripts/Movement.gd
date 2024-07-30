@@ -209,7 +209,8 @@ func leave_crystal():
 	current_crystal.use()
 	current_crystal = null
 	
-	CrystalParticles.emitting = true
+	if ScoreManager.particles_enabled:
+		CrystalParticles.emitting = true
 	CrystalDashTimer.start()
 
 func attack(facing : int):
@@ -397,7 +398,8 @@ func can_dash() -> bool:
 	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING and not is_crystal
 
 func dash(input_direction : float) -> void:
-	DashParticles.emitting = true
+	if ScoreManager.particles_enabled:
+		DashParticles.emitting = true
 	anim.dash(p.is_on_floor())
 	current_state = STATE.DASHING
 	is_dashing = true
