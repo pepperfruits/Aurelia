@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://baij8katslide"]
+[gd_scene load_steps=9 format=3 uid="uid://baij8katslide"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
 [ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
 [ext_resource type="PackedScene" uid="uid://cw5laekr757ju" path="res://Enemies/EvilSlime/evil_slime.tscn" id="3_qikjq"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="3_v0qao"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="4_wvxbs"]
+[ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="4_yfdml"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="5_go7kj"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="6_8kpjt"]
 
@@ -35,8 +36,19 @@ Point2 = NodePath("../Marker2D2")
 [node name="Marker2D" type="Marker2D" parent="stuff"]
 position = Vector2(-3776, 0)
 
+[node name="Marker2D3" type="Marker2D" parent="stuff"]
+position = Vector2(-2560, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="stuff"]
+position = Vector2(-1536, 0)
+
 [node name="Marker2D2" type="Marker2D" parent="stuff"]
 position = Vector2(-2944, 0)
+
+[node name="GoodSlime" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("4_yfdml")]
+position = Vector2(-2560, 128)
+Point1 = NodePath("../Marker2D4")
+Point2 = NodePath("../Marker2D3")
 
 [node name="StandardZones" parent="." instance=ExtResource("3_v0qao")]
 

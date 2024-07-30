@@ -25,6 +25,7 @@ size = Vector2(124, 69)
 collision_layer = 16
 collision_mask = 256
 script = ExtResource("1_xhy8v")
+startingSkin = "Bad"
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
 collision_layer = 32
