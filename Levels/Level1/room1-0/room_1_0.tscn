@@ -37,7 +37,7 @@ size = Vector2(1152, 1696)
 [node name="Room1-1" type="Node2D"]
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_4k33l")]
-color = Color(0.375, 0.5, 0.475, 1)
+color = Color(0.584314, 0.717647, 0.686275, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
