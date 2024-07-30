@@ -64,6 +64,7 @@ position = Vector2(992, -1792)
 
 [node name="Coin" parent="stuff" instance=ExtResource("4_a72dd")]
 position = Vector2(1504, -1152)
+COIN_ID = 1
 
 [node name="Torch" parent="stuff" instance=ExtResource("5_wj4na")]
 position = Vector2(608, 64)
@@ -81,12 +82,14 @@ position = Vector2(2112, -1984)
 
 [node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(2432, -2048)
+scene_path = "res://Levels/Level1/room1-2/room_1_2.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(2432, -2048)
 
 [node name="Fog" parent="." instance=ExtResource("4_li27e")]
+scroll_offset = Vector2(-3066.64, 1573.77)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("5_6wj4l")]
 Camera = NodePath("../PlayerCamera")
