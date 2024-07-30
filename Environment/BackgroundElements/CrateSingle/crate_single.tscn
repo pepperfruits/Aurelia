@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjh6awbtfe0tm"]
+
+[ext_resource type="Texture2D" uid="uid://cefl8sm5xy36r" path="res://Environment/BackgroundElements/CrateSingle/singlecrate.png" id="1_d84fm"]
+
+[node name="CrateSingle" type="Sprite2D"]
+modulate = Color(0.67451, 0.654902, 0.819608, 1)
+position = Vector2(0, -63)
+texture = ExtResource("1_d84fm")
