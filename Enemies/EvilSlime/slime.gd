@@ -26,6 +26,7 @@ func _process(delta):
 	else:
 		patrol(delta, Point2)
 	
+	velocity.y = 0
 	move_and_slide()
 
 func patrol(_delta : float, point : Marker2D):
@@ -41,3 +42,6 @@ func patrol(_delta : float, point : Marker2D):
 	
 	if abs(target_x - my_x) < DEADZONE:
 		target_point = !target_point
+
+func on_hurt():
+	$AnimationPlayer.play("hurt")
