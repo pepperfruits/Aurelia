@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://beqk5sdh10k8f"]
+
+[ext_resource type="Shader" path="res://Environment/BackgroundElements/WindowTall/scrolling.gdshader" id="1_vtjpw"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_vtjpw")
+shader_parameter/speed = 0.1

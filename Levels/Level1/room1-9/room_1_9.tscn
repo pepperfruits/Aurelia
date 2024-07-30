@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://baij8katslide"]
+
+[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
+[ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
+[ext_resource type="PackedScene" uid="uid://cw5laekr757ju" path="res://Enemies/EvilSlime/evil_slime.tscn" id="3_qikjq"]
+[ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="3_v0qao"]
+[ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="4_wvxbs"]
+[ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="4_yfdml"]
+[ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="5_go7kj"]
+[ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="6_8kpjt"]
+
+[node name="Room1-9" type="Node2D"]
+
+[node name="Level1Shadows" parent="." instance=ExtResource("1_xqjis")]
+color = Color(0.298039, 0.4, 0.65098, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_urg1h")
+format = 2
+layer_0/name = "bg"
+layer_1/name = "molding"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "surface"
+layer_2/tile_data = PackedInt32Array(65536, 131072, 3, 131071, 131072, 3, 131070, 131072, 3, -65537, 131072, 3, -131072, 131072, 3, -131071, 196608, 0, -65535, 0, 1, 1, 0, 1, 65537, 196608, 2, -65538, 65536, 3, 131069, 131072, 3, 131068, 131072, 3, 131067, 131072, 3, 131054, 131072, 3, 131053, 131072, 3, 131052, 131072, 3, 131051, 131072, 3, 131050, 131072, 3, 131049, 131072, 3, 131048, 131072, 3, 131047, 131072, 3, 131046, 131072, 3, 131066, 131072, 3, 131065, 131072, 3, 131064, 131072, 3, 131063, 131072, 3, 131062, 131072, 3, 131061, 131072, 3, 131060, 131072, 3, 131058, 131072, 3, 131059, 131072, 3, 131057, 131072, 3, 131056, 131072, 3, 131055, 131072, 3, 131045, 131072, 3, 131044, 131072, 3, 131043, 131072, 3, 131042, 131072, 3, 131041, 65536, 3)
+layer_3/name = "deep"
+layer_3/tile_data = PackedInt32Array()
+
+[node name="stuff" type="Node2D" parent="."]
+
+[node name="EvilSlime" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("3_qikjq")]
+position = Vector2(-3776, 128)
+Point1 = NodePath("../Marker2D")
+Point2 = NodePath("../Marker2D2")
+
+[node name="Marker2D" type="Marker2D" parent="stuff"]
+position = Vector2(-3776, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="stuff"]
+position = Vector2(-2560, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="stuff"]
+position = Vector2(-1536, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="stuff"]
+position = Vector2(-2944, 0)
+
+[node name="GoodSlime" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("4_yfdml")]
+position = Vector2(-2560, 128)
+Point1 = NodePath("../Marker2D4")
+Point2 = NodePath("../Marker2D3")
+
+[node name="StandardZones" parent="." instance=ExtResource("3_v0qao")]
+
+[node name="ForcedHorizontalArea" parent="StandardZones" index="0"]
+position = Vector2(32, 0)
+HORZIONTAL_INPUT = -1.0
+
+[node name="Fog" parent="." instance=ExtResource("4_wvxbs")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("5_go7kj")]
+Camera = NodePath("../PlayerCamera")
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("6_8kpjt")]
+p = NodePath("../Player")
+DEFAULT_ZOOM = Vector2(0.8, 0.8)
+
+[editable path="StandardZones"]
