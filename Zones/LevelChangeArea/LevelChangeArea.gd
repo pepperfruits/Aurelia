@@ -11,7 +11,8 @@ func _on_body_entered(body : PlayerCharacter):
 	body.set_camera_transition(true)
 
 func _on_level_change_timer_timeout():
-	ScoreManager.coins += coinArea.get_overlapping_areas().size()
 	for i : Coin in coinArea.get_overlapping_areas():
-		ScoreManager.coinArray.append(i.COIN_ID)
+		if i.p:
+			ScoreManager.coins += 1
+			ScoreManager.coinArray.append(i.COIN_ID)
 	get_tree().change_scene_to_file(scene_path)

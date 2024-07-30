@@ -88,6 +88,10 @@ coinArea = NodePath("../CoinCollectionArea")
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(2432, -2048)
 
+[node name="CollisionShape2D" parent="StandardZones/CoinCollectionArea" index="0"]
+visible = true
+position = Vector2(-442, -118)
+
 [node name="Fog" parent="." instance=ExtResource("4_li27e")]
 scroll_offset = Vector2(-3066.64, 1573.77)
 

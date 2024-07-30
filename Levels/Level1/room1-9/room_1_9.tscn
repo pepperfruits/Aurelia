@@ -82,7 +82,6 @@ visible = false
 
 [node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64062, 8.32178)
-scale = Vector2(1, 1)
 
 [node name="TileMapFake" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
