@@ -51,6 +51,8 @@ position = Vector2(3392, -1024)
 rotation = 3.14159
 scale = Vector2(0.5, -0.5)
 
+[node name="decor" type="Node2D" parent="."]
+
 [node name="stuff" type="Node2D" parent="."]
 
 [node name="EnchantedBust" parent="stuff" instance=ExtResource("6_itksk")]

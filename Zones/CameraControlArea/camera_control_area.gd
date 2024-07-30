@@ -8,4 +8,4 @@ func _on_body_entered(body : PlayerCharacter):
 	body.add_camera_area(self)
 
 func _on_body_exited(body : PlayerCharacter):
-	body.remove_camera_area()
+	body.remove_camera_area(self)

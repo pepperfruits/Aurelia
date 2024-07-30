@@ -1,14 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://r0hmg5jskv7n"]
+[gd_scene load_steps=8 format=3 uid="uid://r0hmg5jskv7n"]
 
 [ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_tuqag"]
+[ext_resource type="Material" uid="uid://beqk5sdh10k8f" path="res://Shaders/scrolling_shader.tres" id="2_cm38q"]
+[ext_resource type="Texture2D" uid="uid://c7oaprx7mf3lb" path="res://Assets/Textures/moonglow.png" id="2_e6not"]
+[ext_resource type="Shader" path="res://Environment/BackgroundElements/WindowTall/scrolling.gdshader" id="3_k04us"]
+[ext_resource type="Texture2D" uid="uid://bq8q6mcc8guv0" path="res://Environment/BackgroundElements/scrollingclouds.png" id="3_umm1q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mb6lb"]
 light_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klend"]
+shader = ExtResource("3_k04us")
+shader_parameter/speed = 0.05
 
 [node name="WindowThin" type="Sprite2D"]
 texture = ExtResource("1_tuqag")
 region_enabled = true
 region_rect = Rect2(0, 256, 256, 256)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 313)
+scale = Vector2(0.265143, 0.825143)
+color = Color(0.645778, 0.667047, 0.77208, 1)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("2_e6not")
 
 [node name="Background" type="Sprite2D" parent="."]
 clip_children = 2
@@ -23,8 +39,8 @@ region_filter_clip_enabled = true
 modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 2
 texture_repeat = 2
-use_parent_material = true
-texture = ExtResource("1_tuqag")
+material = ExtResource("2_cm38q")
+texture = ExtResource("3_umm1q")
 region_enabled = true
 region_rect = Rect2(1024, 512, 512, 512)
 
@@ -32,7 +48,7 @@ region_rect = Rect2(1024, 512, 512, 512)
 modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 2
 texture_repeat = 2
-use_parent_material = true
-texture = ExtResource("1_tuqag")
+material = SubResource("ShaderMaterial_klend")
+texture = ExtResource("3_umm1q")
 region_enabled = true
 region_rect = Rect2(1024, 0, 512, 512)

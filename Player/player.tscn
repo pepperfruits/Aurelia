@@ -146,7 +146,7 @@ shader_parameter/redness = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h05tx"]
 shader = ExtResource("7_2epsl")
-shader_parameter/color = Color(1, 1, 1, 0)
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [sub_resource type="Curve" id="Curve_2m2js"]
 _data = [Vector2(0.0273977, 0.878531), 0.0, 0.0, 0, 0, Vector2(1, 0.355932), 0.0, 0.0, 0, 0]
@@ -232,6 +232,7 @@ normal_material = SubResource("ShaderMaterial_h05tx")
 show_behind_parent = true
 position = Vector2(461.576, -179.266)
 rotation = 1.54305
+scale = Vector2(1, 1)
 bone_name = "Lantern2"
 
 [node name="LanternLight" type="PointLight2D" parent="AnimationHandler/Lantern"]
