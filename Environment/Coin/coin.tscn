@@ -44,7 +44,6 @@ collision_layer = 4096
 script = ExtResource("1_8x20p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_0db21")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
