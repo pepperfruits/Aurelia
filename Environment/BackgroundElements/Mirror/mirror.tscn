@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_cp52i"]
 
 [node name="Mirror" type="Sprite2D"]
+modulate = Color(0.56004, 0.4104, 0.72, 1)
 scale = Vector2(0.513956, 0.513956)
 texture = ExtResource("1_cp52i")
 region_enabled = true
