@@ -50,3 +50,16 @@ func _on_flashing_timer_timeout():
 			Sprite.modulate = Color.GRAY
 	else:
 		Sprite.modulate = Color.WHITE
+
+
+func _on_body_entered(player : PlayerCharacter):
+	p = player
+	
+	var particles = TeleportParticles.instantiate()
+	add_child(particles)
+	particles.global_position = p.global_position
+	
+	
+	teleport_player()
+	p.enter_crystal(self)
+	set_pointer(true)
