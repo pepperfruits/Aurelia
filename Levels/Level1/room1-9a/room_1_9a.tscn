@@ -487,6 +487,9 @@ coinArea = NodePath("../CoinCollectionArea")
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(-128, 0)
 
+[node name="CollisionShape2D" parent="StandardZones/CoinCollectionArea" index="0"]
+visible = true
+
 [node name="stuff" type="Node2D" parent="."]
 
 [node name="Coin" parent="stuff" instance=ExtResource("5_5olff")]
@@ -551,6 +554,7 @@ position = Vector2(6272, 128)
 position = Vector2(8576, -1248)
 
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("5_1fggg")]
+position = Vector2(-128, 32)
 Camera = NodePath("../PlayerCamera")
 
 [node name="Fog" parent="." instance=ExtResource("4_yrcbl")]
