@@ -1,15 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8d848u5nffhp"]
+[gd_scene load_steps=12 format=3 uid="uid://c8d848u5nffhp"]
 
 [ext_resource type="Script" path="res://Environment/Coin/coin.gd" id="1_8x20p"]
-[ext_resource type="Texture2D" uid="uid://cks1hmdcc7wd8" path="res://Environment/Coin/coin.png" id="1_exjo2"]
+[ext_resource type="SpineAtlasResource" uid="uid://8vpqi5ncvsva" path="res://Environment/Coin/PotionBottle.atlas" id="3_54dbm"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="3_d78fl"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://direkefkpqdf" path="res://Environment/Coin/PotionBottle.skel" id="4_0env1"]
+[ext_resource type="Shader" path="res://Environment/Torch/torch.gdshader" id="5_j2mtr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0db21"]
 radius = 125.324
 
 [sub_resource type="Curve" id="Curve_n82i2"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.23008, 0.101695), 0.0, 0.0, 0, 0, Vector2(0.374502, 1), 0.0, 0.0, 0, 0, Vector2(0.633466, 0.144068), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_ic4fu"]
 curve = SubResource("Curve_n82i2")
@@ -20,33 +22,58 @@ direction = Vector3(0, 0, 0)
 spread = 180.0
 initial_velocity_min = 100.0
 initial_velocity_max = 150.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.03
-scale_max = 0.05
-color = Color(0.333333, 0.819608, 0.886275, 1)
+gravity = Vector3(0, 100, 0)
+scale_min = 0.02
+scale_max = 0.03
+color = Color(0.0703851, 0.75809, 0.633021, 1)
 alpha_curve = SubResource("CurveTexture_ic4fu")
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_djyt8"]
+atlas_res = ExtResource("3_54dbm")
+skeleton_file_res = ExtResource("4_0env1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s3by"]
+shader = ExtResource("5_j2mtr")
+shader_parameter/top = null
+shader_parameter/bottom = 0.0
+shader_parameter/top_color = Color(0, 1, 0.694118, 1)
+shader_parameter/bottom_color = Color(0.298039, 0.372549, 0.545098, 1)
 
 [node name="Coin" type="Area2D"]
 collision_layer = 4096
 script = ExtResource("1_8x20p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_0db21")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(0.75, 0.75)
-color = Color(0.333333, 0.819608, 0.886275, 1)
+color = Color(0.0705882, 0.760784, 0.635294, 1)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_d78fl")
 texture_scale = 0.4
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 17)
 process_material = SubResource("ParticleProcessMaterial_8jv7g")
 texture = ExtResource("3_d78fl")
 
-[node name="CoinSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_exjo2")
+[node name="CoinSprite" type="SpineSprite" parent="."]
+scale = Vector2(0.596209, 0.596209)
+skeleton_data_res = SubResource("SpineSkeletonDataResource_djyt8")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+
+[node name="SpineSlotNode" type="SpineSlotNode" parent="CoinSprite"]
+show_behind_parent = true
+position = Vector2(-2.64055, 8.32135)
+rotation = 1.55702
+scale = Vector2(1, 1)
+slot_name = "PotionFill"
+normal_material = SubResource("ShaderMaterial_2s3by")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

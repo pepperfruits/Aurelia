@@ -41,6 +41,7 @@ patch_margin_bottom = 180
 [node name="Icons" type="Sprite2D" parent="."]
 position = Vector2(1264, 234)
 texture = ExtResource("2_f8cju")
+region_rect = Rect2(0, 0, 121, 230)
 
 [node name="coins" type="RichTextLabel" parent="Icons"]
 offset_left = 96.0
