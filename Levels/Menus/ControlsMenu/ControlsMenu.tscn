@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cgy1j0b762f1g" path="res://Levels/Menus/ControlsMenu/jump.png" id="6_01b62"]
 [ext_resource type="Texture2D" uid="uid://b8kxwg6k6hyfi" path="res://Levels/Menus/ControlsMenu/controlscheme3.png" id="6_77is1"]
 [ext_resource type="Texture2D" uid="uid://dpmej3g8t762a" path="res://Levels/Menus/ControlsMenu/attack.png" id="7_gdslf"]
-[ext_resource type="Script" path="res://Levels/Menus/MainMenu/PlayButton.gd" id="8_6drgr"]
 [ext_resource type="Shader" path="res://Player/emission.gdshader" id="8_rqb00"]
+[ext_resource type="Script" path="res://Levels/Menus/ControlsMenu/PLAY GAME.gd" id="8_xt2o8"]
 [ext_resource type="Texture2D" uid="uid://cg30p1u4oq0rl" path="res://Projectiles/PlayerBullet/Projectileblur.png" id="9_4j7c1"]
 [ext_resource type="Texture2D" uid="uid://pnn1rwbkq4yt" path="res://Projectiles/PlayerBullet/Projectile.png" id="10_6em84"]
 [ext_resource type="Texture2D" uid="uid://bs2go7kyji474" path="res://Levels/Menus/ControlsMenu/dashing.png" id="11_ff7v1"]
@@ -175,7 +175,7 @@ grow_vertical = 2
 scale = Vector2(0.996082, 1.01491)
 icon = ExtResource("3_jjryb")
 flat = true
-script = ExtResource("8_6drgr")
+script = ExtResource("8_xt2o8")
 scene = "res://Levels/Level1/room1-1/room_1_1.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/Buttons/PLAY GAME"]
