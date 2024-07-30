@@ -11,7 +11,7 @@ class_name Projectile
 var sender = null
 
 func _ready():
-	if not ScoreManager.particles_enabled:
+	if not ScoreManager.particles_enabled or true: # ALERT this disables all particles for this permanently!
 		Particles.emitting = false
 	
 	if velocity.x < 0:
