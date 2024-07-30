@@ -164,60 +164,6 @@ visible = false
 [node name="Trees2" parent="decor/WindowTall6/Background" index="3"]
 visible = false
 
-[node name="WindowTall7" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(-512.5, -8896)
-
-[node name="Clouds1" parent="decor/WindowTall7/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Clouds3" type="Sprite2D" parent="decor/WindowTall7/Background" index="1"]
-modulate = Color(1, 1, 1, 0.854902)
-texture_filter = 2
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ovqiq")
-texture = ExtResource("7_tfa5d")
-region_enabled = true
-region_rect = Rect2(1024, 512, 512, 512)
-
-[node name="Trees1" parent="decor/WindowTall7/Background" index="3"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall7/Background" index="4"]
-visible = false
-
-[node name="WindowTall8" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(511.5, -8896)
-
-[node name="Clouds1" parent="decor/WindowTall8/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Clouds3" type="Sprite2D" parent="decor/WindowTall8/Background" index="1"]
-modulate = Color(1, 1, 1, 0.854902)
-texture_filter = 2
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ovqiq")
-texture = ExtResource("7_tfa5d")
-region_enabled = true
-region_rect = Rect2(1024, 512, 512, 512)
-
-[node name="Trees1" parent="decor/WindowTall8/Background" index="3"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall8/Background" index="4"]
-visible = false
-
-[node name="WindowTall10" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(1023.5, -8928)
-
-[node name="Clouds1" parent="decor/WindowTall10/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Trees1" parent="decor/WindowTall10/Background" index="2"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall10/Background" index="3"]
-visible = false
-
 [node name="WindowTall11" parent="decor" instance=ExtResource("5_r4314")]
 position = Vector2(-0.5, -13824)
 
@@ -228,72 +174,6 @@ material = SubResource("ShaderMaterial_ovqiq")
 visible = false
 
 [node name="Trees2" parent="decor/WindowTall11/Background" index="3"]
-visible = false
-
-[node name="WindowTall12" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(-512.5, -13856)
-
-[node name="Clouds1" parent="decor/WindowTall12/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Clouds3" type="Sprite2D" parent="decor/WindowTall12/Background" index="1"]
-modulate = Color(1, 1, 1, 0.854902)
-texture_filter = 2
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ovqiq")
-texture = ExtResource("7_tfa5d")
-region_enabled = true
-region_rect = Rect2(1024, 512, 512, 512)
-
-[node name="Trees1" parent="decor/WindowTall12/Background" index="3"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall12/Background" index="4"]
-visible = false
-
-[node name="WindowTall13" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(511.5, -13856)
-
-[node name="Clouds1" parent="decor/WindowTall13/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Clouds3" type="Sprite2D" parent="decor/WindowTall13/Background" index="1"]
-modulate = Color(1, 1, 1, 0.854902)
-texture_filter = 2
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ovqiq")
-texture = ExtResource("7_tfa5d")
-region_enabled = true
-region_rect = Rect2(1024, 512, 512, 512)
-
-[node name="Trees1" parent="decor/WindowTall13/Background" index="3"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall13/Background" index="4"]
-visible = false
-
-[node name="WindowTall14" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(-992.5, -13888)
-
-[node name="Clouds1" parent="decor/WindowTall14/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Trees1" parent="decor/WindowTall14/Background" index="2"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall14/Background" index="3"]
-visible = false
-
-[node name="WindowTall15" parent="decor" instance=ExtResource("5_r4314")]
-position = Vector2(1023.5, -13888)
-
-[node name="Clouds1" parent="decor/WindowTall15/Background" index="0"]
-material = SubResource("ShaderMaterial_ovqiq")
-
-[node name="Trees1" parent="decor/WindowTall15/Background" index="2"]
-visible = false
-
-[node name="Trees2" parent="decor/WindowTall15/Background" index="3"]
 visible = false
 
 [node name="WindowTall16" parent="decor" instance=ExtResource("5_r4314")]
@@ -790,6 +670,7 @@ position = Vector2(0, -12854)
 marker = NodePath("Marker2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea4"]
+visible = false
 position = Vector2(0, -440)
 shape = SubResource("RectangleShape2D_h7r5i")
 
@@ -803,14 +684,7 @@ position = Vector2(0, -733)
 [editable path="decor/WindowTall3"]
 [editable path="decor/WindowTall4"]
 [editable path="decor/WindowTall6"]
-[editable path="decor/WindowTall7"]
-[editable path="decor/WindowTall8"]
-[editable path="decor/WindowTall10"]
 [editable path="decor/WindowTall11"]
-[editable path="decor/WindowTall12"]
-[editable path="decor/WindowTall13"]
-[editable path="decor/WindowTall14"]
-[editable path="decor/WindowTall15"]
 [editable path="decor/WindowTall16"]
 [editable path="decor/WindowTall17"]
 [editable path="decor/WindowTall18"]
