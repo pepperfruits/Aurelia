@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0xvrx7lwwbw0"]
+[gd_scene load_steps=7 format=3 uid="uid://b0xvrx7lwwbw0"]
 
 [ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_hxa7j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cutuf"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3jt70"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ube21"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_so4lr"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0pbhc"]
+light_mode = 1
+
 [node name="WindowTall" type="Sprite2D"]
 texture = ExtResource("1_hxa7j")
 region_enabled = true
 region_rect = Rect2(256, 0, 256, 512)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
 clip_children = 2
@@ -22,6 +36,7 @@ region_rect = Rect2(512, 512, 256, 512)
 modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 2
 texture_repeat = 2
+material = SubResource("CanvasItemMaterial_3jt70")
 use_parent_material = true
 texture = ExtResource("1_hxa7j")
 region_enabled = true
@@ -31,6 +46,7 @@ region_rect = Rect2(1024, 512, 512, 512)
 modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 2
 texture_repeat = 2
+material = SubResource("CanvasItemMaterial_ube21")
 use_parent_material = true
 texture = ExtResource("1_hxa7j")
 region_enabled = true
@@ -40,6 +56,7 @@ region_rect = Rect2(1024, 0, 512, 512)
 modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 2
 texture_repeat = 2
+material = SubResource("CanvasItemMaterial_so4lr")
 use_parent_material = true
 texture = ExtResource("1_hxa7j")
 region_enabled = true
@@ -49,6 +66,7 @@ region_rect = Rect2(768, 0, 256, 512)
 modulate = Color(1, 1, 1, 0.854902)
 texture_filter = 2
 texture_repeat = 2
+material = SubResource("CanvasItemMaterial_0pbhc")
 use_parent_material = true
 texture = ExtResource("1_hxa7j")
 region_enabled = true
