@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw5laekr757ju"]
+[gd_scene load_steps=11 format=3 uid="uid://cw5laekr757ju"]
 
 [ext_resource type="Script" path="res://Enemies/EvilSlime/slime.gd" id="1_xhy8v"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="2_o8sf1"]
 [ext_resource type="SpineAtlasResource" uid="uid://c2ke21etw17bf" path="res://Enemies/EvilSlime/Slime.atlas" id="3_fiear"]
 [ext_resource type="SpineSkeletonFileResource" uid="uid://b4nsbjpml6ogw" path="res://Enemies/EvilSlime/Slime.skel" id="4_ejxfk"]
-[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="5_7f4x0"]
 [ext_resource type="Script" path="res://Scripts/Health.gd" id="6_s03n0"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="7_y2cdp"]
 
@@ -43,18 +42,6 @@ preview_skin = "Bad"
 preview_animation = "-- Empty --"
 preview_frame = false
 preview_time = 0.0
-
-[node name="SpineBoneNode" type="SpineBoneNode" parent="SpineSprite"]
-show_behind_parent = true
-position = Vector2(29.6817, -71.192)
-bone_name = "bone5"
-
-[node name="PointLight2D" type="PointLight2D" parent="SpineSprite/SpineBoneNode"]
-position = Vector2(-22.6817, -1.9751e-06)
-color = Color(1, 0.333333, 0, 1)
-shadow_enabled = true
-texture = ExtResource("5_7f4x0")
-texture_scale = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24.5)

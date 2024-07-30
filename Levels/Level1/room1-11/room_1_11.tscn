@@ -624,9 +624,8 @@ position = Vector2(1184, -2624)
 [node name="EnchantedBust" parent="stuff/1" instance=ExtResource("9_yfqmx")]
 position = Vector2(-1344, -3968)
 
-[node name="EnchantedBust2" parent="stuff/1" node_paths=PackedStringArray("ShootingMarker") instance=ExtResource("9_yfqmx")]
+[node name="EnchantedBust2" parent="stuff/1" instance=ExtResource("9_yfqmx")]
 position = Vector2(-1472, -4096)
-ShootingMarker = NodePath("../EnchantedBust/Marker2D")
 
 [node name="EnchantedBust13" parent="stuff/1" instance=ExtResource("9_yfqmx")]
 position = Vector2(-1344, -7296)
@@ -693,13 +692,12 @@ position = Vector2(-832, -11392)
 scale = Vector2(-0.5, 0.5)
 
 [node name="PointLight2D" type="PointLight2D" parent="stuff"]
-position = Vector2(0, -22400)
+position = Vector2(0, -21936)
 scale = Vector2(8.02378, 8.02378)
 color = Color(0.963195, 0.841, 0.837851, 1)
 energy = 2.0
 shadow_enabled = true
 texture = ExtResource("13_t0hig")
-texture_scale = 6.77
 
 [node name="StandardZones" parent="." instance=ExtResource("3_3efn1")]
 
@@ -740,14 +738,14 @@ CAMERA_MIX = 0.2
 modulate = Color(0.89, 0.5785, 0.5785, 0.188235)
 material = SubResource("CanvasItemMaterial_d1rwd")
 position = Vector2(26, -14947.5)
-scale = Vector2(5366.7, 1.76912)
+scale = Vector2(4096, 1.76912)
 texture = ExtResource("6_7t2rf")
 
 [node name="Gradient2" type="Sprite2D" parent="."]
 modulate = Color(0.89, 0.5785, 0.5785, 0.188235)
 material = SubResource("CanvasItemMaterial_d1rwd")
 position = Vector2(26, -20518.5)
-scale = Vector2(5366.7, 0.376375)
+scale = Vector2(3828, 0.376375)
 texture = ExtResource("6_7t2rf")
 
 [node name="Darkness" parent="." instance=ExtResource("9_bgvc6")]

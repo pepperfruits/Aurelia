@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="3_dmmcx"]
 [ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="4_oc4w1"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="4_rods5"]
-[ext_resource type="PackedScene" uid="uid://b0xvrx7lwwbw0" path="res://Environment/BackgroundElements/WindowTall/window_tall.tscn" id="4_xbkq7"]
 [ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="5_15ek6"]
 [ext_resource type="PackedScene" uid="uid://d422jru8lt8q" path="res://Environment/BackgroundElements/WindowSmall/window_small.tscn" id="5_e4srw"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="5_u2bqt"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="8_1cyvj"]
 [ext_resource type="PackedScene" uid="uid://cw5laekr757ju" path="res://Enemies/EvilSlime/evil_slime.tscn" id="9_acve5"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="18_ctltp"]
+[ext_resource type="Texture2D" uid="uid://c7oaprx7mf3lb" path="res://Assets/Textures/moonglow.png" id="19_gie0x"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="19_x4nnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkfam"]
@@ -52,39 +52,17 @@ scale = Vector2(100.034, 2.66639)
 
 [node name="decor" type="Node2D" parent="."]
 
-[node name="WindowTall2" parent="decor" instance=ExtResource("4_xbkq7")]
-position = Vector2(-2048, -2640)
-scale = Vector2(4.68, 2.68)
-
-[node name="WindowTall3" parent="decor" instance=ExtResource("4_xbkq7")]
-position = Vector2(-2048, -2640)
-scale = Vector2(4.68, 2.68)
-
-[node name="WindowTall4" parent="decor" instance=ExtResource("4_xbkq7")]
-position = Vector2(-2048, -2640)
-scale = Vector2(4.68, 2.68)
-
-[node name="WindowTall5" parent="decor" instance=ExtResource("4_xbkq7")]
-position = Vector2(-2048, -2640)
-scale = Vector2(4.68, 2.68)
-
 [node name="WindowSmall" parent="decor" instance=ExtResource("5_e4srw")]
 position = Vector2(-96, -160)
 
 [node name="WindowSmall4" parent="decor" instance=ExtResource("5_e4srw")]
 position = Vector2(-384, -960)
 
-[node name="WindowSmall5" parent="decor" instance=ExtResource("5_e4srw")]
-position = Vector2(-128, -1088)
-
 [node name="WindowSmall6" parent="decor" instance=ExtResource("5_e4srw")]
 position = Vector2(128, -1216)
 
 [node name="WindowSmall2" parent="decor" instance=ExtResource("5_e4srw")]
 position = Vector2(896, -160)
-
-[node name="WindowSmall3" parent="decor" instance=ExtResource("5_e4srw")]
-position = Vector2(384, -160)
 
 [node name="WindowThin" parent="decor" instance=ExtResource("6_xjfln")]
 position = Vector2(-3328, -128)
@@ -396,6 +374,14 @@ shape = SubResource("RectangleShape2D_tsppb")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
 position = Vector2(0, -128)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2048, -3072)
+scale = Vector2(8.02378, 8.02378)
+color = Color(0.963195, 0.841, 0.837851, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("19_gie0x")
 
 [editable path="decor/WindowNormal"]
 [editable path="decor/WindowNormal2"]
