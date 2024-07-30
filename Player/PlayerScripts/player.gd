@@ -11,11 +11,11 @@ func _process(delta):
 func add_camera_area(c : CameraControlArea):
 	Camera.add_camera_area(c)
 
-func remove_camera_area():
-	Camera.remove_camera_area()
+func remove_camera_area(c : CameraControlArea):
+	Camera.remove_camera_area(c)
 
-func _on_body_exited(_body : PlayerCharacter):
-	Camera.remove_camera_area()
+func _on_body_exited(c : CameraControlArea):
+	Camera.remove_camera_area(c)
 
 func enter_crystal(c : Crystal) -> void:
 	Movement.enter_crystal(c)

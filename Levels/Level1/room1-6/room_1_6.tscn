@@ -293,7 +293,7 @@ position = Vector2(-256, 0)
 
 [node name="CameraControlArea3" parent="camerazones" node_paths=PackedStringArray("marker") instance=ExtResource("18_118j6")]
 position = Vector2(-3648, 0)
-marker = NodePath("../CameraControlArea2/Marker2D")
+marker = NodePath("Marker2D")
 zoom = Vector2(0.7, 0.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camerazones/CameraControlArea3"]

@@ -25,8 +25,9 @@ func _ready():
 func add_camera_area(c : CameraControlArea):
 	camera_area = c
 
-func remove_camera_area():
-	camera_area = null
+func remove_camera_area(c : CameraControlArea):
+	if camera_area == c:
+		camera_area = null
 
 func _process(delta):
 	if Input.is_action_just_pressed("escape"):
