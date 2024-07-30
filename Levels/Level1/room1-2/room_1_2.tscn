@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="19_6oole"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j0su"]
-size = Vector2(960, 704)
+size = Vector2(1088, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlki"]
 size = Vector2(1397, 851)
@@ -29,6 +29,7 @@ size = Vector2(1397, 851)
 [node name="Room1-2" type="Node2D"]
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_vla55")]
+color = Color(0.376471, 0.501961, 0.47451, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -125,7 +126,7 @@ marker = NodePath("Marker2D")
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea"]
-position = Vector2(-736, 160)
+position = Vector2(-800, 160)
 shape = SubResource("RectangleShape2D_5j0su")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea"]
