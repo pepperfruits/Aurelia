@@ -20,6 +20,10 @@ var is_ground_refresh : bool = false
 var is_cooldown_refresh : bool = false
 var is_collision_enabled : bool = true
 
+func _ready():
+	if not ScoreManager.particles_enabled:
+		hookLight.visible = false
+
 func _process(_delta):
 	collision.disabled = not is_collision_enabled
 
