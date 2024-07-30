@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://x0p5owwi17w4"]
+[gd_scene load_steps=19 format=3 uid="uid://x0p5owwi17w4"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_p7ugg"]
 [ext_resource type="TileSet" uid="uid://cict6vlk0ch4j" path="res://Levels/Level1/room1-10/1-10.tres" id="2_pmonc"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="7_y0m20"]
 [ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="8_1cyvj"]
 [ext_resource type="PackedScene" uid="uid://cw5laekr757ju" path="res://Enemies/EvilSlime/evil_slime.tscn" id="9_acve5"]
+[ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="18_ctltp"]
 
 [node name="Room1-10" type="Node2D"]
 
@@ -348,6 +349,20 @@ limit_right = 1410
 limit_bottom = 385
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
+
+[node name="Darkness" parent="." instance=ExtResource("18_ctltp")]
+position = Vector2(-1759, 359)
+scale = Vector2(19.3141, 0.0926209)
+
+[node name="Darkness3" parent="." instance=ExtResource("18_ctltp")]
+position = Vector2(-4648, -1897)
+rotation = 3.14159
+scale = Vector2(11.6741, 0.0926209)
+
+[node name="Darkness4" parent="." instance=ExtResource("18_ctltp")]
+position = Vector2(552, -1897)
+rotation = 3.14159
+scale = Vector2(11.6741, 0.0926209)
 
 [editable path="decor/WindowNormal"]
 [editable path="decor/WindowNormal2"]
