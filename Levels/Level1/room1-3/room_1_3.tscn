@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cuarqnra04rsh"]
+[gd_scene load_steps=19 format=3 uid="uid://cuarqnra04rsh"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_82th1"]
 [ext_resource type="TileSet" uid="uid://cml8863r30fra" path="res://Levels/Level1/room1-4/1-4.tres" id="2_l3a3f"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="9_x6656"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="10_02rcm"]
 [ext_resource type="PackedScene" uid="uid://cdsoktjh4jhfn" path="res://Environment/CrackedWall/CrackedWall.tscn" id="14_8d8on"]
+[ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="16_g6pdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_402a1"]
 size = Vector2(1568, 832)
@@ -46,8 +47,9 @@ COIN_ID = 3
 [node name="PointLight2D" parent="Coin" index="1"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64038, 8.32141)
+scale = Vector2(1, 1)
 
 [node name="TileMap2" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -133,15 +135,6 @@ coinArea = NodePath("../CoinCollectionArea")
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
 position = Vector2(3040, -2336)
 
-[node name="Darkness" parent="." instance=ExtResource("10_02rcm")]
-position = Vector2(2984, 160.5)
-scale = Vector2(15.1075, 0.199074)
-
-[node name="Darkness2" parent="." instance=ExtResource("10_02rcm")]
-position = Vector2(2124, -3136)
-rotation = 3.14159
-scale = Vector2(15.1075, 0.199074)
-
 [node name="Fog" parent="." instance=ExtResource("5_6vh8n")]
 scroll_offset = Vector2(-5065.93, 1901.46)
 
@@ -158,6 +151,7 @@ p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
+visible = false
 position = Vector2(768, -256)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.75, 0.75)
@@ -170,6 +164,7 @@ shape = SubResource("RectangleShape2D_402a1")
 position = Vector2(0, -352)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
+visible = false
 position = Vector2(1024, -1376)
 marker = NodePath("Marker2D")
 
@@ -179,6 +174,21 @@ shape = SubResource("RectangleShape2D_8cu2r")
 
 [node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
 position = Vector2(0, -416)
+
+[node name="Grate" parent="." instance=ExtResource("16_g6pdb")]
+position = Vector2(1728, -704)
+
+[node name="Grate2" parent="." instance=ExtResource("16_g6pdb")]
+position = Vector2(2240, -704)
+
+[node name="Darkness" parent="." instance=ExtResource("10_02rcm")]
+position = Vector2(2984, 160.5)
+scale = Vector2(15.1075, 0.199074)
+
+[node name="Darkness2" parent="." instance=ExtResource("10_02rcm")]
+position = Vector2(2124, -3136)
+rotation = 3.14159
+scale = Vector2(15.1075, 0.199074)
 
 [editable path="Coin"]
 [editable path="StandardZones"]

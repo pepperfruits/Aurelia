@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=24 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_8m3rw"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="1_8vh5k"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dmuh2f8xksmdy" path="res://Assets/Buttons/Shift_Key_Dark.png" id="10_uw758"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="11_uodut"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="13_kev7h"]
+[ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="18_gfn50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmnun"]
 size = Vector2(1056, 928)
@@ -159,13 +160,27 @@ COIN_ID = 1
 [node name="Fog" parent="." instance=ExtResource("10_ht70a")]
 scroll_offset = Vector2(-4231, 471.672)
 
-[node name="Darkness" parent="." instance=ExtResource("11_uodut")]
-position = Vector2(2708, 323)
-scale = Vector2(13.8725, 0.163889)
-
 [node name="Player" parent="." node_paths=PackedStringArray("Camera") instance=ExtResource("1_8vh5k")]
 position = Vector2(-64, 0)
 Camera = NodePath("../PlayerCamera")
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Grate" parent="Decor" instance=ExtResource("18_gfn50")]
+position = Vector2(2240, -960)
+
+[node name="Grate2" parent="Decor" instance=ExtResource("18_gfn50")]
+position = Vector2(3904, -64)
+
+[node name="Grate4" parent="Decor" instance=ExtResource("18_gfn50")]
+position = Vector2(320, 320)
+
+[node name="Grate3" parent="Decor" instance=ExtResource("18_gfn50")]
+position = Vector2(4800, -64)
+
+[node name="Darkness" parent="." instance=ExtResource("11_uodut")]
+position = Vector2(2708, 323)
+scale = Vector2(13.8725, 0.163889)
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("2_hjhsi")]
 limit_left = 0
