@@ -21,7 +21,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_s5ura"]
 _data = {
-"points": PackedVector2Array(-256, 192.008, 256, -192.008, -1280, 640, 255.978, 64.0117, -255.978, -64.0117, -1280, 160, 256, -64.016, -256, 64.016, -1792, 160, -256.004, -191.983, 256.004, 191.983, -1792, 640, -255.99, 191.992, 255.99, -191.992, -1280, 640)
+"points": PackedVector2Array(-256, 192.008, 0, 0, -1280, 768, 0, 0, 0, 0, -1280, 64, 0, 0, 0, 0, -1792, 64, 0, 0, 0, 0, -1792, 768, 0, 0, 255.99, -191.992, -1280, 768)
 }
 point_count = 5
 
@@ -66,8 +66,9 @@ visible = false
 [node name="GPUParticles2D" parent="Coin" index="2"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64014, 8.32138)
+scale = Vector2(1, 1)
 
 [node name="decor" type="Node2D" parent="."]
 
@@ -98,38 +99,38 @@ position = Vector2(-768, -1376)
 [node name="stuff" type="Node2D" parent="."]
 
 [node name="CycleManager" parent="stuff" instance=ExtResource("4_dn5xd")]
-position = Vector2(192, 0)
+position = Vector2(192, 64)
 CYCLE_TIME = 6.0
 
 [node name="Path2D" type="Path2D" parent="stuff/CycleManager"]
 curve = SubResource("Curve2D_s5ura")
 
 [node name="PathFollowManager" parent="stuff/CycleManager/Path2D" instance=ExtResource("5_fkgiw")]
-position = Vector2(-1280, 640)
+position = Vector2(-1280, 768)
 
 [node name="Hook" parent="stuff/CycleManager/Path2D/PathFollowManager" instance=ExtResource("3_r2rx0")]
 
 [node name="CycleManager2" parent="stuff" instance=ExtResource("4_dn5xd")]
-position = Vector2(-832, 0)
+position = Vector2(-832, 64)
 CYCLE_TIME = 6.0
 
 [node name="Path2D" type="Path2D" parent="stuff/CycleManager2"]
 curve = SubResource("Curve2D_s5ura")
 
 [node name="PathFollowManager" parent="stuff/CycleManager2/Path2D" instance=ExtResource("5_fkgiw")]
-position = Vector2(-1280, 640)
+position = Vector2(-1280, 768)
 
 [node name="Hook" parent="stuff/CycleManager2/Path2D/PathFollowManager" instance=ExtResource("3_r2rx0")]
 
 [node name="CycleManager3" parent="stuff" instance=ExtResource("4_dn5xd")]
-position = Vector2(-1856, 0)
+position = Vector2(-1856, 64)
 CYCLE_TIME = 6.0
 
 [node name="Path2D" type="Path2D" parent="stuff/CycleManager3"]
 curve = SubResource("Curve2D_s5ura")
 
 [node name="PathFollowManager" parent="stuff/CycleManager3/Path2D" instance=ExtResource("5_fkgiw")]
-position = Vector2(-1280, 640)
+position = Vector2(-1280, 768)
 
 [node name="Hook" parent="stuff/CycleManager3/Path2D/PathFollowManager" instance=ExtResource("3_r2rx0")]
 
@@ -141,8 +142,8 @@ CYCLE_TIME = 6.0
 curve = SubResource("Curve2D_s5ura")
 
 [node name="PathFollowManager" parent="stuff/CycleManager4/Path2D" instance=ExtResource("5_fkgiw")]
-position = Vector2(-1280, 640)
-rotation = -0.643521
+position = Vector2(-1280, 768)
+rotation = -1.5708
 rotates = true
 
 [node name="Spikes" parent="stuff/CycleManager4/Path2D/PathFollowManager" instance=ExtResource("4_pofc4")]
@@ -179,8 +180,8 @@ CYCLE_TIME = 6.0
 curve = SubResource("Curve2D_s5ura")
 
 [node name="PathFollowManager" parent="stuff/CycleManager5/Path2D" instance=ExtResource("5_fkgiw")]
-position = Vector2(-1280, 640)
-rotation = -0.643521
+position = Vector2(-1280, 768)
+rotation = -1.5708
 rotates = true
 
 [node name="Spikes" parent="stuff/CycleManager5/Path2D/PathFollowManager" instance=ExtResource("4_pofc4")]

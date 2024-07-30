@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_xfp7l")
 
 [node name="Crystal" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_itoje")
+scale = Vector2(0.85, 0.85)
 texture = ExtResource("3_uainq")
 
 [node name="PointerSprite" type="Sprite2D" parent="."]
