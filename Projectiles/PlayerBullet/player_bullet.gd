@@ -11,6 +11,9 @@ class_name Projectile
 var sender = null
 
 func _ready():
+	if not ScoreManager.particles_enabled:
+		Particles.emitting = false
+	
 	if velocity.x < 0:
 		Light.position.x *= -1
 		Light.scale.x *= -1
@@ -35,7 +38,8 @@ func _on_area_entered(_area):
 	particles()
 
 func particles():
-	if bulletParticles:
-		var part = bulletParticles.instantiate()
-		get_tree().current_scene.add_child(part)
-		part.global_position = global_position
+	if ScoreManager.particles_enabled:
+		if bulletParticles:
+			var part = bulletParticles.instantiate()
+			get_tree().current_scene.add_child(part)
+			part.global_position = global_position

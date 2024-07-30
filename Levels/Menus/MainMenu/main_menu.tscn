@@ -122,6 +122,7 @@ grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
 script = ExtResource("6_slpvp")
+scene = "res://Levels/Menus/ControlsMenu/ControlsMenu.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/NoParticles"]
 layout_mode = 0
@@ -140,3 +141,4 @@ fit_content = true
 
 [connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/NoParticles" to="Buttons/NoParticles" method="_on_pressed"]

@@ -5,6 +5,10 @@ class_name PlayerCharacter
 @onready var Movement : PlayerMovementHandler = $Movement
 @onready var InputHandler : PlayerInputHandler = $InputHandler
 
+func _ready():
+	if not ScoreManager.particles_enabled:
+		$AnimationHandler/Lantern/GPUParticles2D.emitting = false
+
 func _process(delta):
 	ScoreManager.time += delta
 

@@ -20,9 +20,10 @@ func _process(_delta):
 func _on_area_entered(bullet : Projectile):
 	p = bullet.sender
 	
-	var particles = TeleportParticles.instantiate()
-	add_child(particles)
-	particles.global_position = p.global_position
+	if ScoreManager.particles_enabled:
+		var particles = TeleportParticles.instantiate()
+		add_child(particles)
+		particles.global_position = p.global_position
 	
 	
 	teleport_player()
@@ -55,9 +56,10 @@ func _on_flashing_timer_timeout():
 func _on_body_entered(player : PlayerCharacter):
 	p = player
 	
-	var particles = TeleportParticles.instantiate()
-	add_child(particles)
-	particles.global_position = p.global_position
+	if ScoreManager.particles_enabled:
+		var particles = TeleportParticles.instantiate()
+		add_child(particles)
+		particles.global_position = p.global_position
 	
 	
 	teleport_player()
