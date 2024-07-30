@@ -10,9 +10,13 @@ class_name Slime
 @export var Point1 : Marker2D
 @export var Point2 : Marker2D
 
+@export var BOUNCE_VELOCITY : float = 3000.0
+
 var target_point : bool = true
 
 func _ready():
+	if $Spring:
+		$Spring.SPRING_VELOCITY = BOUNCE_VELOCITY
 	spine.get_skeleton().set_skin_by_name(startingSkin)
 	spine.get_animation_state().set_animation("move", true, 0)
 
