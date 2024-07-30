@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7f2bqprxxawx"]
+
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_05rm6"]
+[ext_resource type="Texture2D" uid="uid://b71bua2tkl6p0" path="res://Environment/Spikes/spikes.png" id="3_ov3tx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ld8"]
+size = Vector2(20, 382)
+
+[node name="SpikeWall" type="Area2D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_05rm6")
+damage = 999
+knockback = 600.0
+is_custom_knockback_direction = true
+
+[node name="Spikes7" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-22, 0)
+rotation = -1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ov3tx")
+
+[node name="Spikes8" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(22, 0)
+rotation = -4.71238
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ov3tx")
+
+[node name="Spikes9" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-22, -128)
+rotation = -1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ov3tx")
+
+[node name="Spikes10" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(22, -128)
+rotation = -4.71238
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ov3tx")
+
+[node name="Spikes11" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-22, 127)
+rotation = -1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ov3tx")
+
+[node name="Spikes12" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(22, 127)
+rotation = -4.71238
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ov3tx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_16ld8")
