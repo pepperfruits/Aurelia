@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkvao23ld46sl"]
+[gd_scene load_steps=21 format=3 uid="uid://dkvao23ld46sl"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_m3xtn"]
 [ext_resource type="TileSet" uid="uid://dcj32adhq78uk" path="res://Levels/Level1/room1-5/1-5.tres" id="2_cjh7i"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="7_yp8u4"]
 [ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="8_fc0lb"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="9_fyr3y"]
+[ext_resource type="PackedScene" uid="uid://ppawv1w3i02n" path="res://Tutorials/Buttons/ButtonTutorial.tscn" id="10_mloko"]
+[ext_resource type="Texture2D" uid="uid://61mlnbm2qn74" path="res://Assets/Buttons/Arrow_Down_Key_Dark.png" id="11_syc4u"]
+[ext_resource type="Texture2D" uid="uid://cwxkymjuoy6o8" path="res://Assets/Buttons/S_Key_Dark.png" id="12_nmyss"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="14_5wm6x"]
 [ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="14_e4nuw"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="15_bg0ij"]
@@ -158,6 +161,13 @@ position = Vector2(2240, -3072)
 
 [node name="Torch6" parent="stuff" instance=ExtResource("9_fyr3y")]
 position = Vector2(768, -3584)
+
+[node name="ButtonTutorial" parent="stuff" instance=ExtResource("10_mloko")]
+position = Vector2(2048, -928)
+texture = ExtResource("11_syc4u")
+ZXC_image = ExtResource("11_syc4u")
+JKL_image = ExtResource("12_nmyss")
+MOUSE_image = ExtResource("12_nmyss")
 
 [node name="StandardZones" parent="." instance=ExtResource("3_caper")]
 
