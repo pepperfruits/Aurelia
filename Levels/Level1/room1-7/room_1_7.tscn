@@ -50,7 +50,7 @@ COIN_ID = 7
 [node name="PointLight2D" parent="Coin" index="1"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
 position = Vector2(-2.64062, 8.32129)
 
 [node name="fakeTilemap" type="TileMap" parent="."]
