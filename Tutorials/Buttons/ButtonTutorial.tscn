@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ppawv1w3i02n"]
+[gd_scene load_steps=4 format=3 uid="uid://ppawv1w3i02n"]
 
 [ext_resource type="Script" path="res://Tutorials/Buttons/ButtonTutorial.gd" id="1_3ay02"]
+[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="2_gh8ir"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b8twh"]
 light_mode = 1
@@ -8,3 +9,8 @@ light_mode = 1
 [node name="ButtonTutorial" type="Sprite2D"]
 material = SubResource("CanvasItemMaterial_b8twh")
 script = ExtResource("1_3ay02")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = ExtResource("2_gh8ir")
+texture_scale = 0.2
