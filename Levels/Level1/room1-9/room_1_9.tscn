@@ -83,6 +83,7 @@ visible = false
 
 [node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64062, 8.32178)
+scale = Vector2(1, 1)
 
 [node name="TileMapFake" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -348,6 +349,7 @@ HORZIONTAL_INPUT = -1.0
 
 [node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(-4064, -4640)
+scene_path = "res://Levels/Level1/room1-10/room_1_10.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
@@ -378,6 +380,7 @@ visible = false
 shape = SubResource("RectangleShape2D_hb2dd")
 
 [node name="Fog" parent="." instance=ExtResource("4_wvxbs")]
+scroll_offset = Vector2(1603.29, 4975.04)
 
 [node name="Darkness2" parent="." instance=ExtResource("24_bna44")]
 position = Vector2(-2419, -5061)
