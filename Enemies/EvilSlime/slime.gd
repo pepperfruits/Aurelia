@@ -1,6 +1,8 @@
 extends CharacterBody2D
+class_name Slime
 
 @onready var spine : SpineSprite = $SpineSprite
+@export var startingSkin : String
 
 @export var SPEED : float = 200.0
 @export var DEADZONE : float = 50.0
@@ -11,7 +13,7 @@ extends CharacterBody2D
 var target_point : bool = true
 
 func _ready():
-	spine.get_skeleton().set_skin_by_name("Bad")
+	spine.get_skeleton().set_skin_by_name(startingSkin)
 	spine.get_animation_state().set_animation("move", true, 0)
 
 func _process(delta):
