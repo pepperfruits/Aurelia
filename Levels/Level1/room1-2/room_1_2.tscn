@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://q2laxpkfaosg"]
+[gd_scene load_steps=30 format=3 uid="uid://q2laxpkfaosg"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vla55"]
 [ext_resource type="TileSet" uid="uid://djwsos0xfjsld" path="res://Levels/Level1/room1-2/1-2.tres" id="2_sutus"]
@@ -12,9 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="6_5c541"]
 [ext_resource type="Texture2D" uid="uid://c3xsr7lktagqu" path="res://Assets/Buttons/Mouse_Left_Key_Dark.png" id="6_60pfa"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="6_u6ptk"]
+[ext_resource type="Texture2D" uid="uid://dmvjtafi0kmt0" path="res://Assets/Buttons/Arrow_Left_Key_Dark.png" id="7_ji2h1"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="8_uhiuh"]
+[ext_resource type="Texture2D" uid="uid://dc76pvurm3jyq" path="res://Assets/Buttons/A_Key_Dark.png" id="8_w87d8"]
+[ext_resource type="Texture2D" uid="uid://b3dfulygad47o" path="res://Assets/Buttons/Arrow_Up_Key_Dark.png" id="9_lktsu"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="9_mu50e"]
+[ext_resource type="Texture2D" uid="uid://tpr43k7wxldj" path="res://Assets/Buttons/W_Key_Dark.png" id="10_8q5hj"]
+[ext_resource type="Texture2D" uid="uid://bi2s17jgnhk4k" path="res://Assets/Buttons/Arrow_Right_Key_Dark.png" id="11_cvfs8"]
+[ext_resource type="Texture2D" uid="uid://61mlnbm2qn74" path="res://Assets/Buttons/Arrow_Down_Key_Dark.png" id="11_guydr"]
 [ext_resource type="PackedScene" uid="uid://c0dfhlr2p8ts2" path="res://Environment/Crystal/crystal.tscn" id="12_8cmhe"]
+[ext_resource type="Texture2D" uid="uid://cwxkymjuoy6o8" path="res://Assets/Buttons/S_Key_Dark.png" id="12_86b1o"]
+[ext_resource type="Texture2D" uid="uid://lv67h3bhoxhq" path="res://Assets/Buttons/D_Key_Dark.png" id="12_mh3gr"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="12_s6bl2"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="13_o64v6"]
 [ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="15_1k03p"]
@@ -54,18 +62,51 @@ JKL_image = ExtResource("5_6towe")
 MOUSE_image = ExtResource("6_60pfa")
 
 [node name="AttackButton2" parent="Tutorials" instance=ExtResource("3_elhui")]
-position = Vector2(1920, -64)
+position = Vector2(1408, -256)
 texture = ExtResource("4_wts7o")
 ZXC_image = ExtResource("4_wts7o")
 JKL_image = ExtResource("5_6towe")
 MOUSE_image = ExtResource("6_60pfa")
 
-[node name="AttackButton3" parent="Tutorials" instance=ExtResource("3_elhui")]
-position = Vector2(4736, -1088)
-texture = ExtResource("4_wts7o")
-ZXC_image = ExtResource("4_wts7o")
-JKL_image = ExtResource("5_6towe")
-MOUSE_image = ExtResource("6_60pfa")
+[node name="MovementButtons" parent="Tutorials" instance=ExtResource("3_elhui")]
+position = Vector2(1728, -253.991)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("7_ji2h1")
+ZXC_image = ExtResource("7_ji2h1")
+JKL_image = ExtResource("8_w87d8")
+MOUSE_image = ExtResource("8_w87d8")
+
+[node name="MovementButtons3" parent="Tutorials" instance=ExtResource("3_elhui")]
+position = Vector2(1920, -448)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("9_lktsu")
+ZXC_image = ExtResource("9_lktsu")
+JKL_image = ExtResource("10_8q5hj")
+MOUSE_image = ExtResource("10_8q5hj")
+
+[node name="MovementButtons5" parent="Tutorials" instance=ExtResource("3_elhui")]
+position = Vector2(4736, -1536)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("9_lktsu")
+ZXC_image = ExtResource("9_lktsu")
+JKL_image = ExtResource("10_8q5hj")
+MOUSE_image = ExtResource("10_8q5hj")
+
+[node name="MovementButtons4" parent="Tutorials" instance=ExtResource("3_elhui")]
+position = Vector2(1920, -64)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("11_guydr")
+ZXC_image = ExtResource("11_guydr")
+JKL_image = ExtResource("12_86b1o")
+MOUSE_image = ExtResource("12_86b1o")
+
+[node name="MovementButtons2" parent="Tutorials" instance=ExtResource("3_elhui")]
+position = Vector2(2112, -253.991)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("11_cvfs8")
+ZXC_image = ExtResource("11_cvfs8")
+JKL_image = ExtResource("12_mh3gr")
+MOUSE_image = ExtResource("12_mh3gr")
 
 [node name="Coin" parent="." instance=ExtResource("9_mu50e")]
 position = Vector2(4608, 128)
