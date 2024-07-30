@@ -54,6 +54,15 @@ layer_3/tile_data = PackedInt32Array(262147, 720896, 7, 196611, 720896, 6, 13107
 position = Vector2(-1440, 640)
 scale = Vector2(69.4049, 2.01034)
 
+[node name="Coin" parent="." instance=ExtResource("9_qx6q3")]
+position = Vector2(-4223, -307)
+
+[node name="PointLight2D" parent="Coin" index="1"]
+visible = false
+
+[node name="GPUParticles2D" parent="Coin" index="2"]
+visible = false
+
 [node name="decor" type="Node2D" parent="."]
 
 [node name="WindowTall" parent="decor" instance=ExtResource("4_d0nk8")]
@@ -72,10 +81,7 @@ position = Vector2(-4224, -1536)
 position = Vector2(-1664, -1536)
 
 [node name="WindowNormal3" parent="decor" instance=ExtResource("5_ks882")]
-position = Vector2(-2816, -1376)
-
-[node name="WindowNormal4" parent="decor" instance=ExtResource("5_ks882")]
-position = Vector2(-2816, -1632)
+position = Vector2(-2816, -1536)
 
 [node name="WindowSmall" parent="decor" instance=ExtResource("6_8ieex")]
 position = Vector2(-512, -192)
@@ -186,45 +192,6 @@ position = Vector2(-1664, -1152)
 [node name="Platform2" parent="stuff" instance=ExtResource("7_3bwj8")]
 position = Vector2(-2816, -992)
 
-[node name="Platform3" parent="stuff" instance=ExtResource("7_3bwj8")]
-position = Vector2(-2816, -1248)
-
-[node name="Platform" parent="stuff/Platform3" index="2"]
-visible = false
-
-[node name="LightOccluder2D" parent="stuff/Platform3" index="4"]
-visible = false
-
-[node name="LightOccluder2D3" parent="stuff/Platform3" index="5"]
-visible = false
-
-[node name="LightOccluder2D4" parent="stuff/Platform3" index="6"]
-visible = false
-
-[node name="LightOccluder2D2" parent="stuff/Platform3" index="7"]
-visible = false
-
-[node name="Platform4" parent="stuff" instance=ExtResource("7_3bwj8")]
-position = Vector2(-2816, -1504)
-
-[node name="Platform" parent="stuff/Platform4" index="2"]
-visible = false
-
-[node name="LightOccluder2D" parent="stuff/Platform4" index="4"]
-visible = false
-
-[node name="LightOccluder2D3" parent="stuff/Platform4" index="5"]
-visible = false
-
-[node name="LightOccluder2D4" parent="stuff/Platform4" index="6"]
-visible = false
-
-[node name="LightOccluder2D2" parent="stuff/Platform4" index="7"]
-visible = false
-
-[node name="Coin" parent="stuff" instance=ExtResource("9_qx6q3")]
-position = Vector2(-2816, -1792)
-
 [node name="StandardZones" parent="." instance=ExtResource("3_mw2r6")]
 
 [node name="ForcedHorizontalArea" parent="StandardZones" index="0"]
@@ -303,6 +270,5 @@ shape = SubResource("RectangleShape2D_kuhof")
 [node name="Marker2D" type="Marker2D" parent="camerazones/CameraControlArea3"]
 position = Vector2(-256, 0)
 
-[editable path="stuff/Platform3"]
-[editable path="stuff/Platform4"]
+[editable path="Coin"]
 [editable path="StandardZones"]
