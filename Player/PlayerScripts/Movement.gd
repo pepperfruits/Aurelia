@@ -310,6 +310,8 @@ func grapple_reached() -> void:
 	is_hanging = true
 
 func hook_released() -> void:
+	current_stamina = min(MAX_STAMINA_TIME, current_stamina + 1.0)
+	
 	hook_refresh_array.append(current_hook)
 	is_hanging = false
 	set_player_velocity(Vector2(inp.get_horizontal_input() * RUN_MAX_SPEED,0))
