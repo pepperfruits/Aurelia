@@ -155,7 +155,6 @@ p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.8, 0.8)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
-visible = false
 position = Vector2(768, -256)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.75, 0.75)
@@ -168,7 +167,6 @@ shape = SubResource("RectangleShape2D_402a1")
 position = Vector2(0, -352)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("9_63edc")]
-visible = false
 position = Vector2(1024, -1376)
 marker = NodePath("Marker2D")
 
