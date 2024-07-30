@@ -57,10 +57,10 @@ position = Vector2(-6016, -480)
 position = Vector2(-6016, -864)
 
 [node name="Hook3" parent="Stuff" instance=ExtResource("4_30gt2")]
-position = Vector2(-3840, -512)
+position = Vector2(-3840, -544)
 
 [node name="Hook4" parent="Stuff" instance=ExtResource("4_30gt2")]
-position = Vector2(-1408, -512)
+position = Vector2(-1408, -544)
 
 [node name="EnchantedBust2" parent="Stuff" instance=ExtResource("5_oj60s")]
 position = Vector2(-6464, -256)

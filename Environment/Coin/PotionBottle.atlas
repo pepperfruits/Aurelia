@@ -1,0 +1,11 @@
+PotionBottle.png
+size:196,124
+filter:Linear,Linear
+pma:true
+PotionBottle
+bounds:2,2,120,132
+offsets:1,1,122,134
+rotate:90
+PotionFill
+bounds:136,26,96,58
+rotate:90
