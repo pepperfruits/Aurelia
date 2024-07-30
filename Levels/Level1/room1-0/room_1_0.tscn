@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=30 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_4k33l"]
 [ext_resource type="TileSet" uid="uid://c1ch3bwsugrx2" path="res://Levels/Level1/room1-0/1-0.tres" id="2_tm4vp"]
@@ -12,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cg81oln1lxmvh" path="res://Assets/Buttons/C_Key_Dark.png" id="10_uyorj"]
 [ext_resource type="Texture2D" uid="uid://bpnfb125y8rde" path="res://Assets/Buttons/L_Key_Dark.png" id="11_hjb0f"]
 [ext_resource type="Texture2D" uid="uid://dmuh2f8xksmdy" path="res://Assets/Buttons/Shift_Key_Dark.png" id="12_sir3p"]
-[ext_resource type="Texture2D" uid="uid://ueca4td0br7c" path="res://Assets/Buttons/ARROW_KEYS.png" id="13_dbaaa"]
-[ext_resource type="Texture2D" uid="uid://d2vuw6pild0n5" path="res://Assets/Buttons/WASD.png" id="14_rc2n0"]
+[ext_resource type="Texture2D" uid="uid://dmvjtafi0kmt0" path="res://Assets/Buttons/Arrow_Left_Key_Dark.png" id="13_ts0p2"]
+[ext_resource type="Texture2D" uid="uid://dc76pvurm3jyq" path="res://Assets/Buttons/A_Key_Dark.png" id="14_q1xjh"]
+[ext_resource type="Texture2D" uid="uid://bi2s17jgnhk4k" path="res://Assets/Buttons/Arrow_Right_Key_Dark.png" id="15_72fer"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="15_p2mu2"]
+[ext_resource type="Texture2D" uid="uid://lv67h3bhoxhq" path="res://Assets/Buttons/D_Key_Dark.png" id="16_g1vfx"]
 [ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="16_q8jxw"]
 [ext_resource type="PackedScene" uid="uid://degwbj0ixeanu" path="res://Environment/Hook/hook.tscn" id="17_c2wmj"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="18_y0enw"]
@@ -149,12 +151,20 @@ JKL_image = ExtResource("11_hjb0f")
 MOUSE_image = ExtResource("12_sir3p")
 
 [node name="MovementButtons" parent="Tutorials" instance=ExtResource("6_yurkg")]
+position = Vector2(-4224, -32)
+scale = Vector2(0.680185, 0.680185)
+texture = ExtResource("13_ts0p2")
+ZXC_image = ExtResource("13_ts0p2")
+JKL_image = ExtResource("14_q1xjh")
+MOUSE_image = ExtResource("14_q1xjh")
+
+[node name="MovementButtons2" parent="Tutorials" instance=ExtResource("6_yurkg")]
 position = Vector2(-4096, -32)
 scale = Vector2(0.680185, 0.680185)
-texture = ExtResource("13_dbaaa")
-ZXC_image = ExtResource("13_dbaaa")
-JKL_image = ExtResource("14_rc2n0")
-MOUSE_image = ExtResource("14_rc2n0")
+texture = ExtResource("15_72fer")
+ZXC_image = ExtResource("15_72fer")
+JKL_image = ExtResource("16_g1vfx")
+MOUSE_image = ExtResource("16_g1vfx")
 
 [node name="Torches" type="Node2D" parent="."]
 
