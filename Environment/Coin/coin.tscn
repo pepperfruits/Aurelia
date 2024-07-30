@@ -72,6 +72,7 @@ preview_time = 0.0
 show_behind_parent = true
 position = Vector2(-2.64055, 8.32135)
 rotation = 1.55702
+scale = Vector2(1, 1)
 slot_name = "PotionFill"
 normal_material = SubResource("ShaderMaterial_2s3by")
 
