@@ -22,7 +22,7 @@ shader_parameter/gradient = SubResource("GradientTexture1D_qcd60")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xq0xo"]
 shader = ExtResource("3_vbco0")
-shader_parameter/brightness = 0.0
+shader_parameter/brightness = 0.04
 shader_parameter/contrast = 1.07
 shader_parameter/saturation = 1.0
 shader_parameter/redVal = 1.0
