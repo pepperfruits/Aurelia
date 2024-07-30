@@ -19,12 +19,13 @@ region_enabled = true
 region_rect = Rect2(0, 256, 256, 256)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 313)
+position = Vector2(0, 66)
 scale = Vector2(0.265143, 0.825143)
 color = Color(0.645778, 0.667047, 0.77208, 1)
 energy = 1.5
 shadow_enabled = true
 texture = ExtResource("2_e6not")
+offset = Vector2(0, 300)
 
 [node name="Background" type="Sprite2D" parent="."]
 clip_children = 2
