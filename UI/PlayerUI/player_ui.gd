@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$ColorRect/Icons/coins.text = "[color=#7be4ef]" + str(ScoreManager.coins) + "		/		20[/color]"
+	$ColorRect/Icons/coins.text = "[color=#7be4ef]" + str(ScoreManager.coins) + "		/		" + str(ScoreManager.MAX_COINS) + "[/color]"
 	$ColorRect/Icons/deaths.text = "[color=#e9ffff]" + str(ScoreManager.deaths) + "	[/color]"
 	$ColorRect/Clock/time.text = "[color=#ffca6d]" + seconds_to_text(ScoreManager.time) + "	[/color]"
 	$AnimationPlayer.play("UI_Zoom_Out")

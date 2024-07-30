@@ -6,7 +6,7 @@ class_name PauseMenu
 func pause():
 	show()
 	get_tree().paused = true
-	$Icons/coins.text = "[color=#7be4ef]" + str(ScoreManager.coins) + "		/		20[/color]"
+	$Icons/coins.text = "[color=#7be4ef]" + str(ScoreManager.coins) + "		/		" + str(ScoreManager.MAX_COINS) + "[/color]"
 	$Icons/deaths.text = "[color=#e9ffff]" + str(ScoreManager.deaths) + "	[/color]"
 	$Icons/Clock/time.text = "[color=#ffca6d]" + seconds_to_text(ScoreManager.time) + "[/color]"
 

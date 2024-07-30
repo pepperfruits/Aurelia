@@ -159,15 +159,12 @@ position = Vector2(-256, -168)
 
 [node name="Grate" parent="." instance=ExtResource("17_7r8a8")]
 position = Vector2(832, 320)
-scale = Vector2(0.642252, 0.642252)
 
 [node name="Grate2" parent="." instance=ExtResource("17_7r8a8")]
 position = Vector2(320, 320)
-scale = Vector2(0.642252, 0.642252)
 
 [node name="Grate3" parent="." instance=ExtResource("17_7r8a8")]
 position = Vector2(1600, 64)
-scale = Vector2(0.642252, 0.642252)
 
 [node name="Darkness" parent="." instance=ExtResource("7_88xw5")]
 position = Vector2(3104, 1184)
