@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://baij8katslide"]
+[gd_scene load_steps=35 format=3 uid="uid://baij8katslide"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
 [ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
@@ -41,26 +41,6 @@ shader = ExtResource("6_ph5xj")
 shader_parameter/speed = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2stgk"]
-resource_local_to_scene = true
-shader = ExtResource("6_ph5xj")
-shader_parameter/speed = 0.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dy5bd"]
-resource_local_to_scene = true
-shader = ExtResource("6_ph5xj")
-shader_parameter/speed = 0.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwqul"]
-resource_local_to_scene = true
-shader = ExtResource("6_ph5xj")
-shader_parameter/speed = 0.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_50jp8"]
-resource_local_to_scene = true
-shader = ExtResource("6_ph5xj")
-shader_parameter/speed = 0.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mf2be"]
 resource_local_to_scene = true
 shader = ExtResource("6_ph5xj")
 shader_parameter/speed = 0.1
@@ -111,8 +91,9 @@ COIN_ID = 9
 [node name="PointLight2D" parent="Coin" index="1"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64062, 8.32178)
+scale = Vector2(1, 1)
 
 [node name="TileMapFake" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -163,30 +144,6 @@ position = Vector2(-448, -1792)
 
 [node name="Clouds" parent="decor/WindowSmall2/Background" index="0"]
 material = SubResource("ShaderMaterial_2stgk")
-
-[node name="WindowThin" parent="decor" instance=ExtResource("7_v3b1n")]
-position = Vector2(-1024, -2688)
-
-[node name="Clouds" parent="decor/WindowThin/Background" index="0"]
-material = SubResource("ShaderMaterial_dy5bd")
-
-[node name="WindowThin2" parent="decor" instance=ExtResource("7_v3b1n")]
-position = Vector2(-1664, -3200)
-
-[node name="Clouds" parent="decor/WindowThin2/Background" index="0"]
-material = SubResource("ShaderMaterial_kwqul")
-
-[node name="WindowThin3" parent="decor" instance=ExtResource("7_v3b1n")]
-position = Vector2(-2304, -3712)
-
-[node name="Clouds" parent="decor/WindowThin3/Background" index="0"]
-material = SubResource("ShaderMaterial_50jp8")
-
-[node name="WindowThin4" parent="decor" instance=ExtResource("7_v3b1n")]
-position = Vector2(-2944, -4224)
-
-[node name="Clouds" parent="decor/WindowThin4/Background" index="0"]
-material = SubResource("ShaderMaterial_mf2be")
 
 [node name="WindowThin5" parent="decor" instance=ExtResource("7_v3b1n")]
 position = Vector2(-3456, -4736)
@@ -494,9 +451,5 @@ position = Vector2(-1056, -320)
 [editable path="decor/WindowTall2"]
 [editable path="decor/WindowTall3"]
 [editable path="decor/WindowSmall2"]
-[editable path="decor/WindowThin"]
-[editable path="decor/WindowThin2"]
-[editable path="decor/WindowThin3"]
-[editable path="decor/WindowThin4"]
 [editable path="decor/WindowThin5"]
 [editable path="StandardZones"]
