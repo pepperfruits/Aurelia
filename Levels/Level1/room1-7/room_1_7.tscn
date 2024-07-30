@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dfohdclfttyax"]
+[gd_scene load_steps=22 format=3 uid="uid://dfohdclfttyax"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_ghrs3"]
 [ext_resource type="TileSet" uid="uid://h8w4yv5e6wvb" path="res://Levels/Level1/room1-7/1-7.tres" id="2_n2qsa"]
@@ -16,7 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="8_jqhd8"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="9_2st3r"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="9_na74n"]
+[ext_resource type="Shader" path="res://Shaders/redflashing.gdshader" id="10_3y0g2"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="17_m4eya"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pr7m"]
+shader = ExtResource("10_3y0g2")
+shader_parameter/redness = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qapbd"]
 size = Vector2(2560, 768)
@@ -131,16 +136,23 @@ position = Vector2(3968, -1216)
 [node name="Hook4" parent="stuff" instance=ExtResource("7_x6m1b")]
 position = Vector2(3968, -1600)
 
-[node name="Spring" parent="stuff" instance=ExtResource("8_jqhd8")]
+[node name="Node2D" type="Node2D" parent="stuff"]
+material = SubResource("ShaderMaterial_2pr7m")
+
+[node name="Spring" parent="stuff/Node2D" instance=ExtResource("8_jqhd8")]
+use_parent_material = true
 position = Vector2(1280, 256)
 
-[node name="Spring2" parent="stuff" instance=ExtResource("8_jqhd8")]
+[node name="Spring2" parent="stuff/Node2D" instance=ExtResource("8_jqhd8")]
+use_parent_material = true
 position = Vector2(2304, 256)
 
-[node name="Spring3" parent="stuff" instance=ExtResource("8_jqhd8")]
+[node name="Spring3" parent="stuff/Node2D" instance=ExtResource("8_jqhd8")]
+use_parent_material = true
 position = Vector2(1280, -1792)
 
-[node name="Spring4" parent="stuff" instance=ExtResource("8_jqhd8")]
+[node name="Spring4" parent="stuff/Node2D" instance=ExtResource("8_jqhd8")]
+use_parent_material = true
 position = Vector2(2304, -1792)
 
 [node name="spikes" type="Node2D" parent="."]
