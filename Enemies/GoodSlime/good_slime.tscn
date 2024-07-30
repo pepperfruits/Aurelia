@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_ok3ct")
 position = Vector2(0, -53)
 
 [node name="SpringCollisionShape" parent="Spring" index="0"]
-position = Vector2(3.8147e-06, -10.5)
+position = Vector2(3.8147e-06, -27.75)
 
 [node name="SpringMiddle" parent="Spring" index="1"]
 visible = false
