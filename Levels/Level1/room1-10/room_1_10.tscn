@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://x0p5owwi17w4"]
+
+[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_p7ugg"]
+[ext_resource type="TileSet" uid="uid://cict6vlk0ch4j" path="res://Levels/Level1/room1-10/1-10.tres" id="2_pmonc"]
+
+[node name="Room1-10" type="Node2D"]
+
+[node name="Level1Shadows" parent="." instance=ExtResource("1_p7ugg")]
+color = Color(0.5447, 0.299, 0.65, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_pmonc")
+format = 2
+layer_0/name = "bg"
+layer_1/name = "molding"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "surface"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "deep"
+layer_3/tile_data = PackedInt32Array()

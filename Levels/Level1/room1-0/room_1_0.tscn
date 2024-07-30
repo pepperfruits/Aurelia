@@ -246,6 +246,11 @@ position = Vector2(4800, -64)
 position = Vector2(181.25, 323)
 scale = Vector2(26.5063, 0.163889)
 
+[node name="Darkness2" parent="." instance=ExtResource("22_kkkay")]
+position = Vector2(181.25, -1997)
+rotation = -3.14159
+scale = Vector2(26.5063, 0.163889)
+
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("23_gaeba")]
 limit_left = -4880
 limit_top = -2060

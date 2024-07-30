@@ -578,6 +578,11 @@ MOUSE_image = ExtResource("16_aioxl")
 position = Vector2(4619, 331)
 scale = Vector2(25.8414, 0.130216)
 
+[node name="Darkness2" parent="." instance=ExtResource("17_p7akw")]
+position = Vector2(4619, -1618)
+rotation = -3.14159
+scale = Vector2(25.8414, 0.130216)
+
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("18_ywjbu")]
 visible = false
 position = Vector2(917, 0)

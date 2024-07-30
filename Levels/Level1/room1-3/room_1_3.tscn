@@ -50,7 +50,6 @@ visible = false
 
 [node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64038, 8.32141)
-scale = Vector2(1, 1)
 
 [node name="TileMap2" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -137,7 +136,6 @@ coinArea = NodePath("../CoinCollectionArea")
 position = Vector2(3040, -2336)
 
 [node name="CollisionShape2D" parent="StandardZones/CoinCollectionArea" index="0"]
-visible = true
 position = Vector2(-273, 0)
 
 [node name="Fog" parent="." instance=ExtResource("5_6vh8n")]
