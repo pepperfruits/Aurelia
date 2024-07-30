@@ -74,7 +74,7 @@ theme_override_constants/outline_size = 20
 theme_override_fonts/normal_font = ExtResource("3_alwqs")
 theme_override_font_sizes/normal_font_size = 56
 bbcode_enabled = true
-text = "[color=#ffeb96] [center] PLAY [/center] [/color]"
+text = "[color=#e9ffff] [center] PLAY [/center] [/color]"
 fit_content = true
 
 [node name="Quit" type="Button" parent="Buttons"]
@@ -127,16 +127,17 @@ scene = "res://Levels/Menus/ControlsMenu/ControlsMenu.tscn"
 [node name="RichTextLabel" type="RichTextLabel" parent="Buttons/NoParticles"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 25.5
+offset_top = 10.5
 offset_right = 493.0
-offset_bottom = 153.5
+offset_bottom = 138.5
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("3_alwqs")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[color=#e9ffff] [center] Play (Reduced Particles) [/center] [/color]"
+text = "[color=#ffeb96] [center] Play (Reduced Particles)
+(RECOMMENDED) [/center] [/color]"
 fit_content = true
 
 [connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
