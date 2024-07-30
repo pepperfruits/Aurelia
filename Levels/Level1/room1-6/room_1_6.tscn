@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ys5q83aw0pu8"]
+[gd_scene load_steps=23 format=3 uid="uid://ys5q83aw0pu8"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_hc30p"]
 [ext_resource type="TileSet" uid="uid://bacu71kwlji7k" path="res://Levels/Level1/room1-6/1-6.tres" id="2_5wgh4"]
@@ -30,6 +30,9 @@ size = Vector2(1024, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuhof"]
 size = Vector2(800, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fl6qd"]
+size = Vector2(1536, 832)
 
 [node name="Room1-6" type="Node2D"]
 
@@ -272,6 +275,30 @@ shape = SubResource("RectangleShape2D_kuhof")
 
 [node name="Marker2D" type="Marker2D" parent="camerazones/CameraControlArea3"]
 position = Vector2(-256, 0)
+
+[node name="CameraControlArea4" parent="camerazones" node_paths=PackedStringArray("marker") instance=ExtResource("18_118j6")]
+position = Vector2(-3872, -1152)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camerazones/CameraControlArea4"]
+position = Vector2(32, -96)
+shape = SubResource("RectangleShape2D_fl6qd")
+
+[node name="Marker2D" type="Marker2D" parent="camerazones/CameraControlArea4"]
+position = Vector2(416, -96)
+
+[node name="CameraControlArea5" parent="camerazones" node_paths=PackedStringArray("marker") instance=ExtResource("18_118j6")]
+position = Vector2(-2080, -1152)
+marker = NodePath("Marker2D")
+zoom = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camerazones/CameraControlArea5"]
+position = Vector2(32, -96)
+shape = SubResource("RectangleShape2D_fl6qd")
+
+[node name="Marker2D" type="Marker2D" parent="camerazones/CameraControlArea5"]
+position = Vector2(416, -96)
 
 [editable path="Coin"]
 [editable path="StandardZones"]
