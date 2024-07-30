@@ -176,7 +176,7 @@ scale = Vector2(0.996082, 1.01491)
 icon = ExtResource("3_jjryb")
 flat = true
 script = ExtResource("8_xt2o8")
-scene = "res://Levels/Level1/room1-1/room_1_1.tscn"
+scene = "res://Levels/Level1/room1-0/room_1_0.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu/Buttons/PLAY GAME"]
 layout_mode = 0

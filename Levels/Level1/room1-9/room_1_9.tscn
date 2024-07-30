@@ -12,7 +12,7 @@
 [node name="Room1-9" type="Node2D"]
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_xqjis")]
-color = Color(0.298039, 0.4, 0.65098, 1)
+color = Color(0.5447, 0.299, 0.65, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -53,6 +53,7 @@ Point2 = NodePath("../Marker2D3")
 [node name="StandardZones" parent="." instance=ExtResource("3_v0qao")]
 
 [node name="ForcedHorizontalArea" parent="StandardZones" index="0"]
+visible = false
 position = Vector2(32, 0)
 HORZIONTAL_INPUT = -1.0
 

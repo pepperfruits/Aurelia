@@ -23,7 +23,7 @@ size = Vector2(1728, 1504)
 [node name="Room1-5" type="Node2D"]
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_m3xtn")]
-color = Color(0.384314, 0.341176, 0.498039, 1)
+color = Color(0.298039, 0.4, 0.65098, 1)
 
 [node name="killzone" parent="." instance=ExtResource("7_yp8u4")]
 position = Vector2(2048, 637)
