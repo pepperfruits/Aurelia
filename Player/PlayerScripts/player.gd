@@ -11,6 +11,7 @@ func _ready():
 
 func _process(delta):
 	ScoreManager.time += delta
+	#$DebugLabel.text = str(int(1.0 / delta)) # DEBUG this shows fps
 
 func add_camera_area(c : CameraControlArea):
 	Camera.add_camera_area(c)
