@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ck8wrn7anages"]
+[gd_scene load_steps=20 format=3 uid="uid://ck8wrn7anages"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vgi8m"]
 [ext_resource type="TileSet" uid="uid://b5gslmogg24c7" path="res://Levels/Level1/room1-8/1-8.tres" id="2_udhx3"]
@@ -17,6 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="8_3ahkw"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="9_pg5jl"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="12_ffav4"]
+[ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="18_5uup2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtl4m"]
+size = Vector2(6272, 1248)
 
 [node name="Room1-8" type="Node2D"]
 
@@ -145,6 +149,7 @@ limit_right = 260
 limit_bottom = 385
 p = NodePath("../Player")
 DEFAULT_ZOOM = Vector2(0.7, 0.7)
+CAMERA_MIX = 0.2
 
 [node name="Darkness" parent="." instance=ExtResource("12_ffav4")]
 position = Vector2(-3405, 346)
@@ -154,5 +159,18 @@ scale = Vector2(21.8862, 0.105565)
 position = Vector2(-3405, -1876)
 rotation = -3.14159
 scale = Vector2(21.8862, 0.105565)
+
+[node name="camerazones" type="Node2D" parent="."]
+
+[node name="CameraControlArea" parent="camerazones" node_paths=PackedStringArray("marker") instance=ExtResource("18_5uup2")]
+position = Vector2(-2624, -480)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camerazones/CameraControlArea"]
+position = Vector2(-896, -16)
+shape = SubResource("RectangleShape2D_vtl4m")
+
+[node name="Marker2D" type="Marker2D" parent="camerazones/CameraControlArea"]
+position = Vector2(-3392, 0)
 
 [editable path="StandardZones"]
