@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://cw5laekr757ju"]
+
+[ext_resource type="Script" path="res://Enemies/Slime/slime.gd" id="1_o65b5"]
+[ext_resource type="SpineAtlasResource" uid="uid://c2ke21etw17bf" path="res://Enemies/Slime/Slime.atlas" id="1_okxs0"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://b4nsbjpml6ogw" path="res://Enemies/Slime/Slime.skel" id="2_m1s44"]
+[ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="3_rlca8"]
+[ext_resource type="Script" path="res://Scripts/Health.gd" id="4_o0vj0"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="6_2820o"]
+[ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="7_p8kqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5rva"]
+size = Vector2(182, 150)
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_utvr8"]
+atlas_res = ExtResource("1_okxs0")
+skeleton_file_res = ExtResource("2_m1s44")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvpl"]
+size = Vector2(76, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te6cm"]
+size = Vector2(124, 69)
+
+[node name="Slime" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 256
+script = ExtResource("1_o65b5")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("3_rlca8")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(2, -75)
+shape = SubResource("RectangleShape2D_x5rva")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = SubResource("SpineSkeletonDataResource_utvr8")
+preview_skin = "Bad"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+
+[node name="SpineBoneNode" type="SpineBoneNode" parent="SpineSprite"]
+show_behind_parent = true
+position = Vector2(29.6817, -71.192)
+bone_name = "bone5"
+
+[node name="PointLight2D" type="PointLight2D" parent="SpineSprite/SpineBoneNode"]
+position = Vector2(-22.6817, -1.9751e-06)
+color = Color(1, 0.333333, 0, 1)
+shadow_enabled = true
+texture = ExtResource("7_p8kqm")
+texture_scale = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_1bvpl")
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("entity", "hurtbox")]
+script = ExtResource("4_o0vj0")
+entity = NodePath("..")
+hurtbox = NodePath("../Hurtbox")
+max_health = 2
+health = 2
+invincibility_window = 0.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("6_2820o")
+damage = 999
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(10, -34.5)
+shape = SubResource("RectangleShape2D_te6cm")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

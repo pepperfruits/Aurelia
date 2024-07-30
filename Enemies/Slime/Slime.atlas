@@ -1,0 +1,11 @@
+Slime.png
+size:228,135
+filter:Linear,Linear
+pma:true
+Slime
+bounds:2,2,151,131
+offsets:1,1,152,132
+slimeskull
+bounds:155,57,76,71
+offsets:62,41,150,128
+rotate:90

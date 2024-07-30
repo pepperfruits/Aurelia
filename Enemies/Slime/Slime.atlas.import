@@ -1,0 +1,15 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://c2ke21etw17bf"
+path="res://.godot/imported/Slime.atlas-dc628744a9c644e26d0887ae09118ace.spatlas"
+
+[deps]
+
+source_file="res://Enemies/Slime/Slime.atlas"
+dest_files=["res://.godot/imported/Slime.atlas-dc628744a9c644e26d0887ae09118ace.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
