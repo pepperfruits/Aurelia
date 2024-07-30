@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddgjjalrojaa7"]
+[gd_scene load_steps=7 format=3 uid="uid://ddgjjalrojaa7"]
 
 [ext_resource type="Texture2D" uid="uid://bkhh2qi4gcwi1" path="res://Levels/Menus/MainMenu/LogoGold.png" id="1_ahwo6"]
 [ext_resource type="Texture2D" uid="uid://ci7mrgswoiv7e" path="res://UI/PauseMenu/button1.png" id="2_uul0e"]
 [ext_resource type="FontFile" uid="uid://c2ox6y3bslcv7" path="res://UI/PauseMenu/micross.ttf" id="3_alwqs"]
 [ext_resource type="Script" path="res://Levels/Menus/MainMenu/PlayButton.gd" id="3_hoqxf"]
 [ext_resource type="Script" path="res://Levels/Menus/MainMenu/QuitButton.gd" id="5_2qord"]
+[ext_resource type="Script" path="res://Levels/Menus/MainMenu/NoParticles.gd" id="6_slpvp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -105,7 +106,7 @@ bbcode_enabled = true
 text = "[color=#e9ffff] [center] Quit Game [/center] [/color]"
 fit_content = true
 
-[node name="TestingLevel" type="Button" parent="Buttons"]
+[node name="NoParticles" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -120,20 +121,21 @@ grow_horizontal = 0
 grow_vertical = 2
 icon = ExtResource("2_uul0e")
 flat = true
+script = ExtResource("6_slpvp")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Buttons/TestingLevel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Buttons/NoParticles"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = -5.0
+offset_top = 25.5
 offset_right = 493.0
-offset_bottom = 123.0
+offset_bottom = 153.5
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("3_alwqs")
-theme_override_font_sizes/normal_font_size = 56
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[color=#e9ffff] [center] Testing Level [/center] [/color]"
+text = "[color=#e9ffff] [center] Play (Reduced Particles) [/center] [/color]"
 fit_content = true
 
 [connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
