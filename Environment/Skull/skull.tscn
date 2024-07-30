@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjyqfk25tflnb"]
+
+[ext_resource type="Texture2D" uid="uid://babgds2ks7q6t" path="res://UI/PauseMenu/icons.png" id="1_df5fd"]
+
+[node name="Skull" type="Sprite2D"]
+modulate = Color(0.3287, 0.2774, 0.38, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_df5fd")
+region_enabled = true
+region_rect = Rect2(0, 123, 121, 107)
