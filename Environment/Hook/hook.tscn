@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.025, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.001, 0.001), Vector2(0.875, 0.875), Vector2(0.001, 0.001)]
+"values": [Vector2(0.001, 0.001), Vector2(1, 1), Vector2(0.001, 0.001)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iod42"]
@@ -35,7 +35,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s4pxv"]
 shader = ExtResource("4_g17en")
 shader_parameter/rect_size = Vector2(-0.02, 0.135)
-shader_parameter/bness = 1.0
+shader_parameter/bness = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qhen"]
 radius = 120.0
