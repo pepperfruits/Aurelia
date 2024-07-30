@@ -248,7 +248,7 @@ scale = Vector2(26.5063, 0.163889)
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("p") instance=ExtResource("2_hjhsi")]
 limit_left = -4880
-limit_top = -2140
+limit_top = -2060
 limit_right = 5280
 limit_bottom = 405
 p = NodePath("../Player")
