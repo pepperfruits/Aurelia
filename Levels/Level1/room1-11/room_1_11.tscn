@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://0xsgvoi8p7tu"]
+[gd_scene load_steps=26 format=3 uid="uid://0xsgvoi8p7tu"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_15wpa"]
 [ext_resource type="TileSet" uid="uid://djlhqffqgjiwe" path="res://Levels/Level1/room1-11/1-11.tres" id="2_c0v2s"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cdsoktjh4jhfn" path="res://Environment/CrackedWall/CrackedWall.tscn" id="11_d5sno"]
 [ext_resource type="Texture2D" uid="uid://c7oaprx7mf3lb" path="res://Assets/Textures/moonglow.png" id="13_t0hig"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="17_618ug"]
+[ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="22_0ywnd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovqiq"]
 resource_local_to_scene = true
@@ -30,6 +31,9 @@ shader_parameter/speed = 0.1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d1rwd"]
 blend_mode = 1
 light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7r5i"]
+size = Vector2(3192, 1504)
 
 [node name="Room1-11" type="Node2D"]
 
@@ -602,12 +606,12 @@ position = Vector2(0, -18560)
 position = Vector2(0, -20864)
 
 [node name="EvilSlime" parent="stuff/1" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_qsvx6")]
-position = Vector2(-288, -2560)
+position = Vector2(-288, -2561)
 Point1 = NodePath("../Marker2D3")
 Point2 = NodePath("../Marker2D4")
 
 [node name="EvilSlime2" parent="stuff/1" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_qsvx6")]
-position = Vector2(1184, -2560)
+position = Vector2(1184, -2561)
 Point1 = NodePath("../Marker2D3")
 Point2 = NodePath("../Marker2D4")
 
@@ -689,7 +693,6 @@ position = Vector2(-832, -11392)
 scale = Vector2(-0.5, 0.5)
 
 [node name="PointLight2D" type="PointLight2D" parent="stuff"]
-visible = false
 position = Vector2(0, -22400)
 scale = Vector2(8.02378, 8.02378)
 color = Color(0.963195, 0.841, 0.837851, 1)
@@ -731,9 +734,9 @@ limit_bottom = 130
 p = NodePath("../Player")
 CAMERA_SPEED = 20.0
 DEFAULT_ZOOM = Vector2(0.6, 0.6)
+CAMERA_MIX = 0.2
 
 [node name="Gradient" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0.89, 0.5785, 0.5785, 0.188235)
 material = SubResource("CanvasItemMaterial_d1rwd")
 position = Vector2(26, -14947.5)
@@ -741,7 +744,6 @@ scale = Vector2(5366.7, 1.76912)
 texture = ExtResource("6_7t2rf")
 
 [node name="Gradient2" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0.89, 0.5785, 0.5785, 0.188235)
 material = SubResource("CanvasItemMaterial_d1rwd")
 position = Vector2(26, -20518.5)
@@ -751,6 +753,50 @@ texture = ExtResource("6_7t2rf")
 [node name="Darkness" parent="." instance=ExtResource("9_bgvc6")]
 position = Vector2(8, 98)
 scale = Vector2(8.97165, 0.079744)
+
+[node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+position = Vector2(0, -1175)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea"]
+position = Vector2(0, -440)
+shape = SubResource("RectangleShape2D_h7r5i")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea"]
+position = Vector2(0, -1190)
+
+[node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+position = Vector2(0, -2866)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea2"]
+position = Vector2(0, -440)
+shape = SubResource("RectangleShape2D_h7r5i")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea2"]
+position = Vector2(0, -1190)
+
+[node name="CameraControlArea3" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+position = Vector2(0, -4911)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea3"]
+position = Vector2(0, -440)
+shape = SubResource("RectangleShape2D_h7r5i")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea3"]
+position = Vector2(0, -1190)
+
+[node name="CameraControlArea4" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+position = Vector2(0, -12854)
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraControlArea4"]
+position = Vector2(0, -440)
+shape = SubResource("RectangleShape2D_h7r5i")
+
+[node name="Marker2D" type="Marker2D" parent="CameraControlArea4"]
+position = Vector2(0, -733)
 
 [editable path="Coin"]
 [editable path="decor/WindowTall"]
