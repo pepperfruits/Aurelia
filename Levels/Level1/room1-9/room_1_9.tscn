@@ -82,6 +82,7 @@ visible = false
 
 [node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64062, 8.32178)
+scale = Vector2(1, 1)
 
 [node name="TileMapFake" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -341,6 +342,17 @@ position = Vector2(-1869, -4736)
 position = Vector2(32, 0)
 HORZIONTAL_INPUT = -1.0
 
+[node name="ForcedHorizontalArea2" parent="StandardZones" index="1"]
+position = Vector2(-4032, -4576)
+HORZIONTAL_INPUT = -1.0
+
+[node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
+position = Vector2(-4064, -4640)
+coinArea = NodePath("../CoinCollectionArea")
+
+[node name="CoinCollectionArea" parent="StandardZones" index="3"]
+position = Vector2(-3712, -4640)
+
 [node name="ForcedHorizontalArea3" parent="StandardZones" instance=ExtResource("17_33p7h")]
 position = Vector2(32, -512)
 HORZIONTAL_INPUT = 1.0
@@ -349,24 +361,14 @@ HORZIONTAL_INPUT = 1.0
 position = Vector2(160, 0)
 shape = SubResource("RectangleShape2D_uebfb")
 
-[node name="ForcedHorizontalArea2" parent="StandardZones" index="2"]
-position = Vector2(-4032, -4576)
-HORZIONTAL_INPUT = -1.0
-
-[node name="LevelChangeArea" parent="StandardZones" index="3" node_paths=PackedStringArray("coinArea")]
-position = Vector2(-4064, -4640)
-coinArea = NodePath("../CoinCollectionArea")
-
 [node name="LevelChangeArea2" parent="StandardZones" node_paths=PackedStringArray("coinArea") instance=ExtResource("18_c7hhh")]
 position = Vector2(115, -519)
+scene_path = "res://Levels/Level1/room1-9a/room_1_9a.tscn"
 coinArea = NodePath("../CoinCollectionArea2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StandardZones/LevelChangeArea2"]
 position = Vector2(13, 7)
 shape = SubResource("RectangleShape2D_m8t4u")
-
-[node name="CoinCollectionArea" parent="StandardZones" index="5"]
-position = Vector2(-3712, -4640)
 
 [node name="CoinCollectionArea2" parent="StandardZones" instance=ExtResource("19_ujx06")]
 position = Vector2(128, -512)

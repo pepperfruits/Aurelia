@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsgex2ntljv7e"]
+
+[ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_cgfep"]
+[ext_resource type="TileSet" uid="uid://dbtrsmy6kw8hg" path="res://Levels/Level1/room1-9a/1-9a.tres" id="2_ocdsv"]
+[ext_resource type="PackedScene" uid="uid://cwqpndatc0cm5" path="res://Zones/StandardZones/StandardZones.tscn" id="3_7ag57"]
+
+[node name="Room1-9a" type="Node2D"]
+
+[node name="Level1Shadows" parent="." instance=ExtResource("1_cgfep")]
+color = Color(0.5447, 0.299, 0.65, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_ocdsv")
+format = 2
+layer_0/name = "bg"
+layer_1/name = "molding"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "surface"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "deep"
+layer_3/tile_data = PackedInt32Array()
+
+[node name="StandardZones" parent="." instance=ExtResource("3_7ag57")]
+
+[node name="ForcedHorizontalArea" parent="StandardZones" index="0"]
+position = Vector2(128, 2336)
+
+[node name="ForcedHorizontalArea2" parent="StandardZones" index="1"]
+position = Vector2(-128, 64)
+HORZIONTAL_INPUT = -1.0
+
+[node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
+position = Vector2(192, 0)
+scene_path = "res://Levels/Level1/room1-9/room_1_9.tscn"
+coinArea = NodePath("../CoinCollectionArea")
+
+[node name="CoinCollectionArea" parent="StandardZones" index="3"]
+position = Vector2(192, 0)
+
+[editable path="StandardZones"]
