@@ -58,12 +58,6 @@ position = Vector2(-96, -160)
 [node name="WindowSmall4" parent="decor" instance=ExtResource("5_e4srw")]
 position = Vector2(-384, -960)
 
-[node name="WindowSmall6" parent="decor" instance=ExtResource("5_e4srw")]
-position = Vector2(128, -1216)
-
-[node name="WindowSmall2" parent="decor" instance=ExtResource("5_e4srw")]
-position = Vector2(896, -160)
-
 [node name="WindowThin" parent="decor" instance=ExtResource("6_xjfln")]
 position = Vector2(-3328, -128)
 
@@ -225,18 +219,8 @@ scale = Vector2(1.2, 1.2)
 Point1 = NodePath("../1")
 Point2 = NodePath("../2")
 
-[node name="GoodSlime3" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_1cyvj")]
-position = Vector2(-1408, 256)
-Point1 = NodePath("../1")
-Point2 = NodePath("../2")
-
 [node name="GoodSlime4" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_1cyvj")]
 position = Vector2(-1248, 256)
-Point1 = NodePath("../1")
-Point2 = NodePath("../2")
-
-[node name="GoodSlime5" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_1cyvj")]
-position = Vector2(-1088, 256)
 Point1 = NodePath("../1")
 Point2 = NodePath("../2")
 
@@ -251,18 +235,8 @@ scale = Vector2(1.2, 1.2)
 Point1 = NodePath("../3")
 Point2 = NodePath("../4")
 
-[node name="GoodSlime11" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_1cyvj")]
-position = Vector2(-2688, 256)
-Point1 = NodePath("../3")
-Point2 = NodePath("../4")
-
 [node name="GoodSlime12" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_1cyvj")]
 position = Vector2(-2848, 256)
-Point1 = NodePath("../3")
-Point2 = NodePath("../4")
-
-[node name="GoodSlime13" parent="stuff" node_paths=PackedStringArray("Point1", "Point2") instance=ExtResource("8_1cyvj")]
-position = Vector2(-3008, 256)
 Point1 = NodePath("../3")
 Point2 = NodePath("../4")
 
