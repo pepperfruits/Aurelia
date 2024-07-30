@@ -22,6 +22,7 @@ func _on_respawn_pressed():
 	get_tree().reload_current_scene.bind().call_deferred()
 
 func _on_quit_pressed():
+	get_tree().paused = false
 	ScoreManager.restart()
 	get_tree().change_scene_to_file(main_menu_scene)
 
