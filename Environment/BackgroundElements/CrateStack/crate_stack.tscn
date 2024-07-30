@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dg6qvxff13m7m" path="res://Environment/BackgroundElements/bgelements.png" id="1_ur7yb"]
 
 [node name="CrateStack" type="Sprite2D"]
+modulate = Color(0.675133, 0.656, 0.82, 1)
 position = Vector2(0, -128)
 texture = ExtResource("1_ur7yb")
 region_enabled = true
