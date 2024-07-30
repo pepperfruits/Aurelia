@@ -1,0 +1,15 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://8vpqi5ncvsva"
+path="res://.godot/imported/PotionBottle.atlas-5a4e1446a02cba78bf8fbbd80fa6736c.spatlas"
+
+[deps]
+
+source_file="res://Environment/Coin/PotionBottle.atlas"
+dest_files=["res://.godot/imported/PotionBottle.atlas-5a4e1446a02cba78bf8fbbd80fa6736c.spatlas"]
+
+[params]
+
+normal_map_prefix="n"

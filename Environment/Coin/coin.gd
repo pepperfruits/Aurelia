@@ -1,7 +1,7 @@
 extends Area2D
 class_name Coin
 
-@onready var sprite : Sprite2D = $CoinSprite
+@onready var sprite : SpineSprite = $CoinSprite
 
 @export var FLOAT_SPEED : float = 0.5
 @export var FLOAT_HEIGHT : float = 20.0
