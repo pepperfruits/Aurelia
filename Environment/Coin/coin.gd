@@ -14,6 +14,8 @@ var float_cycle : float = 0.0
 var p : PlayerCharacter = null
 
 func _ready():
+	if not ScoreManager.particles_enabled:
+		$GPUParticles2D.emitting = false
 	if ScoreManager.coinArray.find(COIN_ID) != -1:
 		queue_free()
 
