@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://75isrwlcuc6f"]
+
+[ext_resource type="Script" path="res://Dialogue/dialogue_intro.gd" id="1_83wtn"]
+[ext_resource type="Texture2D" uid="uid://bbloqsfml27yn" path="res://Assets/Dialogue/AureliaTalking.png" id="1_ic85w"]
+[ext_resource type="Texture2D" uid="uid://ooabav8ssbuj" path="res://Assets/Dialogue/Whisptalking.png" id="2_moxke"]
+[ext_resource type="Texture2D" uid="uid://csfwydt8ylr10" path="res://Assets/Dialogue/DialogBox.png" id="3_q3bs3"]
+[ext_resource type="Texture2D" uid="uid://dokvc6derui1j" path="res://Assets/Dialogue/Line1.png" id="4_1d8g7"]
+[ext_resource type="Texture2D" uid="uid://dpucfk20xkkmr" path="res://Assets/Dialogue/Line2.png" id="5_mmec2"]
+[ext_resource type="Texture2D" uid="uid://30xxhakbkeo1" path="res://Assets/Dialogue/Line3.png" id="6_aixyt"]
+[ext_resource type="Texture2D" uid="uid://dytdmbajl2man" path="res://Assets/Dialogue/Line4.png" id="7_gsdbu"]
+[ext_resource type="Texture2D" uid="uid://dxlx5yj6putg4" path="res://Assets/Dialogue/Line5.png" id="8_exj2x"]
+[ext_resource type="Texture2D" uid="uid://cvwia2onf28nn" path="res://Assets/Dialogue/Line6.png" id="9_rcaw6"]
+[ext_resource type="Texture2D" uid="uid://ts1n8r2w6j6w" path="res://Assets/Dialogue/Line7.png" id="10_knelj"]
+
+[node name="DialogueIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_83wtn")
+
+[node name="Assets" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AureliaTalking" type="Sprite2D" parent="Assets"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ic85w")
+
+[node name="Whisptalking" type="Sprite2D" parent="Assets"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_moxke")
+
+[node name="DialogBox" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_q3bs3")
+
+[node name="Lines" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line1" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_1d8g7")
+
+[node name="Line2" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_mmec2")
+
+[node name="Line3" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_aixyt")
+
+[node name="Line4" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_gsdbu")
+
+[node name="Line5" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_exj2x")
+
+[node name="Line6" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_rcaw6")
+
+[node name="Line7" type="Sprite2D" parent="Lines"]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_knelj")
