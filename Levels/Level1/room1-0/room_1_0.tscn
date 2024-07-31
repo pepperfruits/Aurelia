@@ -41,12 +41,13 @@ size = Vector2(1152, 1696)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="DialogueIntro" parent="CanvasLayer2" instance=ExtResource("26_ixybc")]
+[node name="DialogueIntro" parent="CanvasLayer2" node_paths=PackedStringArray("p") instance=ExtResource("26_ixybc")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+p = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_4k33l")]

@@ -2,6 +2,7 @@ extends Control
 class_name Dialogue
 
 @export var LAST_LINE : int = 7
+@export var p : PlayerCharacter
 
 var was_just_pressed : bool = false
 
@@ -11,9 +12,13 @@ func _ready():
 	line(current_line)
 
 func _process(_delta):
+	if p:
+		p.set_player_input(false)
 	if Input.is_anything_pressed() and not was_just_pressed:
 		current_line += 1
 		if current_line > LAST_LINE:
+			if p:
+				p.set_player_input(true)
 			queue_free()
 		line(current_line)
 	
