@@ -9,6 +9,9 @@ class_name EnchantedBust
 @export var Bullet : PackedScene
 @export var ShootingMarker : Marker2D
 
+@onready var sfx : PackedScene = preload("res://Audio/sfx_player.tscn")
+@export var sound : AudioStream
+
 func shoot() -> void:
 	var bullet : Projectile = Bullet.instantiate()
 	bullet.global_position = ShootingMarker.global_position
@@ -22,3 +25,8 @@ func close_eyes() -> void:
 func open_eyes() -> void:
 	Sprite.texture = EYES_OPEN
 	Light.enabled = true
+	
+	var s : AudioStreamPlayer = sfx.instantiate()
+	s.stream = sound
+	s.volume_db = -20
+	get_tree().current_scene.add_child(s)

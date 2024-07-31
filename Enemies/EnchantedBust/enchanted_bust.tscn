@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dybgln6r13x6g"]
+[gd_scene load_steps=10 format=3 uid="uid://dybgln6r13x6g"]
 
 [ext_resource type="Script" path="res://Enemies/EnchantedBust/enchanted_bust.gd" id="1_ihn7h"]
 [ext_resource type="Texture2D" uid="uid://cl5vbojol8ma4" path="res://Enemies/EnchantedBust/bustclosed.png" id="1_o3gce"]
 [ext_resource type="Texture2D" uid="uid://bujnsktuyh22x" path="res://Enemies/EnchantedBust/bustopen.png" id="1_p7n70"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="2_5dnjw"]
 [ext_resource type="PackedScene" uid="uid://c2evldq4ruslb" path="res://Projectiles/EnchantedBustBullet/EnchantedBustBullet.tscn" id="4_b8fed"]
+[ext_resource type="AudioStream" uid="uid://c563epnu7c7wu" path="res://Audio/SFX/AURELIA-SFX_BustWarnAndFire.wav" id="5_etqwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryqcj"]
 size = Vector2(65, 227)
@@ -50,6 +51,7 @@ EYES_CLOSED = ExtResource("1_o3gce")
 EYES_OPEN = ExtResource("1_p7n70")
 Bullet = ExtResource("4_b8fed")
 ShootingMarker = NodePath("Marker2D")
+sound = ExtResource("5_etqwl")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -113.5)
