@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=60 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
@@ -16,6 +16,10 @@
 [ext_resource type="AudioStream" uid="uid://fucoy7rqcajx" path="res://Audio/SFX/AURELIA-SFX_Dash-01.wav" id="14_6oh0g"]
 [ext_resource type="AudioStream" uid="uid://bidp518n0elpa" path="res://Audio/SFX/AURELIA-SFX_Dash-02.wav" id="15_o5dgh"]
 [ext_resource type="AudioStream" uid="uid://bvad4isauw1pp" path="res://Audio/VO/Oof-3.wav" id="16_npeb8"]
+[ext_resource type="AudioStream" uid="uid://c8cjmemlnmpej" path="res://Audio/SFX/footstep1.wav" id="17_nbjs2"]
+[ext_resource type="AudioStream" uid="uid://cejtkta7k5oku" path="res://Audio/SFX/footstep2.wav" id="18_0bxgy"]
+[ext_resource type="AudioStream" uid="uid://7twfrew4wsh0" path="res://Audio/SFX/footstep3.wav" id="19_bcqa0"]
+[ext_resource type="AudioStream" uid="uid://buu0bx312knr2" path="res://Audio/SFX/footstep4.wav" id="20_vq2sc"]
 
 [sub_resource type="Curve" id="Curve_28j12"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.73058, 0.0, 0, 0]
@@ -341,7 +345,12 @@ script = ExtResource("13_unkiw")
 dash_sfx_1 = ExtResource("14_6oh0g")
 dash_sfx_2 = ExtResource("15_o5dgh")
 dying_sfx = ExtResource("16_npeb8")
+footstep_sfx_1 = ExtResource("17_nbjs2")
+footstep_sfx_2 = ExtResource("18_0bxgy")
+footstep_sfx_3 = ExtResource("19_bcqa0")
+footstep_sfx_4 = ExtResource("20_vq2sc")
 
+[connection signal="animation_event" from="AnimationHandler" to="AnimationHandler" method="_on_animation_event"]
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DashBufferTimer" to="InputHandler" method="_on_dash_buffer_timer_timeout"]
 [connection signal="timeout" from="InputHandler/DownBufferTimer" to="InputHandler" method="_on_down_buffer_timer_timeout"]

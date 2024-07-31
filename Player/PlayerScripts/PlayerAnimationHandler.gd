@@ -2,6 +2,7 @@ extends SpineSprite
 class_name PlayerAnimationHandler
 
 @onready var a : SpineAnimationState = get_animation_state()
+@onready var Audio : PlayerAudio = $"../PlayerAudio"
 @export var flashing_cycle_rate : float = 3.0
 
 ## if you are flashing from low stamina
@@ -90,3 +91,7 @@ func death():
 func ranged_attack():
 	a.set_animation("RangedAttackForward", false, ATTACK_TRACK_INDEX)
 	a.add_empty_animation(ATTACK_TRACK_INDEX, 0.3, 0.2)
+
+func _on_animation_event(_spine_sprite, _animation_state, _track_entry, event : SpineEvent):
+	if event.get_data().get_event_name() == "Step":
+		Audio.footstep()
