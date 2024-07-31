@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cpgedr4f3xri6"]
+[gd_scene load_steps=63 format=3 uid="uid://cpgedr4f3xri6"]
 
 [ext_resource type="Script" path="res://Player/PlayerScripts/player.gd" id="1_c7am8"]
 [ext_resource type="Script" path="res://Player/PlayerScripts/InputHandler.gd" id="2_agngk"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://buu0bx312knr2" path="res://Audio/SFX/footstep4.wav" id="20_vq2sc"]
 [ext_resource type="AudioStream" uid="uid://cgdifajtc1jg4" path="res://Audio/SFX/hook.wav" id="21_fu2pc"]
 [ext_resource type="AudioStream" uid="uid://s0fx0wgln2ne" path="res://Audio/VO/Ha-8.wav" id="22_hs4ra"]
+[ext_resource type="AudioStream" uid="uid://g12texfpspf5" path="res://Audio/SFX/attack.wav" id="23_v3e2t"]
 
 [sub_resource type="Curve" id="Curve_28j12"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.73058, 0.0, 0, 0]
@@ -353,6 +354,7 @@ footstep_sfx_3 = ExtResource("19_bcqa0")
 footstep_sfx_4 = ExtResource("20_vq2sc")
 grapple_sfx = ExtResource("21_fu2pc")
 jump_sfx = ExtResource("22_hs4ra")
+attack_sfx = ExtResource("23_v3e2t")
 
 [connection signal="animation_event" from="AnimationHandler" to="AnimationHandler" method="_on_animation_event"]
 [connection signal="timeout" from="InputHandler/JumpBufferTimer" to="InputHandler" method="_on_jump_buffer_timer_timeout"]
