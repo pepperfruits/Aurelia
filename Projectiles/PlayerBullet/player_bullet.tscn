@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4ecfs30v6b3h"]
+[gd_scene load_steps=15 format=3 uid="uid://b4ecfs30v6b3h"]
 
 [ext_resource type="Script" path="res://Projectiles/PlayerBullet/player_bullet.gd" id="1_xb871"]
 [ext_resource type="PackedScene" uid="uid://ca77en0eetqpr" path="res://Particles/BulletParticles/bullet_particles.tscn" id="2_evl38"]
 [ext_resource type="Shader" path="res://Player/emission.gdshader" id="2_ip2bc"]
 [ext_resource type="Texture2D" uid="uid://pnn1rwbkq4yt" path="res://Projectiles/PlayerBullet/Projectile.png" id="2_u6s1e"]
+[ext_resource type="AudioStream" uid="uid://cqxk10obavu4x" path="res://Audio/SFX/AURELIA-SFX_SpellFizzle.wav" id="3_apsrd"]
 [ext_resource type="Texture2D" uid="uid://cg30p1u4oq0rl" path="res://Projectiles/PlayerBullet/Projectileblur.png" id="3_cugen"]
 [ext_resource type="Texture2D" uid="uid://dgnrccbrn73bu" path="res://Player/particle.png" id="5_roy15"]
 
@@ -48,6 +49,7 @@ collision_layer = 4
 collision_mask = 288
 script = ExtResource("1_xb871")
 bulletParticles = ExtResource("2_evl38")
+sound = ExtResource("3_apsrd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(39, 0)
