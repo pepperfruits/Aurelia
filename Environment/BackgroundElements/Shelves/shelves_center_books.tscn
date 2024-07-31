@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0iw0cbeingfq"]
+
+[ext_resource type="Texture2D" uid="uid://d4i6j0qmn5xif" path="res://Environment/BackgroundElements/lastitems.png" id="1_oimx1"]
+
+[node name="ShelvesCenterBooks" type="Sprite2D"]
+texture = ExtResource("1_oimx1")
+offset = Vector2(0, -192)
+region_enabled = true
+region_rect = Rect2(640, 0, 128, 384)

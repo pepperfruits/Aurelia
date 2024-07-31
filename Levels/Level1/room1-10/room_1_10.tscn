@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://r0hmg5jskv7n" path="res://Environment/BackgroundElements/WindowThin/window_thin.tscn" id="6_xjfln"]
 [ext_resource type="PackedScene" uid="uid://bxrirrvj8xjss" path="res://Environment/BackgroundElements/WindowNormal/window_normal.tscn" id="7_3044j"]
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="7_cybym"]
-[ext_resource type="PackedScene" path="res://Environment/BackgroundElements/Slime.tscn" id="7_mshol"]
+[ext_resource type="PackedScene" uid="uid://6ys4laf1xba1" path="res://Environment/BackgroundElements/SlimePile/Slime.tscn" id="7_mshol"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="7_y0m20"]
 [ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="8_1cyvj"]
 [ext_resource type="PackedScene" uid="uid://cw5laekr757ju" path="res://Enemies/EvilSlime/evil_slime.tscn" id="9_acve5"]
