@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://0xsgvoi8p7tu"]
+[gd_scene load_steps=27 format=3 uid="uid://0xsgvoi8p7tu"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_15wpa"]
 [ext_resource type="TileSet" uid="uid://djlhqffqgjiwe" path="res://Levels/Level1/room1-11/1-11.tres" id="2_c0v2s"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cdsoktjh4jhfn" path="res://Environment/CrackedWall/CrackedWall.tscn" id="11_d5sno"]
 [ext_resource type="Texture2D" uid="uid://c7oaprx7mf3lb" path="res://Assets/Textures/moonglow.png" id="13_t0hig"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="17_618ug"]
+[ext_resource type="PackedScene" uid="uid://oeteci7us8rx" path="res://Environment/Fog/fog.tscn" id="21_yhott"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="22_0ywnd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovqiq"]
@@ -613,6 +614,8 @@ p = NodePath("../Player")
 CAMERA_SPEED = 20.0
 DEFAULT_ZOOM = Vector2(0.6, 0.6)
 CAMERA_MIX = 0.2
+
+[node name="Fog" parent="." instance=ExtResource("21_yhott")]
 
 [node name="Gradient" type="Sprite2D" parent="."]
 modulate = Color(0.89, 0.5785, 0.5785, 0.188235)
