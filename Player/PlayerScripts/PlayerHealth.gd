@@ -5,6 +5,8 @@ class_name PlayerHealth
 @onready var p : PlayerCharacter = $".."
 @onready var DeathTransitionTimer : Timer = $DeathTransitionTimer
 
+var is_dead : bool = false
+
 func damage(amount : int, knockback : float, knockback_vector : Vector2) -> void:
 	health -= amount
 	if knockback:
@@ -13,15 +15,19 @@ func damage(amount : int, knockback : float, knockback_vector : Vector2) -> void
 		death()
 
 func death():
-	if DeathTransitionTimer.is_stopped():
-		$"../AnimationHandler".death()
+	if not is_dead:
+		is_dead = true
+		$"../PlayerAudio".death()
 		
-		$"../InputHandler".set_player_input(false) 
-		$"../InputHandler".set_forced_horizontal_input(0)
-		
-		p.set_camera_transition(true)
-		DeathTransitionTimer.start()
-		ScoreManager.deaths += 1
+		if DeathTransitionTimer.is_stopped():
+			$"../AnimationHandler".death()
+			
+			$"../InputHandler".set_player_input(false) 
+			$"../InputHandler".set_forced_horizontal_input(0)
+			
+			p.set_camera_transition(true)
+			DeathTransitionTimer.start()
+			ScoreManager.deaths += 1
 
 func apply_knockback(knockback : float, knockback_vector : Vector2) -> void:
 	entity.velocity = knockback_vector.normalized() * knockback
