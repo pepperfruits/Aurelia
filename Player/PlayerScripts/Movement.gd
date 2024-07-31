@@ -328,6 +328,8 @@ func hook_released() -> void:
 	current_hook = null
 
 func grapple(_delta) -> void:
+	Audio.grapple()
+	
 	current_state = STATE.GRAPPLING
 	set_player_velocity(Vector2.ZERO)
 	end_dash()
