@@ -244,6 +244,7 @@ DEFAULT_ZOOM = Vector2(0.7, 0.7)
 CAMERA_MIX = 0.2
 
 [node name="camerazones" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraControlArea" parent="camerazones" node_paths=PackedStringArray("marker") instance=ExtResource("17_m4eya")]
 position = Vector2(1287, 0)

@@ -29,7 +29,7 @@ size = Vector2(7808, 1856)
 [node name="Room1-9a" type="Node2D"]
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_cgfep")]
-color = Color(0.5447, 0.299, 0.65, 1)
+color = Color(0.667336, 0.258383, 0.393522, 1)
 
 [node name="killzone" parent="." instance=ExtResource("7_ys3p1")]
 position = Vector2(4896, 1248)
@@ -576,10 +576,12 @@ JKL_image = ExtResource("15_snl71")
 MOUSE_image = ExtResource("16_aioxl")
 
 [node name="Darkness" parent="." instance=ExtResource("17_p7akw")]
+modulate = Color(1, 0, 0, 1)
 position = Vector2(4619, 331)
 scale = Vector2(25.8414, 0.130216)
 
 [node name="Darkness2" parent="." instance=ExtResource("17_p7akw")]
+modulate = Color(1, 0, 0, 1)
 position = Vector2(4619, -1618)
 rotation = -3.14159
 scale = Vector2(25.8414, 0.130216)

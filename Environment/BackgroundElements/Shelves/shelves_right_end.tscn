@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d4i6j0qmn5xif" path="res://Environment/BackgroundElements/lastitems.png" id="1_baq15"]
 
 [node name="ShelvesRightEnd" type="Sprite2D"]
+modulate = Color(0.67451, 0.654902, 0.819608, 1)
+position = Vector2(0, -20)
 texture = ExtResource("1_baq15")
 offset = Vector2(0, -192)
 region_enabled = true

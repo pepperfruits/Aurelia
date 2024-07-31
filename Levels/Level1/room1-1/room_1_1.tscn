@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpxo2a3brt4f4"]
+[gd_scene load_steps=19 format=3 uid="uid://bpxo2a3brt4f4"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_0rnqn"]
 [ext_resource type="TileSet" uid="uid://dh75sfrmdwl1j" path="res://Levels/Level1/room1-1/1-1.tres" id="2_ni6na"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="5_6wj4l"]
 [ext_resource type="PackedScene" uid="uid://jkcpwgpyvxvx" path="res://Environment/Torch/torch.tscn" id="5_wj4na"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="6_hi0ye"]
+[ext_resource type="PackedScene" uid="uid://cjh6awbtfe0tm" path="res://Environment/BackgroundElements/CrateSingle/crate_single.tscn" id="7_w8o7c"]
+[ext_resource type="PackedScene" uid="uid://datrhodtpp851" path="res://Environment/BackgroundElements/CrateStack/crate_stack.tscn" id="8_cy0lu"]
 [ext_resource type="PackedScene" uid="uid://ddde1p5cpry6p" path="res://Environment/Spikes/spikes.tscn" id="9_l63su"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="10_b06wu"]
 [ext_resource type="PackedScene" uid="uid://bx2f36rx5es8h" path="res://Environment/BackgroundElements/Grate/grate.tscn" id="11_qd07j"]
@@ -75,6 +77,12 @@ position = Vector2(1376, -1600)
 [node name="Torch2" parent="stuff" instance=ExtResource("5_wj4na")]
 position = Vector2(1760, -2112)
 
+[node name="CrateSingle" parent="stuff" instance=ExtResource("7_w8o7c")]
+position = Vector2(352, -596)
+
+[node name="CrateStack" parent="stuff" instance=ExtResource("8_cy0lu")]
+position = Vector2(1532, -1557)
+
 [node name="StandardZones" parent="." instance=ExtResource("3_68fs0")]
 
 [node name="ForcedHorizontalArea2" parent="StandardZones" index="1"]
@@ -89,7 +97,6 @@ coinArea = NodePath("../CoinCollectionArea")
 position = Vector2(2432, -2048)
 
 [node name="CollisionShape2D" parent="StandardZones/CoinCollectionArea" index="0"]
-visible = true
 position = Vector2(-442, -118)
 
 [node name="Fog" parent="." instance=ExtResource("4_li27e")]
@@ -125,6 +132,7 @@ rotation = 3.14159
 scale = Vector2(8.19, 0.127789)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("13_8cjjx")]
+visible = false
 position = Vector2(827, -744)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.8, 0.8)
