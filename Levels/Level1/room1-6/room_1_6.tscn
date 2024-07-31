@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ys5q83aw0pu8"]
+[gd_scene load_steps=25 format=3 uid="uid://ys5q83aw0pu8"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_hc30p"]
 [ext_resource type="TileSet" uid="uid://bacu71kwlji7k" path="res://Levels/Level1/room1-6/1-6.tres" id="2_5wgh4"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bxb53pc827hqw" path="res://Environment/Platform/platform.tscn" id="7_3bwj8"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="7_im1cy"]
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="9_qx6q3"]
+[ext_resource type="Shader" path="res://Shaders/redflashing.gdshader" id="12_47pk4"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="14_3ecuf"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="18_118j6"]
 
@@ -24,6 +25,10 @@ _data = {
 "points": PackedVector2Array(-256, 192.008, 0, 0, -1280, 768, 0, 0, 0, 0, -1280, 64, 0, 0, 0, 0, -1792, 64, 0, 0, 0, 0, -1792, 768, 0, 0, 255.99, -191.992, -1280, 768)
 }
 point_count = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ua1ra"]
+shader = ExtResource("12_47pk4")
+shader_parameter/redness = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugx1f"]
 size = Vector2(1024, 576)
@@ -66,8 +71,9 @@ visible = false
 [node name="GPUParticles2D" parent="Coin" index="2"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64014, 8.32138)
+scale = Vector2(1, 1)
 
 [node name="decor" type="Node2D" parent="."]
 
@@ -156,6 +162,7 @@ position = Vector2(-1856, 256)
 SPRING_VELOCITY = 1000.0
 
 [node name="Spring3" parent="stuff" instance=ExtResource("4_ksws8")]
+material = SubResource("ShaderMaterial_ua1ra")
 position = Vector2(-4608, 128)
 
 [node name="Spring2" parent="stuff" instance=ExtResource("4_ksws8")]
