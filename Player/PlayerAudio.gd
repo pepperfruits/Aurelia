@@ -18,6 +18,8 @@ class_name PlayerAudio
 
 @export var jump_sfx : AudioStream
 
+@export var attack_sfx : AudioStream
+
 func play(sound : AudioStream, db : float):
 	var s : AudioStreamPlayer = sfx.instantiate()
 	s.stream = sound
@@ -51,3 +53,6 @@ func grapple():
 
 func jump():
 	play(jump_sfx, -15)
+
+func attack():
+	play(attack_sfx, 0)

@@ -216,6 +216,8 @@ func leave_crystal():
 	CrystalDashTimer.start()
 
 func attack(facing : int):
+	Audio.attack()
+	
 	anim.ranged_attack()
 	var bullet = PlayerBullet.instantiate()
 	if inp.get_horizontal_input():
