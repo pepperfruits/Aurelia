@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ca0u4s5smjnvj"]
+[gd_scene load_steps=31 format=3 uid="uid://ca0u4s5smjnvj"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_4k33l"]
 [ext_resource type="TileSet" uid="uid://c1ch3bwsugrx2" path="res://Levels/Level1/room1-0/1-0.tres" id="2_tm4vp"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="22_kkkay"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="23_gaeba"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="24_evahg"]
+[ext_resource type="PackedScene" uid="uid://75isrwlcuc6f" path="res://Dialogue/dialogue_intro.tscn" id="26_ixybc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmnun"]
 size = Vector2(1056, 928)
@@ -37,6 +38,17 @@ size = Vector2(1088, 832)
 size = Vector2(1152, 1696)
 
 [node name="Room1-1" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="DialogueIntro" parent="CanvasLayer2" node_paths=PackedStringArray("p") instance=ExtResource("26_ixybc")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+p = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true
 
 [node name="Level1Shadows" parent="." instance=ExtResource("1_4k33l")]
 color = Color(0.375, 0.5, 0.475, 1)
