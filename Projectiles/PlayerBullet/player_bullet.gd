@@ -10,6 +10,9 @@ class_name Projectile
 @onready var Particles : GPUParticles2D = $GPUParticles2D
 var sender = null
 
+@onready var sfx : PackedScene = preload("res://Audio/sfx_player.tscn")
+@export var sound : AudioStream
+
 func _ready():
 	if not ScoreManager.particles_enabled or true: # ALERT this disables all particles for this permanently!
 		Particles.emitting = false
@@ -39,6 +42,11 @@ func _on_area_entered(_area):
 	self.queue_free()
 
 func particles():
+	var s : AudioStreamPlayer = sfx.instantiate()
+	s.stream = sound
+	s.volume_db = -3
+	get_tree().current_scene.add_child(s)
+	
 	if ScoreManager.particles_enabled:
 		if bulletParticles:
 			var part = bulletParticles.instantiate()
