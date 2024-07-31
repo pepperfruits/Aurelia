@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1e415qf777wo"]
+
+[ext_resource type="Texture2D" uid="uid://d4i6j0qmn5xif" path="res://Environment/BackgroundElements/lastitems.png" id="1_0gj1c"]
+
+[node name="Lastitems" type="Sprite2D"]
+texture = ExtResource("1_0gj1c")
+offset = Vector2(0, -128)
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
