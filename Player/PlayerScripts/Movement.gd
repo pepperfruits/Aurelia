@@ -391,6 +391,7 @@ func can_jump() -> bool:
 	return p.is_on_floor() or is_jump_coyote
 
 func jump(multiplier : float) -> void:
+	Audio.jump()
 	is_jump_coyote = false
 	current_state = STATE.FALLING
 	end_dash()
