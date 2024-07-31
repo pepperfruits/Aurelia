@@ -14,6 +14,8 @@ class_name PlayerAudio
 @export var footstep_sfx_3 : AudioStream
 @export var footstep_sfx_4 : AudioStream
 
+@export var grapple_sfx : AudioStream
+
 func play(sound : AudioStream, db : float):
 	var s : AudioStreamPlayer = sfx.instantiate()
 	s.stream = sound
@@ -31,7 +33,7 @@ func dash():
 			play(dash_sfx_2, 0)
 
 func footstep():
-	var volume : float = -13
+	var volume : float = -14
 	match rng.randi_range(0,3):
 		0:
 			play(footstep_sfx_1, volume)
@@ -41,3 +43,9 @@ func footstep():
 			play(footstep_sfx_3, volume)
 		3:
 			play(footstep_sfx_4, volume)
+
+func grapple():
+	play(grapple_sfx, -5)
+
+func jump():
+	pass
