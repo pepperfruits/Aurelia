@@ -14,6 +14,9 @@ class_name Slime
 
 var target_point : bool = true
 
+@onready var sfx : PackedScene = preload("res://Audio/sfx_player.tscn")
+@export var sound : AudioStream
+
 func _ready():
 	if $Spring:
 		$Spring.SPRING_VELOCITY = BOUNCE_VELOCITY
@@ -45,3 +48,7 @@ func patrol(_delta : float, point : Marker2D):
 
 func on_hurt():
 	$AnimationPlayer.play("hurt")
+	var s : AudioStreamPlayer = sfx.instantiate()
+	s.stream = sound
+	s.volume_db = -8
+	get_tree().current_scene.add_child(s)
