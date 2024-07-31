@@ -5,6 +5,7 @@ var coins : int = 0
 var MAX_COINS : int = 15
 var time : float = 0.0
 var particles_enabled : bool = true
+var dialogue_watched : bool = false
 
 var control_scheme : int = 0
 
@@ -16,4 +17,5 @@ func restart():
 	time = 0.0
 	particles_enabled = true
 	control_scheme = 0
+	dialogue_watched = false
 	coinArray.clear()

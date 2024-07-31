@@ -10,6 +10,8 @@ var current_line : int = 1
 
 func _ready():
 	line(current_line)
+	if ScoreManager.dialogue_watched:
+		queue_free()
 
 func _process(_delta):
 	if p:
@@ -19,6 +21,7 @@ func _process(_delta):
 		if current_line > LAST_LINE:
 			if p:
 				p.set_player_input(true)
+			ScoreManager.dialogue_watched = true
 			queue_free()
 		line(current_line)
 	
