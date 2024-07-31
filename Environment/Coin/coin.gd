@@ -10,6 +10,9 @@ class_name Coin
 @export var FOLLOW_SPEED : float = 2.0
 @export var COIN_ID : int = -1
 
+@onready var sfx : PackedScene = preload("res://Audio/sfx_player.tscn")
+@export var sound : AudioStream
+
 var float_cycle : float = 0.0
 var p : PlayerCharacter = null
 
@@ -43,3 +46,7 @@ func idle(delta : float) -> void:
 
 func _on_body_entered(body : PlayerCharacter):
 	p = body
+	var s : AudioStreamPlayer = sfx.instantiate()
+	s.stream = sound
+	s.volume_db = 0
+	get_tree().current_scene.add_child(s)

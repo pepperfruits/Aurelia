@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8d848u5nffhp"]
+[gd_scene load_steps=13 format=3 uid="uid://c8d848u5nffhp"]
 
 [ext_resource type="Script" path="res://Environment/Coin/coin.gd" id="1_8x20p"]
+[ext_resource type="AudioStream" uid="uid://bmkf1x6l6vur4" path="res://Audio/SFX/potionpickup.mp3" id="2_xm1rk"]
 [ext_resource type="SpineAtlasResource" uid="uid://8vpqi5ncvsva" path="res://Environment/Coin/PotionBottle.atlas" id="3_54dbm"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="3_d78fl"]
 [ext_resource type="SpineSkeletonFileResource" uid="uid://direkefkpqdf" path="res://Environment/Coin/PotionBottle.skel" id="4_0env1"]
@@ -42,6 +43,7 @@ shader_parameter/bottom_color = Color(0.298039, 0.372549, 0.545098, 1)
 [node name="Coin" type="Area2D"]
 collision_layer = 4096
 script = ExtResource("1_8x20p")
+sound = ExtResource("2_xm1rk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0db21")
