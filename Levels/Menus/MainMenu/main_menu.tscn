@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddgjjalrojaa7"]
+[gd_scene load_steps=12 format=3 uid="uid://ddgjjalrojaa7"]
 
 [ext_resource type="Texture2D" uid="uid://bkhh2qi4gcwi1" path="res://Levels/Menus/MainMenu/LogoGold.png" id="1_ahwo6"]
 [ext_resource type="Script" path="res://Levels/Menus/MainMenu/main_menu.gd" id="1_tp8ld"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Levels/Menus/MainMenu/QuitButton.gd" id="5_2qord"]
 [ext_resource type="Script" path="res://Levels/Menus/MainMenu/NoParticles.gd" id="6_slpvp"]
 [ext_resource type="TileSet" uid="uid://bb0h3jq8tnnxy" path="res://Levels/Menus/MainMenu/mainmenu.tres" id="8_0xyeg"]
+[ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="9_5m5tl"]
 
 [sub_resource type="Animation" id="Animation_amj16"]
 resource_name = "loop"
@@ -41,7 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_tp8ld")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(254.803, -32.7527)
+position = Vector2(378, -40)
 scale = Vector2(0.3, 0.3)
 tile_set = ExtResource("8_0xyeg")
 format = 2
@@ -188,6 +189,15 @@ libraries = {
 "": SubResource("AnimationLibrary_mop5r")
 }
 autoplay = "loop"
+
+[node name="Darkness" parent="." instance=ExtResource("9_5m5tl")]
+position = Vector2(942, 1059)
+scale = Vector2(5.02, 0.0509259)
+
+[node name="Darkness2" parent="." instance=ExtResource("9_5m5tl")]
+position = Vector2(942, 22)
+rotation = 3.14159
+scale = Vector2(5.02, 0.0509259)
 
 [connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_pressed"]
