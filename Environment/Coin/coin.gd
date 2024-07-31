@@ -45,8 +45,10 @@ func idle(delta : float) -> void:
 	sprite.position.x = sin(float_cycle * 4 * PI) * FLOAT_HEIGHT / 2.0
 
 func _on_body_entered(body : PlayerCharacter):
+	if not p:
+		var s : AudioStreamPlayer = sfx.instantiate()
+		s.stream = sound
+		s.volume_db = 0
+		get_tree().current_scene.add_child(s)
 	p = body
-	var s : AudioStreamPlayer = sfx.instantiate()
-	s.stream = sound
-	s.volume_db = 0
-	get_tree().current_scene.add_child(s)
+	
