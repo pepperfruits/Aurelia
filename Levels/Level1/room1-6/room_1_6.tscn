@@ -66,9 +66,8 @@ visible = false
 [node name="GPUParticles2D" parent="Coin" index="2"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
 position = Vector2(-2.64014, 8.32138)
-scale = Vector2(1, 1)
 
 [node name="decor" type="Node2D" parent="."]
 
