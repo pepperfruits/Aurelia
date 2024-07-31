@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0dfhlr2p8ts2"]
+[gd_scene load_steps=9 format=3 uid="uid://c0dfhlr2p8ts2"]
 
 [ext_resource type="Script" path="res://Environment/Crystal/crystal.gd" id="1_qg0hy"]
 [ext_resource type="Texture2D" uid="uid://dbnnb5viqppmf" path="res://Assets/Textures/lightShape.png" id="1_x4loi"]
+[ext_resource type="AudioStream" uid="uid://h455444wyeej" path="res://Audio/SFX/AURELIA-SFX_CrystalActive.wav" id="2_j5fx2"]
 [ext_resource type="Texture2D" uid="uid://cic2yrryywkbd" path="res://Environment/Crystal/CrystalObject.png" id="3_uainq"]
+[ext_resource type="AudioStream" uid="uid://b1ws3ryj3nsd3" path="res://Audio/SFX/AURELIA-SFX_CrystalLaunch.wav" id="3_wusg0"]
 [ext_resource type="Texture2D" uid="uid://c73utrmbuxo3q" path="res://Environment/Crystal/DirectionArrow.png" id="4_c7o1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfp7l"]
@@ -15,6 +17,8 @@ light_mode = 1
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_qg0hy")
+sound1 = ExtResource("2_j5fx2")
+sound2 = ExtResource("3_wusg0")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0, 1, 0.694118, 1)
