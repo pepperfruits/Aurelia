@@ -30,6 +30,8 @@ class_name PlayerMovementHandler
 @onready var CrystalDashTimer : Timer = $CrystalDashTimer
 ## particles for crystal dashes
 @onready var CrystalParticles : GPUParticles2D = $"../CrystalParticles"
+## audio player for the player's actions
+@onready var Audio : PlayerAudio = $"../PlayerAudio"
 #endregions
 
 #region Export Constats
@@ -398,6 +400,8 @@ func can_dash() -> bool:
 	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING and not is_crystal
 
 func dash(input_direction : float) -> void:
+	Audio.dash()
+	
 	if ScoreManager.particles_enabled:
 		DashParticles.emitting = true
 	anim.dash(p.is_on_floor())
