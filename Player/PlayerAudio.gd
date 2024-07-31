@@ -9,6 +9,11 @@ class_name PlayerAudio
 
 @export var dying_sfx : AudioStream
 
+@export var footstep_sfx_1 : AudioStream
+@export var footstep_sfx_2 : AudioStream
+@export var footstep_sfx_3 : AudioStream
+@export var footstep_sfx_4 : AudioStream
+
 func play(sound : AudioStream, db : float):
 	var s : AudioStreamPlayer = sfx.instantiate()
 	s.stream = sound
@@ -24,3 +29,15 @@ func dash():
 			play(dash_sfx_1, 0)
 		1:
 			play(dash_sfx_2, 0)
+
+func footstep():
+	var volume : float = -13
+	match rng.randi_range(0,3):
+		0:
+			play(footstep_sfx_1, volume)
+		1:
+			play(footstep_sfx_2, volume)
+		2:
+			play(footstep_sfx_3, volume)
+		3:
+			play(footstep_sfx_4, volume)
