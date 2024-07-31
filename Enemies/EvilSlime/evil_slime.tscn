@@ -11,12 +11,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5rva"]
 size = Vector2(182, 150)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bcxpk"]
-light_mode = 1
-
 [sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_f2whm"]
 atlas_res = ExtResource("3_fiear")
 skeleton_file_res = ExtResource("4_ejxfk")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7c14t"]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvpl"]
 size = Vector2(76, 49)
@@ -62,8 +62,8 @@ position = Vector2(2, -75)
 shape = SubResource("RectangleShape2D_x5rva")
 
 [node name="SpineSprite" type="SpineSprite" parent="."]
-material = SubResource("CanvasItemMaterial_bcxpk")
 skeleton_data_res = SubResource("SpineSkeletonDataResource_f2whm")
+normal_material = SubResource("CanvasItemMaterial_7c14t")
 preview_skin = "Bad"
 preview_animation = "-- Empty --"
 preview_frame = false

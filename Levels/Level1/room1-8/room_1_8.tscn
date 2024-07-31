@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ck8wrn7anages"]
+[gd_scene load_steps=25 format=3 uid="uid://ck8wrn7anages"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_vgi8m"]
 [ext_resource type="TileSet" uid="uid://b5gslmogg24c7" path="res://Levels/Level1/room1-8/1-8.tres" id="2_udhx3"]
@@ -15,7 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://c8d848u5nffhp" path="res://Environment/Coin/coin.tscn" id="7_k2fo7"]
 [ext_resource type="PackedScene" uid="uid://r0hmg5jskv7n" path="res://Environment/BackgroundElements/WindowThin/window_thin.tscn" id="7_tpetb"]
 [ext_resource type="PackedScene" uid="uid://cpgedr4f3xri6" path="res://Player/player.tscn" id="8_3ahkw"]
+[ext_resource type="PackedScene" uid="uid://d0iw0cbeingfq" path="res://Environment/BackgroundElements/Shelves/shelves_center_books.tscn" id="8_xgheq"]
+[ext_resource type="PackedScene" uid="uid://c2gtcjmb5blh0" path="res://Environment/BackgroundElements/Shelves/shelves_center_empty.tscn" id="9_fngb7"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="9_pg5jl"]
+[ext_resource type="PackedScene" uid="uid://cjyqfk25tflnb" path="res://Environment/Skull/skull.tscn" id="10_lyr02"]
+[ext_resource type="PackedScene" uid="uid://c3f7xl2t8p7rj" path="res://Environment/BackgroundElements/Shelves/shelves_left_end.tscn" id="11_guoir"]
+[ext_resource type="PackedScene" uid="uid://clx03f7sfm6sd" path="res://Environment/BackgroundElements/Shelves/shelves_right_end.tscn" id="12_a0cjh"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="12_ffav4"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="18_5uup2"]
 
@@ -76,6 +81,85 @@ position = Vector2(-6976, -1280)
 
 [node name="WindowThin2" parent="decor" instance=ExtResource("7_tpetb")]
 position = Vector2(-6976, -768)
+
+[node name="ShelvesCenterBooks" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-2624, -128)
+
+[node name="ShelvesCenterBooks3" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-2496, -128)
+
+[node name="ShelvesCenterBooks4" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-2368, -128)
+
+[node name="ShelvesCenterBooks5" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-2880, -128)
+
+[node name="ShelvesCenterBooks6" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-4256, -128)
+
+[node name="ShelvesCenterEmpty" parent="decor" instance=ExtResource("9_fngb7")]
+position = Vector2(-2752, -128)
+
+[node name="ShelvesCenterEmpty2" parent="decor" instance=ExtResource("9_fngb7")]
+position = Vector2(-992, -128)
+
+[node name="Skull" parent="decor" instance=ExtResource("10_lyr02")]
+position = Vector2(-2756, -360)
+rotation = -0.41926
+
+[node name="ShelvesLeftEnd" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-3008, -128)
+
+[node name="ShelvesLeftEnd2" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-4384, -128)
+
+[node name="ShelvesRightEnd" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(-2240, -128)
+
+[node name="ShelvesRightEnd2" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(-4128, -128)
+
+[node name="ShelvesCenterBooks7" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-5120, -128)
+
+[node name="ShelvesLeftEnd3" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-5248, -128)
+
+[node name="ShelvesRightEnd3" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(-4992, -128)
+
+[node name="ShelvesCenterBooks8" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-3328, -128)
+
+[node name="ShelvesLeftEnd4" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-3456, -128)
+
+[node name="ShelvesRightEnd4" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(-3200, -128)
+
+[node name="ShelvesCenterBooks9" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-1920, -128)
+
+[node name="ShelvesLeftEnd5" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-2048, -128)
+
+[node name="ShelvesRightEnd5" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(-1792, -128)
+
+[node name="ShelvesLeftEnd6" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-1120, -128)
+
+[node name="ShelvesRightEnd6" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(-864, -128)
+
+[node name="ShelvesCenterBooks11" parent="decor" instance=ExtResource("8_xgheq")]
+position = Vector2(-128, 256)
+
+[node name="ShelvesLeftEnd7" parent="decor" instance=ExtResource("11_guoir")]
+position = Vector2(-256, 256)
+
+[node name="ShelvesRightEnd7" parent="decor" instance=ExtResource("12_a0cjh")]
+position = Vector2(0, 256)
 
 [node name="Stuff" type="Node2D" parent="."]
 
@@ -163,6 +247,7 @@ rotation = -3.14159
 scale = Vector2(21.8862, 0.105565)
 
 [node name="camerazones" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraControlArea" parent="camerazones" node_paths=PackedStringArray("marker") instance=ExtResource("18_5uup2")]
 position = Vector2(-2624, -480)

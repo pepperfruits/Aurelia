@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://baij8katslide"]
+[gd_scene load_steps=36 format=3 uid="uid://baij8katslide"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
 [ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://r0hmg5jskv7n" path="res://Environment/BackgroundElements/WindowThin/window_thin.tscn" id="7_v3b1n"]
 [ext_resource type="PackedScene" uid="uid://b6d7gtr35m22i" path="res://Environment/BackgroundElements/Mirror/mirror.tscn" id="8_812sd"]
 [ext_resource type="PackedScene" uid="uid://cdsoktjh4jhfn" path="res://Environment/CrackedWall/CrackedWall.tscn" id="9_8dqqr"]
+[ext_resource type="PackedScene" uid="uid://b53qscg6ueoit" path="res://Environment/BreakableBlock/breakable_block.tscn" id="16_ock30"]
 [ext_resource type="PackedScene" uid="uid://b7yj37vdbjqmo" path="res://Zones/ForcedInputArea/ForcedHorizontalArea/forced_horizontal_area.tscn" id="17_33p7h"]
 [ext_resource type="PackedScene" uid="uid://ddyqv7vduj3ps" path="res://Zones/LevelChangeArea/level_change_area.tscn" id="18_c7hhh"]
 [ext_resource type="PackedScene" uid="uid://oswc1rhueabr" path="res://Zones/CameraControlArea/camera_control_area.tscn" id="19_jvfp0"]
@@ -340,6 +341,9 @@ position = Vector2(-2573, -4480)
 
 [node name="CrackedWall" parent="stuff" instance=ExtResource("9_8dqqr")]
 position = Vector2(-1869, -4736)
+
+[node name="BreakableBlock" parent="stuff" instance=ExtResource("16_ock30")]
+position = Vector2(-141, -512)
 
 [node name="StandardZones" parent="." instance=ExtResource("3_v0qao")]
 

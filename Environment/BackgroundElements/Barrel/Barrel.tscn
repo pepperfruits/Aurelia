@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://d4i6j0qmn5xif" path="res://Environment/BackgroundElements/lastitems.png" id="1_smfys"]
 
-[node name="Lastitems" type="Sprite2D"]
+[node name="Barrel" type="Sprite2D"]
+modulate = Color(0.67451, 0.654902, 0.819608, 1)
+scale = Vector2(0.632234, 0.632234)
 texture = ExtResource("1_smfys")
 offset = Vector2(0, -128)
 region_enabled = true

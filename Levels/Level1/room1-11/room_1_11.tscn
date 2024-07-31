@@ -638,6 +638,7 @@ position = Vector2(8, 98)
 scale = Vector2(8.97165, 0.079744)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+visible = false
 position = Vector2(0, -1175)
 marker = NodePath("Marker2D")
 
@@ -649,6 +650,7 @@ shape = SubResource("RectangleShape2D_h7r5i")
 position = Vector2(0, -1190)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+visible = false
 position = Vector2(0, -2866)
 marker = NodePath("Marker2D")
 
@@ -660,6 +662,7 @@ shape = SubResource("RectangleShape2D_h7r5i")
 position = Vector2(0, -1190)
 
 [node name="CameraControlArea3" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+visible = false
 position = Vector2(0, -4911)
 marker = NodePath("Marker2D")
 
@@ -671,6 +674,7 @@ shape = SubResource("RectangleShape2D_h7r5i")
 position = Vector2(0, -1190)
 
 [node name="CameraControlArea4" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("22_0ywnd")]
+visible = false
 position = Vector2(0, -12854)
 marker = NodePath("Marker2D")
 

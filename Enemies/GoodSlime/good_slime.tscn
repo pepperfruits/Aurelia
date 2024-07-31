@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="5_6lii5"]
 [ext_resource type="AudioStream" uid="uid://bhqrlv1iw75ib" path="res://Audio/SFX/AURELIA-SFX_SlimeBounce.wav" id="5_cfdmq"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0o5is"]
-light_mode = 1
-
 [sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_sjed7"]
 atlas_res = ExtResource("1_1mmlx")
 skeleton_file_res = ExtResource("2_hilef")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k0bmc"]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok3ct"]
 size = Vector2(76, 49)
@@ -23,8 +23,8 @@ script = ExtResource("1_6gt7k")
 startingSkin = "Good"
 
 [node name="SpineSprite" type="SpineSprite" parent="."]
-material = SubResource("CanvasItemMaterial_0o5is")
 skeleton_data_res = SubResource("SpineSkeletonDataResource_sjed7")
+normal_material = SubResource("CanvasItemMaterial_k0bmc")
 preview_skin = "Good"
 preview_animation = "-- Empty --"
 preview_frame = false

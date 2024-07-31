@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://x0p5owwi17w4"]
+[gd_scene load_steps=24 format=3 uid="uid://x0p5owwi17w4"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_p7ugg"]
 [ext_resource type="TileSet" uid="uid://cict6vlk0ch4j" path="res://Levels/Level1/room1-10/1-10.tres" id="2_pmonc"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://6ys4laf1xba1" path="res://Environment/BackgroundElements/SlimePile/Slime.tscn" id="7_mshol"]
 [ext_resource type="PackedScene" uid="uid://iyw03gw5rmxd" path="res://Player/PlayerCamera/player_camera.tscn" id="7_y0m20"]
 [ext_resource type="PackedScene" uid="uid://os84206wvw2k" path="res://Enemies/GoodSlime/good_slime.tscn" id="8_1cyvj"]
+[ext_resource type="PackedScene" uid="uid://d1e415qf777wo" path="res://Environment/BackgroundElements/AlcoveNormal/AlcoveNormal.tscn" id="8_pecj0"]
 [ext_resource type="PackedScene" uid="uid://cw5laekr757ju" path="res://Enemies/EvilSlime/evil_slime.tscn" id="9_acve5"]
 [ext_resource type="PackedScene" uid="uid://b1ykdr71gd1vk" path="res://Environment/Darkness/darkness.tscn" id="18_ctltp"]
 [ext_resource type="Texture2D" uid="uid://c7oaprx7mf3lb" path="res://Assets/Textures/moonglow.png" id="19_gie0x"]
@@ -96,6 +97,9 @@ scale = Vector2(1.57207, 1.25207)
 z_index = 2
 position = Vector2(1288, -888)
 scale = Vector2(1.11567, 1.11567)
+
+[node name="Lastitems" parent="decor" instance=ExtResource("8_pecj0")]
+position = Vector2(640, -1152)
 
 [node name="spikes" type="Node2D" parent="."]
 
@@ -216,7 +220,7 @@ position = Vector2(-1024, -1024)
 position = Vector2(-2048, -1536)
 
 [node name="Coin" parent="stuff" instance=ExtResource("6_2q2yd")]
-position = Vector2(896, -1216)
+position = Vector2(640, -1280)
 COIN_ID = 10
 
 [node name="Platform" parent="stuff" instance=ExtResource("7_cybym")]
@@ -338,6 +342,7 @@ rotation = 3.14159
 scale = Vector2(11.6741, 0.0926209)
 
 [node name="CameraControlArea" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("19_x4nnh")]
+visible = false
 position = Vector2(-2048, 0)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.7, 0.7)
@@ -350,6 +355,7 @@ shape = SubResource("RectangleShape2D_bkfam")
 position = Vector2(-256, 0)
 
 [node name="CameraControlArea2" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("19_x4nnh")]
+visible = false
 position = Vector2(-2048, -896)
 marker = NodePath("Marker2D")
 zoom = Vector2(0.7, 0.7)
