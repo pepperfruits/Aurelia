@@ -28,5 +28,5 @@ func open_eyes() -> void:
 	
 	var s : AudioStreamPlayer = sfx.instantiate()
 	s.stream = sound
-	s.volume_db = -20
+	s.volume_db = -17
 	get_tree().current_scene.add_child(s)

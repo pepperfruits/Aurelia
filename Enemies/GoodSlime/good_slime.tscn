@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://os84206wvw2k"]
+[gd_scene load_steps=9 format=3 uid="uid://os84206wvw2k"]
 
 [ext_resource type="SpineAtlasResource" uid="uid://c2ke21etw17bf" path="res://Enemies/EvilSlime/Slime.atlas" id="1_1mmlx"]
 [ext_resource type="Script" path="res://Enemies/EvilSlime/slime.gd" id="1_6gt7k"]
 [ext_resource type="SpineSkeletonFileResource" uid="uid://b4nsbjpml6ogw" path="res://Enemies/EvilSlime/Slime.skel" id="2_hilef"]
 [ext_resource type="PackedScene" uid="uid://b5jcku0nmvb3l" path="res://Environment/Spring/spring.tscn" id="5_6lii5"]
+[ext_resource type="AudioStream" uid="uid://bhqrlv1iw75ib" path="res://Audio/SFX/AURELIA-SFX_SlimeBounce.wav" id="5_cfdmq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0o5is"]
 light_mode = 1
@@ -35,6 +36,7 @@ shape = SubResource("RectangleShape2D_ok3ct")
 
 [node name="Spring" parent="." instance=ExtResource("5_6lii5")]
 position = Vector2(0, -53)
+sound = ExtResource("5_cfdmq")
 
 [node name="SpringCollisionShape" parent="Spring" index="0"]
 position = Vector2(3.8147e-06, -27.75)
