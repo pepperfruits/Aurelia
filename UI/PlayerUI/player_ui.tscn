@@ -88,7 +88,7 @@ bbcode_enabled = true
 text = "[color=#e9ffff]0	[/color]"
 
 [node name="Clock" type="Sprite2D" parent="ColorRect"]
-position = Vector2(73.9277, 330.355)
+position = Vector2(73.9277, 322.198)
 scale = Vector2(1.19589, 1.12158)
 texture = ExtResource("4_plrxt")
 
