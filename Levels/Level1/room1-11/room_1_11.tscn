@@ -594,6 +594,7 @@ HORZIONTAL_INPUT = 0.0
 [node name="LevelChangeArea" parent="StandardZones" index="2" node_paths=PackedStringArray("coinArea")]
 position = Vector2(64, -24320)
 scale = Vector2(12.1109, 8.02299)
+scene_path = "res://Levels/Menus/DemoEnd/demo_end.tscn"
 coinArea = NodePath("../CoinCollectionArea")
 
 [node name="CoinCollectionArea" parent="StandardZones" index="3"]
