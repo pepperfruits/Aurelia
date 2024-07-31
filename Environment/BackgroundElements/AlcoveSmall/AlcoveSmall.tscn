@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d4i6j0qmn5xif" path="res://Environment/BackgroundElements/lastitems.png" id="1_dx1h2"]
 
 [node name="Lastitems" type="Sprite2D"]
+position = Vector2(0, 8)
 texture = ExtResource("1_dx1h2")
 offset = Vector2(0, -128)
 region_enabled = true
