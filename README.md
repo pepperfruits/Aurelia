@@ -41,3 +41,7 @@ VA - Kasperand
 This prototype was created for the Pirate Software Game Jam 15. 
 
 [Game Design Document](https://docs.google.com/document/d/1DaWmnupasPrbhgn_bRBb9rIX9AX3-e7_hrJhdJ1S_z4/edit?usp=sharing)
+
+
+
+This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
