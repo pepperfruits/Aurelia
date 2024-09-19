@@ -496,33 +496,6 @@ position = Vector2(0, 96)
 position = Vector2(64, -704)
 COIN_ID = 1009
 
-[node name="Crystal" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(64, -1344)
-
-[node name="Crystal2" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(1408, 128)
-
-[node name="Crystal3" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(2432, -256)
-
-[node name="Crystal4" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(3456, -256)
-
-[node name="Crystal5" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(2944, 128)
-
-[node name="Crystal6" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(3968, -256)
-
-[node name="Crystal8" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(4736, 128)
-
-[node name="Crystal9" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(6784, 128)
-
-[node name="Crystal10" parent="stuff" instance=ExtResource("6_dprbj")]
-position = Vector2(8576, 128)
-
 [node name="Hook" parent="stuff" instance=ExtResource("7_vup22")]
 position = Vector2(1920, 128)
 
@@ -549,6 +522,33 @@ position = Vector2(6272, -224)
 
 [node name="Hook8" parent="stuff" instance=ExtResource("7_vup22")]
 position = Vector2(6272, 128)
+
+[node name="Crystal" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(64, -1344)
+
+[node name="Crystal2" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(1408, 128)
+
+[node name="Crystal3" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(2432, -256)
+
+[node name="Crystal4" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(3456, -256)
+
+[node name="Crystal5" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(2944, 128)
+
+[node name="Crystal6" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(3968, -256)
+
+[node name="Crystal8" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(4736, 128)
+
+[node name="Crystal9" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(6784, 128)
+
+[node name="Crystal10" parent="stuff" instance=ExtResource("6_dprbj")]
+position = Vector2(8576, 128)
 
 [node name="Platform" parent="stuff" instance=ExtResource("9_yk44q")]
 position = Vector2(8576, -1248)
