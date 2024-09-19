@@ -402,10 +402,13 @@ func jump(multiplier : float) -> void:
 	inp._on_jump_buffer_timer_timeout()
 
 func can_dash() -> bool:
-	return current_dash_charges > 0 and is_dash_ready and current_state != STATE.GRAPPLING and current_state != STATE.HANGING and not is_crystal
+	return current_dash_charges > 0 and is_dash_ready and not is_crystal and current_state != STATE.GRAPPLING
 
 func dash(input_direction : float) -> void:
 	Audio.dash()
+	
+	if is_hanging:
+		hook_released()
 	
 	if ScoreManager.particles_enabled:
 		DashParticles.emitting = true
