@@ -201,7 +201,7 @@ func enter_crystal(c : Crystal) -> void:
 func leave_crystal():
 	refresh_dash_charges()
 	current_stamina = MAX_STAMINA_TIME
-	var direction = inp.get_directional_input().normalized()
+	var direction = inp.get_directional_input().normalized() * Vector2(1,-1)
 	if not direction:
 		direction = (current_crystal.PointerSprite.global_position - p.global_position).normalized()
 	anim.hide_player(false)
