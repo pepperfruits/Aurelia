@@ -298,6 +298,7 @@ func is_grapple_reached() -> bool:
 	return current_hook.global_position.distance_to(p.global_position) < GRAPPLE_DEADZONE
 
 func pull_towards_hook(delta : float) -> void:
+	refresh_dash_charges()
 	var difference = current_hook.global_position - p.global_position
 	p.global_position += difference / GRAPPLE_TIME * delta + difference.normalized() * 30.0 * delta
 
