@@ -243,7 +243,6 @@ normal_material = SubResource("ShaderMaterial_h05tx")
 show_behind_parent = true
 position = Vector2(461.576, -179.266)
 rotation = 1.54305
-scale = Vector2(1, 1)
 bone_name = "Lantern2"
 
 [node name="LanternLight" type="PointLight2D" parent="AnimationHandler/Lantern"]
