@@ -3,6 +3,7 @@ class_name Dialogue
 
 @export var LAST_LINE : int = 7
 @export var p : PlayerCharacter
+@export var checkpoint : Node2D
 
 var was_just_pressed : bool = false
 
@@ -11,6 +12,7 @@ var current_line : int = 1
 func _ready():
 	line(current_line)
 	if ScoreManager.dialogue_watched:
+		p.global_position = checkpoint.global_position
 		queue_free()
 
 func _process(_delta):
