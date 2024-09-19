@@ -26,14 +26,15 @@ func _process(_delta):
 			DownBufferTimer.start()
 
 func get_directional_input() -> Vector2:
-	if is_input_enabled:
-		return Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	else:
-		return Vector2(get_horizontal_input(), get_vertical_input())
+	return Vector2(get_horizontal_input(), get_vertical_input())
 
 func get_horizontal_input() -> float:
 	if is_input_enabled:
-		return Input.get_axis("move_left", "move_right")
+		var input = Input.get_axis("move_left", "move_right")
+		if input > 0:
+			return ceil(input)
+		else:
+			return floor(input)
 	else:
 		return forced_horizontal_input
 
@@ -45,7 +46,11 @@ func is_attack_inputted() -> float:
 
 func get_vertical_input() -> float:
 	if is_input_enabled:
-		return Input.get_axis("move_down", "move_up")
+		var input = Input.get_axis("move_down", "move_up")
+		if input > 0:
+			return ceil(input)
+		else:
+			return floor(input)
 	else:
 		return forced_vertical_input
 
