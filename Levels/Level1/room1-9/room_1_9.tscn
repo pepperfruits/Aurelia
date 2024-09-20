@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://baij8katslide"]
+[gd_scene load_steps=37 format=3 uid="uid://baij8katslide"]
 
 [ext_resource type="PackedScene" uid="uid://c1ipcvmr51vas" path="res://Environment/Shadows/Level1/Level1Shadows.tscn" id="1_xqjis"]
 [ext_resource type="TileSet" uid="uid://dcy42o2jadesd" path="res://Levels/Level1/room1-9/1-9.tres" id="2_urg1h"]
@@ -51,6 +51,9 @@ resource_local_to_scene = true
 shader = ExtResource("6_ph5xj")
 shader_parameter/speed = 0.1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kge77"]
+size = Vector2(220, 201.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uebfb"]
 size = Vector2(368, 384)
 
@@ -92,8 +95,9 @@ COIN_ID = 9
 [node name="PointLight2D" parent="Coin" index="1"]
 visible = false
 
-[node name="SpineSlotNode" parent="Coin/CoinSprite" index="2"]
+[node name="SpineSlotNode" parent="Coin/CoinSprite" index="1"]
 position = Vector2(-2.64062, 8.32178)
+scale = Vector2(1, 1)
 
 [node name="TileMapFake" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -303,6 +307,10 @@ Point1 = NodePath("../gs2_3")
 Point2 = NodePath("../gs2_4")
 BOUNCE_VELOCITY = 2700.0
 
+[node name="SpringCollisionShape" parent="stuff/GoodSlime3/Spring" index="0"]
+position = Vector2(0, 4.75)
+shape = SubResource("RectangleShape2D_kge77")
+
 [node name="gs2_3" type="Marker2D" parent="stuff"]
 position = Vector2(-589, -1248)
 
@@ -455,4 +463,6 @@ position = Vector2(-1056, -320)
 [editable path="decor/WindowTall3"]
 [editable path="decor/WindowSmall2"]
 [editable path="decor/WindowThin5"]
+[editable path="stuff/GoodSlime3"]
+[editable path="stuff/GoodSlime3/Spring"]
 [editable path="StandardZones"]
