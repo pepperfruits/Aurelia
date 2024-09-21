@@ -19,19 +19,19 @@ Escape                  : Pause
 
 ### Dice Peavler (@thedicegoddess) - Project Manager, Art Director
 
-[thedicegoddess.com]
+[thedicegoddess.com](thedicegoddess.com)
 
-[artstation.com/thedicegoddess]
+[artstation.com/thedicegoddess](artstation.com/thedicegoddess)
 
 ### pepperfruits (@pepperfruits) - Programmer, Gameplay Design
 
-[github.com/pepperfruits]
+[github.com/pepperfruits](github.com/pepperfruits)
 
 ### Fredrik Häthén (@FredrikHathen) - Music, SFX
 
-[x.com/FredrikHathen]
+[x.com/FredrikHathen](x.com/FredrikHathen)
 
-[twitch.tv/fredrikhathen]
+[twitch.tv/fredrikhathen](twitch.tv/fredrikhathen)
 
 
 ### Additional Credits:
