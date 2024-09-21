@@ -1,4 +1,9 @@
-Controls:
+# Aurelia
+Follow Aurelia, a young aspiring alchemist, and Whispopher, a glowwyrm with a nose for sniffing out the best potions and materials (or so he says), as they traverse towers and dungeons and more on their quest for acquiring the lost recipes needed to defeat an unknown foe.
+
+This project was made in 2 weeks for Pirate Software [Pirate Software - Game Jam 15](https://itch.io/jam/pirate15). Releases can be found on [the game's itch.io page](https://pepperfruits.itch.io/aurelia).
+
+## Controls
 
 WASD  /  Arrow Keys     : Movement
 
@@ -10,38 +15,27 @@ Shift  /  C  /  L       : Dash
 
 Escape                  : Pause
 
+## Contributors
 
-Follow Aurelia, a young aspiring alchemist, and Whispopher, a glowwyrm with a nose for sniffing out the best potions and materials (or so he says), as they traverse towers and dungeons and more on their quest for acquiring the lost recipes needed to defeat an unknown foe.
-
-
-Dice Peavler (@thedicegoddess) - Project Manager, Art Director
+### Dice Peavler (@thedicegoddess) - Project Manager, Art Director
 
 thedicegoddess.com
 
 artstation.com/thedicegoddess
 
-
-pepperfruits (@pepperfruits) - Programmer, Gameplay Design
+### pepperfruits (@pepperfruits) - Programmer, Gameplay Design
 
 github.com/pepperfruits
 
-
-Fredrik Häthén (@FredrikHathen) - Music, SFX
+### Fredrik Häthén (@FredrikHathen) - Music, SFX
 
 x.com/FredrikHathen
 
 twitch.tv/fredrikhathen
 
 
-Additional Credits:
+### Additional Credits:
 
 VA - Kasperand
 
-
-This prototype was created for the Pirate Software Game Jam 15. 
-
-[Game Design Document](https://docs.google.com/document/d/1DaWmnupasPrbhgn_bRBb9rIX9AX3-e7_hrJhdJ1S_z4/edit?usp=sharing)
-
-
-
-This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+### The music files included in this project are under the copyright of Fredrik Häthén. These music files may not be used, copied, modified, or distributed without explicit written permission from the copyright holder. Unauthorized use of the music is strictly prohibited and may result in legal action. The rest of this work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
