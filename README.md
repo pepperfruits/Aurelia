@@ -1,7 +1,7 @@
 # Aurelia
 Follow Aurelia, a young aspiring alchemist, and Whispopher, a glowwyrm with a nose for sniffing out the best potions and materials (or so he says), as they traverse towers and dungeons and more on their quest for acquiring the lost recipes needed to defeat an unknown foe.
 
-This project was made in 2 weeks for Pirate Software [Pirate Software - Game Jam 15](https://itch.io/jam/pirate15). Releases can be found on [the game's itch.io page](https://pepperfruits.itch.io/aurelia).
+This project was made in 2 weeks for [Pirate Software - Game Jam 15](https://itch.io/jam/pirate15). Releases can be found on [the game's itch.io page](https://pepperfruits.itch.io/aurelia).
 
 ## Controls
 
